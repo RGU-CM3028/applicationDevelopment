@@ -1,3 +1,4 @@
 <?php
-  echo "Hello amazing World ! :D"
+  include("dbconnect.php");
+  echo "Hello amazing World ! :D";
  ?>

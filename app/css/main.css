@@ -1,7 +1,7 @@
 /*
-    main.css is the main style sheet 
+    main.css is the main style sheet
 
     created by Kelsie Regan
 */
-
+@import "clubs.css"
 *{margin: 0%; padding: 0%;}

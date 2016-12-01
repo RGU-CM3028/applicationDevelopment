@@ -33,7 +33,7 @@
 			<a class="twitter-timeline" href="https://twitter.com/goodhealth" data-width="200"  data-height="200"> Tweets by @goodhealth</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     			<?php
         		include("dbconnect.php");
-        		echo "Portlethean Health News / n Eat your 5 a day to stay healthy.";	
+        		echo nl2br ("Portlethean Health News / n Eat your 5 a day to stay healthy.");	
      			?>
 		</div>
 

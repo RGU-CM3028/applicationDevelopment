@@ -9,31 +9,33 @@
 	<body>
 		<!--Logo-->
 		<div id="Logo">
-        <img src="images/logo-placeholder.png" alt="logo-placeholder.png" height="150" width="250">
+        		<img src="images/logo-placeholder.png" alt="logo-placeholder.png" height="150" width="250">
 		</div>
 
 		<!--Page Name-->
 		<div id="Pagename">
-		<p>Portlethen website - Health and wellbeing wip</p>
+			<p>Portlethen website - Health and wellbeing wip</p>
 		</div>
 
 		<!--Homepage Button -->
 		<div id="Infobutton">
 			<p>Pages</p>
-        <form>
-		<input class="button" onclick="window.location.href='index.php'" type="button" value="Homepage" />
-		<input class="button" onclick="window.location.href='map.php'" type="button" value="Map" />
-		<input class="button" onclick="window.location.href='Health.php'" type="button" value="Health" />
-		<input class="button" onclick="window.location.href='Clubs.php'" type="button" value="Clubs" />
-        </form>
+        		<form>
+				<input class="button" onclick="window.location.href='index.php'" type="button" value="Homepage" />
+				<input class="button" onclick="window.location.href='map.php'" type="button" value="Map" />
+				<input class="button" onclick="window.location.href='Health.php'" type="button" value="Health" />
+				<input class="button" onclick="window.location.href='Clubs.php'" type="button" value="Clubs" />
+        		</form>
 		</div>
 
 		<!--Body Text-->
 		<div id="BodyText">
-    <?php
-        include("dbconnect.php");
-        echo "Health and wellbeing stuff go here";
-     ?>
+    			<?php
+        		include("dbconnect.php");			
+        		echo "Health and wellbeing stuff go here";
+     			?>
+
+			<a class="twitter-timeline" href="https://twitter.com/TwitterDev" data-width="200"  data-height="200"  float:right> Tweets by @goodhealth</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 		</div>
 
 		<div id="footer">

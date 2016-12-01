@@ -31,9 +31,20 @@
 		<!--Body Text-->
 		<div id="BodyText">
 			<a class="twitter-timeline" href="https://twitter.com/goodhealth" data-width="200"  data-height="200"> Tweets by @goodhealth</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-    			<?php
-        		include("dbconnect.php");
-        		echo nl2br ("Portlethean Health News / n Eat your 5 a day to stay healthy.");	
+    			
+			<?php
+				include("dbconnect.php");
+				if (!$db) {
+    					die('Connect Error: ' . mysqli_connect_errno());
+				}
+				$sql_query = "SELECT * FROM news ORDER BY timestamp DESC";
+				$result = $db->query($sql_query);
+				echo "<p><strong>All news: </strong>";
+				while($row = $result->fetch_array()){    
+					echo "News ID: " . $row['id'] . ", " . $row['headline'] . "</p>" . "Writer: " . $row['name'] . ", Time: " . $row['timestamp'] . "</p>" . $row['story'] . "</p>";
+				}
+				$result->close();
+   				$db->close();	
      			?>
 		</div>
 

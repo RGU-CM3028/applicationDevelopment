@@ -9,12 +9,12 @@
 	<body>
 		<!--Logo-->
 		<div id="Logo">
-        <img src="images/Chris.jpg" alt="chris.jpg" height="150" width="250">
+        <img src="images/logo-placeholder.png" alt="logo-placeholder.png" height="150" width="250">
 		</div>
 
 		<!--Page Name-->
 		<div id="Pagename">
-		<p>Portlethen website Work HUB</p>
+		<p>Portlethen website - Clubs wip</p>
 		</div>
 
 		<!--Homepage Button -->

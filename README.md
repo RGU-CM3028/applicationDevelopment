@@ -15,6 +15,4 @@ Stuff relative to the web application development
 -10th December(All notes finalised and ready to upload)<br>
 -12th December(Main deadline)
 
-# test page - http://blackrabbitunicorn.azurewebsites.net/app/Earlyindex.php
-
 # azure server - http://blackrabbitunicorn.azurewebsites.net/app/index.php

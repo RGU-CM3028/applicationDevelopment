@@ -30,10 +30,12 @@
 
 		<!--Body Text-->
 		<div id="BodyText">
-    <?php
-        include("dbconnect.php");
-        echo "map stuff go here";
-     ?>
+    			<?php
+        			include("dbconnect.php");
+        			echo "map stuff go here";
+     			?>
+			<br>
+			<img src="images/Map Backup.png" alt="Map Backup.png" height="150" width="150">
 		</div>
 
 		<div id="footer">

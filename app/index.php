@@ -29,10 +29,16 @@
 
 		<!--Body Text-->
 		<div id="BodyText">
-    <?php
-        include("dbconnect.php");
-        echo "Homepage stuff go here";
-     ?>
+    			<?php
+        			include("dbconnect.php");
+        			echo "Welcome to GoPortlethean. We are an collection of local and progressive sports clubs who are working together to develop safe and fun sport & fitness activities in the Portlethen area. We work with sportscotland and other organisations to develop our clubs. Our website is a single access point to find out more about the fantastic sporting opportunities in our area.";
+     			?>
+			<br>
+			<img src="images/Indeximage1.png" alt="Indeximage1.png" height="150" width="150">
+			<img src="images/Indeximage2.png" alt="Indeximage2.png" height="150" width="150">
+			<img src="images/Indeximage3.png" alt="Indeximage3.png" height="150" width="150">
+			
+			
 		</div>
 
 		<div id="footer">

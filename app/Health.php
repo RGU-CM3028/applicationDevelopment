@@ -22,14 +22,8 @@
 			<p>Pages</p>
         <form>
 		<input class="button" onclick="window.location.href='index.php'" type="button" value="Homepage" />
-        </form>
-	<form>
 		<input class="button" onclick="window.location.href='map.php'" type="button" value="Map" />
-        </form>
-        <form>
 		<input class="button" onclick="window.location.href='Health.php'" type="button" value="Health" />
-        </form>
-        <form>
 		<input class="button" onclick="window.location.href='Clubs.php'" type="button" value="Clubs" />
         </form>
 		</div>

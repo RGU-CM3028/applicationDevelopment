@@ -28,13 +28,6 @@
         </form>
 		</div>
 
-		<!--External link test -->
-		<div id="Locationbutton">
-        <form>
-		<input class="button" onclick="window.location.href='http://animasave.altervista.org/PHP%20Folder/PHP%20Index%20Page.php'" type="button" value="External link test" /> 
-		</form>
-		</div>
-
 		<!--Body Text-->
 		<div id="BodyText">
     <?php

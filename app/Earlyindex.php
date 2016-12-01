@@ -50,7 +50,7 @@
   href="https://twitter.com/TwitterDev"
   data-width="200"
   data-height="200"
-  float:left>
+  float:right>
 Tweets by @TwitterDev
 </a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 		</div>

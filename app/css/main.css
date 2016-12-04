@@ -1,11 +1,13 @@
+@import url("clubs.css");
+@import url("ideal-image-slider.css");
+
+*{margin: 0%; padding: 0%;}
+
 /*
     main.css is the main style sheet
 
     created by Kelsie Regan
 */
-@import "clubs.css"
-@import "ideal-image-slider.css"
-*{margin: 0%; padding: 0%;}
 
 .clearfix:after {
     content: ".";

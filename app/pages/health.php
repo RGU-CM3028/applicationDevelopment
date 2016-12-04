@@ -1,6 +1,6 @@
 <?php
     // imports the header/navigation
-    include("../inc/header.inc");
+    include("inc/header.inc");
 ?>
 
     <section>
@@ -10,5 +10,5 @@
 
 <?php
     // imports the footer
-    include("../inc/footer.inc");
+    include("inc/footer.inc");
 ?>

@@ -6,3 +6,150 @@
 @import "clubs.css"
 @import "ideal-image-slider.css"
 *{margin: 0%; padding: 0%;}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;s
+    visibility: hidden;
+}
+
+#container{
+    height: 100%;
+    width: 100%;
+    background-color: #a5a5a5;
+}
+
+header{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    background-color: #46d651;
+    height: 10%;
+    width: 100%;
+    border-bottom: 5px solid #0000ff;
+    
+}
+
+.logo{
+    position: relative;
+    float: left;
+    height: 10%;
+    width: 10%;
+}
+
+.title{
+    position: relative;
+    float: left;
+    left: 1%;
+    height: 10%;
+    width: 30%;
+}
+
+#login{
+    position: relative;
+    float: right;
+    right: 10%;
+    height: auto;
+    width: auto;
+    text-align: center;
+    padding: 1%;
+}
+
+.login{
+    
+}
+
+.login label, input{position: relative; text-align: center; padding: 1%;}
+.login input{background-color: #ffffff; border: 1px solid #05740e; padding: 1%;}
+
+nav{
+    position: relative;
+    left: 4%;
+    width: 60%;
+    padding: 1%;
+}
+
+#mobileMenu{display: none;}
+
+
+section{position: relative; top:auto; left: 0%; height: auto; padding: 3%; background-color: #dddddd;}
+
+section div{
+    position: relative;
+    height: auto;
+    width: 100%;
+}
+footer{
+    position: relative; 
+    top:auto; 
+    left: 0%;  
+    height: auto; 
+    padding: 4%; 
+    background-color: #3c3c3c;
+}
+
+.footer-left{
+    box-sizing: border-box;
+    width: 30%;
+    float: left;
+    padding: 1%;
+    line-height: 2rem;
+}
+
+.footer-middle{
+    box-sizing: border-box;
+    width: 30%;
+    float: left;
+    text-align: center;
+    padding: 1%;
+    display: inline-block;
+}
+
+.footer-right{
+    box-sizing: border-box;
+    width: 30%;
+    float: right;
+    padding: 1%;
+    line-height: 2rem;
+}
+
+footer ul{list-style: none}
+footer li{color: #ffffff; text-align: left; }
+.footer-middle li{display: inline-block; list-style: none;}
+.img1{position: relative; width: 25%; height: 20%;}
+.img2{position: relative; width: 30%; height: 30%;}
+.banner{position: relative; top:0%; left: 0%; width: 60%; height:20%;}
+.sc{font-weight: bold; color: #ffffff; font-size: 2rem; }
+.contact{font-weight: bold; color: #ffffff; font-size: 2rem; text-align: center}
+.fa{color:#ffffff;}
+.fa:hover{color:#4c7eed;}
+
+@media only screen and (max-width:1900px){
+    nav{
+        display: block;
+        position: relative;
+        left: 4%;
+        max-width: 80%;
+        max-height: 10vh;
+    }
+
+    .navigation{
+        display: inline-block;
+    }
+
+    .navigation a {
+        color: #0014ff;
+        text-align: center;
+        padding: 2vh; 
+        text-decoration: none;
+    }
+
+
+    .navigation a:hover {
+        color: #ffffff;
+        background-color: #7e7e7e;
+    }
+
+}

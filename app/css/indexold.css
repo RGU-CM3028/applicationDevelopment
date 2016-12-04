@@ -1,0 +1,77 @@
+body {
+    background-color: #FF0000;
+}
+
+input[type=button] { 
+	height: 4em;
+    width:250px;
+    text-align:center;
+}
+
+
+#Logo {
+	line-height:30px;
+	height:150px;
+	width:150px;
+	float:left;
+	padding:5px; 	
+}
+
+#Pagename {
+	height:150px;
+ 	width:150px;
+	float:right;
+	padding:10px;
+	text-align:center;
+    clear:top;
+    font-size: 200%;
+
+}
+
+#Infobutton {
+	float:left;
+	padding:20px;
+	text-align:center;
+    clear:both;
+    }
+
+#Gallerybutton {
+	float:left;
+	padding:20px;
+	text-align:center;
+    }
+#Helpbutton {
+	float:right;
+	padding:20px;
+	text-align:center;
+    }
+#Locationbutton {
+	float:right;
+	padding:20px;
+	text-align:center;
+    }
+
+#BodyText {
+	text-align:center;
+	border-style: dotted;
+	border-width: thick;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 150px;
+	margin-left: 80px;
+	clear:both;
+    font-size: 150%;
+}
+
+#BannerImage {
+	text-align:center;
+	clear:both;
+}
+
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}

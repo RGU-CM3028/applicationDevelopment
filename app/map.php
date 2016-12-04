@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-<html>
-  <head>
-    <title>BRU Web Project</title>
-    <link rel='stylesheet' type='text/css' href='./css/main.css'>
-    <link rel='stylesheet' type='text/css' href='./css/clubs.css'>
-  </head>
-  <body>
-    <header>
-    </header>
-  <h1>Hello amazing World ! :D</h1>
-  <p>This is our group project.</p>
-
-  </body>
-=======
 <!DOCTYPE html>
 <html lang="en"> 
 	<head>
@@ -29,8 +14,9 @@
 
 		<!--Page Name-->
 		<div id="Pagename">
-		<p>Portlethen website - Homepage wip</p>
+		<p>Portlethen website - Maps wip</p>
 		</div>
+
 		<!--Homepage Button -->
 		<div id="Infobutton">
 			<p>Pages</p>
@@ -46,14 +32,10 @@
 		<div id="BodyText">
     			<?php
         			include("dbconnect.php");
-        			echo "Welcome to GoPortlethean. We are an collection of local and progressive sports clubs who are working together to develop safe and fun sport & fitness activities in the Portlethen area. We work with sportscotland and other organisations to develop our clubs. Our website is a single access point to find out more about the fantastic sporting opportunities in our area.";
+        			echo "map stuff go here";
      			?>
 			<br>
-			<img src="images/Indeximage1.png" alt="Indeximage1.png" height="150" width="150">
-			<img src="images/Indeximage2.png" alt="Indeximage2.png" height="150" width="150">
-			<img src="images/Indeximage3.png" alt="Indeximage3.png" height="150" width="150">
-			
-			
+			<img src="images/Map Backup.png" alt="Map Backup.png" height="450" width="650">
 		</div>
 
 		<div id="footer">
@@ -61,5 +43,4 @@
   		Website by Blackrabbit - Unicorns -.</address>
 		</div>
 	</body>
->>>>>>> f36836cda29a8f67e11c87e5db85bfc3b10a56f9
 </html>

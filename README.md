@@ -2,16 +2,17 @@
 Stuff relative to the web application development
 
 # Directory Structure
-applicationDevelopment (Directory root)
--Important pages you dont want anyone to seee
-   -app (website root)
-       -images
-       -js
-       -css
-       -pages
+-applicationDevelopment (wwwroot) (Important pages you dont want anyone to see, database config and php processing pages)<br>
+-app (website root)<br>
+-images<br>
+-js<br>
+-css<br>
+-pages
         
-
-
-
+# Timetable
+-5th December(Hopefully website will be finished)<br>
+-8th December(Hopefully testing will be finished)<br>
+-10th December(All notes finalised and ready to upload)<br>
+-12th December(Main deadline)
 
 # azure server - http://blackrabbitunicorn.azurewebsites.net/app/index.php

@@ -6,7 +6,6 @@
   </head>
   <body>
     <header>
-      <?php include('clubs.php'); ?>
     </header>
   <h1>Hello amazing World ! :D</h1>
   <p>This is our group project.</p>

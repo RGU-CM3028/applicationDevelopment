@@ -30,9 +30,9 @@
 <!-- Desktop navigation w:801 onwards -->
 <nav>
 <ul>
-<li class="navigation"><a href="pages/">Clubs</a></li>
-<li class="navigation"><a href="pages/">Health and Wellbeing</a></li>
-<li class="navigation"><a href="pages/">Discover North Kincardineshire</a></li>
+<li class="navigation"><a href="../pages/clubs.php">Clubs</a></li>
+<li class="navigation"><a href="../pages/health.php">Health and Wellbeing</a></li>
+<li class="navigation"><a href="../pages/discover-north-kincardineshire.php">Discover North Kincardineshire</a></li>
 </ul>
 </nav>
 <!-- Mobile navigation w:80 downwards -->
@@ -40,9 +40,9 @@
 <li class="dropdown">
 <a href="javascript:void(0)" class="dropbtn" onclick="dropdown()" title="Navigation"><span class="fa fa-align-justify fa-2x"></span></a>
 <div class="dropdown-content" id="dropdownMenu">
-<a href="pages/">Clubs</a>
-<a href="pages/">Health and Wellbeing</a>
-<a href="pages/">Discover North Kincardineshire</a>
+<a href="../pages/clubs.php">Clubs</a>
+<a href="../pages/health.php">Health and Wellbeing</a>
+<a href="../pages/discover-north-kincardineshire.php">Discover North Kincardineshire</a>
 </div>
 </li>        
 </ul>

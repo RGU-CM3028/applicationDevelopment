@@ -18,4 +18,3 @@ if($db->connect_errno){
     echo("connection failed");
     die('Connectfailed['.$db->connect_error.']');
     }
-?>

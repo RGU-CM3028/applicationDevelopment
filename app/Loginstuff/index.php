@@ -19,7 +19,7 @@ if (isset($_SESSION['username']))
     
     function displayAccessLevelInformation($accessLevel)
     {
-        if ($accessLevel == "reader")
+        if ($accessLevel == 'reader')
         {
             
         ?>
@@ -29,7 +29,7 @@ if (isset($_SESSION['username']))
             
             echo "<p style = \"background-color: lightgreen\">You are currently logged in as a standard user</p>";
         }
-        elseif ($accessLevel == "admin") 
+        elseif ($accessLevel == 'admin') 
         {
     
     ?>        

@@ -19,28 +19,17 @@ if (isset($_SESSION['username']))
     
     function displayAccessLevelInformation($accessLevel)
     {
-        if ($accessLevel == 'reader')
+        if ($accessLevel == "reader")
         {
-            
-        ?>
-        <!--This is a link to logout the site-->
-        <a href="logout.php">Logout</a>
-        <?
+           
             
             echo "<p style = \"background-color: lightgreen\">You are currently logged in as a standard user</p>";
         }
-        elseif ($accessLevel == 'admin') 
+        elseif ($accessLevel == "admin") 
         {
-    
-    ?>        
-    <!--This is a link to logout the site-->
-    <a href="logout.php">Logout</a>
-    <!--This leads to the admin page-->
-    <a href="admincontrolform.php">Admin Control Pannel</a>
-    <?
             
-            echo "<p<p style = \"background-color: red\">You are currently logged in as a root user</p>";
-            echo "<p<p style = \"background-color: red\">You now have access to additional administrative features</p>";
+            echo "<p style = \"background-color: red\">You are currently logged in as a root user</p>";
+            echo "<p style = \"background-color: red\">You now have access to additional administrative features</p>";
         }
     }
     

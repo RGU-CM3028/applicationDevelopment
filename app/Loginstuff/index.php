@@ -25,7 +25,7 @@ if (isset($_SESSION['username']))
     <!--This is a link to logout the site-->
     <a href="logout.php">Logout</a>
     <!--This leads to the admin page-->
-    <a href="admincontrol.php">Admin Control Pannel</a>
+    <a href="admincontrolform.php">Admin Control Pannel</a>
     <?
 }
     //If the user isnt logged in then they see the following form. To log in.

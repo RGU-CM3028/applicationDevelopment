@@ -36,9 +36,9 @@
 			<p>Pages</p>
         <form>
 		<input class="button" onclick="window.location.href='index.php'" type="button" value="Homepage" />
-		<input class="button" onclick="window.location.href='map.php'" type="button" value="Map" />
-		<input class="button" onclick="window.location.href='Health.php'" type="button" value="Health" />
-		<input class="button" onclick="window.location.href='Clubs.php'" type="button" value="Clubs" />
+		<input class="button" onclick="window.location.href='mapp'" type="button" value="Map" />
+		<input class="button" onclick="window.location.href='health'" type="button" value="Health" />
+		<input class="button" onclick="window.location.href='clubs'" type="button" value="Clubs" />
         </form>
 		</div>
 

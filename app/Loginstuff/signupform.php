@@ -28,6 +28,6 @@
         <p><input type="password" name="passwordcheck" value="" placeholder="Confirm Password please"></p>
         <p class="submit"><input type="submit" name="commit" value="Login"></p>
     </form>
-    <a href="logout.php">Return to login screen</a>
+    <a href="index.php">Return to login screen</a>
 </body>
 </html>

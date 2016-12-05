@@ -63,10 +63,6 @@
 				</div>
 		</div>
 
-		<div id="footer">
-		<address>Made 28 November 2016<br>
-  		Website by Blackrabbit - Unicorns -.</address>
-		</div>
     </section>
 
 <?php

@@ -1,4 +1,5 @@
 <?php
+//This connects the database here.
 include ("dbconnect.php");
 
 //This is the fields from the signup form.
@@ -51,7 +52,7 @@ if(mysqli_num_rows($dup) >0){
     die();
 } 
 
-//This checks if the password is 100% what the user typed
+//This compares the passwords. If the match then the user is created. If not then the user is told to check again.
 if($mypassword==$passwordcheck) {
     $sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'reader')";
     if (mysqli_query($db, $sql)) {        

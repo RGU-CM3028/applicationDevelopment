@@ -1,32 +1,33 @@
 <?php
-include ("dbconnect.php");
-//information from the index form
+include ("db_connect.php");
 
+//information from the index form.
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 
-//checking to see if any usernames and password pairs match any in the database
+//Security checks version1
 $myusername = stripslashes($myusername);
 $myusername = mysqli_real_escape_string($db,$myusername);
 $mypassword = stripslashes($mypassword);
 $mypassword = mysqli_real_escape_string($db,$mypassword);
 
+//checking to see if any usernames and password pairs match any in the database.
 $sql = "SELECT * FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "'";
-//The following code checks to see if any match
 $result = $db->query($sql);
 $checker = 0;
 while($row = $result->fetch_array()) {
     $checker = 1;
 }
 
-//Test code for getting usertype extracted
-$boom = "SELECT usertype FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "'";
+//Code for getting usertype extracted
+$userType = "";
+$boom = "SELECT userType FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "'";
 $result = $db->query($boom);
 while($row = $result->fetch_array()){
 $userType = $row['userType'];
-echo $userType;    
-    
-//This deals with if any matched or not. And send the user back to the index page
+}   
+
+//This checks if any pairs matched or not. And send the user back to the index page.
 if($checker==1){
     session_start();
     $_SESSION['username'] = $myusername;

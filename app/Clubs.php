@@ -75,9 +75,16 @@
 				        <form action="" method="post">
 				          <h2>Create a club or society</h2><br>
 				          <input type="text" name="clubName" placeholder="Club name"><br>
-				          <input type="submit" value="clubGenre" pl, $dbaceholder="Club genre"><br>
+				          <input type="text" name="clubGenreID" placeholder="Club genre"><br>
+				          <input type="text" name="clubDescription" placeholder="Club Description"><br>
+				          <input type="submit" value="Submit"><br>
 				          <!-- Club genre may be a list ?-->
 				        </form>
+								<?php
+								if(isset($_POST['clubName']) && isset($_POST['clubGenreID']) && isset($_POST['clubDescription'])) {
+									createClub($_POST['clubName'], $_POST['clubGenreID'], $_POST['clubDescription']);
+								} else { echo "Create a club now !"; }
+								?>
 				      </div>
 				    </div>
 				  </div>
@@ -93,7 +100,6 @@
 
 
 				<?php
-
 				function search($keyword) {
 				  global $db;
 				  $query = "SELECT clubID, clubName, clubDescription FROM Club
@@ -121,5 +127,25 @@
 				    }
 				    echo "</table>";
 				  }
+				}
+
+				function createClub($name, $genre, $description) {
+					global $db;
+					if($name == null) {
+						echo "Please enter a name";
+					} else if($genre == null) {
+						echo "Please enter a genre";
+					} else if($description == null) {
+						echo "Please enter a description";
+					} else {
+						$query = "INSERT INTO club (clubName, clubGenreID, clubDescription)
+											VALUES ('". $name . "'," . $genre . ",'" . $description . "')";
+
+							if ($db->query($query) === TRUE) {
+							    echo "New record created successfully";
+							} else {
+							    echo "Error: " . $query . "<br>" . $db->error;
+							}
+					}
 				}
 				 ?>

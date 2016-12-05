@@ -1,20 +1,5 @@
-<<<<<<< HEAD
-<html>
-  <head>
-    <title>BRU Web Project</title>
-    <link rel='stylesheet' type='text/css' href='./css/main.css'>
-    <link rel='stylesheet' type='text/css' href='./css/clubs.css'>
-  </head>
-  <body>
-    <header>
-    </header>
-  <h1>Hello amazing World ! :D</h1>
-  <p>This is our group project.</p>
-
-  </body>
-=======
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 	<head>
 		<meta charset="utf-8"/>
 		<title>Portlethen site</title>
@@ -52,8 +37,8 @@
 			<img src="images/Indeximage1.png" alt="Indeximage1.png" height="150" width="150">
 			<img src="images/Indeximage2.png" alt="Indeximage2.png" height="150" width="150">
 			<img src="images/Indeximage3.png" alt="Indeximage3.png" height="150" width="150">
-			
-			
+
+
 		</div>
 
 		<div id="footer">
@@ -61,5 +46,4 @@
   		Website by Blackrabbit - Unicorns -.</address>
 		</div>
 	</body>
->>>>>>> f36836cda29a8f67e11c87e5db85bfc3b10a56f9
 </html>

@@ -4,6 +4,9 @@ include ("db_connect.php");
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 
+//Saves the username as it
+$susername = $myusername;
+
 //checking to see if any usernames and password pairs match any in the database
 $myusername = stripslashes($myusername);
 $myusername = mysql_real_escape_string($myusername);
@@ -20,7 +23,7 @@ while($row = $result->fetch_array()) {
 //This deals with if any matched or not. And send the user back to the index page
 if($checker==1){
     session_start();
-    $_SESSION['username'] = $myusername;
+    $_SESSION['username'] = $susername;
     header("location:index.php");
 } else {
     header("location:index.php?Loginfail=1");

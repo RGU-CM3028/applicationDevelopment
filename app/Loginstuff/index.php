@@ -14,19 +14,40 @@ include ("dbconnect.php");
 //This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.
 if (isset($_SESSION['username']))
 {
-    echo "<p>Hello " . $_SESSION['username'] . "</p>";
-    $sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "'";
-    $result = $db->query($sql);
-    while($row = $result->fetch_array())
+    $accesslevel = $_SESSION['userType'];
+    displayAccessLevelInformation($accesslevel);
+    
+    function displayAccessLevelInformation($accessLevel)
     {
-        echo "<p>User type is " . $_SESSION['userType'] . "</p>";
-    }
-    ?>
+        if ($accessLevel == "reader")
+        {
+            
+        ?>
+        <!--This is a link to logout the site-->
+        <a href="logout.php">Logout</a>
+        <?
+            
+            echo "<p style = \"background-color: lightgreen\">You are currently logged in as a standard user</p>";
+        }
+        elseif ($accessLevel == "admin") 
+        {
+    
+    ?>        
     <!--This is a link to logout the site-->
     <a href="logout.php">Logout</a>
     <!--This leads to the admin page-->
     <a href="admincontrolform.php">Admin Control Pannel</a>
     <?
+            
+            echo "<p<p style = \"background-color: red\">You are currently logged in as a root user</p>";
+            echo "<p<p style = \"background-color: red\">You now have access to additional administrative features</p>";
+        }
+    }
+    
+    
+    
+    //Test alpha
+    
 }
     //If the user isnt logged in then they see the following form. To log in.
     else
@@ -34,16 +55,7 @@ if (isset($_SESSION['username']))
 ?>
     
     <!--This is the form header-->
-    <h1>Login</h1> 
-    
-    <?
-    //This is the error message for if there is a login fail.
-    if(isset($_GET["Loginfail"]))  
-    {  
-        echo "<p><font color='red'>Please make sure you enter the correct information.</font></p>";  
- }  
-    ?>
-    
+    <h1>Login</h1>  
     <!--This is the form used to login-->
     <form method="post" action="checklogin.php">
     <p><input type="text" name="username" value="" placeholder="Username please"></p>

@@ -8,7 +8,7 @@
 
 <?
 session_start();
-include ("db_connect.php");    
+include ("dbconnect.php");    
         
 //This checks to see if the user is logged in or not
 if (isset($_SESSION['username']))

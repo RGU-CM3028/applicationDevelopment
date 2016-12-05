@@ -66,7 +66,7 @@
 				            <?php
 				            if(isset($_POST['search'])) {
 				              search($_POST['search']);
-				            } else { echo "Search a club !"; }
+				            } else { showAllClubs(); }
 				            ?>
 				        </div>
 				      <!-- Only if user = levelCode 1 !-->
@@ -83,7 +83,7 @@
 								<?php
 								if(isset($_POST['clubName']) && isset($_POST['clubGenreID']) && isset($_POST['clubDescription'])) {
 									createClub($_POST['clubName'], $_POST['clubGenreID'], $_POST['clubDescription']);
-								} else { echo "Create a club now !"; }
+								}
 								?>
 				      </div>
 				    </div>
@@ -100,6 +100,30 @@
 
 
 				<?php
+				function showAllClubs() {
+				  global $db;
+				  $query = "SELECT clubID, clubName, clubDescription FROM Club";
+				  $result = $db->query($query);
+				  if($result->num_rows <= 0) {
+				    echo "There's no clubs for the moment";
+				  } else {
+				    echo "<table>
+				            <tr>
+				              <th> Club name </th>
+				              <th> Club description </th>
+				            </tr>";
+
+				    while ($row = $result->fetch_array()) {
+				     echo "<tr><td><a href='clubDetails.php?clubID=" . $row['clubID'] . "'>"
+				          .$row["clubName"]
+				          ."</a></td><td>"
+				          .$row["clubDescription"]
+				          ."</td></tr>";
+				    }
+				    echo "</table>";
+				  }
+				}
+
 				function search($keyword) {
 				  global $db;
 				  $query = "SELECT clubID, clubName, clubDescription FROM Club
@@ -117,11 +141,9 @@
 				            </tr>";
 
 				    while ($row = $result->fetch_array()) {
-				     echo "<tr><td>"
-				          .$row["clubID"]
-				          ."</td><td>"
+				     echo "<tr><td><a href='clubDetails.php?clubID=" . $row['clubID'] . "'>"
 				          .$row["clubName"]
-				          ."</td><td>"
+				          ."</a></td><td>"
 				          .$row["clubDescription"]
 				          ."</td></tr>";
 				    }

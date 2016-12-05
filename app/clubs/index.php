@@ -31,7 +31,7 @@
 		<!--Body Text-->
 		<div id="BodyText">
     <?php
-        include("dbconnect.php");
+        include("../dbconnect.php");
 				?>
 				<div>
 				  <!-- <div id="slider">

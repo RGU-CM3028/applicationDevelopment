@@ -78,14 +78,11 @@
 				          <input type="submit" value="clubGenre" pl, $dbaceholder="Club genre"><br>
 				          <!-- Club genre may be a list ?-->
 				        </form>
-<<<<<<< HEAD:app/Clubs.php
 								<?php
 								if(isset($_POST['clubName']) && isset($_POST['clubGenreID']) && isset($_POST['clubDescription'])) {
 									createClub($_POST['clubName'], $_POST['clubGenreID'], $_POST['clubDescription']);
 								}
 								?>
-=======
->>>>>>> daa115768b82ff45bd24e4f6cd4faa78ea70a1f8:app/clubs/index.php
 				      </div>
 				    </div>
 				  </div>
@@ -101,7 +98,6 @@
 
 
 				<?php
-<<<<<<< HEAD:app/Clubs.php
 				function showAllClubs() {
 				  global $db;
 				  $query = "SELECT clubID, clubName, clubDescription FROM Club";
@@ -125,8 +121,6 @@
 				    echo "</table>";
 				  }
 				}
-=======
->>>>>>> daa115768b82ff45bd24e4f6cd4faa78ea70a1f8:app/clubs/index.php
 
 				function search($keyword) {
 				  global $db;

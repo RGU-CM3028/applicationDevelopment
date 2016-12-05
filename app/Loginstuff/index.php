@@ -8,8 +8,9 @@
 
 <?
 session_start();
-include ("db_connect.php");
-
+include ("db_connect.php");    
+        
+//This checks to see if the user is logged in or not
 if (isset($_SESSION['username']))
 {
     echo "<p>Hello " . $_SESSION['username'] . "</p>";
@@ -20,21 +21,23 @@ if (isset($_SESSION['username']))
         echo "<p>User type is " . $row['userType'] . "</p>";
     }
     ?>
-    
+    <!--This is a link to logout the site-->
     <a href="logout.php">Logout</a>
     
     <?
 } else {
 ?>
-    <h1>Login</h1>
+    <!--This is the form used to login-->
+    <h1>Login</h1> 
     <form method="post" action="checklogin.php">
-    <p><input type="text" name="username" value="" placeholder="Username"></p>
-    <p><input type="password" name="password" value="" placeholder="Password"></p>
+    <p><input type="text" name="username" value="" placeholder="Username please"></p>
+    <p><input type="password" name="password" value="" placeholder="Password please"></p>
     <p class="submit"><input type="submit" name="commit" value="Login"></p>
     </form>
-    
+    <!--This is a link to signup to the site-->
     <a href="signupform.php">Signup</a>
-    
+
 <? } ?>
+
 </body>
 </html>

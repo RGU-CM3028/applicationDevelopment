@@ -12,10 +12,13 @@ if(strpos($actual_link, 'pages') == true) {
 <p class="copytext">2016 &copy; Sportlethen. All Rights Reserved.</p>
 <p class="footer-sponser">
   <?php if($isIndex) {
-    <a href=""><img src="images/sportscotland.png" class="img1"></a>
-    <a href=""><img src="images/aderdeencouncil.png" class="img2"></a>
-
+    echo '<a href=""><img src="images/sportscotland.png" class="img1"></a>
+    <a href=""><img src="images/aderdeencouncil.png" class="img2"></a>';
+  } else {
+    echo '<a href=""><img src="../../images/sportscotland.png" class="img1"></a>
+    <a href=""><img src="../../images/aderdeencouncil.png" class="img2"></a>';
   }
+  ?>
 </p>
 <p class="design">Made by Black Rabbit -Unicorns- &copy; 2016</p>
 </div>

@@ -14,17 +14,16 @@ include ("dbconnect.php");
 //This prepares the accesslevel.
 $accesslevel = $_SESSION['userType'];
 	
+//This displays the function contents	
 displayAccessLevelInformation($accesslevel);
-	
-function displayAccessLevelInformation($accessLevel)
-{
-if ($accessLevel == "admin") {
-    	?>
+//This is the function doing its magic on a set piece of code.	
+function displayAccessLevelInformation($accessLevel){
+	if ($accessLevel == "admin") {
+	?>
 	<!--This leads to the admin page-->    
 	<a href="admincontrolform.php">Admin Control Pannel</a>    
 	<?
- 
-}
+	}
 }
 	
 //This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.
@@ -40,9 +39,8 @@ if (isset($_SESSION['username']))
     ?>
     <!--This is a link to logout the site-->
     <a href="logout.php">Logout</a>
-    <!--This leads to the admin page-->
-    <a href="admincontrolform.php">Admin Control Pannel</a>
     <?
+	
 }
     //If the user isnt logged in then they see the following form. To log in.
     else

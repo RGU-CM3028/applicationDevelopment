@@ -7,6 +7,7 @@
 <body>
     <h1>Signup Form</h1>
     <?
+    //This is used to get the error message
     if (isset($_GET['space'])){
         echo "<p><font color='red'>Please ensure you dont use spaces in your username or password.</font></p>";
     }
@@ -19,7 +20,6 @@
     if (isset($_GET['dup'])){
         echo "<p><font color='red'>Username already taken.</font></p>";
     }
-    
     ?>
     <form method="post" action="signup.php">
         <!-- This is the form used for users to sign up -->

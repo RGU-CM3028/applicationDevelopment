@@ -5,13 +5,9 @@ if (isset($_SESSION['username']))
 {
     unset($_SESSION['username']);
 }
-if (isset($_SESSION['Signupfail']))
+if (isset($_SESSION['userType']))
 {
-    unset($_SESSION['Signupfail']);
-}
-if (isset($_SESSION['Loginfail']))
-{
-    unset($_SESSION['Loginfail']);
+    unset($_SESSION['userType']);
 }
 header("location:index.php");
 ?>

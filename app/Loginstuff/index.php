@@ -12,25 +12,6 @@ session_start();
 include ("dbconnect.php");    
         
 //This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.
-if (isset($_SESSION['username'])) 
-{
-    if (isset($_SESSION['userType'] == 'reader')) {
-        echo "<p>Hello " . $_SESSION['username'] . "</p>";
-        $sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "'";
-        $result = $db->query($sql);
-        while($row = $result->fetch_array())
-        {
-            echo "<p>User type is " . $_SESSION['userType'] . "</p>";
-        }
-    } elseif (isset($_SESSION['userType'] == 'admin')) {
-        echo "<p>Hello " . $_SESSION['username'] . "</p>";
-        $sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "'";
-        $result = $db->query($sql);
-        while($row = $result->fetch_array())
-        {
-            echo "<p>User type is " . $_SESSION['userType'] . "</p>";
-        }
-    
 if (isset($_SESSION['username']))
 {
     echo "<p>Hello " . $_SESSION['username'] . "</p>";
@@ -41,10 +22,10 @@ if (isset($_SESSION['username']))
         echo "<p>User type is " . $_SESSION['userType'] . "</p>";
     }
     ?>
-    
     <!--This is a link to logout the site-->
     <a href="logout.php">Logout</a>
-    
+    <!--This leads to the admin page-->
+    <a href="admincontrol.php">Admin Control Pannel</a>
     <?
 }
     //If the user isnt logged in then they see the following form. To log in.

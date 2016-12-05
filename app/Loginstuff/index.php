@@ -7,10 +7,11 @@
 <body>
 
 <?
+//This starts the sessions. And connects the database here..
 session_start();
 include ("dbconnect.php");    
         
-//This checks to see if the user is logged in or not
+//This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.
 if (isset($_SESSION['username']))
 {
     echo "<p>Hello " . $_SESSION['username'] . "</p>";
@@ -26,7 +27,10 @@ if (isset($_SESSION['username']))
     <a href="logout.php">Logout</a>
     
     <?
-} else {
+}
+    //If the user isnt logged in then they see the following form. To log in.
+    else
+{
 ?>
     
     <!--This is the form header-->

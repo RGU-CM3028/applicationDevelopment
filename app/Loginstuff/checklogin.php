@@ -23,7 +23,5 @@ if($checker==1){
     $_SESSION['username'] = $myusername;
     header("location:index.php");
 } else {
-    session_start();
-    echo "Incorrect user credentials";
-    header("location:index.php");
+    header("location:index.php?Loginfail=1");
 }

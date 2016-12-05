@@ -1,5 +1,5 @@
 <!--
-File handling the creation and edition of new events
+File handling the creation and edition of events
 -->
 
 <body>
@@ -12,17 +12,17 @@ File handling the creation and edition of new events
 
 		//If we are editing instead of creating a new
 		if(isset($_POST['edit']) && isset($_POST['eventID'])){
-			$sql_query = "SELECT * FROM hwnews ORDER BY timestamp DESC WHERE HWNewsID = " . $_POST['eventID']; // Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
+			$sql_query = "SELECT * FROM hwnews WHERE HWNewsID = " . $_POST['eventID']; // Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
 			$result = $db->query($sql_query);
-			$title = $result['text'];
-			$content = $result['name'];
+			$title = $result['name'];
+			$content = $result['text'];
 
 			$result->close();
 			$db->close();
 		}
 
 		if(isset($_POST['handleEdition'])){
-			$sql_query = "INSERT INTO HWNews(HWNewsDate, HWNewsName, HWNewsText) VALUES(" . $_POST['name'] . "," . $_POST['text'] . date(DATE_RFC2822) . ")";
+			$sql_query = "INSERT INTO HWNews(HWNewsDate, HWNewsName, HWNewsText) VALUES(" . $_POST['name'] . "," . $_POST['text'] . "," . date(DATE_RFC2822) . ")";
 			$db->query($sql_query);
 			$db->close();
 		}

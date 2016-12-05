@@ -12,7 +12,7 @@ session_start();
 include ("dbconnect.php");    
         
 //This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.
-if (isset($_SESSION['username']))
+if (isset($_SESSION['username'] =="Chris"))
 {
     echo "<p>Hello " . $_SESSION['username'] . "</p>";
     $sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "'";

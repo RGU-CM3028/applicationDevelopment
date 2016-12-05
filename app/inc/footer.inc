@@ -1,11 +1,21 @@
+<?
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$isIndex = true;
+if(strpos($actual_link, 'pages') == true) {
+  $isIndex = false;
+}
+?>
+
 <footer class="clearfix">
 <div class="footer-left">
 <a href="index.php" title="Sportlethen | Home"><img src="images/banner.png" class="banner" alt="TeaKat Games"></a>
 <p class="copytext">2016 &copy; Sportlethen. All Rights Reserved.</p>
 <p class="footer-sponser">
-<a href=""><img src="images/sportscotland.png" class="img1"></a>
+  <?php if($isIndex) {
+    <a href=""><img src="images/sportscotland.png" class="img1"></a>
+    <a href=""><img src="images/aderdeencouncil.png" class="img2"></a>
 
-<a href=""><img src="images/aderdeencouncil.png" class="img2"></a>
+  }
 </p>
 <p class="design">Made by Black Rabbit -Unicorns- &copy; 2016</p>
 </div>

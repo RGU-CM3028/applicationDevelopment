@@ -2,7 +2,7 @@ body {
     background-color: #FF0000;
 }
 
-input[type=button] { 
+input[type=button] {
 	height: 4em;
     width:250px;
     text-align:center;
@@ -14,7 +14,7 @@ input[type=button] {
 	height:150px;
 	width:150px;
 	float:left;
-	padding:5px; 	
+	padding:5px;
 }
 
 #Pagename {
@@ -73,5 +73,5 @@ input[type=button] {
     color:white;
     clear:both;
     text-align:center;
-    padding:5px; 
+    padding:5px;
 }

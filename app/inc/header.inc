@@ -1,3 +1,10 @@
+<?
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$isIndex = true;
+if(strpos($actual_link, 'pages') == true) {
+  $isIndex = false;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +16,27 @@
 <title>Sportlethen</title>
 
 <script src="https://use.fontawesome.com/59db90bae7.js"></script>
-<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<? if($isIndex) {
+  echo '<link rel="stylesheet" type="text/css" href="css/main.css">';
+} else {
+  echo '<link rel="stylesheet" type="text/css" href="../../css/main.css">';
+}
+?>
+
 </head>
 
 <body>
 <div id="container">
 <header class="clearfix">
-<img src="images/logo.png" class="logo"></img>
-<img src="images/banner.png" class="title"></h1>
+  <? if($isIndex) {
+    echo '<img src="images/logo.png" class="logo"></img>
+    <img src="images/banner.png" class="title"></h1>';
+  } else {
+    echo '<img src="../../images/logo.png" class="logo"></img>
+    <img src="../../images/banner.png" class="title"></h1>';
+  }
+?>
 <div id="login">
 <form name="userlogin" action="" method="POST" target="_self" class="login">
 <label>Username</label>
@@ -30,9 +50,19 @@
 <!-- Desktop navigation w:801 onwards -->
 <nav>
 <ul>
-<li class="navigation"><a href="../pages/clubs.php">Clubs</a></li>
-<li class="navigation"><a href="../pages/health.php">Health and Wellbeing</a></li>
-<li class="navigation"><a href="../pages/discover-north-kincardineshire.php">Discover North Kincardineshire</a></li>
+  <?
+  if($isIndex) {
+    echo '
+  <li class="navigation"><a href="./pages/clubs/">Clubs</a></li>
+  <li class="navigation"><a href="./pages/health/">Health and Wellbeing</a></li>
+  <li class="navigation"><a href="./pages/map/">Discover North Kincardineshire</a></li>';
+} else {
+  echo '
+  <li class="navigation"><a href="../clubs/">Clubs</a></li>
+  <li class="navigation"><a href="../health/">Health and Wellbeing</a></li>
+  <li class="navigation"><a href="../map/">Discover North Kincardineshire</a></li>';
+}
+?>
 </ul>
 </nav>
 <!-- Mobile navigation w:80 downwards -->
@@ -40,9 +70,9 @@
 <li class="dropdown">
 <a href="javascript:void(0)" class="dropbtn" onclick="dropdown()" title="Navigation"><span class="fa fa-align-justify fa-2x"></span></a>
 <div class="dropdown-content" id="dropdownMenu">
-<a href="../pages/clubs.php">Clubs</a>
-<a href="../pages/health.php">Health and Wellbeing</a>
-<a href="../pages/discover-north-kincardineshire.php">Discover North Kincardineshire</a>
+<a href="./pages/clubs/">Clubs</a>
+<a href="./pages/health/">Health and Wellbeing</a>
+<a href="./pages/map/">Discover North Kincardineshire</a>
 </div>
-</li>        
+</li>
 </ul>

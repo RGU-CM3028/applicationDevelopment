@@ -17,3 +17,4 @@ $db = new mysqli(DB_SERVER,
         echo("connection failed");
         die('Connectfailed['.$db->connect_error.']');
     }
+?>

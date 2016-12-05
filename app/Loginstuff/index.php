@@ -29,6 +29,12 @@ if (isset($_SESSION['username']))
 ?>
     <!--This is the form used to login-->
     <h1>Login</h1> 
+    <?
+    if(isset($_GET["inserted"]))  
+    {  
+        echo "<p><font color='red'>Please make sure you enter the correct information.</font></p>";  
+ }  
+    ?>
     <form method="post" action="checklogin.php">
     <p><input type="text" name="username" value="" placeholder="Username please"></p>
     <p><input type="password" name="password" value="" placeholder="Password please"></p>

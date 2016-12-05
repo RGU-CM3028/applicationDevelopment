@@ -13,6 +13,9 @@ include ("dbconnect.php");
 
 //This prepares the accesslevel.
 $accesslevel = $_SESSION['userType'];
+	
+displayAccessLevelInformation($accesslevel);
+	
 function displayAccessLevelInformation($accessLevel)
 {
 if ($accessLevel == "admin") {

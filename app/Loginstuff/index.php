@@ -18,7 +18,7 @@ if (isset($_SESSION['username']))
     $result = $db->query($sql);
     while($row = $result->fetch_array())
     {
-        echo "<p>User type is " . $row['userType'] . "</p>";
+        echo "<p>User type is " . $_SESSION['userType'] . "</p>";
     }
     ?>
     <!--This is a link to logout the site-->
@@ -30,7 +30,7 @@ if (isset($_SESSION['username']))
     <!--This is the form used to login-->
     <h1>Login</h1> 
     <?
-    if(isset($_GET["inserted"]))  
+    if(isset($_GET["Loginfail"]))  
     {  
         echo "<p><font color='red'>Please make sure you enter the correct information.</font></p>";  
  }  

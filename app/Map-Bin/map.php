@@ -13,7 +13,6 @@
 </head>
 
 <body>
-<!--  style="display: none;" -->
   <div id="map-data" style="display: none;">
     <?php
       include "../dbconnect.php";
@@ -34,55 +33,51 @@
       $output = "";
 
       //Write the data into html in json format, so the javascript can read it (Better for security than writing inside javascript)
-      if ($points->num_rows > 0 && $path->num_rows > 0 && $area->num_rows > 0) {
-        //+Parse each point
-        $output .= "{\"points\": [";
-        while($row = $points->fetch_assoc()) {
-            $output .= "{\"type\": \"". $row["pointType"] . "\"". ",
-               \"description\": \"". $row["pointDescription"] . "\"". ",
-               \"coordinateX\": \"". $row["coordinateX"] . "\"". ",
-               \"coordinateY\": \"" . $row["coordinateY"] . "\"},";
-        }
-        //+-Remove the last comma
-        $output = substr($output, 0, -1);
-
-        //+Parse each Path
-        $output .= "], \"paths\" : [";
-        while($row = $path->fetch_assoc()) {
-            $output .= "{\"type\": \"" . $row["pathType"] . "\"". ",
-             \"description\": \"" . $row["pathDescription"] . "\"". ",
-             \"coordinates\": \"" . $row["vectors"] . "\"},";
-        }
-        //+-Remove the last comma
-        $output = substr($output, 0, -1);
-
-        //+Parse each Area
-        $output .= "], \"areas\" : [";
-        while($row = $area->fetch_assoc()) {
-            $output .= "{\"type\": \"" . $row["areaType"] . "\"". ",
-             \"description\": \"" . $row["areaDescription"] . "\"". ",
-             \"coordinates\": \"" . $row["vectors"] . "\"}  ,";
-        }
-        //+-Remove the last comma
-        $output = substr($output, 0, -1);
-        $output .= "]";
-
-      } else {
-          $output .= "0 results";
+      //+Parse each point
+      $output .= "{\"points\": [ ";
+      while($row = $points->fetch_assoc()) {
+          $output .= "{\"type\": \"". $row["pointType"] . "\"". ",
+             \"description\": \"". $row["pointDescription"] . "\"". ",
+             \"coordinateX\": \"". $row["coordinateX"] . "\"". ",
+             \"coordinateY\": \"" . $row["coordinateY"] . "\"},";
       }
+      //+-Remove the last comma
+      $output = substr($output, 0, -1);
+
+      //+Parse each Path
+      $output .= "], \"paths\" : [ ";
+      while($row = $path->fetch_assoc()) {
+          $output .= "{\"type\": \"" . $row["pathType"] . "\"". ",
+           \"description\": \"" . $row["pathDescription"] . "\"". ",
+           \"coordinates\": \"" . $row["vectors"] . "\"},";
+      }
+      //+-Remove the last comma
+      $output = substr($output, 0, -1);
+
+      //+Parse each Area
+      $output .= "], \"areas\" : [ ";
+      while($row = $area->fetch_assoc()) {
+          $output .= "{\"type\": \"" . $row["areaType"] . "\"". ",
+           \"description\": \"" . $row["areaDescription"] . "\"". ",
+           \"coordinates\": \"" . $row["vectors"] . "\"}  ,";
+      }
+      //+-Remove the last comma
+      $output = substr($output, 0, -1);
+      $output .= "]";
       $output .= "}";
 
       echo $output;
     ?>
   </div>
-  <div id="map" style="height: 400px"></div>
+
+  <div id="map" style="height: 95vh;"></div>  
 
 
 </body>
 <script>
 
   //+Create a Leaflet map
-  let map = L.map('map').setView([2, -2], 5);
+  let map = L.map('map').setView([57.06, -2.169664], 12);
 
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

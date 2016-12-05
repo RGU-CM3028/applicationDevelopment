@@ -140,7 +140,7 @@
 					} else {
 						$query = "INSERT INTO club (clubName, clubGenreID, clubDescription)
 											VALUES ('". $name . "'," . $genre . ",'" . $description . "')";
-											
+
 							if ($db->query($query) === TRUE) {
 							    echo "New record created successfully";
 							} else {

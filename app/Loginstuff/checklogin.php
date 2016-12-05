@@ -1,5 +1,5 @@
 <?php
-include ("db_connect.php");
+include ("dbconnect.php");
 //information from the index form
 
 $myusername = $_POST["username"];

@@ -10,7 +10,11 @@
 //This starts the sessions. And connects the database here..
 session_start();
 include ("dbconnect.php");    
-        
+
+$accesslevel = $_SESSION['userType'];
+echo $accesslevel;
+    
+    
 //This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.
 if (isset($_SESSION['username']))
 {

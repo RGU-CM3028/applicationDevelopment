@@ -1,4 +1,4 @@
-<?
+<?php
 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $isIndex = true;
 if(strpos($actual_link, 'pages') == true) {
@@ -8,7 +8,7 @@ if(strpos($actual_link, 'pages') == true) {
 
 <footer class="clearfix">
 <div class="footer-left">
-<a href="index.php" title="Sportlethen | Home"><img src="images/banner.png" class="banner" alt="TeaKat Games"></a>
+<a href="index.php" title="Sportlethen | Home"><img src="images/banner.png" class="banner" alt="Sportlethen"></a>
 <p class="copytext">2016 &copy; Sportlethen. All Rights Reserved.</p>
 <p class="footer-sponser">
   <?php if($isIndex) {
@@ -16,6 +16,7 @@ if(strpos($actual_link, 'pages') == true) {
     <a href=""><img src="images/aderdeencouncil.png" class="img2"></a>
 
   }
+  ?>
 </p>
 <p class="design">Made by Black Rabbit -Unicorns- &copy; 2016</p>
 </div>

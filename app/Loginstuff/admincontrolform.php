@@ -17,8 +17,8 @@ function displayAccessLevelInformation($accessLevel){
 	}
 	else 
 	{
-		echo "You cant enter here!";
-		header("location:signupform.php?empty=1");
+		//This sends non admins back to the index page
+		header("location:index.php");
 		die();
 	}
 		

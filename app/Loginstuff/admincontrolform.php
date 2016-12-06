@@ -39,7 +39,7 @@ function displayAccessLevelInformation($accessLevel){
 			<p>Please select a user:
 				<?
 				$sql = "SELECT * FROM users";
-				$result = mysqli_query($sql);
+				$result = mysqli_query($db, $sql);
 				while ($row = mysqli_fetch_array($result)) {
 					echo $row['username'];
 				}

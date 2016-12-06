@@ -6,28 +6,28 @@
 </head>
 <body>
 	
-    <?
-    //This starts the sessions. And connects the database here..
-    session_start();
-    include ("dbconnect.php");  
+<?
+//This starts the sessions. And connects the database here.
+session_start();
+include ("dbconnect.php");  
 	
-    //This prepares the accesslevel.
-    $accesslevel = $_SESSION['userType'];
-	ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-    //This displays the function contents	
-    displayAccessLevelInformation($accesslevel);
+//This prepares the accesslevel.
+$accesslevel = $_SESSION['userType'];
+
+//This displays the function contents	
+displayAccessLevelInformation($accesslevel);
 	
-    //This is the function doing its magic on a set piece of code.	
-    function displayAccessLevelInformation($accesslevel){
-	    if ($accesslevel != "admin") {
-		    //This sends already signed in users back to the index page
-		    header("location:index.php");
-		    die();
-	    }
-    }
-    if (isset($_SESSION['username'])){
+//This is the function doing its magic on a set piece of code.	
+function displayAccessLevelInformation($accesslevel){
+	if ($accesslevel != "admin") {
+		//This sends already signed in users back to the index page
+		header("location:index.php");
+		die();
+	}
+}
+
+//This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.
+if (isset($_SESSION['username'])){
     	echo "<p>Hello " . $_SESSION['username'] . "</p>";
     	$sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "'";
     	$result = $db->query($sql);
@@ -46,8 +46,8 @@ error_reporting(E_ALL);
     	<!--This is a link to logout the site-->
     	<a href="logout.php">Logout</a>
 	<a href="index.php">Return to login screen</a>
-	}
-
+	<?
+}
     ?> 
 </body>
 </html>

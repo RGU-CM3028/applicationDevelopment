@@ -2,6 +2,23 @@
 //Code that connects the database here.
 include ("dbconnect.php");
 
+//html change safety check. This ensures variables wont produce any errors at all
+$myusername = "";
+$mypassword = "";
+
+if(isset($_POST['username'])) {
+    // id index exists
+} else {
+    header("location:index.php?Loginfail=1");
+    die();
+}
+if(isset($_POST['password'])) {
+    // id index exists
+} else {
+    header("location:index.php?Loginfail=1");
+    die();
+}
+    
 //information from the index form.
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];

@@ -11,9 +11,13 @@ $myusername = stripslashes($myusername);
 $myusername = mysqli_real_escape_string($db,$myusername);
 $mypassword = stripslashes($mypassword);
 $mypassword = mysqli_real_escape_string($db,$mypassword);
+$salt = "qwertgfdert45t456545655";
+$mypassword = $mypassword.$salt;
+$mypassword = sha256($mypassword);
 
+$salt =
 //Code that checks to see if any usernames and password pairs match any in the database.
-$sql = "SELECT * FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "'";
+$sql = "SELECT * FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "' LIMIT 1;";
 $result = $db->query($sql);
 $checker = 0;
 while($row = $result->fetch_array()) {
@@ -22,7 +26,7 @@ while($row = $result->fetch_array()) {
 
 //Code for getting usertype extracted for the session.
 $userType = "";
-$boom = "SELECT userType FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "'";
+$boom = "SELECT userType FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "' LIMIT 1;";
 $result = $db->query($boom);
 while($row = $result->fetch_array()){
 $userType = $row['userType'];

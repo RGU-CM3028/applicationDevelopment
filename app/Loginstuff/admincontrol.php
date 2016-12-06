@@ -25,5 +25,9 @@ if($adminchoice == "delete"){
 }
 
 //reference
+//choice values = "", "delete", "usertype"
+//usertype values - "", "reader", "admin", "unspecified"
+//username values = "", $row['username']
+
 //$sql = "DELETE FROM MyGuests WHERE id=3";
 //$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";

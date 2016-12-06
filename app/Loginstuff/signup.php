@@ -2,6 +2,29 @@
 //This connects the database here.
 include ("dbconnect.php");
 
+//html change safety check. This is to catch out any attempt to change variables and so on in the html.
+$myusername = "";
+$mypassword = "";
+$passwordcheck = "";
+if(isset($_POST['username'])) {
+    // it exists
+} else {
+    header("location:signupform.php");
+    die();
+}
+if(isset($_POST['password'])) {
+    // it exists
+} else {
+    header("location:signupform.php");
+    die();
+}
+if(isset($_POST['passwordcheck'])) {
+    // it exists
+} else {
+    header("location:signupform.php");
+    die();
+}
+
 //This is the fields from the signup form.
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];

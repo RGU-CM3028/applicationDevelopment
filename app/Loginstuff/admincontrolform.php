@@ -2,70 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login Form</title>
+    <title>Signup Form</title>
 </head>
 <body>
-	<?php
-//This starts the sessions. And connects the database here..
-session_start();
-include ("dbconnect.php");  
 	
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-//This prepares the accesslevel.
-$accesslevel = $_SESSION['userType'];
-
-//This displays the function contents	
-displayAccessLevelInformation($accesslevel);
-//This is the function doing its magic on a set piece of code.	
-function displayAccessLevelInformation($accessLevel){
-	
-	//If the user is an admin, the following code works
-	if ($accessLevel == "admin") {
-		echo "<p>Hello " . $_SESSION['username'] . "</p>";
-    		$sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "'";
-    		$result = $db->query($sql);
-    		while($row = $result->fetch_array()){
-        		echo "<p>User type is " . $_SESSION['userType'] . "</p>";
-    		}
-		?>
-		<!--This is the control panel instructions(version1)-->    
-		<p>This is where the admin would select a user from the dropbox of all users, then selects who they want to make an admin.</p> 
-		<p>This is also where the admin can delete users.</p>
-		<p>This is where the admin .</p>
-
-		<!--This is where the controls would go(version1)--> 
-		<h1>Admin controls</h1>
-    		<form method="post" action="admincontrols.php">
-    			<p><input type="text" name="username" value="" placeholder="Username please"></p>
-    			<p><input type="password" name="password" value="" placeholder="Placeholder please"></p>
-    			<p class="submit"><input type="submit" name="commit" value="Submit"></p>
-			<p>Please select a user:
-				<?
-				$sql = "SELECT * FROM users";
-				$result = $db->query($db);
-				while ($row = $result->fetch_array()){
-					echo $row['username'];
-				}
-				?>
-
-			</p>
-    		</form>
-
-            	<!-- This is used to return to the login screen-->
-            	<a href="index.php">Return to login screen</a>
-		<?
-	}
-	//Otherwise the code sends the user back to the index page.
-	else {
-		header("location:index.php");
-		die();
-	}
+    	<?
+	//Thus starts the sessions. And connects the database here.
+    	session_start();
+    	include ("dbconnect.php");  
 		
-}
-	?>
-</body>
+    	//This prepares the accesslevel.
+    	$accesslevel = $_SESSION['userType'];
+		
+	//This displays the function contents	
+    	displayAccessLevelInformation($accesslevel);
+if (isset($_SESSION['username'])){
+    echo "<p>Hello " . $_SESSION['username'] . "</p>";
+    $sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "'";
+    $result = $db->query($sql);
+    while($row = $result->fetch_array()){
+        echo "<p>User type is " . $_SESSION['userType'] . "</p>";
+    }
+	
+	
+    	//This is the function doing its magic on a set piece of code.	
+    	function displayAccessLevelInformation($accesslevel){
+		if ($accesslevel == "admin") {
+			?>
+            		<h1>Signup Form</h1>	
+            		<!-- This is the form used for users to sign up -->
+            		<form method="post" action="signup.php">
+                		<p><input type="text" name="username" value="" placeholder="Username please"></p>
+                		<p><input type="password" name="password" value="" placeholder="Password please"></p>
+                		<p><input type="password" name="passwordcheck" value="" placeholder="Confirm Password please"></p>
+                		<p class="submit"><input type="submit" name="commit" value="Login"></p>
+            		</form>
+    
+            		<!-- This is used to return to the login screen-->
+            		<a href="index.php">Return to login screen</a>
+            		<?
+        	} else {
+			//This sends non admins back to the index page
+		    	header("location:index.php");
+		    	die();
+		}
+	}
+	?>	
+	</body>
 </html>
-

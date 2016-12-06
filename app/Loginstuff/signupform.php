@@ -7,20 +7,26 @@
 <body>
     <?
     session_start();
-    include ("dbconnect.php");    
+    include ("dbconnect.php");  
+	
     //This prepares the accesslevel.
     $accesslevel = $_SESSION['userType'];
+	
     //This displays the function contents	
     displayAccessLevelInformation($accesslevel);
+	
     //This is the function doing its magic on a set piece of code.	
     function displayAccessLevelInformation($accesslevel){
 	    if ($accesslevel == "admin"  || $accesslevel == "reader") {
-		    //This sends non admins back to the index page
+		    
+		    //This sends already signed in users back to the index page
 		    header("location:index.php");
 		    die();
 	    } else {
             ?>
+	
             <h1>Signup Form</h1>
+	
             <?
             //This is used to get the error message associated to the error code.
             if (isset($_GET['space'])){

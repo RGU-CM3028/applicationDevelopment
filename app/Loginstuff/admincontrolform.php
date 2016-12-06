@@ -9,7 +9,12 @@
 //This starts the sessions. And connects the database here..
 session_start();
 include ("dbconnect.php");  
-
+				$sql = "SELECT * FROM users";
+				$result = $db->query($db);
+				while ($row = $result->fetch_array()){
+					echo $row['username'];
+				}
+	
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);

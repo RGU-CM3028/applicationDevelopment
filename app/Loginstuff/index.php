@@ -67,7 +67,7 @@ if (isset($_SESSION['username']))
     
     <!--This is a link to signup to the site-->
     <a href="signupform.php">Signup</a>
-
+    <a href="Tempadminform.php">Temp Admin signup</a>
 <? } ?>
 
 </body>

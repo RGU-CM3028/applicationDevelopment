@@ -29,8 +29,8 @@ function displayAccessLevelInformation($accessLevel){
 					<option value="">Select...</option>
 					<?
 					$sql = "SELECT username FROM users";
-					$result = mysql_query($sql);
-					while ($row = mysql_fetch_array($result)) {
+					$result = mysqli_query($sql);
+					while ($row = mysqli_fetch_array($result)) {
     						echo "<option value='" . $row['username'] ."'>" . $row['username'] ."</option>";
 					}
 					?>

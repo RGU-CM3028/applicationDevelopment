@@ -23,7 +23,7 @@
     ?>
     
     <!-- This is the form used for users to sign up -->
-    <form method="post" action="TempAdmin.php.php">
+    <form method="post" action="TempAdmin.php">
         <p><input type="text" name="username" value="" placeholder="Username please"></p>
         <p><input type="password" name="password" value="" placeholder="Password please"></p>
         <p><input type="password" name="passwordcheck" value="" placeholder="Confirm Password please"></p>

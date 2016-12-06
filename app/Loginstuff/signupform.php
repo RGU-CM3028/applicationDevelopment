@@ -6,6 +6,7 @@
 </head>
 <body>
     <?
+    //This connects the database and continues the session onto this page.
     session_start();
     include ("dbconnect.php");  
 	
@@ -24,7 +25,8 @@
 		    die();
 	    } else {
             ?>
-	
+	    
+	    <!--This is the header for the form-->
             <h1>Signup Form</h1>
 	
             <?

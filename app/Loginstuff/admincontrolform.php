@@ -39,7 +39,7 @@ if (isset($_SESSION['username'])){
         	echo "<p>User type is " . $_SESSION['userType'] . "</p>";
     	}
 	$boom = "SELECT * FROM users";
-    	$result = $db->query($sql);
+    	$result = $db->query($boom);
     	while($row = $result->fetch_array()){
         	echo "<p>All users are: " . $row['username'];
     	}

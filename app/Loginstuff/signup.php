@@ -10,10 +10,10 @@ $passwordcheck = $_POST["passwordcheck"];
 //Security checking V1.
 $myusername = stripslashes($myusername);
 $myusername = mysqli_real_escape_string($db, $myusername);
-$mypassword = stripslashes($mypassword);
-$mypassword = mysqli_real_escape_string($db, $mypassword);
-$passwordcheck = stripslashes($passwordcheck);
-$passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
+//$mypassword = stripslashes($mypassword);
+//$mypassword = mysqli_real_escape_string($db, $mypassword);
+//$passwordcheck = stripslashes($passwordcheck);
+//$passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
 $mypassword = sha256($mypassword);

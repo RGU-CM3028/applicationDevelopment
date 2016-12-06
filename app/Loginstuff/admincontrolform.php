@@ -25,7 +25,7 @@ function displayAccessLevelInformation($accessLevel){
 	//If the user is an admin, the following code works
 	if ($accessLevel == "admin") {
 						$sql = "SELECT * FROM users";
-				$result = $db->query($db);
+				$result = $db->query($sql);
 				while ($row = $result->fetch_array()){
 					echo $row['username'];
 				}

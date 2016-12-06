@@ -24,11 +24,11 @@ function displayAccessLevelInformation($accessLevel){
     			<p><input type="text" name="username" value="" placeholder="Username please"></p>
     			<p><input type="password" name="password" value="" placeholder="Placeholder please"></p>
     			<p class="submit"><input type="submit" name="commit" value="Submit"></p>
-			<p>What is your Gender?
-				<select name="formGender">
+			<p>Please select a user:
+				<select name="formuser">
 					<option value="">Select...</option>
-					<option value="M">Male</option>
-					<option value="F">Female</option>
+					<option value="Test">Male</option>
+					<option value="Test">Female</option>
 				</select>
 			</p>
     		</form>

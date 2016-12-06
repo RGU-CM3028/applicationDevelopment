@@ -32,7 +32,7 @@ function displayAccessLevelInformation($accesslevel){
 <h1>Admin control panel</h1>
 <!-- This is the form used for the admin to control other users privilages -->
 <p>Note: You cant delete yourself. This is so there is always an admin on the system.</p>
-?>
+<?
 	
 //This nabs basic user info so the page says who is on it.
 if (isset($_SESSION['username'])){

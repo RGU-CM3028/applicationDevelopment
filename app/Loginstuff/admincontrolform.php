@@ -39,7 +39,7 @@ if (isset($_SESSION['username'])){
 	
 	<!--This is the control panel for the admin-->
 	<h1>Admin control panel</h1>
-        <!-- This is the form used for users to sign up -->
+        <!-- This is the form used for the admin to control other users privilages -->
         <form method="post" action="admincontrol.php">
         	<p><input type="text" name="username" value="" placeholder="Username"></p>
                 <p><input type="password" name="password" value="" placeholder="Password please"></p>
@@ -57,7 +57,7 @@ if (isset($_SESSION['username'])){
 		echo "</select>";
 		?>
 		
-                <p class="submit"><input type="submit" name="commit" value="Login"></p>
+                <p class="submit"><input type="submit" name="commit" value="Submit"></p>
         </form>
     	<!--This is a link to logout the site-->
     	<a href="logout.php">Logout</a>

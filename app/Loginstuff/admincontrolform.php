@@ -18,10 +18,8 @@ function displayAccessLevelInformation($accessLevel){
 	else 
 	{
 		echo "You cant enter here!";
-		?>
-		<!--This would lead you back to the main page-->    
-		<a href="index.php">Return to index page</a>    
-		<?
+		header("location:signupform.php?empty=1");
+		die();
 	}
 		
 }

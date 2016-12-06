@@ -2,10 +2,9 @@
 //Code that connects the database here.
 include ("dbconnect.php");
 
-//html change safety check. This ensures variables wont produce any errors at all
+//html change safety check. This is to catch out any attempt to change variables and so on in the html.
 $myusername = "";
 $mypassword = "";
-
 if(isset($_POST['username'])) {
     // id index exists
 } else {

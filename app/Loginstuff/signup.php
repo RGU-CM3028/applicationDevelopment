@@ -2,10 +2,6 @@
 //This connects the database here.
 include ("dbconnect.php");
 
--ini_set('display_errors', 1);
- -ini_set('display_startup_errors', 1);
- -error_reporting(E_ALL);
-
 //This is the fields from the signup form.
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
@@ -42,14 +38,14 @@ if (strpos($passwordcheck, ' ') !== false) {
 
 //This tests to see if there is any spaces in the text
 if($userspace=='true' || $passspace=='true' || $pass2space=='true') {
-    //header("location:signupform.php?space=1");
+    header("location:signupform.php?space=1");
     die();
 }
 
 //This checks to see if the fields are empty or not.
 if(empty($myusername) || empty($mypassword) || empty($passwordcheck))
     {
-    //header("location:signupform.php?empty=1");
+    header("location:signupform.php?empty=1");
     die();
 }
 
@@ -57,7 +53,7 @@ if(empty($myusername) || empty($mypassword) || empty($passwordcheck))
 $dup = mysqli_query($db, "SELECT username FROM users WHERE username='$myusername'");
 $userchecker = mysqli_fetch_assoc($dup);
 if(mysqli_num_rows($dup) >0){
-    //header("location:signupform.php?dup=1");
+    header("location:signupform.php?dup=1");
     die();
 } 
 
@@ -68,14 +64,14 @@ if($mypassword==$passwordcheck) {
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($db);
     }
-    //session_start();
-    //$_SESSION['username'] = $myusername;
-    //$_SESSION['userType'] = 'reader';
-    //header("location:index.php");
+    session_start();
+    $_SESSION['username'] = $myusername;
+    $_SESSION['userType'] = 'reader';
+    header("location:index.php");
     $sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'reader')";
     
 } else {
-    //header("location:signupform.php?same=1");
+    header("location:signupform.php?same=1");
     die();
 }
 ?>

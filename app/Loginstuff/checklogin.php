@@ -13,7 +13,7 @@ $mypassword = stripslashes($mypassword);
 $mypassword = mysqli_real_escape_string($db,$mypassword);
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
-$mypassword = sha256($mypassword);
+$mypassword = hash('sha256', $mypassword);
 
 $salt =
 //Code that checks to see if any usernames and password pairs match any in the database.

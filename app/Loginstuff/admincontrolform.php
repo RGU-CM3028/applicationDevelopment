@@ -1,4 +1,11 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+</head>
+<body>
+	<?php
 //This starts the sessions. And connects the database here..
 session_start();
 include ("dbconnect.php");  
@@ -54,3 +61,7 @@ function displayAccessLevelInformation($accessLevel){
 	}
 		
 }
+	?>
+</body>
+</html>
+

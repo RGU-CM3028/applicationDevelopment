@@ -16,14 +16,6 @@
 		
 	//This displays the function contents	
     	displayAccessLevelInformation($accesslevel);
-if (isset($_SESSION['username'])){
-    echo "<p>Hello " . $_SESSION['username'] . "</p>";
-    $sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "'";
-    $result = $db->query($sql);
-    while($row = $result->fetch_array()){
-        echo "<p>User type is " . $_SESSION['userType'] . "</p>";
-    }
-	
 	
     	//This is the function doing its magic on a set piece of code.	
     	function displayAccessLevelInformation($accesslevel){

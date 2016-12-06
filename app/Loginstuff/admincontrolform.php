@@ -59,9 +59,9 @@ if (isset($_SESSION['username'])){
 		<input type="radio" name="type" value="" id="safe" />
  			<label for="safe">Dont do a thing</label>
 		<input type="radio" name="type" value="reader" id="reader" />
- 			<label for="single1">Delete</label>
+ 			<label for="single1">reader</label>
  		<input type="radio" name="type" value="admin" id="admin" />
- 			<label for="type">Promote</label>
+ 			<label for="type">admin</label>
 		<input type="radio" name="type" value="" id="" />
  			<label for="type">Unspecified</label>
 		

@@ -23,7 +23,7 @@ function displayAccessLevelInformation($accessLevel){
     		<form method="post" action="admincontrols.php">
     			<p><input type="text" name="username" value="" placeholder="Username please"></p>
     			<p><input type="password" name="password" value="" placeholder="Placeholder please"></p>
-    			<p class="submit"><input type="submit" name="commit" value="Login"></p>
+    			<p class="submit"><input type="submit" name="commit" value="Submit"></p>
     		</form>
 
             	<!-- This is used to return to the login screen-->

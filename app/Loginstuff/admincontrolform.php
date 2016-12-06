@@ -7,9 +7,6 @@
 <body>
 	
 <?
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 //This starts the sessions. And connects the database here.
 session_start();
 include ("dbconnect.php");  
@@ -29,6 +26,13 @@ function displayAccessLevelInformation($accesslevel){
 		die();
 	}
 }
+?>
+	
+<!--This is the control panel for the admin-->
+<h1>Admin control panel</h1>
+<!-- This is the form used for the admin to control other users privilages -->
+<p>Note: You cant delete yourself. This is so there is always an admin on the system.</p>
+?>
 	
 //This nabs basic user info so the page says who is on it.
 if (isset($_SESSION['username'])){
@@ -38,17 +42,7 @@ if (isset($_SESSION['username'])){
     	while($row = $result->fetch_array()){
         	echo "<p>User type is " . $_SESSION['userType'] . "</p>";
     	}
-	$boom = "SELECT * FROM users";
-    	$result = $db->query($boom);
-    	while($row = $result->fetch_array()){
-        	echo "<p>All users are: " . $row['username'];
-    	}
     	?>
-	
-	<!--This is the control panel for the admin-->
-	<h1>Admin control panel</h1>
-        <!-- This is the form used for the admin to control other users privilages -->
-	<p>Note: You cant delete yourself. This is so there is always an admin on the system.</p>
 	
         <form method="post" action="admincontrol.php">
 		

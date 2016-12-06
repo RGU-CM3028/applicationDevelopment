@@ -19,3 +19,15 @@ $adminusername = mysqli_real_escape_string($db,$adminusername);
 echo $adminchoice;
 echo $adminuserchoice;
 echo $adminusername;
+
+if($adminchoice == "delete"){
+  echo "delete oh noes";
+} elseif($adminchoice == "usertype") {
+  echo "usertype bro";
+} elseif($adminchoice == "") {
+  echo "Nothing is there";
+}
+
+//reference
+//$sql = "DELETE FROM MyGuests WHERE id=3";
+//$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";

@@ -46,6 +46,18 @@ if (isset($_SESSION['username'])){
 		
 		<p>Please select a user:</p>
 		
+		<?
+		$sql = "SELECT * FROM users";
+		$result = mysqli_query($db, $sql);
+		echo "<select name='username'>";
+		echo "<option value="">Select...</option>";
+		while ($row = mysqli_fetch_array($result)) {
+    			echo "<option value='" . $row['username'] ."'>" . $row['username'] ."</option>";
+		}
+		echo "</select>";
+		?>
+
+		
                 <p class="submit"><input type="submit" name="commit" value="Login"></p>
         </form>
     	<!--This is a link to logout the site-->

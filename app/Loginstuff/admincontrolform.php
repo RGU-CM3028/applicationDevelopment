@@ -9,11 +9,6 @@
 //This starts the sessions. And connects the database here..
 session_start();
 include ("dbconnect.php");  
-				$sql = "SELECT * FROM users";
-				$result = $db->query($db);
-				while ($row = $result->fetch_array()){
-					echo $row['username'];
-				}
 	
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -29,6 +24,11 @@ function displayAccessLevelInformation($accessLevel){
 	
 	//If the user is an admin, the following code works
 	if ($accessLevel == "admin") {
+						$sql = "SELECT * FROM users";
+				$result = $db->query($db);
+				while ($row = $result->fetch_array()){
+					echo $row['username'];
+				}
 		?>
 		<!--This is the control panel instructions(version1)-->    
 		<p>This is where the admin would select a user from the dropbox of all users, then selects who they want to make an admin.</p> 

@@ -37,6 +37,14 @@ function displayAccessLevelInformation($accessLevel){
     			<p><input type="password" name="password" value="" placeholder="Placeholder please"></p>
     			<p class="submit"><input type="submit" name="commit" value="Submit"></p>
 			<p>Please select a user:
+				<?
+				$sql = "SELECT * FROM users";
+				$result = mysql_query($sql);
+				while ($row = mysqli_fetch_array($result)) {
+					echo $row['username'];
+				}
+
+					?>
 
 			</p>
     		</form>

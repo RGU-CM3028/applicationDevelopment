@@ -53,24 +53,23 @@ if (isset($_SESSION['username'])){
         <form method="post" action="admincontrol.php">
 		
 		<!--This is how the admin will select how to edit the profiles-->
-		<p>Please select what you want to do with the profile:</p>
-		<input type="radio" name="complete" value="" id="safe" />
- 			<label for="safe">Dont do a thing</label>
-		<input type="radio" name="complete" value="delete" id="delete" />
- 			<label for="delete">Delete a user</label>
- 		<input type="radio" name="complete" value="usertype" id="usertype" />
- 			<label for="usertype">Change usertype</label>
+		<p>Please select what you want to do with the profile:
+		<select name='choice'>
+			<option value="">Select...</option>
+			<option value="delete">Delete user</option>
+			<option value="usertype">Change usertype</option>
+		</select>
+		</p>
 		
 		<!--This is how the admin will select what usertype to give a user-->
-		<p>If you are changing a users "usertype", please select it here:</p>
-		<input type="radio" name="type" value="" id="safe" />
- 			<label for="safe">Dont do a thing</label>
-		<input type="radio" name="type" value="reader" id="reader" />
- 			<label for="single1">reader</label>
- 		<input type="radio" name="type" value="admin" id="admin" />
- 			<label for="type">admin</label>
-		<input type="radio" name="type" value="" id="" />
- 			<label for="type">Unspecified</label>
+		<p>If you are changing a users "usertype", please select it here:
+		<select name='usertype'>
+			<option value="">Select...</option>
+			<option value="reader">reader</option>
+			<option value="admin">admin</option>
+			<option value="unspecified">Unspecified</option>
+		</select>
+		</p>
 		
 		<!--This is how the admin will say what user is going to be edited or deleted-->
 		<p>Please select a user:

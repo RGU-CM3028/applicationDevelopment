@@ -14,9 +14,9 @@ $mypassword = stripslashes($mypassword);
 $mypassword = mysqli_real_escape_string($db, $mypassword);
 $passwordcheck = stripslashes($passwordcheck);
 $passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
-$salt = "qwertgfdert45t456545655";
-$mypassword = $mypassword.$salt;
-$mypassword = sha256($mypassword);
+//$salt = "qwertgfdert45t456545655";
+//$mypassword = $mypassword.$salt;
+//$mypassword = sha256($mypassword);
 
 //This declairs the boolians so they dont cause an error
 $userspace = 'false';

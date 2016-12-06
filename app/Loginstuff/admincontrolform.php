@@ -47,7 +47,12 @@ if (isset($_SESSION['username'])){
         	<p><input type="text" name="username" value="" placeholder="Username"></p>
                 <p><input type="password" name="password" value="" placeholder="Password please"></p>
 		
-		<p>Please select a user:</p>
+		<p>Please select a user:
+		<select name='username'>
+			<option value="">Select...</option>
+		</select>
+
+		</p>
 		
 
 		

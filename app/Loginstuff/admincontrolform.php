@@ -24,11 +24,12 @@ function displayAccessLevelInformation($accessLevel){
 	
 	//If the user is an admin, the following code works
 	if ($accessLevel == "admin") {
-						$sql = "SELECT * FROM users";
-				$result = $db->query($sql);
-				while ($row = $result->fetch_array()){
-					echo $row['username'];
-				}
+		echo "<p>Hello " . $_SESSION['username'] . "</p>";
+    		$sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "'";
+    		$result = $db->query($sql);
+    		while($row = $result->fetch_array()){
+        		echo "<p>User type is " . $_SESSION['userType'] . "</p>";
+    		}
 		?>
 		<!--This is the control panel instructions(version1)-->    
 		<p>This is where the admin would select a user from the dropbox of all users, then selects who they want to make an admin.</p> 

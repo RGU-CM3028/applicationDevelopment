@@ -15,6 +15,12 @@ $adminuserchoice = mysqli_real_escape_string($db,$adminuserchoice);
 $adminusername = stripslashes($adminusername);
 $adminusername = mysqli_real_escape_string($db,$adminusername);
 
+//HTML change safety check
+if($adminchoice != "delete" || $adminchoice != "usertype" || $adminchoice != ""){
+  echo "Oh no you dont get to change the html on us";
+  die();
+}
+
 //needs rest of code
 if($adminchoice == "delete"){
   echo "delete oh noes";

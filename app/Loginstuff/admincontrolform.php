@@ -43,9 +43,32 @@ if (isset($_SESSION['username'])){
 	<!--This is the control panel for the admin-->
 	<h1>Admin control panel</h1>
         <!-- This is the form used for the admin to control other users privilages -->
+	<p>Note: You cant delete yourself. This is so there is always an admin on the system.</p>
+	
         <form method="post" action="admincontrol.php">
-        	<p><input type="text" name="username" value="" placeholder="Username"></p>
-                <p><input type="password" name="password" value="" placeholder="Password please"></p>
+		
+		<p>Please select what you want to do with the profile:</p>
+		<input type="radio" name="complete" value="" id="safe" />
+ 			<label for="safe">Dont do a thing</label>
+		<input type="radio" name="complete" value="delete" id="delete" />
+ 			<label for="delete">Delete a user</label>
+ 		<input type="radio" name="complete" value="usertype" id="usertype" />
+ 			<label for="usertype">Change usertype</label>
+		
+		<p>If you are changing a users "usertype", please select it here:</p>
+		<input type="radio" name="type" value="" id="safe" />
+ 			<label for="safe">Dont do a thing</label>
+		<input type="radio" name="type" value="reader" id="reader" />
+ 			<label for="single1">Delete</label>
+ 		<input type="radio" name="type" value="admin" id="admin" />
+ 			<label for="type">Promote</label>
+		<input type="radio" name="type" value="" id="" />
+ 			<label for="type">Unspecified</label>
+		
+		<p>Please select a user:
+		<select name='username'>
+			<option value="">Select...</option>
+		</select>
 		
 		<p>Please select a user:
 		<select name='username'>

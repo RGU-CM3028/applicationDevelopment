@@ -26,7 +26,7 @@ if(isset($_POST['username'])) {
 $adminchoice = $_POST["choice"];
 $adminuserchoice = $_POST["usertype"];
 $adminusername = $_POST["username"];
-
+ 
 //Security checks Version1
 $adminchoice = stripslashes($adminchoice);
 $adminchoice = mysqli_real_escape_string($db,$adminchoice);

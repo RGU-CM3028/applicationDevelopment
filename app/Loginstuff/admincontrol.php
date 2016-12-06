@@ -20,6 +20,25 @@ if($adminchoice != "delete" || $adminchoice != "usertype" || $adminchoice != "")
   echo "Oh no you dont get to change the html on us";
   die();
 }
+if($adminuserchoice != "reader" || $adminuserchoice != "admin" || $adminuserchoice != "unspecified" || $adminuserchoice != ""){
+  echo "Oh no you dont get to change the html on us";
+  die();
+}
+
+
+//Code that checks to see if any usernames and password pairs match any in the database.
+$sql = "SELECT * FROM users WHERE username ='". $adminusername . "' LIMIT 1;";
+$result = $db->query($sql);
+$checker = 0;
+while($row = $result->fetch_array()) {
+    $checker = 1;
+} 
+
+}
+if($checker != 1, $adminchoice != ""){
+  echo "Oh no you dont get to change the html on us";
+  die();
+}
 
 //needs rest of code
 if($adminchoice == "delete"){

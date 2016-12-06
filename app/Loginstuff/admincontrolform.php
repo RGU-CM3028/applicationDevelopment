@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Signup Form</title>
+    <title>Admin Control panel</title>
 </head>
 <body>
 	
@@ -47,16 +47,15 @@ if (isset($_SESSION['username'])){
 		<p>Please select a user:</p>
 		
 		<?
-		$sql = "SELECT * FROM users";
-		$result = mysqli_query($db, $sql);
+	    	$sql = "SELECT * FROM users";
+    		$result = $db->query($sql);
 		echo "<select name='username'>";
 		echo "<option value="">Select...</option>";
-		while ($row = mysqli_fetch_array($result)) {
-    			echo "<option value='" . $row['username'] ."'>" . $row['username'] ."</option>";
-		}
+    		while($row = $result->fetch_array()){
+        		echo "<option value='" . $row['username'] ."'>" . $row['username'] ."</option>";
+    		}
 		echo "</select>";
 		?>
-
 		
                 <p class="submit"><input type="submit" name="commit" value="Login"></p>
         </form>

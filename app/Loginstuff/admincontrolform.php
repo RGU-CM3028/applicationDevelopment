@@ -27,8 +27,8 @@ function displayAccessLevelInformation($accessLevel){
 			<p>Please select a user:
 				<select name="formuser">
 					<option value="">Select...</option>
-					<option value="Test">Male</option>
-					<option value="Test">Female</option>
+					<option value="Test">Test</option>
+					<option value="Test2">Test2</option>
 				</select>
 			</p>
     		</form>

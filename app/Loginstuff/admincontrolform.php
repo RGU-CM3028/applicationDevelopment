@@ -38,6 +38,11 @@ if (isset($_SESSION['username'])){
     	while($row = $result->fetch_array()){
         	echo "<p>User type is " . $_SESSION['userType'] . "</p>";
     	}
+	$boom = "SELECT * FROM users";
+    	$result = $db->query($sql);
+    	while($row = $result->fetch_array()){
+        	echo "<p>All users are: " . $row['username'];
+    	}
     	?>
 	
 	<!--This is the control panel for the admin-->
@@ -47,6 +52,7 @@ if (isset($_SESSION['username'])){
 	
         <form method="post" action="admincontrol.php">
 		
+		<!--This is how the admin will select how to edit the profiles-->
 		<p>Please select what you want to do with the profile:</p>
 		<input type="radio" name="complete" value="" id="safe" />
  			<label for="safe">Dont do a thing</label>
@@ -55,6 +61,7 @@ if (isset($_SESSION['username'])){
  		<input type="radio" name="complete" value="usertype" id="usertype" />
  			<label for="usertype">Change usertype</label>
 		
+		<!--This is how the admin will select what usertype to give a user-->
 		<p>If you are changing a users "usertype", please select it here:</p>
 		<input type="radio" name="type" value="" id="safe" />
  			<label for="safe">Dont do a thing</label>
@@ -65,16 +72,11 @@ if (isset($_SESSION['username'])){
 		<input type="radio" name="type" value="" id="" />
  			<label for="type">Unspecified</label>
 		
+		<!--This is how the admin will say what user is going to be edited or deleted-->
 		<p>Please select a user:
 		<select name='username'>
 			<option value="">Select...</option>
 		</select>
-		
-		<p>Please select a user:
-		<select name='username'>
-			<option value="">Select...</option>
-		</select>
-
 		</p>
 		
 

@@ -18,12 +18,19 @@ function displayAccessLevelInformation($accessLevel){
 		<p>This is also where the admin can delete users.</p>
 		<p>This is where the admin .</p>
 
-		<!--This is where the controls would go--> 
+		<!--This is where the controls would go(version1)--> 
 		<h1>Admin controls</h1>
     		<form method="post" action="admincontrols.php">
     			<p><input type="text" name="username" value="" placeholder="Username please"></p>
     			<p><input type="password" name="password" value="" placeholder="Placeholder please"></p>
     			<p class="submit"><input type="submit" name="commit" value="Submit"></p>
+			<p>What is your Gender?
+				<select name="formGender">
+					<option value="">Select...</option>
+					<option value="M">Male</option>
+					<option value="F">Female</option>
+				</select>
+			</p>
     		</form>
 
             	<!-- This is used to return to the login screen-->

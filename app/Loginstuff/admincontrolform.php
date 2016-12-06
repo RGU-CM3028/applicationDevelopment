@@ -76,6 +76,13 @@ if (isset($_SESSION['username'])){
 		<p>Please select a user:
 		<select name='username'>
 			<option value="">Select...</option>
+			<?
+			$boom = "SELECT * FROM users";
+    			$result = $db->query($boom);
+    			while($row = $result->fetch_array()){
+				echo "<option value='" . $row['username'] ."'>" . $row['username'] ."</option>";
+    			}
+			?>
 		</select>
 		</p>
 		

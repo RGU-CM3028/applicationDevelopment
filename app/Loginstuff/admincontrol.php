@@ -16,10 +16,6 @@ $adminusername = stripslashes($adminusername);
 $adminusername = mysqli_real_escape_string($db,$adminusername);
 
 //needs rest of code
-echo $adminchoice;
-echo $adminuserchoice;
-echo $adminusername;
-
 if($adminchoice == "delete"){
   echo "delete oh noes";
 } elseif($adminchoice == "usertype") {

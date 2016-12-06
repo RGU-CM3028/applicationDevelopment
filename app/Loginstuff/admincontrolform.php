@@ -49,16 +49,7 @@ if (isset($_SESSION['username'])){
 		
 		<p>Please select a user:</p>
 		
-		<?
-	    	$sql = "SELECT * FROM users";
-    		$result = $db->query($sql);
-		echo "<select name='username'>";
-		echo "<option value="">Select...</option>";
-    		while($row = $result->fetch_array()){
-        		echo "<option value='" . $row['username'] ."'>" . $row['username'] ."</option>";
-    		}
-		echo "</select>";
-		?>
+
 		
                 <p class="submit"><input type="submit" name="commit" value="Submit"></p>
         </form>

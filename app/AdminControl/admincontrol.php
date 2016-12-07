@@ -23,24 +23,7 @@ function displayAccessLevelInformation($accesslevel){
 $adminchoice = "";
 $adminuserchoice = "";
 $adminusername = "";
-if(isset($_POST['choice'])) {
-//safe
-} else {
-    header("location:admincontrolform.php?Fail=1");
-    die();
-}
-if(isset($_POST['usertype'])) {
-//safe
-} else {
-    header("location:admincontrolform.php?Fail=1");
-    die();
-}
-if(isset($_POST['username'])) {
-//Safe
-} else {
-    header("location:admincontrolform.php?Fail=1");
-    die();
-}
+
 
 //information from the index form.
 $adminchoice = $_POST["choice"];

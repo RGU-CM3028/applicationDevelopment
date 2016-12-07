@@ -1,6 +1,7 @@
 <?php
 //This connects the database here.
-include ("dbconnect.php");
+//include ("dbconnect.php");
+include("../dbconnect.php");
 
 //This is the fields from the signup form.
 $myusername = $_POST["username"];

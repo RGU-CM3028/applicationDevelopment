@@ -6,9 +6,6 @@
 </head>
 <body>
     <?
-	ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
     //This connects the database and continues the session onto this page.
     session_start();
     include("../dbconnect.php");

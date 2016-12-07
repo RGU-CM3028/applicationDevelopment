@@ -1,4 +1,4 @@
-<?php
+<?
 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $isIndex = true;
 if(strpos($actual_link, 'pages') == true) {
@@ -11,7 +11,7 @@ if(strpos($actual_link, 'pages') == true) {
 <a href="index.php" title="Sportlethen | Home"><img src="images/banner.png" class="banner" alt="Sportlethen"></a>
 <p class="copytext">2016 &copy; Sportlethen. All Rights Reserved.</p>
 <p class="footer-sponser">
-  <?php if($isIndex) {
+  <? if($isIndex) {
     <a href=""><img src="images/sportscotland.png" class="img1"></a>
     <a href=""><img src="images/aderdeencouncil.png" class="img2"></a>
 

@@ -1,6 +1,5 @@
 <?php
 //This connects the database here.
-//include ("dbconnect.php");
 include("../dbconnect.php");
 
 //This is the fields from the signup form.
@@ -39,7 +38,7 @@ if (strpos($passwordcheck, ' ') !== false) {
 
 //This tests to see if there is any spaces in the text
 if($userspace=='true' || $passspace=='true' || $pass2space=='true') {
-    header("location:signupform.php?space=1");
+    header("location:Tempadminform.php?space=1");
     die();
 }
 

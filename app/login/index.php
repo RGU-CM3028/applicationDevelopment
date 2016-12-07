@@ -11,8 +11,14 @@
 session_start();  
 include("../dbconnect.php");
 
+//Check to see if usertype is defined	
+$accesslevel = "";
+if(isset($_SESSION['usertype'])) {
+    $accesslevel = $_SESSION['userType'];
+}
+	
 //This prepares the accesslevel.
-$accesslevel = $_SESSION['userType'];
+//$accesslevel = $_SESSION['userType'];
 	
 //This displays the function contents	
 displayAccessLevelInformation($accesslevel);

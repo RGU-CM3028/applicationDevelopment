@@ -1,6 +1,22 @@
 <?php
-//Code that connects the database here.
-include ("dbconnect.php");
+session_start();
+include ("dbconnect.php");  
+	
+//This prepares the accesslevel.
+$accesslevel = $_SESSION['userType'];
+	
+//This displays the function contents	
+displayAccessLevelInformation($accesslevel);
+	
+//This is the function doing its magic on a set piece of code.	
+function displayAccessLevelInformation($accesslevel){
+	//This checks to see if the user is an admin or not.
+	if ($accesslevel != "admin") {
+		//This sends already signed in users back to the index page
+		header("location:index.php");
+		die();
+	}
+}
 
 //First half of checking for html code changes
 if(isset($_POST['choice'])) {

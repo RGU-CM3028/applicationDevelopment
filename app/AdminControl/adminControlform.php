@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin Control panel</title>
-</head>
-<body>
-	
 <?
+// imports the header/navigation
+include("inc/header.inc");
+
 //This starts the sessions. And connects the database here.
 session_start();
 include("../dbconnect.php"); 
@@ -88,6 +83,6 @@ if (isset($_SESSION['username'])){
 	<a href="../index.php">Return to login screen</a>
 	<?
 }
+// imports the footer
+include("inc/footer.inc");
     ?> 
-</body>
-</html>

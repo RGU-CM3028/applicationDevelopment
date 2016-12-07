@@ -30,21 +30,58 @@ if(strpos($actual_link, 'pages') == true) {
 <div id="container">
 <header class="clearfix">
   <? if($isIndex) {
-    echo '<img src="images/logo.png" class="logo"><a href="../index.php"></a></img>
+    echo '<a href="../index.php"><img src="images/logo.png" class="logo"></a>
     <img src="images/banner.png" class="title"></h1>';
   } else {
-    echo '<img src="../../images/logo.png" class="logo"></img>
+    echo '<a href="../index.php"><img src="images/logo.png" class="logo"></a>
     <img src="../../images/banner.png" class="title"></h1>';
   }
 ?>
-<div id="login">
-<form name="userlogin" action="" method="POST" target="_self" class="login">
-<label>Username</label>
-<input type="text" name="username" maxlength="30">
-<label>Password</label><input type="password" name="userpass" maxlength="25">
-<input type="submit" value="submit">
-</form>
-</div>
+                    <div id="login">
+                        <!-- Button to open the Signup modal -->
+                        <a href="#" onclick="Login();return false;" id='loginBtn' class='loginModal' title='Login'>Login</a>
+                        <a href="#" onclick="Signup();return false;" id='signupBtn' class='signupModal' title='Signup'>Sign Up</a>
+                            <!-- User Login -->
+                            <div id="LoginModal" class="modal">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <span class="close">×</span>
+                                        <h2>Login!</h2>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form name="userlogin" action="" method="POST" target="_self" class="login">
+                                            <label>Username</label>
+                                            <input type="text" name="username" maxlength="30"><br>
+                                            <label>Password</label><input type="password" name="userpass" maxlength="25">
+                                            <input type="submit" value="submit">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div> <!-- End of Signup Modal -->
+                            <!-- End of User Login -->
+                        
+                        
+                        <!-- modal poppup for registering a user -->
+
+                        <div id="SignupModal" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close">×</span>
+                                    <h2>Sign Up!</h2>
+                                </div>
+                                <div class="modal-body">
+                                    <form name="register" action="signup.php" onsubmit="return validateForm()" method="POST" target="_self">
+                                        <label>Username</label><br>
+                                        <input type="text" name="username" maxlength="30"><br>
+                                        <label>Password</label><br><input type="password" name="userpass" maxlength="25"><br>
+                                        <label>Confirm Password</label><br><input type="password" name="userpass" maxlength="25"><br>
+                                        <input type="submit" value="submit">
+                                    </form>
+                                </div>
+                            </div>
+                        </div> <!-- End of Signup Modal -->
+                    </div>
+                    <script src="js/modal.js"></script>
 
 </header>
 <!-- Desktop navigation w:801 onwards -->

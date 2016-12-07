@@ -70,14 +70,14 @@ if (mysqli_num_rows($checkname) > 0) {
 //safe
 } else {
 	echo "name is the username";
-    //header("location:admincontrolform.php?nodata=1");
+    header("location:admincontrolform.php?nodata=1");
     die();
 }
 
 //This takes the user out to the control panel again if they chose themselfs to be edited.
 if ($adminusername == $_SESSION['username']){
 	echo "Username the same";
-	//header("location:admincontrolform.php?Fail=2");
+	header("location:admincontrolform.php?same=1");
    	die();
 } else {
 	echo "You are safe";
@@ -96,5 +96,7 @@ if($adminchoice == "delete"){
     	die();
 } elseif($adminchoice == "") {
   	echo "Nothing is there";
+	header("location:admincontrolform.php?select=1");
+    	die();
 }
 ?>

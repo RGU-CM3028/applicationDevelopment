@@ -62,7 +62,7 @@ if(strpos($actual_link, 'pages') == true) {
 						echo "<p>User type is " . $_SESSION['userType'] . "</p>";
 						?>
 						<!--This is a link to logout the site-->
-						<a href="logout.php">Logout</a> 
+						<a href="../../login/logout.php">Logout</a> 
 						<?
 					}	
 					//If the user isnt logged in then they see the following form. To log in.
@@ -83,7 +83,7 @@ if(strpos($actual_link, 'pages') == true) {
 					</form>
     
     					<!--This is a link to signup to the site-->
-    					<a href="signupform.php">Signup</a>
+    					<a href="../../login/signupform.php">Signup</a>
 				<? } ?>
 				
 				

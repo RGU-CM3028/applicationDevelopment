@@ -1,6 +1,7 @@
 <?php
 session_start();
-include ("dbconnect.php");  
+include("../dbconnect.php");
+//include ("dbconnect.php");  
 	
 //This prepares the accesslevel.
 $accesslevel = $_SESSION['userType'];

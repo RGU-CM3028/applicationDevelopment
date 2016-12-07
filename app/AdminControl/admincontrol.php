@@ -91,7 +91,7 @@ if($adminchoice == "delete"){
     	die();
 } elseif($adminchoice == "usertype") {
   	echo "usertype bro";
-	$sql = "UPDATE users SET userType='$adminuserchoice' WHERE username='$adminusername'";
+	$sql = "UPDATE users SET userType=$adminuserchoice WHERE username=$adminusername";
 	//header("location:admincontrolform.php");
     	die();
 } elseif($adminchoice == "") {

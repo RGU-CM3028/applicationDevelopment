@@ -62,16 +62,13 @@ $adminusername = stripslashes($adminusername);
 $adminusername = mysqli_real_escape_string($db,$adminusername);
 
 
-$checkname = mysql_query("SELECT * from users WHERE username = '$adminusername'");
-
+$checkname = mysqli_query("SELECT * from users WHERE username = '$adminusername'");
 if (!$checkname) {
     die('Query failed to execute for some reason');
 }
-
-
-if (mysql_num_rows($checkname) > 0) {
+if (mysqli_num_rows($checkname) > 0) {
     echo "User id exists already.";
-    $user = mysql_fetch_array($checkname);
+    $user = mysqli_fetch_array($checkname);
     print_r($user); // the data returned from the query
 }
 

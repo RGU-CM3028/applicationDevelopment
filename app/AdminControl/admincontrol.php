@@ -19,7 +19,7 @@ function displayAccessLevelInformation($accesslevel){
 	}
 }
 
-//First half of checking for html code changes
+//First half of checking for html code changes. This ensures no code past this is activated if the user somehow changed the html to access this page
 $adminchoice = "";
 $adminuserchoice = "";
 $adminusername = "";
@@ -55,6 +55,14 @@ $adminuserchoice = mysqli_real_escape_string($db,$adminuserchoice);
 $adminusername = stripslashes($adminusername);
 $adminusername = mysqli_real_escape_string($db,$adminusername);
 
+//This takes the user out to the control panel again if they chose themsefl to be edited.
+if ($adminusername == $_SESSION['username']){
+	header("location:admincontrolform.php?Fail=1");
+   	die();
+} else {
+	echo "You are safe";
+}
+
 //needs rest of code
 if($adminchoice == "delete"){
   echo "delete oh noes";
@@ -63,6 +71,7 @@ if($adminchoice == "delete"){
 } elseif($adminchoice == "") {
   echo "Nothing is there";
 }
+
 //reference
 //choice values = "", "delete", "usertype"
 //usertype values - "", "reader", "admin", "unspecified"

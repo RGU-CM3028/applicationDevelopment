@@ -75,7 +75,7 @@ if(strpos($actual_link, 'pages') == true) {
     					?>
     
     					<!--This is the form used to login-->
-					<form method="post" action="checklogin.php">
+					<form method="post" action="../../login/checklogin.php">
 					<!--<form name="userlogin" action="checklogin.php" method="POST" target="_self" class="login">-->
 						<label>Username</label><input type="text" name="username" maxlength="30">
 						<label>Password</label><input type="password" name="userpass" maxlength="25">

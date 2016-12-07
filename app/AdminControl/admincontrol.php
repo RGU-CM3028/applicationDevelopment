@@ -23,7 +23,24 @@ function displayAccessLevelInformation($accesslevel){
 $adminchoice = "";
 $adminuserchoice = "";
 $adminusername = "";
-
+if(isset($_POST['choice'])) {
+//safe
+} else {
+    header("location:admincontrolform.php?Fail=1");
+    die();
+}
+if(isset($_POST['usertype'])) {
+//safe
+} else {
+    header("location:admincontrolform.php?Fail=1");
+    die();
+}
+if(isset($_POST['username'])) {
+//Safe
+} else {
+    header("location:admincontrolform.php?Fail=1");
+    die();
+}
 
 //information from the index form.
 $adminchoice = $_POST["choice"];
@@ -40,7 +57,7 @@ $adminusername = mysqli_real_escape_string($db,$adminusername);
 
 //This takes the user out to the control panel again if they chose themsefl to be edited.
 if ($adminusername == $_SESSION['username']){
-	header("location:admincontrolform.php?Fail=1");
+	header("location:admincontrolform.php?Fail=2");
    	die();
 } else {
 	echo "You are safe";

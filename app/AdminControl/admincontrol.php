@@ -58,14 +58,6 @@ $adminuserchoice = mysqli_real_escape_string($db,$adminuserchoice);
 $adminusername = stripslashes($adminusername);
 $adminusername = mysqli_real_escape_string($db,$adminusername);
 
-//This checks to see if the username is taken or not.
-$dup = mysqli_query($db, "SELECT username FROM users WHERE username='$adminusername'");
-$userchecker = mysqli_fetch_assoc($dup);
-if(mysqli_num_rows($dup) =0){
-    header("location:adminControlform.php?dup=1");
-    die();
-} 
-
 //needs rest of code
 if($adminchoice == "delete"){
   echo "delete oh noes";

@@ -37,8 +37,19 @@ if (isset($_SESSION['username'])){
     	while($row = $result->fetch_array()){
         	echo "<p>User type is " . $_SESSION['userType'] . "</p>";
     	}
-    	?>
-	
+
+	if (isset($_GET['Same'])){
+            echo "<p><font color='red'>Please ensure you dont pick your own username.</font></p>";
+        }
+        if (isset($_GET['nodata'])){
+            echo "<p><font color='red'>Please ensure you pick a valid user.</font></p>";
+        }
+        if (isset($_GET['fail'])){
+            echo "<p><font color='red'>Please don't edit the html.</font></p>";
+        }
+        if (isset($_GET['select'])){
+            echo "<p><font color='red'>Please pick a option on what to do to the profile.</font></p>";
+        }?>
         <form method="post" action="admincontrol.php">
 		
 		<!--This is how the admin will select how to edit the profiles-->

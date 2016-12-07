@@ -49,7 +49,14 @@ if (isset($_SESSION['username'])){
         }
         if (isset($_GET['select'])){
             echo "<p><font color='red'>Please pick a option on what to do to the profile.</font></p>";
-        }?>
+        }
+        if (isset($_GET['delete'])){
+            echo "<p><font color='green'>Record deleted.</font></p>";
+        }
+	if (isset($_GET['update'])){
+            echo "<p><font color='green'>Record updated.</font></p>";
+        }
+?>
         <form method="post" action="admincontrol.php">
 		
 		<!--This is how the admin will select how to edit the profiles-->

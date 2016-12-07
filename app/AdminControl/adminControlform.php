@@ -38,7 +38,7 @@ if (isset($_SESSION['username'])){
         	echo "<p>User type is " . $_SESSION['userType'] . "</p>";
     	}
 
-	if (isset($_GET['Same'])){
+	if (isset($_GET['same'])){
             echo "<p><font color='red'>Please ensure you dont pick your own username.</font></p>";
         }
         if (isset($_GET['nodata'])){

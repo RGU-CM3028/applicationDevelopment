@@ -2,19 +2,23 @@
 //Code that connects the database here.
 include("../dbconnect.php");
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 //html change safety check. This is to catch out any attempt to change variables and so on in the html.
 $myusername = "";
 $mypassword = "";
 if(isset($_POST['username'])) {
     // id index exists
 } else {
-    header("location:index.php?Loginfail=2");
+    //header("location:index.php?Loginfail=2");
     die();
 }
 if(isset($_POST['password'])) {
     // id index exists
 } else {
-    header("location:index.php?Loginfail=2");
+    //header("location:index.php?Loginfail=2");
     die();
 }
     
@@ -53,7 +57,7 @@ if($checker==1){
     session_start();
     $_SESSION['username'] = $myusername;
     $_SESSION['userType'] = $userType;
-    header("location:index.php");
+    //header("location:index.php");
 } else {
-    header("location:index.php?Loginfail=1");
+    //header("location:index.php?Loginfail=1");
 }

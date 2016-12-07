@@ -9,10 +9,11 @@ if(strpos($actual_link, 'pages') == true) {
 <footer class="clearfix">
 <div class="footer-left">
   <? if($isIndex) {
-    echo '<a href="index.php" title="Sportlethen | Home"><img src="images/banner.png" class="banner" alt="TeaKat Games"></a>';
+    echo '<a href="index.php" title="Sportlethen | Home"><img src="images/banner.png" class="banner" alt="Sportlethen"></a>';
   } else {
-    echo '<a href="index.php" title="Sportlethen | Home"><img src="../../images/banner.png" class="banner" alt="TeaKat Games"></a>';
+    echo '<a href="index.php" title="Sportlethen | Home"><img src="../../images/banner.png" class="banner" alt="Sportlethen"></a>';
   }
+
 ?>
 
 <p class="copytext">2016 &copy; Sportlethen. All Rights Reserved.</p>

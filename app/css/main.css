@@ -52,19 +52,44 @@ header{
 #login{
     position: relative;
     float: right;
-    right: 10%;
+    right: 20%;
     height: auto;
     width: auto;
     text-align: center;
-    padding: 1%;
 }
 
-.login{
+.btnModal{
+    position: relative;
+    padding: 2%;
+    float: right;
+    background-color: #ff9d00;
+    border: 1px solid #714c11;
+    text-decoration: none;
+    color: #fff;
+    padding: 10%;
+    display: inline-block;
+}
+
+.register{
+    position: relative;
+    width: 60%;
+    padding: 1%;
+    text-align: center;
+    line-height: 1.7rem;
     
 }
 
+.login{
+    position: relative;
+    width: 60%;
+    margin: auto;
+    padding: 1%;
+    text-align: center;
+    line-height: 2rem;
+
+}
 .login label, input{position: relative; text-align: center; padding: 1%;}
-.login input{background-color: #ffffff; border: 1px solid #05740e; padding: 1%;}
+.login input{background-color: #adadad; border: 1px solid #000; padding: 2%;}
 
 nav{
     position: relative;
@@ -127,6 +152,70 @@ footer li{color: #ffffff; text-align: left; }
 .contact{font-weight: bold; color: #ffffff; font-size: 2rem; text-align: center}
 .fa{color:#ffffff;}
 .fa:hover{color:#4c7eed;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+
+.modal-header{
+    background-color: #3c3c3c;
+    padding: 2%;
+    color: #ffc400;
+}
+
+.modal-body{
+    padding: 5%;
+    line-height: 1.7rem;
+}
+
+
+/* The Close Button */
+.close {
+    position: relative;
+    color: #aaa;
+    float: right;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0} 
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
 
 @media only screen and (max-width:1900px){
     nav{

@@ -33,7 +33,7 @@ header{
     position: relative;
     top: 0%;
     left: 0%;
-    background-color: ;
+    background-color: #46d651;
     height: 10%;
     width: 100%;
     border-bottom: 5px solid #0000ff;
@@ -45,7 +45,7 @@ header{
     float: left;
     height: 10%;
     width: 10%;
-}
+}#46d651
 
 .title{
     position: relative;

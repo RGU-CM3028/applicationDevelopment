@@ -27,19 +27,19 @@ $adminusername = "";
 if(isset($_POST['choice'])) {
 //safe
 } else {
-    header("location:admincontrolform.php?Fail=1");
+    header("location:admincontrolform2.php?Fail=1");
     die();
 }
 if(isset($_POST['usertype'])) {
 //safe
 } else {
-    header("location:admincontrolform.php?Fail=1");
+    header("location:admincontrolform2.php?Fail=1");
     die();
 }
 if(isset($_POST['username'])) {
 //Safe
 } else {
-    header("location:admincontrolform.php?Fail=1");
+    header("location:admincontrolform2.php?Fail=1");
     die();
 }
 //information from the index form.
@@ -61,12 +61,12 @@ if (!$checkname) {
 if (mysqli_num_rows($checkname) > 0) {
 //safe
 } else {
-    header("location:admincontrolform.php?nodata=1");
+    header("location:admincontrolform2.php?nodata=1");
     die();
 }
 //This takes the user out to the control panel again if they chose themselfs to be edited.
 if ($adminusername == $_SESSION['username']){
-	header("location:admincontrolform.php?same=1");
+	header("location:admincontrolform2.php?same=1");
    	die();
 } else {
 	echo "You are safe";
@@ -74,14 +74,14 @@ if ($adminusername == $_SESSION['username']){
 //needs rest of code
 if($adminchoice == "delete"){
   	$sql = "DELETE FROM users WHERE username='".$adminusername."' LIMIT1";
-	//header("location:admincontrolform.php");
+	//header("location:admincontrolform2.php");
     	die();
 } elseif($adminchoice == "usertype") {
 	$sql = "UPDATE users SET userType='".$adminuserchoice."' WHERE username='".$adminusername."'";
-	//header("location:admincontrolform.php");
+	//header("location:admincontrolform2.php");
     	die();
 } elseif($adminchoice == "") {
-	header("location:admincontrolform.php?select=1");
+	header("location:admincontrolform2.php?select=1");
     	die();
 }
 ?>

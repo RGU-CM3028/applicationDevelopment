@@ -82,7 +82,7 @@ if(mysqli_num_rows($dup) >0){
 
 //This compares the passwords. If the match then the user is created. If not then the user is told to check again.
 if($mypassword==$passwordcheck) {
-    $sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'reader')";
+    $sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'contributer')";
     if (mysqli_query($db, $sql)) {        
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($db);
@@ -91,7 +91,7 @@ if($mypassword==$passwordcheck) {
     $_SESSION['username'] = $myusername;
     $_SESSION['userType'] = 'reader';
     header("location:index.php");
-    $sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'reader')";
+    $sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'contributor')";
     
 } else {
     header("location:signupform.php?same=1");

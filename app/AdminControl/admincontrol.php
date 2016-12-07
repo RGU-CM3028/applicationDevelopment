@@ -1,7 +1,6 @@
 <?php
 session_start();
-include("../dbconnect.php");
-//include ("dbconnect.php");  
+include("../dbconnect.php"); 
 	
 //This prepares the accesslevel.
 $accesslevel = $_SESSION['userType'];
@@ -14,7 +13,7 @@ function displayAccessLevelInformation($accesslevel){
 	//This checks to see if the user is an admin or not. This protects the site from any html attack
 	if ($accesslevel != "admin") {
 		//This sends already signed in users back to the index page
-		header("location:index.php");
+		header("location:../index.php");
 		die();
 	}
 }

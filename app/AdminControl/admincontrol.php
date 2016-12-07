@@ -86,22 +86,15 @@ if ($adminusername == $_SESSION['username']){
 //needs rest of code
 if($adminchoice == "delete"){
   	echo "delete oh noes";
-  	$sql = "DELETE FROM users WHERE username='$adminusername'";
+  	$sql = "DELETE FROM users WHERE username='".$adminusername."'";
 	//header("location:admincontrolform.php");
     	die();
 } elseif($adminchoice == "usertype") {
   	echo "usertype bro";
-	$sql = "UPDATE users SET userType=$adminuserchoice WHERE username=$adminusername";
+	$sql = "UPDATE users SET userType='".$adminuserchoice."' WHERE username='".$adminusername."'";
 	//header("location:admincontrolform.php");
     	die();
 } elseif($adminchoice == "") {
   	echo "Nothing is there";
 }
-
-//reference
-//choice values = "", "delete", "usertype"
-//usertype values - "", "reader", "admin", "unspecified"
-//username values = "", $row['username']
-//$sql = "DELETE FROM MyGuests WHERE id=3";
-//$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
 ?>

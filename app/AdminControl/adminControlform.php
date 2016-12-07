@@ -1,6 +1,6 @@
 <?
 // imports the header/navigation
-include("../../inc/header.inc");
+include("../inc/header.inc");
 
 //This starts the sessions. And connects the database here.
 session_start();
@@ -102,5 +102,5 @@ if (isset($_SESSION['username'])){
 	<?
 }
 // imports the footer
-include("../../inc/footer.inc");
+include("../inc/footer.inc");
     ?> 

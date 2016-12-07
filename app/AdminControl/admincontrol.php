@@ -5,7 +5,7 @@ include("../dbconnect.php");
 //This prepares the accesslevel.
 $accesslevel = $_SESSION['userType'];
 	
-//This displays the function contents	
+//This displays the function contents and protects this page from outside influence if they arnt admins.
 displayAccessLevelInformation($accesslevel);
 	
 //This is the function doing its magic on a set piece of code.	
@@ -42,7 +42,7 @@ if(isset($_POST['username'])) {
 $adminchoice = $_POST["choice"];
 $adminuserchoice = $_POST["usertype"];
 $adminusername = $_POST["username"];
- 
+
 //Security checks Version1
 $adminchoice = stripslashes($adminchoice);
 $adminchoice = mysqli_real_escape_string($db,$adminchoice);
@@ -50,6 +50,14 @@ $adminuserchoice = stripslashes($adminuserchoice);
 $adminuserchoice = mysqli_real_escape_string($db,$adminuserchoice);
 $adminusername = stripslashes($adminusername);
 $adminusername = mysqli_real_escape_string($db,$adminusername);
+
+//This checks to see if the username is taken or not.
+$dup = mysqli_query($db, "SELECT username FROM users WHERE username='$myusername'");
+$userchecker = mysqli_fetch_assoc($dup);
+if(mysqli_num_rows($dup) =0){
+    header("location:adminControlform.php?dup=1");
+    die();
+} 
 
 //needs rest of code
 if($adminchoice == "delete"){

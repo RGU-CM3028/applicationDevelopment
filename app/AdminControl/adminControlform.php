@@ -16,7 +16,7 @@ displayAccessLevelInformation($accesslevel);
 function displayAccessLevelInformation($accesslevel){
 	//This checks to see if the user is an admin or not.
 	if ($accesslevel != "admin") {
-		//This sends already signed in users back to the index page
+		//This sends non-admins back to the index page.
 		header("location:../index.php");
 		die();
 	}
@@ -38,6 +38,7 @@ if (isset($_SESSION['username'])){
         	echo "<p>User type is " . $_SESSION['userType'] . "</p>";
     	}
 
+	//These are the error messages that appear on this page when the code comes back for it.
 	if (isset($_GET['same'])){
             echo "<p><font color='red'>Please ensure you dont pick your own username.</font></p>";
         }
@@ -91,9 +92,7 @@ if (isset($_SESSION['username'])){
 			?>
 		</select>
 		</p>
-		
-
-		
+			
                 <p class="submit"><input type="submit" name="commit" value="Submit"></p>
         </form>
     	<!--This is a link to logout the site-->
@@ -101,6 +100,7 @@ if (isset($_SESSION['username'])){
 	<a href="../index.php">Return to login screen</a>
 	<?
 }
+
 // imports the footer
 include("../inc/footer.inc");
-    ?> 
+?> 

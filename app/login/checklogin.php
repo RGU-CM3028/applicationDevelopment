@@ -8,13 +8,13 @@ $mypassword = "";
 if(isset($_POST['username'])) {
     // id index exists
 } else {
-    header("location:index.php?Loginfail=2");
+    header("location:../index.php?Loginfail=2");
     die();
 }
 if(isset($_POST['password'])) {
     // id index exists
 } else {
-    header("location:index.php?Loginfail=2");
+    header("location:../index.php?Loginfail=2");
     die();
 }
     
@@ -53,7 +53,7 @@ if($checker==1){
     session_start();
     $_SESSION['username'] = $myusername;
     $_SESSION['userType'] = $userType;
-    header("location:index.php");
+    header("location:../index.php");
 } else {
-    header("location:index.php?Loginfail=1");
+    header("location:../index.php?Loginfail=1");
 }

@@ -1,0 +1,38 @@
+#healthPage {
+  position: relative; top:auto; left: 0%; height: auto; padding: 3%; background-color: #dddddd;
+}
+#healthContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 2em;
+}
+
+#news {
+  padding: 2em;
+  margin: 1em;
+  margin-top:0;
+  background: white;
+  max-width: 30%;
+}
+
+#news:hover {
+  background: grey;
+}
+
+#newsDate {
+  font-style: italic;
+}
+
+#newsText {
+  margin-top: 2em;
+}
+
+.fb-page {
+  max-width: 20%;
+}
+
+.twitter-timeline {
+  max-width: 20%;
+}

@@ -92,11 +92,11 @@ if($adminchoice == "delete"){
     	}
 } elseif($adminchoice == "usertype") {
 	$sql = "UPDATE users SET userType='".$adminuserchoice."' WHERE username='".$adminusername."'";
-	if (mysqli_query($db, $query)) {    
+	if (mysqli_query($db, $sql)) {    
 		header("location:admincontrolform.php?update=1");
     		die();
     	} else {
-        	echo "Error: " . $query . "<br>" . mysqli_error($db);
+        	echo "Error: " . $sql . "<br>" . mysqli_error($db);
     	}
 } elseif($adminchoice == "") {
 	header("location:admincontrolform.php?select=1");

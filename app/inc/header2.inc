@@ -46,6 +46,18 @@ include("../dbconnect.php");
 //This prepares the accesslevel.
 $accesslevel = $_SESSION['userType'];
 	
+//This displays the function contents	
+displayAccessLevelInformation($accesslevel);
+//This is the function doing its magic on a set piece of code.	
+function displayAccessLevelInformation($accessLevel){
+	if ($accessLevel == "admin") {
+		?>
+		<!--This leads to the admin page-->    
+		<a href="../pages/AdminControl/admincontrolform.php">Admin Control Pannel</a>    
+		<?
+	}
+}
+	
 //This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.
 if (isset($_SESSION['username'])){
     echo "<p>Hello " . $_SESSION['username'] . "</p>";
@@ -62,24 +74,29 @@ if (isset($_SESSION['username'])){
 }
     //If the user isnt logged in then they see the following form. To log in.
     else{
-  
-      
+?>
+    
+    <!--This is the form header-->
+    <h1>Login</h1> 
+    
+    <?
     //This is the error message for if there is a login fail.
     if(isset($_GET["Loginfail"]))  
     {  
         echo "<p><font color='red'>Please make sure you enter the correct information.</font></p>";  
  }  
     ?>
-  
-<form name="userlogin" action="../login/checklogin.php" method="POST" target="_self" class="login">
-<label>Username</label>
-<input type="text" name="username" maxlength="30">
-<label>Password</label><input type="password" name="userpass" maxlength="25">
-<input type="submit" value="submit">
-</form>
-  
-<!--This is a link to signup to the site-->
-<a href="signupform.php">Signup</a>
+    
+    <!--This is the form used to login-->
+    <form method="post" action="checklogin.php">
+    <p><input type="text" name="username" value="" placeholder="Username please"></p>
+    <p><input type="password" name="password" value="" placeholder="Password please"></p>
+    <p class="submit"><input type="submit" name="commit" value="Login"></p>
+    </form>
+    
+    <!--This is a link to signup to the site-->
+    <a href="signupform.php">Signup</a>
+    <a href="../loginstuff/Tempadminform.php">Temp Admin signup</a>
 <? } ?>
 				
 				

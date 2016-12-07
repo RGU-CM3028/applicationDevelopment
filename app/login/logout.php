@@ -15,5 +15,5 @@ if (isset($_SESSION['userType']))
 }
 
 //This sends the user back to the index page.
-header("location:index.php");
+header("location:../index.php");
 ?>

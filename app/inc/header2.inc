@@ -17,7 +17,12 @@ if(strpos($actual_link, 'pages') == true) {
 
 <script src="https://use.fontawesome.com/59db90bae7.js"></script>
 
-<? if($isIndex) {
+<? 
+	ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+	
+	if($isIndex) {
   echo '<link rel="stylesheet" type="text/css" href="css/main.css">';
 } else {
   echo '<link rel="stylesheet" type="text/css" href="../../css/main.css">';

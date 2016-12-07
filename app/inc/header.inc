@@ -30,11 +30,11 @@ if(strpos($actual_link, 'pages') == true) {
 <div id="container">
 <header class="clearfix">
   <? if($isIndex) {
-    echo '<img src="images/logo.png" class="logo"></img>
-    <img src="images/banner.png" class="title"></h1>';
+    echo '<a href="index.php"><img src="images/logo.png" class="logo"></img>
+    <img src="images/banner.png" class="title"></a>';
   } else {
-    echo '<img src="../../images/logo.png" class="logo"></img>
-    <img src="../../images/banner.png" class="title"></h1>';
+    echo '<a href="../../index.php"><img src="../../images/logo.png" class="logo"></img>
+    <img src="../../images/banner.png" class="title"></a>';
   }
 ?>
 <div id="login">

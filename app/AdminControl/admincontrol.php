@@ -55,7 +55,16 @@ $adminuserchoice = mysqli_real_escape_string($db,$adminuserchoice);
 $adminusername = stripslashes($adminusername);
 $adminusername = mysqli_real_escape_string($db,$adminusername);
 
-//This takes the user out to the control panel again if they chose themsefl to be edited.
+//This checks to see if the username exists or not
+$dup = mysqli_query($db, "SELECT username FROM users WHERE username='$myusername'");
+$userchecker = mysqli_fetch_assoc($dup);
+if(mysqli_num_rows($dup) =0){
+    header("location:admincontrolform.php?dup=1");
+    die();
+} 
+
+
+//This takes the user out to the control panel again if they chose themselfs to be edited.
 if ($adminusername == $_SESSION['username']){
 	header("location:admincontrolform.php?Fail=2");
    	die();

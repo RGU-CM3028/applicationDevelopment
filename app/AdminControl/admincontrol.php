@@ -84,7 +84,7 @@ if ($adminusername == $_SESSION['username']){
 //needs rest of code
 if($adminchoice == "delete"){
 	echo "Dete";
-  	$sql = "DELETE FROM users WHERE username='".$adminusername."' LIMIT1";
+	$query = "DELETE FROM users WHERE username = '".$adminusername."' LIMIT1";
 	//header("location:admincontrolform.php");
     	die();
 } elseif($adminchoice == "usertype") {

@@ -1,7 +1,13 @@
 @import url("clubs.css");
 @import url("ideal-image-slider.css");
 
-*{margin: 0%; padding: 0%;}
+* {
+  margin: 0%;
+  font-family: Tahoma, Geneva, sans-serif;
+  padding: 0%;
+  text-decoration: none;
+  color: black;
+}
 
 /*
     main.css is the main style sheet
@@ -27,11 +33,11 @@ header{
     position: relative;
     top: 0%;
     left: 0%;
-    background-color: #46d651;
+    background-color: ;
     height: 10%;
     width: 100%;
     border-bottom: 5px solid #0000ff;
-    
+
 }
 
 .logo{
@@ -60,7 +66,7 @@ header{
 }
 
 .login{
-    
+
 }
 
 .login label, input{position: relative; text-align: center; padding: 1%;}
@@ -84,11 +90,11 @@ section div{
     width: 100%;
 }
 footer{
-    position: relative; 
-    top:auto; 
-    left: 0%;  
-    height: auto; 
-    padding: 4%; 
+    position: relative;
+    top:auto;
+    left: 0%;
+    height: auto;
+    padding: 4%;
     background-color: #3c3c3c;
 }
 
@@ -144,7 +150,7 @@ footer li{color: #ffffff; text-align: left; }
     .navigation a {
         color: #0014ff;
         text-align: center;
-        padding: 2vh; 
+        padding: 2vh;
         text-decoration: none;
     }
 

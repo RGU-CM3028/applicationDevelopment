@@ -1,5 +1,5 @@
 <?
-include("../dbconnect.php");
+include("../../dbconnect.php");
 global $db;
   $query = "SELECT clubName, clubDescription FROM Club C
   WHERE C.clubID =" . $_GET['clubID'];

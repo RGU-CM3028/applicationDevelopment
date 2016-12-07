@@ -31,3 +31,95 @@
   font-size: 0;
   animation: 30s slidy infinite;
 }
+
+.findClub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.manageClubs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pageTitle {
+  text-align: center;
+  padding: 1em;
+  font-size: 2em;
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#searchButton {
+  width: 4%;
+  margin-right: 2em;
+}
+.submit {
+  border-style: solid;
+  width: 10%;
+  border-color: #46d651;
+  background: #46d651;
+  color: white;
+}
+
+.submit:hover {
+  border-color: #2a8431;
+  background: #2a8431;
+  cursor: pointer;
+}
+
+#reset {
+  padding: 1em;
+  width:100%;
+}
+#create {
+  padding: 1em;
+  margin: 1em;
+  width: auto;
+}
+.clubsTable {
+  display: flex;
+  flex-direction: column;
+  font-size: 135%;
+}
+
+.tableRow, .tableTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+.tableTitle {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px solid grey;
+}
+.tableRow {
+  background: white;
+}
+
+.tableRow:hover {
+  background: grey;
+  color: white !important;
+  cursor: pointer;
+}
+
+.createClub {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}

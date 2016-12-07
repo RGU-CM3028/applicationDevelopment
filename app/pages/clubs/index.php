@@ -28,15 +28,20 @@
 				  	slider.start();
 					</script> -->
 				  <div>
+            <h2 class="pageTitle"> Clubs and Societies </h2>
+          </div>
 				      <div class="findClub">
-				        <h1> About the clubs and societies </h1>
-				        <form action="" method="post">
-				          <h2>Find a club or a society</h2><br>
-				          <input type="text" name="search" placeholder="Type club or society name"><br>
-				          <input type="submit" value="Submit"><br>
-				        </form>
+                <div class="manageClubs">
+                  <form action="" method="post">
+                    <input id="reset" name="reset" class="submit" type="submit" value="Show all clubs">
+                  </form>
+                  <form class="searchForm" action="" method="post">
+  				          <img id="searchButton" src="../../images/search.svg" alt="Search">
+  				          <input type="text" name="search" placeholder="Type club or society name"><br>
+  				          <input class="submit" type="submit" value="Submit"><br>
+  				        </form>
+                </div>
 				        <div>
-				          <h2> Club list <h2>
 				            <?php
 				            if(isset($_POST['search'])) {
 				              search($_POST['search']);
@@ -47,16 +52,19 @@
 				      </div>
 				      <div class="createClub">
 				        <form action="" method="post">
-				          <h2>Create a club or society</h2><br>
+				          <h2>Do you want to create a club ? Do it now !</h2><br>
 				          <input type="text" name="clubName" placeholder="Club name"><br>
-				          <input type="submit" value="clubGenre" pl, $dbaceholder="Club genre"><br>
+                  <input type="text" name="clubGenre" placeholder="Club genre"><br>
+				          <input id="create" class="submit" type="submit" value="Create a new club !"><br>
 				          <!-- Club genre may be a list ?-->
 				        </form>
-								<?php
-								if(isset($_POST['clubName']) && isset($_POST['clubGenreID']) && isset($_POST['clubDescription'])) {
-									createClub($_POST['clubName'], $_POST['clubGenreID'], $_POST['clubDescription']);
-								}
-								?>
+                  <div>
+  								<?php
+  								if(isset($_POST['clubName']) && isset($_POST['clubGenreID']) && isset($_POST['clubDescription'])) {
+  									createClub($_POST['clubName'], $_POST['clubGenreID'], $_POST['clubDescription']);
+  								}
+  								?>
+                </div>
 				      </div>
 				    </div>
 				  </div>
@@ -74,25 +82,26 @@
 				<?php
 				function showAllClubs() {
 				  global $db;
-				  $query = "SELECT clubID, clubName, clubDescription FROM Club";
+          unset($_POST['search']);
+          $query = "SELECT clubID, clubName, clubDescription FROM Club";
 				  $result = $db->query($query);
 				  if($result->num_rows <= 0) {
 				    echo "There's no clubs for the moment";
 				  } else {
-				    echo "<table>
-				            <tr>
-				              <th> Club name </th>
-				              <th> Club description </th>
-				            </tr>";
+				    echo "<div class='clubsTable'>
+				            <div class='tableTitle'>
+				              <p> Club name </p>
+				              <p> Club description </p>
+				            </div>";
 
 				    while ($row = $result->fetch_array()) {
-				     echo "<tr><td><a href='clubDetails.php?clubID=" . $row['clubID'] . "'>"
+				     echo "<a href='clubDetails.php?clubID=" . $row['clubID'] . "'><div class='tableRow'><p>"
 				          .$row["clubName"]
-				          ."</a></td><td>"
+				          ."</p><p>"
 				          .$row["clubDescription"]
-				          ."</td></tr>";
+				          ."</p></div></a>";
 				    }
-				    echo "</table>";
+				    echo "</div>";
 				  }
 				}
 
@@ -105,21 +114,20 @@
 				  if($result->num_rows <= 0) {
 				    echo "We couldn't find any club, search again !";
 				  } else {
-				    echo "<table>
-				            <tr>
-				              <th> ID</th>
-				              <th> Club name </th>
-				              <th> Club description </th>
-				            </tr>";
+				    echo "<div class='clubsTable'>
+				            <div class='tableTitle'>
+				              <p> Club name </p>
+				              <p> Club description </p>
+				            </div>";
 
 				    while ($row = $result->fetch_array()) {
-				     echo "<tr><td><a href='clubDetails.php?clubID=" . $row['clubID'] . "'>"
+				     echo "<a href='clubDetails.php?clubID=" . $row['clubID'] . "'><div class='tableRow'><p>"
 				          .$row["clubName"]
-				          ."</a></td><td>"
+				          ."</p><p>"
 				          .$row["clubDescription"]
-				          ."</td></tr>";
+				          ."</p></div></a>";
 				    }
-				    echo "</table>";
+				    echo "</div>";
 				  }
 				}
 				 ?>

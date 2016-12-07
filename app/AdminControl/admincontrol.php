@@ -38,6 +38,16 @@ if(isset($_POST['username'])) {
     die();
 }
 
+//HTML change safety check
+if($adminchoice != "delete" || $adminchoice != "usertype" || $adminchoice != ""){
+  echo "Oh no you dont get to change the html on us";
+  die();
+}
+if($adminuserchoice != "reader" || $adminuserchoice != "admin" || $adminuserchoice != "unspecified" || $adminuserchoice != ""){
+  echo "Oh no you dont get to change the html on us";
+  die();
+}
+
 //information from the index form.
 $adminchoice = $_POST["choice"];
 $adminuserchoice = $_POST["usertype"];

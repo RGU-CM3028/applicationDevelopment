@@ -9,7 +9,6 @@
 <?
 //This starts the sessions. And connects the database here.
 session_start();
-//include("dbconnect.php");
 include("../dbconnect.php"); 
 	
 //This prepares the accesslevel.
@@ -23,7 +22,7 @@ function displayAccessLevelInformation($accesslevel){
 	//This checks to see if the user is an admin or not.
 	if ($accesslevel != "admin") {
 		//This sends already signed in users back to the index page
-		header("location:index.php");
+		header("location:../index.php");
 		die();
 	}
 }
@@ -85,8 +84,8 @@ if (isset($_SESSION['username'])){
                 <p class="submit"><input type="submit" name="commit" value="Submit"></p>
         </form>
     	<!--This is a link to logout the site-->
-    	<a href="logout.php">Logout</a>
-	<a href="index.php">Return to login screen</a>
+    	<a href="../login/logout.php">Logout</a>
+	<a href="../index.php">Return to login screen</a>
 	<?
 }
     ?> 

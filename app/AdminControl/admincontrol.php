@@ -83,7 +83,7 @@ if ($adminusername == $_SESSION['username']){
 
 //needs rest of code
 if($adminchoice == "delete"){
-	$query = "DELETE FROM users WHERE username = '".$adminusername."' LIMIT1";
+	$query = "DELETE FROM users WHERE username = '".$adminusername."'";
 	if (mysqli_query($db, $query)) {    
 		header("location:admincontrolform.php?delete=1");
     		die();

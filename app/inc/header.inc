@@ -37,8 +37,11 @@ if(strpos($actual_link, 'pages') == true) {
     <img src="../../images/banner.png" class="title"></a>';
   }
 ?>
-<div id="login">
-                       <!-- User Login Modal -->
+ <div id="login">
+                        <!-- Button to open the Login/Signup modal -->
+                        <a href="#" onclick="Login();return false;" id='loginBtn' class='btnModal' title='Login'>Login</a>
+                        <a href="#" onclick="Signup();return false;" id='signupBtn' class='btnModal' title='Signup'>Sign Up</a>
+                            <!-- User Login -->
                             <div id="LoginModal" class="modal">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -54,9 +57,12 @@ if(strpos($actual_link, 'pages') == true) {
                                         </form>
                                     </div>
                                 </div>
-                            </div> <!-- End of Login Modal -->                       
+                            </div> <!-- End of Signup Modal -->
+                            <!-- End of User Login -->
+                        
                         
                         <!-- modal poppup for registering a user -->
+
                         <div id="SignupModal" class="modal">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -75,7 +81,7 @@ if(strpos($actual_link, 'pages') == true) {
                             </div>
                         </div> <!-- End of Signup Modal -->
                     </div>
-                    <script src="../script/modal.js"></script>
+                    <script src="../scripts/modal.js"></script>
 
 </header>
 <!-- Desktop navigation w:801 onwards -->

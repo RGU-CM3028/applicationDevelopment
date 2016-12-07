@@ -8,8 +8,7 @@
 
 <?
 //This starts the sessions. And connects the database here..
-session_start();
-//include ("dbconnect.php");    
+session_start();  
 include("../dbconnect.php");
 
 //This prepares the accesslevel.
@@ -22,7 +21,7 @@ function displayAccessLevelInformation($accessLevel){
 	if ($accessLevel == "admin") {
 		?>
 		<!--This leads to the admin page-->    
-		<a href="admincontrolform.php">Admin Control Pannel</a>    
+		<a href="../AdminControl/admincontrolform.php">Admin Control Pannel</a>    
 		<?
 	}
 }
@@ -65,7 +64,7 @@ if (isset($_SESSION['username'])){
     
     <!--This is a link to signup to the site-->
     <a href="signupform.php">Signup</a>
-    <a href="Tempadminform.php">Temp Admin signup</a>
+    <a href="../loginstuff/Tempadminform.php">Temp Admin signup</a>
 <? } ?>
 
 </body>

@@ -7,22 +7,12 @@
 <body>
 
 <?
-	ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 //This starts the sessions. And connects the database here..
 session_start();  
 include("../dbconnect.php");
-
-//Check to see if usertype is defined	
-$accesslevel = "";
-if(isset($_SESSION['usertype'])) {
-} else {
-	$accesslevel = $_SESSION['userType'];
-}
 	 
 //This prepares the accesslevel.
-//$accesslevel = $_SESSION['userType'];
+$accesslevel = $_SESSION['userType'];
 	
 //This displays the function contents	
 displayAccessLevelInformation($accesslevel);

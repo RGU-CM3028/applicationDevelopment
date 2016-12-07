@@ -18,6 +18,26 @@ function displayAccessLevelInformation($accesslevel){
 	}
 }
 
+//First half of checking for html code changes
+if(isset($_POST['choice'])) {
+    // it exists
+} else {
+    header("location:admincontrolform.php");
+    die();
+}
+if(isset($_POST['usertype'])) {
+    // it exists
+} else {
+    header("location:admincontrolform.php");
+    die();
+}
+if(isset($_POST['username'])) {
+    // it exists
+} else {
+    header("location:admincontrolform.php");
+    die();
+}
+
 //information from the index form.
 $adminchoice = $_POST["choice"];
 $adminuserchoice = $_POST["usertype"];

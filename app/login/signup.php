@@ -1,6 +1,5 @@
 <?php
 //This connects the database here.
-//include ("dbconnect.php");
 include("../dbconnect.php");
 
 //html change safety check. This is to catch out any attempt to change variables and so on in the html.

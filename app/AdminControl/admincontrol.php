@@ -65,10 +65,10 @@ $adminusername = mysqli_real_escape_string($db,$adminusername);
 $dup = mysqli_query($db, "SELECT username FROM users WHERE username='$myusername'");
 $userchecker = mysqli_fetch_assoc($dup);
 if(mysqli_num_rows($dup) =0){
-    header("location:admincontrolform.php?dup=1");
-    die();
-} else {
 	echo "Thank you for following the rules";
+} else {
+	    header("location:admincontrolform.php?dup=1");
+    die();
 }
 
 
@@ -95,3 +95,4 @@ if($adminchoice == "delete"){
 //username values = "", $row['username']
 //$sql = "DELETE FROM MyGuests WHERE id=3";
 //$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+?>

@@ -38,10 +38,7 @@ if(strpos($actual_link, 'pages') == true) {
   }
 ?>
 <div id="login">
-                        <!-- Button to open the Signup modal -->
-                        <a href="#" onclick="Login();return false;" id='loginBtn' class='loginModal' title='Login'>Login</a>
-                        <a href="#" onclick="Signup();return false;" id='signupBtn' class='signupModal' title='Signup'>Sign Up</a>
-                            <!-- User Login -->
+                       <!-- User Login Modal -->
                             <div id="LoginModal" class="modal">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -50,19 +47,16 @@ if(strpos($actual_link, 'pages') == true) {
                                     </div>
                                     <div class="modal-body">
                                         <form name="userlogin" action="" method="POST" target="_self" class="login">
-                                            <label>Username</label>
+                                            <label>Username</label><br>
                                             <input type="text" name="username" maxlength="30"><br>
-                                            <label>Password</label><input type="password" name="userpass" maxlength="25">
+                                            <label>Password</label><br><input type="password" name="userpass" maxlength="25"><br>
                                             <input type="submit" value="submit">
                                         </form>
                                     </div>
                                 </div>
-                            </div> <!-- End of Signup Modal -->
-                            <!-- End of User Login -->
-                        
+                            </div> <!-- End of Login Modal -->                       
                         
                         <!-- modal poppup for registering a user -->
-
                         <div id="SignupModal" class="modal">
                             <div class="modal-content">
                                 <div class="modal-header">

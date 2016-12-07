@@ -18,7 +18,7 @@
 	
     //This is the function doing its magic on a set piece of code.	
     function displayAccessLevelInformation($accesslevel){
-	    if ($accesslevel == "admin"  || $accesslevel == "reader") {
+	    if ($accesslevel == "contributor"  || $accesslevel == "siteadmin" || $accesslevel == "NKPAG") {
 		    
 		    //This sends already signed in users back to the index page
 		    header("location:index.php");

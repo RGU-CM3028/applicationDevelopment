@@ -8,13 +8,21 @@ if(strpos($actual_link, 'pages') == true) {
 
 <footer class="clearfix">
 <div class="footer-left">
-<a href="index.php" title="Sportlethen | Home"><img src="images/banner.png" class="banner" alt="Sportlethen"></a>
+  <? if($isIndex) {
+    echo '<a href="index.php" title="Sportlethen | Home"><img src="images/banner.png" class="banner" alt="TeaKat Games"></a>';
+  } else {
+    echo '<a href="index.php" title="Sportlethen | Home"><img src="../../images/banner.png" class="banner" alt="TeaKat Games"></a>';
+  }
+?>
+
 <p class="copytext">2016 &copy; Sportlethen. All Rights Reserved.</p>
 <p class="footer-sponser">
-  <? if($isIndex) {
-    <a href=""><img src="images/sportscotland.png" class="img1"></a>
-    <a href=""><img src="images/aderdeencouncil.png" class="img2"></a>
-
+  <?php if($isIndex) {
+    echo '<a href=""><img src="images/sportscotland.png" class="img1"></a>
+    <a href=""><img src="images/aderdeencouncil.png" class="img2"></a>';
+  } else {
+    echo '<a href=""><img src="../../images/sportscotland.png" class="img1"></a>
+    <a href=""><img src="../../images/aderdeencouncil.png" class="img2"></a>';
   }
   ?>
 </p>

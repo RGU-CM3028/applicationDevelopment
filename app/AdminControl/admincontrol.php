@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 //This connects the database here. And continues the session.
 session_start();
 include("../dbconnect.php"); 
@@ -28,19 +24,22 @@ $adminchoice = "";
 $adminuserchoice = "";
 $adminusername = "";
 if(isset($_POST['choice'])) {
-    // it exists
+    header("location:admincontrolform.php?Fail=1");
+    die();
 } else {
     header("location:admincontrolform.php?Fail=1");
     die();
 }
 if(isset($_POST['usertype'])) {
-    // it exists
+    header("location:admincontrolform.php?Fail=1");
+    die();
 } else {
     header("location:admincontrolform.php?Fail=1");
     die();
 }
 if(isset($_POST['username'])) {
-    // it exists
+    header("location:admincontrolform.php?Fail=1");
+    die();
 } else {
     header("location:admincontrolform.php?Fail=1");
     die();

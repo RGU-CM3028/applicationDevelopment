@@ -24,21 +24,21 @@ $adminchoice = "";
 $adminuserchoice = "";
 $adminusername = "";
 if(isset($_POST['choice'])) {
-    header("location:admincontrolform.php?Fail=1");
+    //header("location:admincontrolform.php?Fail=1");
     die();
 } else {
     header("location:admincontrolform.php?Fail=1");
     die();
 }
 if(isset($_POST['usertype'])) {
-    header("location:admincontrolform.php?Fail=1");
+    //header("location:admincontrolform.php?Fail=1");
     die();
 } else {
     header("location:admincontrolform.php?Fail=1");
     die();
 }
 if(isset($_POST['username'])) {
-    header("location:admincontrolform.php?Fail=1");
+    //header("location:admincontrolform.php?Fail=1");
     die();
 } else {
     header("location:admincontrolform.php?Fail=1");

@@ -1,7 +1,10 @@
 <?
 // imports the header/navigation
 include("../../inc/header2.inc");
-	
+
+session_start();
+include("../../dbconnect.php"); 
+
 //This prepares the accesslevel.
 $accesslevel = $_SESSION['userType'];
 	

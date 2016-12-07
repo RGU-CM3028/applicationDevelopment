@@ -1,6 +1,17 @@
 @import url("clubs.css");
 @import url("health.css");
+@import url("home.css");
 @import url("ideal-image-slider.css");
+
+@font-face {
+  font-family: 'AmaticSCR';
+  src: url('../fonts/AmaticSC-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'AmaticSCB';
+  src: url('../fonts/AmaticSC-Bold.ttf');
+}
 
 * {
   margin: 0%;
@@ -30,45 +41,46 @@
     background-color: #a5a5a5;
 }
 
-header{
+header {
     position: relative;
     top: 0%;
     left: 0%;
     background-color: #46d651;
-    height: 10%;
+    height: 5em;
     width: 100%;
     border-bottom: 5px solid #0000ff;
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .logo{
     position: relative;
     float: left;
-    height: 10%;
-    width: 10%;
+    width: 9%;
 }
 
 .title{
     position: relative;
     float: left;
     left: 1%;
-    height: 10%;
-    width: 30%;
+    width: 25%;
 }
 
 #login{
     position: relative;
-    float: right;
-    right: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    /*float: right;*/
+    /*right: 10%;*/
     height: auto;
     width: auto;
     text-align: center;
     padding: 1%;
 }
 
-.login{
-
-}
 
 .login label, input{position: relative; text-align: center; padding: 1%;}
 .login input{background-color: #ffffff; border: 1px solid #05740e; padding: 1%;}
@@ -154,8 +166,6 @@ footer li{color: #ffffff; text-align: left; }
         padding: 2vh;
         text-decoration: none;
     }
-
-
     .navigation a:hover {
         color: #ffffff;
         background-color: #7e7e7e;

@@ -1,0 +1,32 @@
+#homeTitle {
+  text-align: center;
+  color: #46d651;
+  font-weight: bold;
+  font-size: 8em;
+  font-family: 'AmaticSCB';
+}
+
+#homeSubTitle {
+  text-align: center;
+  color: black;
+  font-size: 5em;
+  font-family: 'AmaticSCB';
+}
+
+#homePage {
+  background: white;
+  height: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6em;
+}
+
+#homeMenu {
+  padding: 2em;
+  margin: 1em;
+}
+
+#headerMenu {
+  background: #a5a5a5;
+}

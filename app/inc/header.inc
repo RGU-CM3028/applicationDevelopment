@@ -37,14 +37,12 @@ if(strpos($actual_link, 'pages') == true) {
     <img src="../../images/banner.png" class="title"></a>';
   }
 ?>
-<div id="login">
-<form name="userlogin" action="" method="POST" target="_self" class="login">
-<label>Username</label>
-<input type="text" name="username" maxlength="30">
-<label>Password</label><input type="password" name="userpass" maxlength="25">
-<input type="submit" value="submit">
-</form>
-</div>
+  <form id="login" name="userlogin" action="" method="POST" target="_self" class="login">
+    <label>Username</label>
+    <input type="text" name="username" maxlength="30">
+    <label>Password</label><input type="password" name="userpass" maxlength="25">
+    <input id="loginSubmit" type="submit" value="submit">
+  </form>
 
 </header>
 <!-- Desktop navigation w:801 onwards -->

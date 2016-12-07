@@ -30,14 +30,14 @@ if(strpos($actual_link, 'pages') == true) {
 <div id="container">
 <header class="clearfix">
   <? if($isIndex) {
-    echo '<a href="../index.php"><img src="images/logo.png" class="logo"></a>
-    <img src="images/banner.png" class="title"></h1>';
+    echo '<a href="index.php"><img src="images/logo.png" class="logo"></img>
+    <img src="images/banner.png" class="title"></a>';
   } else {
-    echo '<a href="../index.php"><img src="images/logo.png" class="logo"></a>
-    <img src="../../images/banner.png" class="title"></h1>';
+    echo '<a href="../../index.php"><img src="../../images/logo.png" class="logo"></img>
+    <img src="../../images/banner.png" class="title"></a>';
   }
 ?>
-                    <div id="login">
+<div id="login">
                         <!-- Button to open the Signup modal -->
                         <a href="#" onclick="Login();return false;" id='loginBtn' class='loginModal' title='Login'>Login</a>
                         <a href="#" onclick="Signup();return false;" id='signupBtn' class='signupModal' title='Signup'>Sign Up</a>
@@ -81,7 +81,7 @@ if(strpos($actual_link, 'pages') == true) {
                             </div>
                         </div> <!-- End of Signup Modal -->
                     </div>
-                    <script src="scripts/modal.js"></script>
+                    <script src="script/modal.js"></script>
 
 </header>
 <!-- Desktop navigation w:801 onwards -->

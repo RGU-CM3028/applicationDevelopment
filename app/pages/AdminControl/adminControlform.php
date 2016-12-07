@@ -15,7 +15,7 @@ displayAccessLevelInformation($accesslevel);
 //This is the function doing its magic on a set piece of code.	
 function displayAccessLevelInformation($accesslevel){
 	//This checks to see if the user is an admin or not.
-	if ($accesslevel != "siteadmin") {
+	if ($accesslevel != "admin") {
 		//This sends non-admins back to the index page.
 		header("location:../../index.php");
 		die();
@@ -75,7 +75,7 @@ if (isset($_SESSION['username'])){
 			<option value="">Select...</option>
 			<option value="reader">reader</option>
 			<option value="admin">admin</option>
-			<option value="unspecified">Unspecified</option>
+			<option value="NKPAG">NKPAG</option>
 		</select>
 		</p>
 		

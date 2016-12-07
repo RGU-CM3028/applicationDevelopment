@@ -61,7 +61,7 @@ $adminuserchoice = mysqli_real_escape_string($db,$adminuserchoice);
 $adminusername = stripslashes($adminusername);
 $adminusername = mysqli_real_escape_string($db,$adminusername);
 
-
+//This checks to see if any info was edited in the html(by the user) or is empty.
 $checkname = mysqli_query($db, "SELECT * from users WHERE username = '$adminusername'");
 if (!$checkname) {
     die('Query failed to execute for some reason');
@@ -70,6 +70,9 @@ if (mysqli_num_rows($checkname) > 0) {
     echo "User id exists already.";
     $user = mysqli_fetch_array($checkname);
     print_r($user); // the data returned from the query
+} else {
+    header("location:admincontrolform.php?nodata=1");
+    die();
 }
 
 

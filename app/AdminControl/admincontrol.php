@@ -67,9 +67,7 @@ if (!$checkname) {
     die('Query failed to execute for some reason');
 }
 if (mysqli_num_rows($checkname) > 0) {
-    echo "User id exists already.";
-    $user = mysqli_fetch_array($checkname);
-    print_r($user); // the data returned from the query
+//safe
 } else {
     header("location:admincontrolform.php?nodata=1");
     die();

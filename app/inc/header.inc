@@ -75,7 +75,7 @@ if(strpos($actual_link, 'pages') == true) {
                             </div>
                         </div> <!-- End of Signup Modal -->
                     </div>
-                    <script src="script/modal.js"></script>
+                    <script src="../script/modal.js"></script>
 
 </header>
 <!-- Desktop navigation w:801 onwards -->

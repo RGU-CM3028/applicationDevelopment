@@ -18,7 +18,7 @@ $accesslevel = $_SESSION['userType'];
 displayAccessLevelInformation($accesslevel);
 //This is the function doing its magic on a set piece of code.	
 function displayAccessLevelInformation($accessLevel){
-	if ($accessLevel == "siteadmin") {
+	if ($accessLevel == "admin") {
 		?>
 		<!--This leads to the admin page-->    
 		<a href="../pages/AdminControl/admincontrolform.php">Admin Control Pannel</a>    

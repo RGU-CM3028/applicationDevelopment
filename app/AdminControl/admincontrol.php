@@ -62,7 +62,7 @@ $adminusername = stripslashes($adminusername);
 $adminusername = mysqli_real_escape_string($db,$adminusername);
 
 
-$checkname = mysqli_query("SELECT * from users WHERE username = '$adminusername'");
+$checkname = mysqli_query($db, "SELECT * from users WHERE username = '$adminusername'");
 if (!$checkname) {
     die('Query failed to execute for some reason');
 }

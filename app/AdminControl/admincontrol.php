@@ -61,7 +61,9 @@ $userchecker = mysqli_fetch_assoc($dup);
 if(mysqli_num_rows($dup) =0){
     header("location:admincontrolform.php?dup=1");
     die();
-} 
+} else {
+	echo "Thank you for following the rules";
+}
 
 
 //This takes the user out to the control panel again if they chose themselfs to be edited.

@@ -19,22 +19,25 @@ function displayAccessLevelInformation($accesslevel){
 }
 
 //First half of checking for html code changes
+$adminchoice = "";
+$adminuserchoice = "";
+$adminusername = "";
 if(isset($_POST['choice'])) {
     // it exists
 } else {
-    header("location:admincontrolform.php");
+    header("location:admincontrolform.php?Fail=1");
     die();
 }
 if(isset($_POST['usertype'])) {
     // it exists
 } else {
-    header("location:admincontrolform.php");
+    header("location:admincontrolform.php?Fail=1");
     die();
 }
 if(isset($_POST['username'])) {
     // it exists
 } else {
-    header("location:admincontrolform.php");
+    header("location:admincontrolform.php?Fail=1");
     die();
 }
 

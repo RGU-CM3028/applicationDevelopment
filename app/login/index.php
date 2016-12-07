@@ -16,7 +16,7 @@ $accesslevel = "";
 if(isset($_SESSION['usertype'])) {
     $accesslevel = $_SESSION['userType'];
 }
-	
+	 
 //This prepares the accesslevel.
 //$accesslevel = $_SESSION['userType'];
 	

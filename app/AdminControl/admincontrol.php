@@ -84,11 +84,11 @@ if ($adminusername == $_SESSION['username']){
 //needs rest of code
 if($adminchoice == "delete"){
 	$query = "DELETE FROM users WHERE username = '".$adminusername."' LIMIT1";
-	header("location:admincontrolform.php");
+	header("location:admincontrolform.php?delete=1");
     	die();
 } elseif($adminchoice == "usertype") {
 	$sql = "UPDATE users SET userType='".$adminuserchoice."' WHERE username='".$adminusername."'";
-	header("location:admincontrolform.php");
+	header("location:admincontrolform.php?update=1");
     	die();
 } elseif($adminchoice == "") {
 	header("location:admincontrolform.php?select=1");

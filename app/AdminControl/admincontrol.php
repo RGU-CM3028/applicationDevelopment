@@ -78,15 +78,17 @@ if ($adminusername == $_SESSION['username']){
 	header("location:admincontrolform.php?same=1");
    	die();
 } else {
-	echo "You are safe";
+	//safe
 }
 
 //needs rest of code
 if($adminchoice == "delete"){
+	echo "Dete";
   	$sql = "DELETE FROM users WHERE username='".$adminusername."' LIMIT1";
 	//header("location:admincontrolform.php");
     	die();
 } elseif($adminchoice == "usertype") {
+	echo "uppy";
 	$sql = "UPDATE users SET userType='".$adminuserchoice."' WHERE username='".$adminusername."'";
 	//header("location:admincontrolform.php");
     	die();

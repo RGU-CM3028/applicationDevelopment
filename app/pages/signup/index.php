@@ -1,6 +1,6 @@
 <?
     //This connects the database and continues the session onto this page.
-    //include("../../inc/header.inc");
+    include("../../inc/header.inc");
     session_start();
     include("../dbconnect.php");
 	
@@ -89,5 +89,5 @@ $usertypeholder3 = 'NKPAG';
 		<p><label>Password Check</label><input type="password" name="passwordcheck" maxlength="25"></p>
 		 <p class="submit"><input type="submit" name="commit" value="Login"></p>
 	<?
-  //include("../../inc/footer.inc");
+  include("../../inc/footer.inc");
     ?> 

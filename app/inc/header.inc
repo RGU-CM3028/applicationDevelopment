@@ -59,10 +59,6 @@ if(strpos($actual_link, 'pages') == true) {
   							} else {
     								echo '<a href="../AdminControl/admincontrolform.php">Admin Control Pannel</a>';
 							}
-							?>
-							<!--This leads to the admin page-->    
-							<a href="../pages/AdminControl/admincontrolform.php">Admin Control Pannel</a>    
-							<?
 						}
 					}
 					

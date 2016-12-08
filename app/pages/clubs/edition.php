@@ -61,10 +61,23 @@ File handling the creation and edition of clubs
 			$mediaID = $db->insert_id;*/
 			$mediaID = 00;
 
+
+			// $query = "INSERT INTO club (clubName, clubGenreID, clubDescription)
+			// 				VALUES ('". $name . "'," . $genre . ",'" . $description . "')";
+							
+			// if ($db->query($query) === TRUE) {
+			//     echo "New record created successfully";
+			// } else {
+			//     echo "Error: " . $query . "<br>" . $db->error;
+			// }
+
 			//TODO get clubGenre and eventID
-			$sql_query = "INSERT INTO Club(clubName, clubDescription, clubGenreID, logoID, pname, adress, phone, email) VALUES(" . $_POST['clubName'] . "," . $_POST['clubDescription'] . "," . $_POST['clubGenreID'] . "," . $mediaID . "," . $_POST['pname'] .  $_POST['adress'] .  $_POST['phone'] .  $_POST['email'] . ")";
+			$sql_query = "INSERT INTO club (clubName, clubDescription, logoID, pname, adress, phone, email) VALUES(" . $_POST['clubName'] . "," . $_POST['clubDescription'] . "," . $mediaID . "," . $_POST['pname'] .  $_POST['adress'] .  $_POST['phone'] .  $_POST['email'] . ")";
 			$db->query($sql_query);
+
 			$db->close();
+
+
 
 
 		}

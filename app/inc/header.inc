@@ -72,25 +72,27 @@ if(strpos($actual_link, 'pages') == true) {
     					{  
         					echo "<p><font color='red'>Please make sure you enter the correct information.</font></p>";  
  					}  
-	
-						
+
+										
 					if($isIndex) { 	  
 						echo '<form method="post" action="login/checklogin.php"> ';   
   					} else {
 						echo '<form method="post" action="../../login/checklogin.php">';  
 					}
 					?>
-					<!--<form method="post" action="../../login/checklogin.php">-->
-					<!--<form name="userlogin" action="checklogin.php" method="POST" target="_self" class="login">-->
 						<p><label>Username</label><input type="text" name="username" maxlength="30"></p>
 						<p></p>
 						<p><label>Password</label><input type="password" name="password" maxlength="25"></p>
 						<p></p>
 						<p><input type="submit" value="submit"></p>
 					</form>
-    
-    					<!--This is a link to signup to the site-->
-					
+    					<?
+					if($isIndex) { 	  
+						echo '<a href="../pages/signup/">Signup</a> ';   
+  					} else {
+						echo '<a href="../signup/">Signup</a>';  
+					}
+						?>
     					<a href="../signup/">Signup</a>
 				<? } ?>
 				

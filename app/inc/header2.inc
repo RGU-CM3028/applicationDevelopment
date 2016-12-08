@@ -39,7 +39,7 @@ if(strpos($actual_link, 'pages') == true) {
 				<div id="login">
 					<?
 					//This starts the sessions.
-					session_start();  
+					//session_start();  
 	 
 					//This prepares the accesslevel.
 					$accesslevel = $_SESSION['userType'];
@@ -56,15 +56,7 @@ if(strpos($actual_link, 'pages') == true) {
 					}	
 					
 					//This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.
-					if (isset($_SESSION['username'])){
-						echo "<p>Hello " . $_SESSION['username'] . "</p>";
-						echo "<p>User type is " . $_SESSION['userType'] . "</p>";
-						if($isIndex) { 	  
-							echo '<a href="login/logout.php">Logout</a> ';   
-  						} else {
-							echo '<a href="../../login/logout.php">Logout</a>';  
-						}
-					}	
+
 					//If the user isnt logged in then they see the following form. To log in.
     					else{
     						//This is the error message for if there is a login fail.

@@ -49,16 +49,10 @@ if(strpos($actual_link, 'pages') == true) {
 					//This is the function doing its magic on a set piece of code.	
 					function displayAccessLevelInformation($accessLevel){
 						if ($accessLevel == "admin") {
-							if($isIndex) { 
-								?>
-								<!--This leads to the admin page-->    
-								<a href="../pages/AdminControl/">Admin Control Pannel</a>    
-								<?
+							if($isIndex) { 	  
+								echo '<a href="../pages/AdminControl/">Admin Control Pannel</a>';   
   							} else {
- 								?>
-								<!--This leads to the admin page-->    
-								<a href="../AdminControl/">Admin Control Pannel</a>    
-								<?
+								echo '<a href="../AdminControl/">Admin Control Pannel</a>';  
 							}
 						}
 					}	

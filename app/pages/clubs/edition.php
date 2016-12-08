@@ -11,6 +11,11 @@ File handling the creation and edition of clubs
 		$description = "";
 		$clubGenre = "";
 		$media = "";
+		$pname = "";
+		$adress = "";
+		$phone = "";
+		$mail = "";
+		$logoID = "";
 
 		//If we are editing instead of creating a new
 		if(isset($_POST['edit']) && isset($_POST['clubID'])){
@@ -84,16 +89,17 @@ File handling the creation and edition of clubs
 
 	?>
 	<form action="" method="post">
-		Title: <br><input type="text" name="clubName" value="<?php echo $title;?>">
-		Description: <br><textarea name="clubDescription" rows="5" cols="40"><?php echo $description;?></textarea>
-		Select image to upload:
-    	<input type="file" name="media" id="fileToUpload">
+		Title: <br><input type="text" name="clubName" value="<?php echo $title;?>"><br>
+		Description: <br><textarea name="clubDescription" rows="5" cols="40"><?php echo $description;?></textarea><br>
 
     	<br>Contact info<br>
-		Name: <br><input type="text" name="pname" value="<?php echo $pname;?>">
-		adress: <br><input type="text" name="adress" value="<?php echo $adress;?>">
-		phone: <br><input type="text" name="phone" value="<?php echo $phone;?>">
-		email: <br><input type="text" name="email" value="<?php echo $email;?>">
+		Name: <br><input type="text" name="pname" value="<?php echo $pname;?>"><br>
+		adress: <br><input type="text" name="adress" value="<?php echo $adress;?>"><br>
+		phone: <br><input type="text" name="phone" value="<?php echo $phone;?>"><br>
+		email: <br><input type="text" name="email" value="<?php echo $email;?>"><br>
+		
+		Select image to upload:
+    	<input type="file" name="media" id="fileToUpload">
 
 		<input type="submit" name="handleEdition">
 	</form>

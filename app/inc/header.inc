@@ -48,6 +48,11 @@ if(strpos($actual_link, 'pages') == true) {
 					displayAccessLevelInformation($accesslevel);
 					//This is the function doing its magic on a set piece of code.	
 					function displayAccessLevelInformation($accessLevel){
+						$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+						$isIndex = true;
+						if(strpos($actual_link, 'pages') == true) {
+  							$isIndex = false;
+						}
 						if ($accessLevel == "admin") {
 							if($isIndex) { 	  
 								echo '<a href="../pages/AdminControl/">Admin Control Pannel</a>';   

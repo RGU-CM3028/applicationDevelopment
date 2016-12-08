@@ -7,9 +7,6 @@
     //This prepares the accesslevel.
     $accesslevel = $_SESSION['userType'];	
     //This displays the function contents	
-    displayAccessLevelInformation($accesslevel);	
-    //This is the function doing its magic on a set piece of code.	
-    function displayAccessLevelInformation($accesslevel){
 	    if ($accesslevel == "admin"  || $accesslevel == "reader" || $accesslevel == "NKPAG") {		    
 		    //This sends already signed in users back to the index page
 		    header("location:../index.php");

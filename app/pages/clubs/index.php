@@ -4,7 +4,21 @@
     include('../../dbconnect.php');
 ?>
     <section>
-
+		<?
+		//welcome logged in user to make clubs or societies
+		session_start();
+		$usertypeholder1 = 'admin';
+		$usertypeholder2 = 'NKPAG';
+	    	$usertypeholder3 = 'reader';
+   		if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['userType'] || $usertypeholder3 = $_SESSION['userType]){
+			echo "Welcome user to the clubs and societies screen.";
+   		} else {
+	   		//safe
+   		}
+		
+		?>
+	    
+	    
 		<!--Body Text-->
 		<div id="BodyText">
 				<div>

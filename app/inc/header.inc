@@ -38,9 +38,8 @@ if(strpos($actual_link, 'pages') == true) {
 				?>
 				<div id="login">
 					<?
-					//This starts the sessions. And connects the database here..
+					//This starts the sessions.
 					session_start();  
-					include("../dbconnect.php");
 	 
 					//This prepares the accesslevel.
 					$accesslevel = $_SESSION['userType'];
@@ -52,7 +51,7 @@ if(strpos($actual_link, 'pages') == true) {
 						if ($accessLevel == "admin") {
 							?>
 							<!--This leads to the admin page-->    
-							<a href="../../AdminControl/admincontrolform.php">Admin Control Pannel</a>    
+							<a href="../AdminControl/">Admin Control Pannel</a>    
 							<?
 						}
 					}	
@@ -85,7 +84,7 @@ if(strpos($actual_link, 'pages') == true) {
 					</form>
     
     					<!--This is a link to signup to the site-->
-    					<a href="../../login/signupform.php">Signup</a>
+    					<a href="../signup/">Signup</a>
 				<? } ?>
 				
 				

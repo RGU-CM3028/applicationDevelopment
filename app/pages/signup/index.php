@@ -2,29 +2,22 @@
      // imports the header/navigation
     include("../../inc/header2.inc");
     include('../../dbconnect.php');
-    
     //This connects the database and continues the session onto this page.
-    session_start();
-	
+    session_start();	
     //This prepares the accesslevel.
-    $accesslevel = $_SESSION['userType'];
-	
+    $accesslevel = $_SESSION['userType'];	
     //This displays the function contents	
-    displayAccessLevelInformation($accesslevel);
-	
+    displayAccessLevelInformation($accesslevel);	
     //This is the function doing its magic on a set piece of code.	
     function displayAccessLevelInformation($accesslevel){
-	    if ($accesslevel == "admin"  || $accesslevel == "reader" || $accesslevel == "NKPAG") {
-		    
+	    if ($accesslevel == "admin"  || $accesslevel == "reader" || $accesslevel == "NKPAG") {		    
 		    //This sends already signed in users back to the index page
-		    header("location:index.php");
+		    header("location:../index.php");
 		    die();
 	    } else {
-            ?>
-	    
+            ?>	    
 	    <!--This is the header for the form-->
-            <h1>Signup Form</h1>
-	
+            <h1>Signup Form</h1>	
             <?
             //This is used to get the error message associated to the error code.
             if (isset($_GET['space'])){
@@ -40,7 +33,6 @@
                 echo "<p><font color='red'>Username already taken.</font></p>";
             }
             ?>
-    
             <!-- This is the form used for users to sign up -->
             <form method="post" action="signup.php">
                 <p><input type="text" name="username" value="" placeholder="Username please"></p>

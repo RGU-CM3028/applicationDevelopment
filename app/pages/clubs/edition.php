@@ -58,9 +58,18 @@ File handling the creation and edition of clubs
 			    }
 			}
 
+			$uploaddir = '/var/www/uploads/';
+			$uploadfile = $uploaddir . basename($_FILES['media']['name']);
+
+			if (move_uploaded_file($_FILES['media']['tmp_name'], $uploadfile)) {
+			    echo "Image is valid, and was successfully uploaded.\n";
+			} else {
+			    echo "Image upload failed\n";
+			}
+
 
 			//Insert into media and get the generated id
-			$sql_query = "INSERT INTO Media(mediaType, mediaDescription, URL) VALUES('picture', 'Club Logo', '" . $target_file . "')";
+			$sql_query = "INSERT INTO Media(mediaType, mediaDescription, URL) VALUES('picture', 'Club Logo', '" . $uploadfile . "')";
 			$db->query($sql_query);
 
 			$mediaID = $db->insert_id;

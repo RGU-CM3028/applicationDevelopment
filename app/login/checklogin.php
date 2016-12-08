@@ -18,8 +18,8 @@ if(isset($_POST['password'])) {
 }
     
 //information from the index form.
-$myusername = $_POST["username"];
-$mypassword = $_POST["password"];
+$myusername = $_POST["username1"];
+$mypassword = $_POST["password1"];
     
 //Security checks Version1
 $myusername = stripslashes($myusername);

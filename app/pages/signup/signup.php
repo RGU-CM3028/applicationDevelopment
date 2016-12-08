@@ -31,13 +31,11 @@ $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 
-echo $myusername;
-
 //Security checking V1.
 $myusername = stripslashes($myusername);
-echo $myusername;
-$myusername = mysqli_real_escape_string($db, $myusername);
-echo $myusername;
+echo 'before: '.$myusername;
+$user_name = mysql_real_escape_string($user_name);
+echo 'after: '.$myusername;
 die();
 $mypassword = stripslashes($mypassword);
 $mypassword = mysqli_real_escape_string($db, $mypassword);

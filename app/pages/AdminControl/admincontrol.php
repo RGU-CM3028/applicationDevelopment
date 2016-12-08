@@ -26,19 +26,19 @@ $adminusername = "";
 if(isset($_POST['choice'])) {
 	//safe
 } else {
-    header("location:admincontrolform.php?Fail=1");
+    header("location:index.php?Fail=1");
     die();
 }
 if(isset($_POST['usertype'])) {
 	//safe
 } else {
-    header("location:admincontrolform.php?Fail=1");
+    header("location:index.php?Fail=1");
     die();
 }
 if(isset($_POST['username'])) {
 	//Safe
 } else {
-    header("location:admincontrolform.php?Fail=1");
+    header("location:index.php?Fail=1");
     die();
 }
 
@@ -63,13 +63,13 @@ if (!$checkname) {
 if (mysqli_num_rows($checkname) > 0) {
 	//safe
 } else {
-    	header("location:admincontrolform.php?nodata=1");
+    	header("location:index.php?nodata=1");
     	die();
 }
 
 //This takes the user out to the control panel again if they chose themselfs to be edited.
 if ($adminusername == $_SESSION['username']){
-	header("location:admincontrolform.php?same=1");
+	header("location:index.php?same=1");
    	die();
 } else {
 	//safe
@@ -79,7 +79,7 @@ if ($adminusername == $_SESSION['username']){
 if($adminchoice == "delete"){
 	$query = "DELETE FROM users WHERE username = '".$adminusername."'";
 	if (mysqli_query($db, $query)) {    
-		header("location:admincontrolform.php?delete=1");
+		header("location:index.php?delete=1");
     		die();
     	} else {
         	echo "Error: " . $query . "<br>" . mysqli_error($db);
@@ -90,7 +90,7 @@ if($adminchoice == "delete"){
 elseif($adminchoice == "usertype") {
 	$sql = "UPDATE users SET userType='".$adminuserchoice."' WHERE username='".$adminusername."'";
 	if (mysqli_query($db, $sql)) {    
-		header("location:admincontrolform.php?update=1");
+		header("location:index.php?update=1");
     		die();
     	} else {
         	echo "Error: " . $sql . "<br>" . mysqli_error($db);
@@ -99,7 +99,7 @@ elseif($adminchoice == "usertype") {
 
 //This takes the user back to the control panel with an error message
 elseif($adminchoice == "") {
-	header("location:admincontrolform.php?select=1");
+	header("location:index.php?select=1");
     	die();
 }
 ?>

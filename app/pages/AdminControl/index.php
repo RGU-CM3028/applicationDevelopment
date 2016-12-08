@@ -1,6 +1,6 @@
 <?
 
-
+include("../../inc/header.inc");
 //This starts the sessions. And connects the database here.
 session_start();
 include("../../dbconnect.php"); 

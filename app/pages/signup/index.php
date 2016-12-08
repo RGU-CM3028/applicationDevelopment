@@ -48,9 +48,6 @@
                 <p><input type="password" name="passwordcheck" value="" placeholder="Confirm Password please"></p>
                 <p class="submit"><input type="submit" name="commit" value="Login"></p>
             </form>
-    
-            <!-- This is used to return to the login screen-->
-            <a href="index.php">Return to login screen</a>
             <?
         }
     }

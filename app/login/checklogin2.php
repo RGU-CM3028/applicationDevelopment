@@ -21,8 +21,8 @@ if(isset($_POST['password'])) {
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 
-echo $_POST["username"];
-echo $_POST["password"];
+echo $_POST["username"]."<br>";
+echo $_POST["password"]."<br>";
 
 //Security checks Version1
 $myusername = stripslashes($myusername);
@@ -43,8 +43,8 @@ while($row = $result->fetch_array()) {
     $checker = 1;
 }
 
-echo $mypassword;		
-echo $myusername;		
+echo $mypassword."<br>";		
+echo $myusername."<br>";		
 die();
 
 //Code for getting usertype extracted for the session.

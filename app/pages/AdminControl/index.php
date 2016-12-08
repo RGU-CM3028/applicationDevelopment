@@ -97,4 +97,5 @@ if (isset($_SESSION['username'])){
 	<a href="../../index.php">Return to login screen</a>
 	<?
 }
+  include("../../inc/footer.inc");
 ?> 

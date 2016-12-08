@@ -1,7 +1,4 @@
 <?
-// imports the header/navigation
-include("../../inc/header.inc");
-
 //This starts the sessions. And connects the database here.
 session_start();
 include("../../dbconnect.php"); 
@@ -100,7 +97,4 @@ if (isset($_SESSION['username'])){
 	<a href="../../index.php">Return to login screen</a>
 	<?
 }
-
-// imports the footer
-include("../../inc/footer.inc");
 ?> 

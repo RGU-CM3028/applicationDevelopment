@@ -4,7 +4,7 @@
     include('../../dbconnect.php');
     
     //This connects the database and continues the session onto this page.
-    session_start();
+    //session_start();
 	
     //This prepares the accesslevel.
     $accesslevel = $_SESSION['userType'];

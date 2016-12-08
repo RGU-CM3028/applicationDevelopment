@@ -45,7 +45,7 @@ if(strpos($actual_link, 'pages') == true) {
 					$accesslevel = $_SESSION['userType'];
 	
 					//This displays the function contents	
-					displayAccessLevelInformation($accesslevel);
+					//displayAccessLevelInformation($accesslevel);
 					
 					//This displays the function contents	
 					function displayAccessLevelInformation($accessLevel){

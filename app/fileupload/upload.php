@@ -14,8 +14,8 @@ if(isset($_POST['upload'])){
             echo "<script>alert('Please Select an Image')</script>";
             exit();
       } else 
-            echo "uploads/$image_name";
-            //move_uploaded_file($image_tmp_name, "uploads/$image_name");
+            echo $image_tmp_name;
+            move_uploaded_file($image_tmp_name, "uploads/$image_name");
       echo"image Uploaded";
       echo"<img src='upload/$image_name'>";
 }

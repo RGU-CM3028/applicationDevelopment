@@ -1,5 +1,13 @@
 <?php
-$target_dir = "fileupload/";
+//if($_POST["submit"] == "1") {
+      //$to = "uploads/".$_FILES['filetoupload']['name'];
+      //move_uploaded_file($_FILES['filetoupload']['tmp_name'], $to);
+      //echo "Uploaded";
+//}
+      
+
+
+$target_dir = "upload/";
 $target_dir . basename($_FILES["fileToUpload"]["name"]);
 echo ($_FILES["fileToUpload"]["name"]);
       die();

@@ -53,7 +53,7 @@ global $db;
 						//admin area use this to allow admin users to see certain stuffsession_start();
 				$usertypeholder1 = 'admin';
 				if ($usertypeholde1 = $_SESSION['userType']){
-					?><a href="../login/index.php">Return to login screen</a><?
+					?><a href="edition.php">Test</a><?
    				} else {
 	   				//safe
    				}

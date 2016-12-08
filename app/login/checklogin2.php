@@ -21,10 +21,6 @@ if(isset($_POST['password'])) {
 $myusername = $_POST["username1"];
 $mypassword = $_POST["password1"];
 
-echo $mypassword;		
-echo $myusername;		
-die();
-
 //Security checks Version1
 $myusername = stripslashes($myusername);
 $myusername = filter_var($myusername, FILTER_SANITIZE_STRING);
@@ -35,6 +31,7 @@ $mypassword = mysqli_real_escape_string($db,$mypassword);
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
 $mypassword = hash('sha256', $mypassword);
+
 //Code that checks to see if any usernames and password pairs match any in the database.
 $sql = "SELECT * FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "' LIMIT 1;";
 $result = $db->query($sql);
@@ -42,6 +39,11 @@ $checker = 0;
 while($row = $result->fetch_array()) {
     $checker = 1;
 }
+
+echo $mypassword;		
+echo $myusername;		
+die();
+
 //Code for getting usertype extracted for the session.
 $userType = "";
 $boom = "SELECT userType FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "' LIMIT 1;";

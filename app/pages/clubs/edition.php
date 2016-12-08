@@ -61,11 +61,11 @@ File handling the creation and edition of clubs
 			$db->query($sql_query);
 			$db->close();
 
-			
+
 		}
 
 	?>
-	<form action="handleEdition" method="post">
+	<form action="" method="post">
 		Title: <br><input type="text" name="clubName" value="<?php echo $title;?>">
 		Description: <br><textarea name="clubDescription" rows="5" cols="40"><?php echo $description;?></textarea>
 		Select image to upload:

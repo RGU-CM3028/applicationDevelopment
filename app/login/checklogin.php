@@ -31,10 +31,6 @@ $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
 $mypassword = hash('sha256', $mypassword);
 
-echo $myusername;
-echo $mypassword;
-die();
-
 //Code that checks to see if any usernames and password pairs match any in the database.
 $sql = "SELECT * FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "' LIMIT 1;";
 $result = $db->query($sql);
@@ -50,6 +46,10 @@ $result = $db->query($boom);
 while($row = $result->fetch_array()){
 $userType = $row['userType'];
 }   
+
+echo $myusername;
+echo $mypassword;
+die();
 
 //This checks if any pairs matched or not. And send the user back to the index page. 
 //If the user managed to log in the username and usertype is saved as a session.

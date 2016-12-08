@@ -53,6 +53,11 @@ while($row = $result->fetch_array()){
 $userType = $row['userType'];
 }   
 
+echo $mypassword;
+echo $myusername;
+echo $checker;
+die();
+
 //This checks if any pairs matched or not. And send the user back to the index page. 
 //If the user managed to log in the username and usertype is saved as a session.
 if($checker==1){

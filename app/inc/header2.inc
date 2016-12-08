@@ -40,20 +40,21 @@ if(strpos($actual_link, 'pages') == true) {
 					<?
 					//This starts the sessions.
 					//session_start();  
-	 
+	 				$accesslevel = "";
+					if(isset($_GET['id'])) {
+    						$accesslevel = $_SESSION['userType'];
+					}
 					//This prepares the accesslevel.
 					$accesslevel = $_SESSION['userType'];
 	
-					//This displays the function contents	
-					function displayAccessLevelInformation($accessLevel){
-						if ($accessLevel == "admin") {
-							if($isIndex) { 	  
-								echo '<a href="../pages/AdminControl/">Admin Control Pannel</a>';   
-  							} else {
-								echo '<a href="../AdminControl/">Admin Control Pannel</a>';  
-							}
+					if ($accessLevel == "admin") {
+						if($isIndex) { 	  
+							echo '<a href="../pages/AdminControl/">Admin Control Pannel</a>';   
+  						} else {
+							echo '<a href="../AdminControl/">Admin Control Pannel</a>';  
 						}
-					}	
+					}
+						
 					
 					//This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.
 

@@ -20,9 +20,11 @@ if(isset($_POST['password'])) {
 //information from the index form.
 $myusername = $_POST["username1"];
 $mypassword = $_POST["password1"];
--echo $mypassword;		
--echo $myusername;		
--die();
+
+echo $mypassword;		
+echo $myusername;		
+die();
+
 //Security checks Version1
 $myusername = stripslashes($myusername);
 $myusername = filter_var($myusername, FILTER_SANITIZE_STRING);

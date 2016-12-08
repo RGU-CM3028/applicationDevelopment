@@ -5,10 +5,18 @@
       //echo "Uploaded";
 //}
 if(isset($_POST['upload'])){      
-      echo $image_name = $_FILES["file"]["name"];
-      echo $image_type = $_FILES["file"]["type"];
-      echo $image_size = $_FILES["file"]["size"];
-      echo $image_tmp_name = $_FILES["file"]["tmp_name"];
+      $image_name = $_FILES["file"]["name"];
+      $image_type = $_FILES["file"]["type"];
+      $image_size = $_FILES["file"]["size"];
+      $image_tmp_name = $_FILES["file"]["tmp_name"];
+      
+      if($image_name==''){
+            echo "<script>alert('Please Select an Image')</script>";
+            exit();
+      } else 
+            move_uploaded_file($image_tmp_name, "uploads/$image_name");
+      echo"image Uploaded";
+      echo"<img src='photos/$image_name'>";
 }
 
 

@@ -90,7 +90,7 @@ File handling the creation and edition of clubs
     	<input type="file" name="media" id="fileToUpload">
 
     	<br>Contact info<br>
-		Name: <br><input type="text" name="name" value="<?php echo $name;?>">
+		Name: <br><input type="text" name="pname" value="<?php echo $pname;?>">
 		adress: <br><input type="text" name="adress" value="<?php echo $adress;?>">
 		phone: <br><input type="text" name="phone" value="<?php echo $phone;?>">
 		email: <br><input type="text" name="email" value="<?php echo $email;?>">

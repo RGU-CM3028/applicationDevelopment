@@ -6,6 +6,19 @@ include('../../dbconnect.php');
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 	<section>
+		
+		<?
+		//admin area use this to allow admin users to see certain stuff
+		session_start();
+		$usertypeholder1 = 'admin';
+		$usertypeholder2 = 'NKPAG';
+   		if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['userType']){
+			echo "Welcome admin to the map screen.";
+   		} else {
+	   		//safe
+   		}
+		
+		?>
   <div id="map-data" style="display: none;">
     <?php
       //Query the map datas

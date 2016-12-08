@@ -46,6 +46,11 @@ if(strpos($actual_link, 'pages') == true) {
 	
 					//This displays the function contents	
 					function displayAccessLevelInformation($accessLevel){
+						?>
+						<a href="../AdminControl/">Admin Control Pannel</a>
+						<?
+						
+						//test
 						$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						$isIndex = true;
 						if(strpos($actual_link, 'pages') == true) {
@@ -64,6 +69,11 @@ if(strpos($actual_link, 'pages') == true) {
 					if (isset($_SESSION['username'])){
 						echo "<p>Hello " . $_SESSION['username'] . "</p>";
 						echo "<p>User type is " . $_SESSION['userType'] . "</p>";
+						if($isIndex) { 	  
+							echo '<a href="../login/logout.php">Logout</a> ';   
+  						} else {
+							echo '<a href="../../login/logout.php">Logout</a>';  
+						}
 						?>
 						<!--This is a link to logout the site-->
 						<a href="../../login/logout.php">Logout</a> 

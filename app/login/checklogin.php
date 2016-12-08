@@ -21,9 +21,6 @@ if(isset($_POST['password'])) {
 //information from the index form.
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
-echo $myusername;
-echo $mypassword;
-die();
     
 //Security checks Version1
 $myusername = stripslashes($myusername);
@@ -33,6 +30,10 @@ $mypassword = mysqli_real_escape_string($db,$mypassword);
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
 $mypassword = hash('sha256', $mypassword);
+
+echo $myusername;
+echo $mypassword;
+die();
 
 //Code that checks to see if any usernames and password pairs match any in the database.
 $sql = "SELECT * FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "' LIMIT 1;";

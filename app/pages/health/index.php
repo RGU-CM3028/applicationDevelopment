@@ -5,6 +5,19 @@ include('../../dbconnect.php');
 global $db;
 ?>
 	<!--Body Text-->
+
+		<?
+		//admin area use this to allow admin users to see certain stuff
+		session_start();
+		$usertypeholder1 = 'admin';
+   		if ($usertypeholde1 = $_SESSION['userType']){
+			echo "Welcome admin to the news screen.";
+   		} else {
+	   		//safe
+   		}
+		
+		?>
+
 		<div id="healthPage">
 			<div id="fb-root"></div>
 				<script>(function(d, s, id) {

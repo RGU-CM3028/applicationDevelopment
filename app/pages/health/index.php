@@ -5,18 +5,6 @@ include('../../dbconnect.php');
 global $db;
 ?>
 	<!--Body Text-->
-
-<div id="healthinfo">
-		<?
-			//admin area use this to allow admin users to see certain stuff
-			session_start();
-			$usertypeholder1 = 'admin';
-   			if ($usertypeholde1 = $_SESSION['userType']){
-				echo "Welcome admin to the news screen.";
-   			} else {
-	   			//safe
-   			}
-		?>
 	<!--<h3>Thi is infomation on how to be healthy</h3>
 			//<p>Healthy food:</p>
 			<ol>

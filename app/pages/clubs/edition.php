@@ -72,13 +72,13 @@ File handling the creation and edition of clubs
 			// }
 
 			//TODO get clubGenre and eventID
-			$sql_query = "INSERT INTO club (clubName, clubDescription, logoID, pname, adress, phone, email) VALUES(" . $_POST['clubName'] . "," . $_POST['clubDescription'] . "," . $mediaID . "," . $_POST['pname'] .  $_POST['adress'] .  $_POST['phone'] .  $_POST['email'] . ")";
+			$sql_query = "INSERT INTO club (clubName, clubDescription, logoID, pname, adress, phone, email) VALUES('" . $_POST['clubName'] . "," . $_POST['clubDescription'] . "," . $mediaID . "," . $_POST['pname'] .  $_POST['adress'] .  $_POST['phone'] .  $_POST['email'] . "'')";
 			if ($db->query($sql_query) === TRUE) {
 			    echo "New record created successfully";
 			} else {
 			    echo "Error: " . $query . "<br>" . $db->error;
 			}
-			
+
 			$db->close();
 		}
 

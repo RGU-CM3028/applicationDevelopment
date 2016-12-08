@@ -23,6 +23,7 @@ $mypassword = $_POST["password1"];
   
 echo $mypassword;
 echo $myusername;
+die();
 
 //Security checks Version1
 $myusername = stripslashes($myusername);

@@ -47,7 +47,7 @@
             </form>
     
             <!-- This is used to return to the login screen-->
-            <a href="index.php">Return to login screen</a>
+            <a href="../index.php">Return to login screen</a>
             <?
         }
     }

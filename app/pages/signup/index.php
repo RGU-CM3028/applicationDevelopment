@@ -4,21 +4,12 @@
     session_start();
     include("../dbconnect.php");
 	
-    //This prepares the accesslevel.
-    $accesslevel = $_SESSION['userType'];
-	
-    //This displays the function contents	
-    displayAccessLevelInformation($accesslevel);
-	
-    //This is the function doing its magic on a set piece of code.	
-    function displayAccessLevelInformation($accesslevel){
-	    if ($accesslevel == "admin"  || $accesslevel == "reader" || $accesslevel == "NKPAG") {
-		    
-		    //This sends already signed in users back to the index page
-		    header("location:../index.php");
-		    die();
-	    } else {
-            ?>
+$usertypeholder1 = 'admin';
+$usertypeholder2 = 'reader';
+$usertypeholder3 = 'NKPAG';
+
+   if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['userType'] || $usertypeholder3 = $_SESSION['userType'] ){
+	?>
 	    
 	    <!--This is the header for the form-->
             <h1>Signup Form</h1>
@@ -50,7 +41,10 @@
             <!-- This is used to return to the login screen-->
             <a href="../../index.php">Return to login screen</a>
             <?
-        }
-    }
+} else {
+	header("location:../../index.php");
+	die();
+}
+	
   include("../../inc/footer.inc");
     ?> 

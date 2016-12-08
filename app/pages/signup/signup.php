@@ -1,9 +1,6 @@
 <?php
 //This connects the database here.
 include("../dbconnect.php");
-echo $_POST['username'];
-echo $_POST['password'];
-echo $_POST['passwordcheck'];
     
 //html change safety check. This is to catch out any attempt to change variables and so on in the html.
 $myusername = "";
@@ -44,6 +41,11 @@ $mypassword = stripslashes($mypassword);
 $mypassword = mysqli_real_escape_string($db, $mypassword);
 $passwordcheck = stripslashes($passwordcheck);
 $passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
+
+echo $myusername;
+echo $mypassword;
+echo $passwordcheck;
+
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
 $mypassword = hash('sha256', $mypassword);

@@ -6,6 +6,16 @@
     <section>
 	    
 	    
+	    <?
+	 $usertypeholder1 = 'admin';
+$usertypeholder2 = 'reader';
+$usertypeholder3 = 'NKPAG';
+   if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['userType'] || $usertypeholder3 = $_SESSION['userType'] ){
+	echo "Welcome user";
+   } else {
+	   //safe
+   }   ?>
+	    
 		<!--Body Text-->
 		<div id="BodyText">
 				<div>

@@ -1,7 +1,10 @@
 <?php
 //This connects the database here.
 include("../dbconnect.php");
-
+echo $_POST['username']
+echo $_POST['password'];
+echo $_POST['passwordcheck']
+    
 //html change safety check. This is to catch out any attempt to change variables and so on in the html.
 $myusername = "";
 $mypassword = "";
@@ -30,6 +33,9 @@ if(isset($_POST['passwordcheck'])) {
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
+echo $myusername;
+echo $mypassword;
+echo $passwordcheck;
 
 //Security checking V1.
 $myusername = stripslashes($myusername);
@@ -43,6 +49,11 @@ $mypassword = $mypassword.$salt;
 $mypassword = hash('sha256', $mypassword);
 $passwordcheck = $passwordcheck.$salt;
 $passwordcheck = hash('sha256', $passwordcheck);
+
+echo $myusername;
+echo $mypassword;
+echo $passwordcheck;
+die();
 
 //This declairs the boolians so they dont cause an error
 $userspace = 'false';

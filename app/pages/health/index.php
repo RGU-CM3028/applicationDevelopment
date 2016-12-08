@@ -62,6 +62,14 @@ global $db;
 					</div>
 				</div>
 				<?php
+					session_start();
+					$usertypeholder1 = 'admin';
+   					if ($usertypeholde1 = $_SESSION['userType']){
+						<a href="edition.php">Post a news article</a>    
+   					} else {
+	   					//safe
+   					}
+				
 					$sql_query = "SELECT * FROM hwnews ORDER BY HWNewsDate DESC";
 					$result = $db->query($sql_query);
 					if($result->num_rows <= 0) {

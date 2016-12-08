@@ -46,16 +46,6 @@ if(strpos($actual_link, 'pages') == true) {
 	
 					//This displays the function contents	
 					function displayAccessLevelInformation($accessLevel){
-						?>
-						<a href="../AdminControl/">Admin Control Pannel</a>
-						<?
-						
-						//test
-						$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-						$isIndex = true;
-						if(strpos($actual_link, 'pages') == true) {
-  							$isIndex = false;
-						}
 						if ($accessLevel == "admin") {
 							if($isIndex) { 	  
 								echo '<a href="../pages/AdminControl/">Admin Control Pannel</a>';   
@@ -74,10 +64,6 @@ if(strpos($actual_link, 'pages') == true) {
   						} else {
 							echo '<a href="../../login/logout.php">Logout</a>';  
 						}
-						?>
-						<!--This is a link to logout the site-->
-						<a href="../../login/logout.php">Logout</a> 
-						<?
 					}	
 					//If the user isnt logged in then they see the following form. To log in.
     					else{
@@ -86,10 +72,15 @@ if(strpos($actual_link, 'pages') == true) {
     					{  
         					echo "<p><font color='red'>Please make sure you enter the correct information.</font></p>";  
  					}  
-    					?>
-    
-    					<!--This is the form used to login-->
-					<form method="post" action="../../login/checklogin.php">
+	
+						
+					if($isIndex) { 	  
+						echo '<form method="post" action="login/checklogin.php"> ';   
+  					} else {
+						echo '<form method="post" action="../../login/checklogin.php">';  
+					}
+					?>
+					<!--<form method="post" action="../../login/checklogin.php">-->
 					<!--<form name="userlogin" action="checklogin.php" method="POST" target="_self" class="login">-->
 						<p><label>Username</label><input type="text" name="username" maxlength="30"></p>
 						<p></p>

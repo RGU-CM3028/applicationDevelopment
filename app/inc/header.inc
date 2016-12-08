@@ -45,15 +45,16 @@ if(strpos($actual_link, 'pages') == true) {
 					$accesslevel = $_SESSION['userType'];
 	
 					//This displays the function contents	
+					displayAccessLevelInformation($accesslevel);
+					//This is the function doing its magic on a set piece of code.	
 					function displayAccessLevelInformation($accessLevel){
-						if ($accessLevel == "admin") {
-							if($isIndex) { 	  
-								echo '<a href="../pages/AdminControl/">Admin Control Pannel</a>';   
-  							} else {
-								echo '<a href="../AdminControl/">Admin Control Pannel</a>';  
-							}
-						}
-					}	
+					if ($accessLevel == "admin") {
+					?>
+					<!--This leads to the admin page-->    
+					<a href="../pages/AdminControl/admincontrolform.php">Admin Control Pannel</a>    
+					<?
+					}
+					}
 					
 					//This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.
 					if (isset($_SESSION['username'])){

@@ -17,8 +17,8 @@ global $db;
 	   			//safe
    			}
 		?>
-	<h3>Thi is infomation on how to be healthy</h3>
-			<p>Healthy food:</p>
+	<!--<h3>Thi is infomation on how to be healthy</h3>
+			//<p>Healthy food:</p>
 			<ol>
 				<li>Apple</li>
   				<li>Banana</li>
@@ -30,7 +30,7 @@ global $db;
   				<li>Running</li>
   				<li>Try some of our routes to get excerise</li>
   				<li>Go to the gym</li>
-			</ol>
+			</ol>-->
 </div>
 			
 		<div id="healthPage">			

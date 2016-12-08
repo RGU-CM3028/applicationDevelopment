@@ -49,10 +49,17 @@ if(strpos($actual_link, 'pages') == true) {
 					//This is the function doing its magic on a set piece of code.	
 					function displayAccessLevelInformation($accessLevel){
 						if ($accessLevel == "admin") {
-							?>
-							<!--This leads to the admin page-->    
-							<a href="../AdminControl/">Admin Control Pannel</a>    
-							<?
+							if($isIndex) { 
+								?>
+								<!--This leads to the admin page-->    
+								<a href=".././pages/AdminControl/">Admin Control Pannel</a>    
+								<?
+  							} else {
+ 								?>
+								<!--This leads to the admin page-->    
+								<a href="../AdminControl/">Admin Control Pannel</a>    
+								<?
+							}
 						}
 					}	
 					//This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.

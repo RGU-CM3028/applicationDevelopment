@@ -21,7 +21,10 @@ if(isset($_POST['password'])) {
 //information from the index form.
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
-
+echo $myusername;
+echo $mypassword;
+die();
+    
 //Security checks Version1
 $myusername = stripslashes($myusername);
 $myusername = mysqli_real_escape_string($db,$myusername);

@@ -1,6 +1,6 @@
 <?php
     // imports the header/navigation
-    include("inc/header.inc");
+    include("test.inc");
     include("./dbconnect.php");
 ?>
   <section>

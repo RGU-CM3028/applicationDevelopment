@@ -53,8 +53,7 @@ $passwordcheck = $passwordcheck.$salt;
 $passwordcheck = hash('sha256', $passwordcheck);
 
 echo $myusername;
-echo $mypassword;
-echo $passwordcheck;
+
 die();
 
 //This declairs the boolians so they dont cause an error

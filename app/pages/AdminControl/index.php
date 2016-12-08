@@ -1,6 +1,6 @@
 <?
 
-//include("../../inc/header.inc");
+include("../../inc/header.inc");
 //This starts the sessions. And connects the database here.
 session_start();
 include("../../dbconnect.php"); 
@@ -93,5 +93,5 @@ if (isset($_SESSION['username'])){
 	<a href="../../index.php">Return to login screen</a>
 	<?
 }
-  //include("../../inc/footer.inc");
+  include("../../inc/footer.inc");
 ?> 

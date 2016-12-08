@@ -36,7 +36,6 @@ $myusername = stripslashes($myusername);
 echo 'before: '.$myusername;
 $user_name = mysql_real_escape_string($user_name);
 echo 'after: '.$myusername;
-die();
 $mypassword = stripslashes($mypassword);
 $mypassword = mysqli_real_escape_string($db, $mypassword);
 $passwordcheck = stripslashes($passwordcheck);

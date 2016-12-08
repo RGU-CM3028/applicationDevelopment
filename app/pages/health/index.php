@@ -5,20 +5,34 @@ include('../../dbconnect.php');
 global $db;
 ?>
 	<!--Body Text-->
-
-		<?
-		//admin area use this to allow admin users to see certain stuff
-		session_start();
-		$usertypeholder1 = 'admin';
-   		if ($usertypeholde1 = $_SESSION['userType']){
-			echo "Welcome admin to the news screen.";
-   		} else {
-	   		//safe
-   		}
-		
+		<div id="healthPage">
+			<?
+			//admin area use this to allow admin users to see certain stuff
+			session_start();
+			$usertypeholder1 = 'admin';
+   			if ($usertypeholde1 = $_SESSION['userType']){
+				echo "Welcome admin to the news screen.";
+   			} else {
+	   			//safe
+   			}
 		?>
 
-		<div id="healthPage">
+			<p>Healthy food:</p>
+			<ol>
+				<li>Apple</li>
+  				<li>Banana</li>
+  				<li>Orangle</li>
+			</ol>
+			
+			<p>Healthy body:</p>
+				<ol>
+  				<li>Running</li>
+  				<li>Try some of our routes to get excerise</li>
+  				<li>Go to the gym</li>
+			</ol>
+		
+			
+			?>	
 			<div id="fb-root"></div>
 				<script>(function(d, s, id) {
 				  var js, fjs = d.getElementsByTagName(s)[0];
@@ -68,6 +82,7 @@ global $db;
 				<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
 		</div>
+
 
 	<?php
 	// imports the footer

@@ -71,7 +71,7 @@ File handling the creation and edition of clubs
 		Select image to upload:
     	<input type="file" name="media" id="fileToUpload">
 
-    	Contact info --<br>
+    	<br>Contact info<br>
 		Name: <br><input type="text" name="name" value="<?php echo $name;?>">
 		adress: <br><input type="text" name="adress" value="<?php echo $adress;?>">
 		phone: <br><input type="text" name="phone" value="<?php echo $phone;?>">

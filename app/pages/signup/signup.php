@@ -33,7 +33,7 @@ $passwordcheck = $_POST["passwordcheck"];
 
 //Security checking V1.
 $myusername = stripslashes($myusername);
-$user_name = mysql_real_escape_string($myusername);
+$user_name = mysqli_real_escape_string($myusername);
 $mypassword = stripslashes($mypassword);
 $mypassword = mysqli_real_escape_string($db, $mypassword);
 $passwordcheck = stripslashes($passwordcheck);

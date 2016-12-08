@@ -16,7 +16,7 @@ if(isset($_POST['upload'])){
       } else 
             move_uploaded_file($image_tmp_name, "uploads/$image_name");
       echo"image Uploaded";
-      echo"<img src='photos/$image_name'>";
+      echo"<img src='upload/$image_name'>";
 }
 
 

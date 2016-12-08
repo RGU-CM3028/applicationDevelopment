@@ -19,17 +19,6 @@ global $db;
   				<li>Try some of our routes to get excerise</li>
   				<li>Go to the gym</li>
 			</ol>-->
-		<?
-		//admin area use this to allow admin users to see certain stuff
-		session_start();
-		$usertypeholder1 = 'admin';
-   		if ($usertypeholde1 = $_SESSION['userType']){
-			echo "Welcome admin to the news screen.";
-   		} else {
-	   		//safe
-   		}
-		
-		?>
 
 		<div id="healthPage">
 			<div id="fb-root"></div>
@@ -60,6 +49,17 @@ global $db;
 					</div>
 				</div>
 				<?php
+				
+						//admin area use this to allow admin users to see certain stuffsession_start();
+				$usertypeholder1 = 'admin';
+				if ($usertypeholde1 = $_SESSION['userType']){
+					echo "Welcome admin to the news screen.";
+   				} else {
+	   				//safe
+   				}
+		
+		
+				
 					$sql_query = "SELECT * FROM hwnews ORDER BY HWNewsDate DESC";
 					$result = $db->query($sql_query);
 					if($result->num_rows <= 0) {

@@ -89,8 +89,6 @@ if (isset($_SESSION['username'])){
                 <p class="submit"><input type="submit" name="commit" value="Submit"></p>
         </form>
     	<!--This is a link to logout the site-->
-    	<a href="../../login/logout.php">Logout</a>
-	<a href="../../index.php">Return to login screen</a>
 	<?
 }
   include("../../inc/footer.inc");

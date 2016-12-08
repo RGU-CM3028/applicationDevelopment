@@ -42,6 +42,6 @@ $usertypeholder3 = 'NKPAG';
 		<p></p>
 		<p><label>Password Check</label><input type="password" name="passwordcheck" maxlength="25"></p>
 		 <p class="submit"><input type="submit" name="commit" value="Login"></p>
-	
+	<?
   include("../../inc/footer.inc");
     ?> 

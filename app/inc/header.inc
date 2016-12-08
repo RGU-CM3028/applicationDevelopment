@@ -52,7 +52,7 @@ if(strpos($actual_link, 'pages') == true) {
 							if($isIndex) { 
 								?>
 								<!--This leads to the admin page-->    
-								<a href=".././pages/AdminControl/">Admin Control Pannel</a>    
+								<a href="../pages/AdminControl/">Admin Control Pannel</a>    
 								<?
   							} else {
  								?>

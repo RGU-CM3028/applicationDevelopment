@@ -53,7 +53,12 @@ global $db;
 						//admin area use this to allow admin users to see certain stuffsession_start();
 				$usertypeholder1 = 'admin';
 				if ($usertypeholde1 = $_SESSION['userType']){
-					?><a href="edition.php">Test</a><?
+					?>    
+					<form method="post" action="edition.php">
+        					<p class="submit"><input type="submit" name="edit" value="edit"></p>
+						<p class="submit"><input type="submit" name="update" value="update"></p>
+    					</form>
+				<?
    				} else {
 	   				//safe
    				}

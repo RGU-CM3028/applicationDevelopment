@@ -35,16 +35,13 @@ $usertypeholder3 = 'NKPAG';
             ?>
     
             <!-- This is the form used for users to sign up -->
-            <form method="post" action="signup.php">
-                <p><input type="text" name="username" value="" placeholder="Username please"></p>
-                <p><input type="password" name="password" value="" placeholder="Password please"></p>
-                <p><input type="password" name="passwordcheck" value="" placeholder="Confirm Password please"></p>
-                <p class="submit"><input type="submit" name="commit" value="Login"></p>
-            </form>
-    
-            <!-- This is used to return to the login screen-->
-            <a href="../../index.php">Return to login screen</a>
-            <?
+	<form method="post" action="signup.php">				
+		<p><label>Username</label><input type="text" name="username" maxlength="30"></p>
+		<p></p>
+		<p><label>Password</label><input type="password" name="password" maxlength="25"></p>
+		<p></p>
+		<p><label>Password Check</label><input type="password" name="passwordcheck" maxlength="25"></p>
+		 <p class="submit"><input type="submit" name="commit" value="Login"></p>
 	
   include("../../inc/footer.inc");
     ?> 

@@ -86,9 +86,9 @@ if(strpos($actual_link, 'pages') == true) {
 						echo '<form method="post" action="../../login/checklogin.php">';  
 					}
 					?>
-						<p><label>Username</label><input type="text" name="username1" maxlength="30"></p>
+						<p><label>Username</label><input type="text" name="username" maxlength="30"></p>
 						<p></p>
-						<p><label>Password</label><input type="password" name="password1" maxlength="25"></p>
+						<p><label>Password</label><input type="password" name="password" maxlength="25"></p>
 						<p></p>
 						<p><input type="submit" value="submit"></p>
 					</form>

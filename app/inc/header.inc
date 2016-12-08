@@ -45,6 +45,9 @@ if(strpos($actual_link, 'pages') == true) {
 					$accesslevel = $_SESSION['userType'];
 	
 					//This displays the function contents	
+					displayAccessLevelInformation($accesslevel);
+					
+					//This displays the function contents	
 					function displayAccessLevelInformation($accessLevel){
 						if ($accessLevel == "admin") {
 							if($isIndex) { 	  
@@ -68,10 +71,9 @@ if(strpos($actual_link, 'pages') == true) {
 					//If the user isnt logged in then they see the following form. To log in.
     					else{
     						//This is the error message for if there is a login fail.
-    						if(isset($_GET["Loginfail"]))  
-    					{  
-        					echo "<p><font color='red'>Please make sure you enter the correct information.</font></p>";  
- 					}  
+    						if(isset($_GET["Loginfail"]))  {  
+        						echo "<p><font color='red'>Please make sure you enter the correct information.</font></p>";  
+ 						}	  
 
 										
 					if($isIndex) { 	  
@@ -92,8 +94,9 @@ if(strpos($actual_link, 'pages') == true) {
   					} else {
 						echo '<a href="../signup/">Signup</a>';  
 					}
+					}
 						?>
-    					<a href="../signup/">Signup</a>
+
 				<? } ?>
 				
 				

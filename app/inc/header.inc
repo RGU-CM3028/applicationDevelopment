@@ -52,7 +52,7 @@ if(strpos($actual_link, 'pages') == true) {
 						if ($accessLevel == "admin") {
 							?>
 							<!--This leads to the admin page-->    
-							<a href="../pages/AdminControl/admincontrolform.php">Admin Control Pannel</a>    
+							<a href="../../pages/AdminControl/admincontrolform.php">Admin Control Pannel</a>    
 							<?
 						}
 					}	

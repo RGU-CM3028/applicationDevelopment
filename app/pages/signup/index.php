@@ -1,6 +1,6 @@
 <?
     //This connects the database and continues the session onto this page.
-    //include("../../inc/header.inc");
+    include("../../inc/header.inc");
     session_start();
     include("../dbconnect.php");
 	

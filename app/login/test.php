@@ -8,7 +8,11 @@ $usertypeholder1 = 'admin';
 $usertypeholder2 = 'reader';
 $usertypeholder3 = 'NKPAG';
    if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['userType'] || $usertypeholder3 = $_SESSION['userType'] ){
-	?>
+	header("location:../../index.php");
+	die();
+   }
+
+?>
 	    
 	    <!--This is the header for the form-->
             <h1>Signup Form</h1>
@@ -40,10 +44,6 @@ $usertypeholder3 = 'NKPAG';
             <!-- This is used to return to the login screen-->
             <a href="../../index.php">Return to login screen</a>
             <?
-} else {
-	header("location:../../index.php");
-	die();
-}
 	
   include("../../inc/footer.inc");
     ?> 

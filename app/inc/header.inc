@@ -83,7 +83,7 @@ if(strpos($actual_link, 'pages') == true) {
 					if($isIndex) { 	  
 						echo '<form method="post" action="login/checklogin2.php"> ';   
   					} else {
-						echo '<form method="post" action="../../login/checklogin2.php">';  
+						echo '<form method="post" action="../../login/checklogin.php">';  
 					}
 					?>
 						<p><label>Username</label><input type="text" name="username" maxlength="30"></p>

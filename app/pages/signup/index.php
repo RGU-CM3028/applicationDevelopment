@@ -41,6 +41,6 @@ $usertypeholder3 = 'NKPAG';
 		<p><label>Password Check</label><input type="password" name="passwordcheck" maxlength="25"></p>
 		 <p class="submit"><input type="submit" name="commit" value="Login"></p>
 		            <!-- This is used to return to the login screen-->
-            <a href="index.php">Return to login screen</a>
+            <a href="../../index.php">Return to login screen</a>
             <?
     ?> 

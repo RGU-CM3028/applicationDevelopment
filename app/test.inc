@@ -38,12 +38,54 @@ if(strpos($actual_link, 'pages') == true) {
   }
 ?>
 <div id="login">
-<form name="userlogin" action="" method="POST" target="_self" class="login">
-<label>Username</label>
-<input type="text" name="username" maxlength="30">
-<label>Password</label><input type="password" name="userpass" maxlength="25">
-<input type="submit" value="submit">
-</form>
+//This starts the sessions.
+					session_start();  
+	 
+					//This prepares the accesslevel.
+					$accesslevel = $_SESSION['userType'];
+	
+					//This displays the function contents	
+					displayAccessLevelInformation($accesslevel);
+					//This is the function doing its magic on a set piece of code.	
+					function displayAccessLevelInformation($accessLevel){
+						if ($accessLevel == "admin") {
+							?>
+							<!--This leads to the admin page-->    
+							<a href="../AdminControl/">Admin Control Pannel</a>    
+							<?
+						}
+					}	
+					//This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.
+					if (isset($_SESSION['username'])){
+						echo "<p>Hello " . $_SESSION['username'] . "</p>";
+						echo "<p>User type is " . $_SESSION['userType'] . "</p>";
+						?>
+						<!--This is a link to logout the site-->
+						<a href="../../login/logout.php">Logout</a> 
+						<?
+					}	
+					//If the user isnt logged in then they see the following form. To log in.
+    					else{
+    						//This is the error message for if there is a login fail.
+    						if(isset($_GET["Loginfail"]))  
+    					{  
+        					echo "<p><font color='red'>Please make sure you enter the correct information.</font></p>";  
+ 					}  
+    					?>
+    
+    					<!--This is the form used to login-->
+					<form method="post" action="../../login/checklogin.php">
+					<!--<form name="userlogin" action="checklogin.php" method="POST" target="_self" class="login">-->
+						<p><label>Username</label><input type="text" name="username" maxlength="30"></p>
+						<p></p>
+						<p><label>Password</label><input type="password" name="password" maxlength="25"></p>
+						<p></p>
+						<p><input type="submit" value="submit"></p>
+					</form>
+    
+    					<!--This is a link to signup to the site-->
+    					<a href="../signup/">Signup</a>
+				<? } ?>
 </div>
 
 </header>

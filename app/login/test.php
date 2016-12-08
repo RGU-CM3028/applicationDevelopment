@@ -10,6 +10,8 @@ $usertypeholder3 = 'NKPAG';
    if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['userType'] || $usertypeholder3 = $_SESSION['userType'] ){
 	header("location:../../index.php");
 	die();
+   } else {
+	   //safe
    }
 
 ?>

@@ -33,6 +33,7 @@ $mypassword = hash('sha256', $mypassword);
 
 echo $myusername;
 echo $mypassword;
+die();
 
 //Code that checks to see if any usernames and password pairs match any in the database.
 $sql = "SELECT * FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "' LIMIT 1;";

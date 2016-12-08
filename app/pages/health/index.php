@@ -30,9 +30,7 @@ global $db;
   				<li>Try some of our routes to get excerise</li>
   				<li>Go to the gym</li>
 			</ol>
-		
 			
-			?>	
 			<div id="fb-root"></div>
 				<script>(function(d, s, id) {
 				  var js, fjs = d.getElementsByTagName(s)[0];

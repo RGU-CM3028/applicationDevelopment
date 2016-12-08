@@ -62,7 +62,7 @@ if(strpos($actual_link, 'pages') == true) {
 						echo "<p>User type is " . $_SESSION['userType'] . "</p>";
 						?>
 						<!--This is a link to logout the site-->
-						<a href="../../login/logout.php">Logout</a> 
+						<a href="../login/logout.php">Logout</a> 
 						<?
 					}	
 					//If the user isnt logged in then they see the following form. To log in.
@@ -78,12 +78,14 @@ if(strpos($actual_link, 'pages') == true) {
 					<form method="post" action="../../login/checklogin.php">
 					<!--<form name="userlogin" action="checklogin.php" method="POST" target="_self" class="login">-->
 						<p><label>Username</label><input type="text" name="username" maxlength="30"></p>
+						<p></p>
 						<p><label>Password</label><input type="password" name="userpass" maxlength="25"></p>
+						<p></p>
 						<p><input type="submit" value="submit"></p>
 					</form>
     
     					<!--This is a link to signup to the site-->
-    					<a href="../../login/signupform.php">Signup</a>
+    					<a href="../login/signupform.php">Signup</a>
 				<? } ?>
 				
 				

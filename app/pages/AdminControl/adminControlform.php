@@ -1,6 +1,6 @@
 <?
 // imports the header/navigation
-include("../../inc/header2.inc");
+include("../../inc/header.inc");
 
 //This starts the sessions. And connects the database here.
 session_start();

@@ -32,8 +32,12 @@ File handling the creation and edition of clubs
 		}
 
 		if(isset($_POST['handleEdition'])){
+
+			//TODO once everything else is done : http://us2.php.net/manual/en/features.file-upload.php
+			// and https://www.owasp.org/index.php/Unrestricted_File_Upload
+
 			//Handle image upload
-			$target_dir = "uploads/";
+			/*$target_dir = "uploads/";
 			$target_file = $target_dir . basename($_FILES["media"]["name"]);
 			$uploadOk = 1;
 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -54,7 +58,8 @@ File handling the creation and edition of clubs
 			$sql_query = "INSERT INTO Media(mediaType, mediaDescription, URL) VALUES(picture, Club Logo, " . $target_file . ")";
 			$db->query($sql_query);
 
-			$mediaID = $db->insert_id;
+			$mediaID = $db->insert_id;*/
+			$mediaID = 00;
 
 			//TODO get clubGenre and eventID
 			$sql_query = "INSERT INTO Club(clubName, clubDescription, clubGenreID, logoID, pname, adress, phone, email) VALUES(" . $_POST['clubName'] . "," . $_POST['clubDescription'] . "," . $_POST['clubGenreID'] . "," . $mediaID . "," . $_POST['pname'] .  $_POST['adress'] .  $_POST['phone'] .  $_POST['email'] . ")";

@@ -70,7 +70,7 @@ if(strpos($actual_link, 'pages') == true) {
 						echo "<p>Hello " . $_SESSION['username'] . "</p>";
 						echo "<p>User type is " . $_SESSION['userType'] . "</p>";
 						if($isIndex) { 	  
-							echo '<a href="../login/logout.php">Logout</a> ';   
+							echo '<a href="login/logout.php">Logout</a> ';   
   						} else {
 							echo '<a href="../../login/logout.php">Logout</a>';  
 						}
@@ -99,6 +99,7 @@ if(strpos($actual_link, 'pages') == true) {
 					</form>
     
     					<!--This is a link to signup to the site-->
+					
     					<a href="../signup/">Signup</a>
 				<? } ?>
 				

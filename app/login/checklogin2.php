@@ -45,7 +45,6 @@ while($row = $result->fetch_array()) {
 
 echo $mypassword."<br>";		
 echo $myusername."<br>";		
-die();
 
 //Code for getting usertype extracted for the session.
 $userType = "";

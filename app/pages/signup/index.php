@@ -1,6 +1,6 @@
  <?
      // imports the header/navigation
-    include("../../inc/Kelsies original header save.inc");
+    include("../../inc/header2.inc");
     include('../../dbconnect.php');
     
     //This connects the database and continues the session onto this page.

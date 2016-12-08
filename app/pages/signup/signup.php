@@ -7,6 +7,11 @@ include("../dbconnect.php");
 $myusername = "";
 $mypassword = "";
 $passwordcheck = "";
+echo $myusername;
+echo $mypassword;
+echo $passcheck;
+die();
+
 if(isset($_POST['username'])) {
     // it exists
 } else {
@@ -31,10 +36,6 @@ $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 
-echo $myusername;
-echo $mypassword;
-echo $passcheck;
-die();
 //Security checking V1.
 $myusername = stripslashes($myusername);
 $myusername = mysqli_real_escape_string($db, $myusername);

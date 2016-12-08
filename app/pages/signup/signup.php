@@ -1,5 +1,4 @@
 <?php
-
 //This connects the database here.
 include("../dbconnect.php");
 
@@ -7,11 +6,10 @@ include("../dbconnect.php");
 $myusername = "";
 $mypassword = "";
 $passwordcheck = "";
-echo $myusername;
-echo $mypassword;
-echo $passcheck;
+echo $_POST['username'];
+echo $_POST['password'];
+echo $_POST['passwordcheck'];
 die();
-
 if(isset($_POST['username'])) {
     // it exists
 } else {

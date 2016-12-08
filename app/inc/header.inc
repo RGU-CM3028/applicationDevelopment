@@ -87,7 +87,7 @@ if(strpos($actual_link, 'pages') == true) {
 					</form>
     					<?
 					if($isIndex) { 	  
-						echo '<a href="../pages/signup/">Signup</a> ';   
+						echo '<a href="pages/signup/">Signup</a> ';   
   					} else {
 						echo '<a href="../signup/">Signup</a>';  
 					}

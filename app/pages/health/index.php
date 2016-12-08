@@ -5,8 +5,9 @@ include('../../dbconnect.php');
 global $db;
 ?>
 	<!--Body Text-->
-		<div id="healthPage">
-			<?
+
+<div id="healthinfo">
+		<?
 			//admin area use this to allow admin users to see certain stuff
 			session_start();
 			$usertypeholder1 = 'admin';
@@ -16,7 +17,7 @@ global $db;
 	   			//safe
    			}
 		?>
-
+	<h3>Thi is infomation on how to be healthy</h3>
 			<p>Healthy food:</p>
 			<ol>
 				<li>Apple</li>
@@ -30,7 +31,9 @@ global $db;
   				<li>Try some of our routes to get excerise</li>
   				<li>Go to the gym</li>
 			</ol>
+</div>
 			
+		<div id="healthPage">			
 			<div id="fb-root"></div>
 				<script>(function(d, s, id) {
 				  var js, fjs = d.getElementsByTagName(s)[0];

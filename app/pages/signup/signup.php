@@ -30,9 +30,6 @@ if(isset($_POST['passwordcheck'])) {
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
-echo $myusername;
-echo $mypassword;
-echo $passwordcheck;
 
 //Security checking V1.
 $myusername = stripslashes($myusername);
@@ -41,10 +38,6 @@ $mypassword = stripslashes($mypassword);
 $mypassword = mysqli_real_escape_string($db, $mypassword);
 $passwordcheck = stripslashes($passwordcheck);
 $passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
-
-echo $myusername;
-echo $mypassword;
-echo $passwordcheck;
 
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;

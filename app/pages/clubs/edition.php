@@ -42,7 +42,7 @@ File handling the creation and edition of clubs
 			// and https://www.owasp.org/index.php/Unrestricted_File_Upload
 
 			//Handle image upload
-			/*$target_dir = "uploads/";
+			$target_dir = "uploads/";
 			$target_file = $target_dir . basename($_FILES["media"]["name"]);
 			$uploadOk = 1;
 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -60,21 +60,11 @@ File handling the creation and edition of clubs
 
 
 			//Insert into media and get the generated id
-			$sql_query = "INSERT INTO Media(mediaType, mediaDescription, URL) VALUES(picture, Club Logo, " . $target_file . ")";
+			$sql_query = "INSERT INTO Media(mediaType, mediaDescription, URL) VALUES('picture', 'Club Logo', '" . $target_file . "')";
 			$db->query($sql_query);
 
-			$mediaID = $db->insert_id;*/
-			$mediaID = 00;
-
-
-			// $query = "INSERT INTO club (clubName, clubGenreID, clubDescription)
-			// 				VALUES ('". $name . "'," . $genre . ",'" . $description . "')";
-							
-			// if ($db->query($query) === TRUE) {
-			//     echo "New record created successfully";
-			// } else {
-			//     echo "Error: " . $query . "<br>" . $db->error;
-			// }
+			$mediaID = $db->insert_id;
+			$mediaID = 0;
 
 			//TODO get clubGenre and eventID
 			$sql_query = "INSERT INTO club (clubName, clubDescription, logoID, pname, adress, phone, email) VALUES('" . $_POST['clubName'] . "','" . $_POST['clubDescription'] . "','" . $mediaID . "','" . $_POST['pname'] . "','" .  $_POST['adress'] . "','" .  $_POST['phone'] . "','" .  $_POST['email'] . "')";

@@ -1,4 +1,6 @@
 <?
+
+
 //This starts the sessions. And connects the database here.
 session_start();
 include("../../dbconnect.php"); 
@@ -6,10 +8,10 @@ include("../../dbconnect.php");
 $usertypeholder = 'admin';
 
 if ($usertypeholder = $_SESSION['userType']){
+	//safe
+} else {
 	header("location:../../index.php");
 	die();
-} else {
-	//safe
 }
 
 ?>

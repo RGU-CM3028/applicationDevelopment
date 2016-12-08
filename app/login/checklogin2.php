@@ -4,13 +4,13 @@ include("../dbconnect.php");
 //html change safety check. This is to catch out any attempt to change variables and so on in the html.
 $myusername = "";
 $mypassword = "";
-if(isset($_POST['username1'])) {
+if(isset($_POST['username'])) {
     // id index exists
 } else {
     header("location:../index.php?Loginfail=2");
     die();
 }
-if(isset($_POST['password2'])) {
+if(isset($_POST['password'])) {
     // id index exists
 } else {
     header("location:../index.php?Loginfail=2");
@@ -18,11 +18,11 @@ if(isset($_POST['password2'])) {
 }
     
 //information from the index form.
-$myusername = $_POST["username1"];
-$mypassword = $_POST["password1"];
+$myusername = $_POST["username"];
+$mypassword = $_POST["password"];
 
-echo $_POST["username1"];
-echo $_POST["password2"];
+echo $_POST["username"];
+echo $_POST["password"];
 
 //Security checks Version1
 $myusername = stripslashes($myusername);

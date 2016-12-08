@@ -79,7 +79,7 @@ if(strpos($actual_link, 'pages') == true) {
 					<!--<form name="userlogin" action="checklogin.php" method="POST" target="_self" class="login">-->
 						<p><label>Username</label><input type="text" name="username" maxlength="30"></p>
 						<p></p>
-						<p><label>Password</label><input type="password" name="userpass" maxlength="25"></p>
+						<p><label>Password</label><input type="password" name="password" maxlength="25"></p>
 						<p></p>
 						<p><input type="submit" value="submit"></p>
 					</form>

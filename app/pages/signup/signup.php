@@ -46,6 +46,7 @@ $userspace = 'false';
 $passspace = 'false';
 $pass2space = 'false';
 
+$myusername = '&#';
 echo $myusername;
 echo $mypassword;
 echo $passwordcheck;

@@ -32,11 +32,8 @@ $passwordcheck = $_POST["passwordcheck"];
 
 $myusername = htmlentities($myusername);
 $myusername = mysqli_real_escape_string($db, $myusername);
-
-//$myusername =  mysqli_real_escape_string($db, $myusername);
-//$myusername = stripslashes($myusername);
-//$myusername = filter_var($myusername, FILTER_SANITIZE_STRING);
-//$myusername = htmlspecialchars($myusername, ENT_QUOTES, "ISO-8859-1");
+$myusername = stripslashes($myusername);
+$myusername = filter_var($myusername, FILTER_SANITIZE_STRING);
 
 echo $myusername;
 die();

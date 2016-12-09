@@ -47,8 +47,6 @@ $passspace = 'false';
 $pass2space = 'false';
 
 //testestestestestestestest
-$myusername = '&#';
-echo $myusername;
 if (strpos($myusername, '&#') !== false) {
     $userspace = 'true';
 }
@@ -84,7 +82,6 @@ if (strpos($mypassword, ' ') !== false) {
 if (strpos($passwordcheck, ' ') !== false) {
     $pass2space ='true';
 }
-die();
 //This tests to see if there is any spaces in the text
 if($userspace=='true' || $passspace=='true' || $pass2space=='true') {
     header("location:index.php?space=1");

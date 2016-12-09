@@ -42,17 +42,19 @@ echo $myusername;
 //echo $mypassword;
 echo $passwordcheck. "<br>";
 
-$myusername = mysqli_real_escape_string($db, $myusername);
+$myusername = filter_var($myusername, FILTER_SANITIZE_STRING);
+$myusername = htmlspecialchars($myusername, ENT_QUOTES, "ISO-8859-1");
+
+//$myusername = mysqli_real_escape_string($db, $myusername);
+$mypassword = stripslashes($mypassword);
+$mypassword = mysqli_real_escape_string($db, $mypassword);
+$passwordcheck = stripslashes($passwordcheck);
+$passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
 
 echo $myusername;
 echo $mypassword;
 echo $passwordcheck. "<br>";
 die();
-
-$mypassword = stripslashes($mypassword);
-$mypassword = mysqli_real_escape_string($db, $mypassword);
-$passwordcheck = stripslashes($passwordcheck);
-$passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
 
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;

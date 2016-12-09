@@ -30,7 +30,7 @@ $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 
-$myusername =  mysqli_real_escape_string($myusername);
+$myusername =  mysqli_real_escape_string($db, $myusername);
 echo $myusername;
 die();
 

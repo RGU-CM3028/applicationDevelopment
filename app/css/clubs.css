@@ -85,31 +85,34 @@
   margin: 1em;
   width: auto;
 }
+
 .clubsTable {
-  display: flex;
-  flex-direction: column;
   font-size: 135%;
-}
-
-.tableRow, .tableTitle {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 0.5em;
-  margin: 0.5em;
-}
-
-.tableTitle {
-  margin-top: 1em;
-  padding-top: 1em;
+  border-collapse: collapse;
+  width: 80%;
+  margin: auto;
+  margin-top: 3em;
+  padding: 1em;
   border-top: 1px solid grey;
 }
+
+
+
 .tableRow {
   background: white;
 }
 
+.tableRow td a {
+  padding: 1em;
+  display: block;
+  width: 100%;
+}
 .tableRow:hover {
   background: grey;
   color: white !important;
   cursor: pointer;
+}
+
+.th, td, tr {
+  text-align: center;
 }

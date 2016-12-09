@@ -3,8 +3,8 @@
 include("../../inc/header.inc");
 //This starts the sessions. And connects the database here.
 session_start();
-include("../../dbconnect.php"); 
-	
+include("../../dbconnect.php");
+
 $usertypeholder = 'admin';
 
 if ($usertypeholder = $_SESSION['userType']){
@@ -15,13 +15,13 @@ if ($usertypeholder = $_SESSION['userType']){
 }
 
 ?>
-	
+
 <!--This is the control panel for the admin-->
 <h1>Admin control panel</h1>
 <!-- This is the form used for the admin to control other users privilages -->
 <p>Note: You cant delete/edit yourself. This is so there is always an admin on the system.</p>
 <?
-	
+
 //This nabs basic user info so the page says who is on it.
 if (isset($_SESSION['username'])){
     	echo "<p>Hello " . $_SESSION['username'] . "</p>";
@@ -52,7 +52,7 @@ if (isset($_SESSION['username'])){
         }
 ?>
         <form method="post" action="admincontrol.php">
-		
+
 		<!--This is how the admin will select how to edit the profiles-->
 		<p>Please select what you want to do with the profile:
 		<select name='choice'>
@@ -61,17 +61,18 @@ if (isset($_SESSION['username'])){
 			<option value="usertype">Change usertype</option>
 		</select>
 		</p>
-		
+
 		<!--This is how the admin will select what usertype to give a user-->
 		<p>If you are changing a users "usertype", please select it here:
 		<select name='usertype'>
 			<option value="">Select...</option>
 			<option value="reader">reader</option>
 			<option value="admin">admin</option>
+			<option value="clubAdmin">clubAdmin</option>
 			<option value="NKPAG">NKPAG</option>
 		</select>
 		</p>
-		
+
 		<!--This is how the admin will say what user is going to be edited or deleted-->
 		<p>Please select a user:
 		<select name='username'>
@@ -85,11 +86,11 @@ if (isset($_SESSION['username'])){
 			?>
 		</select>
 		</p>
-			
+
                 <p class="submit"><input type="submit" name="commit" value="Submit"></p>
         </form>
     	<!--This is a link to logout the site-->
 	<?
 }
   include("../../inc/footer.inc");
-?> 
+?>

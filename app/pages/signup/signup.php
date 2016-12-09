@@ -30,6 +30,10 @@ $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 
+$myusername =  mysqli_real_escape_string($myusername);
+echo $myuername;
+die();
+
 //Security checking V1.
 $myusername = stripslashes($myusername);
 $myusername = filter_var($myusername, FILTER_SANITIZE_STRING);

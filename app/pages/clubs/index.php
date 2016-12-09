@@ -91,7 +91,8 @@
 				          .$row["clubDescription"]
 				          ."</a></td>
                   <td>
-                  <a href='./edition.php'><img src='../../images/edit.svg' alt='edit'/>
+                  <form>
+                  <a href='./edition.php?clubID=". $row['clubID']."'><img src='../../images/edit.svg' alt='edit'/>
                   </a></td>
                   </tr>";
 				    }

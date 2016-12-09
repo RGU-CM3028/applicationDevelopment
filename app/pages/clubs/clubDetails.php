@@ -7,7 +7,7 @@
 
 
 <?php
-include("../dbconnect.php");
+include("../../dbconnect.php");
 global $db;
 
 $clubID = $_GET['clubID'];
@@ -15,7 +15,7 @@ $clubID = $_GET['clubID'];
 $clubName = "club not found";
 $clubDescription = "club not found";
 
-$query = "SELECT clubName, clubDescription, clubGenreID 
+$query = "SELECT clubName, clubDescription, clubGenreID
           FROM Club C
           WHERE C.clubID = " . $clubID;
 $result = $db->query($query);
@@ -26,7 +26,7 @@ while ($row = $result->fetch_array()) {
     $clubGenreID = $row{'clubGenreID'};
 }
 
-$query = "SELECT pname 
+$query = "SELECT pname
           FROM ClubGenre C
           WHERE C.clubGenreID = " . $clubGenreID;
 $result = $db->query($query);
@@ -49,12 +49,12 @@ while ($row = $result->fetch_array()) {
 
 echo "<section>
     <div>
-        <img src= 
+        <img src=
                  " . $mediaID . "
                                     >
-    <h1> 
+    <h1>
             " . $clubName . "
-                              
+
                                       " . $clubGenre . "
                                                         </h1>
         <p>
@@ -63,6 +63,3 @@ echo "<section>
         <h2> Events </h2>
     </div>
 </section>";
-
-
-

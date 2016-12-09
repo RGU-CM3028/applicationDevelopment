@@ -10,104 +10,91 @@ File handling the creation and edition of clubs
 </head>
 <body>
 	<?php
-		ini_set('display_errors', 1);
 		include("../../dbconnect.php");
 
-		//Initialise the fields
-		$title = "";
-		$description = "";
-		$clubGenre = "";
-		$media = "";
-		$pname = "";
-		$adress = "";
-		$phone = "";
-		$email = "";
-		$logoID = "";
-
 		//If we are editing instead of creating a new
-		if(isset($_GET['edit']) && isset($_GET['clubID'])){
-			$sql_query = "SELECT clubName, clubDescription, clubGenreID, logoID, pname, adress, phone, email FROM club WHERE clubID = " . $_GET['clubID']; // Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
+    // if clubID is setted, we update
+		if(isset($_GET['clubID'])){
+      echo "<h1> Update your club </h1>";
+			$sql_query = "SELECT clubName, clubDescription, clubGenreID, pname, adress, phone, email FROM club WHERE clubID = " . $_GET['clubID']; // Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
 			$queryResult = $db->query($sql_query);
-			
-			while($result = $queryResult->fetch_array(MYSQLI_ASSOC)){
-				$title = $result['clubName'];
-				$description = $result['clubDescription'];
-				$clubGenreID = $result['clubGenreID'];
-				$media = $result['mediaID'];
-				$pname = $result['pname'];
-				$adress = $result['adress'];
-				$phone = $result['phone'];
-				$email = $result['email'];
-				$logoID = $result['mediaID'];
-			}
-			echo "get clubID : " . $_GET["clubID"] . " ; clubName : " . $title;
-		}
 
-		if(isset($_POST["handleCreation"])){
+        while ($row = $queryResult->fetch_array()) {
+          $title = $row['clubName'];
+  				$description = $row['clubDescription'];
+  				$clubGenreID = $row['clubGenreID'];
+  				$pname = $row['pname'];
+  				$adress = $row['adress'];
+  				$phone = $row['phone'];
+  				$email = $row['email'];
+        }
+    } else {
+      echo "<h1> Create a new club </h1>";
+      //Initialise the fields
+      $title = "";
+      $description = "";
+      $clubGenreID = "";
+      $media = "";
+      $pname = "";
+      $adress = "";
+      $phone = "";
+      $email = "";
+    }
 
-			//TODO once everything else is done : http://us2.php.net/manual/en/features.file-upload.php
-			// and https://www.owasp.org/index.php/Unrestricted_File_Upload
+    if(isset($_POST['submitAdd'])) {
+      $sql_query = "INSERT INTO Club (clubName, clubDescription, clubGenreID,
+        logoID, pname, adress, phone, email) VALUES ('"
+      . $_POST['clubName'] . "',' "
+      . $_POST['clubDescription'] . "',' "
+      . $_POST['clubGenreID'] . "',
+        0,' "
+      . $_POST['pname'] . "',' "
+      . $_POST['adress'] . "',' "
+      . $_POST['phone'] . "',' "
+      . $_POST['email'] . "');";
 
-			$uploaddir = '/var/www/uploads/';
-			$uploadfile = $uploaddir . basename($_FILES['media']['name']);
+      if ($db->query($sql_query) === TRUE) {
+      	    echo "New club created successfully";
+      	} else {
+      	    echo "Error: " . $sql_query . "<br>" . $db->error;
+      	}
+    }
+    if(isset($_POST['submitUpdate'])) {
 
-			if (move_uploaded_file($_FILES['media']['tmp_name'], $uploadfile)) {
-			    echo "Image is valid, and was successfully uploaded.\n";
-			} else {
-			    echo "Image upload failed\n";
-			}
+        $sql_query = "UPDATE Club
+        SET clubName='".$_POST['clubName']."',
+        clubDescription='".$_POST['clubDescription']."',
+        clubGenreID='".$_POST['clubGenreID']."',
+        pname='".$_POST['pname']."',
+        adress='".$_POST['adress']."',
+        phone='".$_POST['phone']."',
+        email='".$_POST['email']."'
+         WHERE clubID='".$_GET['clubID']."'";
 
-
-			//Insert into media and get the generated id
-			$sql_query = "INSERT INTO Media(mediaType, mediaDescription, URL) VALUES('picture', 'Club Logo', '" . $uploadfile . "')";
-			$db->query($sql_query);
-
-			$mediaID = $db->insert_id;
-			$mediaID = 0;
-
-			//TODO get clubGenre and eventID
-			$sql_query = "INSERT INTO club (clubName, clubDescription, logoID, pname, adress, phone, email) VALUES('" . $_POST['clubName'] . "','" . $_POST['clubDescription'] . "','" . $mediaID . "','" . $_POST['pname'] . "','" .  $_POST['adress'] . "','" .  $_POST['phone'] . "','" .  $_POST['email'] . "')";
-			if ($db->query($sql_query) === TRUE) {
-			    echo "New record created successfully";
-			} else {
-			    echo "Error: " . $query . "<br>" . $db->error;
-			}
-		}
-
-		if(isset($_POST["handleEdition"])){
-
-			echo "<br><br> query soon : <br><br>"; 	
-
-			//TODO get clubGenre and eventID
-			//TODO update picture separately if one was uploaded
-			$sql_query = "UPDATE club SET clubName='" . $_POST['clubName'] . "', 
-			clubDescription = '" . $_POST['clubDescription'] . "',
-			pname = '" . $_POST['pname'] . "',
-			adress = '" .  $_POST['adress'] . "',
-			phone = '" .  $_POST['phone'] . "',
-			email = '" .  $_POST['email'] . "')";
-
-			echo $sql_query;
-
-			
-		}
-
+        if ($db->query($sql_query) === TRUE) {
+              header("location:clubDetails.php?clubID=".$_GET['clubID']);
+          } else {
+              echo "Error: " . $sql_query . "<br>" . $db->error;
+          }
+      }
 	?>
-	<form action="#" method="POST">
-		Title: <br><input type="text" name="clubName" value=<?php echo "\"" . $title . "\"";?>><br>
-		Description: <br><textarea name="clubDescription" rows="5" cols="40"><?php echo $description;?></textarea><br>
-
-    	<br>Contact info<br>
+	<form action="" method="POST">
+		Title : <br>
+    <input type="text" name="clubName" value=<?php echo "\"" . $title . "\"";?>><br>
+		Description : <br>
+    <textarea name="clubDescription" rows="5" cols="40"><?php echo $description;?></textarea><br>
+    <input type='number' name="clubGenreID" value=<?php echo "\"" . $clubGenreID . "\"";?>><br>
+    <br>Contact info<br>
 		Name: <br><input type="text" name="pname" value=<?php echo "\"" . $pname . "\"";?>><br>
-		adress: <br><input type="text" name="adress" value=<?php echo "\"" . $adress . "\"";?>><br>
-		phone: <br><input type="text" name="phone" value=<?php echo "\"" . $phone . "\"";?>><br>
-		email: <br><input type="text" name="email" value=<?php echo "\"" . $email . "\"";?>><br>
+		Address: <br><input type="text" name="adress" value=<?php echo "\"" . $adress . "\"";?>><br>
+		Phone: <br><input type="tel" name="phone" value=<?php echo "\"" . $phone . "\"";?>><br>
+		Email: <br><input type="email" name="email" value=<?php echo "\"" . $email . "\"";?>><br>
 
-		Select image to upload:
-    	<input type="file" name="media" value=<?php echo "\"" . $media . "\"";?>>
-
-    	<?php if(isset($_GET["edit"])) {echo "<input type=\"submit\" name=\"handleEdition\">";} else {echo "<input type=\"submit\" name=\"handleCreation\">";}
-    	?>
-		
+    <? if(isset($_GET['clubID'])) {
+      echo "<input type='submit' name='submitUpdate' value='Update club'>";
+    } else {
+      echo "<input type='submit' name='submitAdd' value='Add club'>";
+    }
+    ?>
 	</form>
 </body>

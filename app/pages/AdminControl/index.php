@@ -21,7 +21,6 @@ if ($usertypeholder = $_SESSION['userType']){
         <!--This is the control panel for the admin-->
         <h2>Admin control panel</h2>
         <br>
-        <span>This account cannot be deleted or altered as this is the System Administrator.</span>
 <?
     
     //This gets basic user info so the page knows who is logged in.
@@ -65,9 +64,24 @@ if ($usertypeholder = $_SESSION['userType']){
                 echo "<p class='error-green'>Record updated.</font></p>";
             }
         ?>
+            
+            <!--This is how the admin will say what user is going to be edited or deleted-->
+            <span>This account cannot be deleted or altered as this is the System Administrator.</span><br>
+            <label>Please select a user</label><br>
+            <select name='username'>
+                <option value="">Select...</option>
+                <?
+                    $boom = "SELECT * FROM users";
+                    $result = $db->query($boom);
+                    while($row = $result->fetch_array()){
+                        echo "<option value='" . $row['username'] ."'>" . $row['username'] ."</option>";
+                    }
+                ?>
+            </select>
+            <br>
                         
             <!--This is how the admin will select how to edit the profiles-->
-            <label>Please select what you want to do with the profile:</label>
+            <label>Please select what you want to do with the profile</label><br>
             <select name='choice'>
                 <option value="">Select...</option>
                 <option value="delete">Delete user</option>
@@ -76,27 +90,13 @@ if ($usertypeholder = $_SESSION['userType']){
             <br>
 
             <!--This is how the admin will select what usertype to give a user-->
-            <label>If you are changing a users "usertype", please select it here:</label>
+            <label>If you are changing a users "usertype", please select it here</label><br>
             <select name='usertype'>
                 <option value="">Select...</option>
                 <option value="reader">reader</option>
                 <option value="admin">admin</option>
                 <option value="clubAdmin">clubAdmin</option>
                 <option value="NKPAG">NKPAG</option>
-            </select>
-            <br>
-
-            <!--This is how the admin will say what user is going to be edited or deleted-->
-            <label>Please select a user:</label>
-            <select name='username'>
-                <option value="">Select...</option>
-                <?
-                $boom = "SELECT * FROM users";
-                    $result = $db->query($boom);
-                    while($row = $result->fetch_array()){
-                    echo "<option value='" . $row['username'] ."'>" . $row['username'] ."</option>";
-                    }
-                ?>
             </select>
             <br>
             <input type="submit" name="commit" value="Submit">

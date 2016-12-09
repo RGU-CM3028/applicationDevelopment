@@ -46,26 +46,7 @@ $userspace = 'false';
 $passspace = 'false';
 $pass2space = 'false';
 
-//testestestestestestestest
-$test = '&#';
-if (strpos($myusername, $test) !== false) {
-    $userspace = 'true';
-}
-if($userspace=='true') {
-    header("location:index.php?space=1");
-    die();
-}
-echo $test;
-echo $userspace;
-echo $myusername;
-die();
-
-
-
-
-echo $myusername;
-echo $mypassword;
-echo $passwordcheck;
+//test to get &# out of a string.
 if (strpos($myusername, '&#') !== false) {
     $userspace = 'true';
 }

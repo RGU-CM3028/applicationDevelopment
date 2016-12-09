@@ -20,7 +20,7 @@ File handling the creation and edition of clubs
 
 		//If we are editing instead of creating a new
 		if(isset($_GET['edit']) && isset($_GET['clubID'])){
-			$sql_query = "SELECT clubName, clubDescription, clubGenre, mediaID, pname FROM club WHERE clubID = " . $_POST['clubID']; // Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
+			$sql_query = "SELECT clubName, clubDescription, clubGenre, mediaID, pname FROM club WHERE clubID = " . $_GET['clubID']; // Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
 			$result = $db->query($sql_query);
 
 			$title = $result['clubName'];

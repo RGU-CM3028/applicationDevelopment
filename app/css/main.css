@@ -73,6 +73,23 @@ header{
 .login label, input{position: relative; text-align: center; padding: 1%;}
 .login input{background-color: #ffffff; border: 1px solid #05740e; padding: 1%;}
 
+#register-box{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+.register{
+    position: relative;
+    width: 60%;
+    padding: 1%;
+    text-align: center;
+    line-height: 1.7rem;
+}
+
+
+
 nav{
     position: relative;
     left: 4%;

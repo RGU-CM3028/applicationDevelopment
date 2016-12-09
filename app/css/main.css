@@ -79,12 +79,18 @@ header{
 
 .register{
     position: relative;
-    width: 60%;
+    width: 20%;
     padding: 2%;
     text-align: center;
-    line-height: 2rem;
+    line-height: 3rem;
     margin: auto;
+    background-color: #3db8ef;
+    border: 1px solid #21556c;
 }
+
+.register input{padding: 3%; color:#000; border: 1px solid #21556c;}
+.register label{padding: 3%;}
+.error-red{color: #ff0000; text-align: center;}
 
 nav{
     position: relative;

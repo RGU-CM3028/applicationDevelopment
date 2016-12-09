@@ -31,19 +31,28 @@ $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 
+echo $myusername;
+echo $mypassword;
+echo $passwordcheck. "<br>";
+
 //Security checking V1.
 $myusername = stripslashes($myusername);
-$myusername = filter_var($myusername, FILTER_SANITIZE_STRING);
-$myusername = htmlspecialchars($myusername, ENT_QUOTES, "ISO-8859-1");
+
+echo $myusername;
+//echo $mypassword;
+echo $passwordcheck. "<br>";
+
+$myusername = mysqli_real_escape_string($db, $myusername);
+
+echo $myusername;
+echo $mypassword;
+echo $passwordcheck. "<br>";
+die();
+
 $mypassword = stripslashes($mypassword);
 $mypassword = mysqli_real_escape_string($db, $mypassword);
 $passwordcheck = stripslashes($passwordcheck);
 $passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
-
-echo $myusername;
-echo $mypassword;
-echo $passwordcheck;
-die();
 
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;

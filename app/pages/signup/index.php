@@ -39,7 +39,7 @@ if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['use
         ?>
 
         <!-- This is the form used for users to sign up -->
-        <form name="register" method="post" action="signup.php">				
+        <form class="register" name="signup" method="post" action="signup.php">				
             <label>Username</label><br><input type="text" name="username" maxlength="30"><br>
             <label>Password</label><br><input type="password" name="password" maxlength="25"><br>
             <label>Password Check</label><br><input type="password" name="passwordcheck" maxlength="25"><br>

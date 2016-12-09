@@ -4,11 +4,11 @@
 @import url("ideal-image-slider.css");
 
 * {
-  margin: 0%;
-  font-family: Tahoma, Geneva, sans-serif;
-  padding: 0%;
-  text-decoration: none;
-  color
+    margin: 0%; 
+    padding: 0%;
+    font-family: Helvetica, Arial, Tahoma, Geneva, sans-serif; 
+    text-decoration: none;
+    color: #000;
 }
 
 /*
@@ -21,7 +21,7 @@
     content: ".";
     display: block;
     height: 0;
-    clear: both;s
+    clear: both;
     visibility: hidden;
 }
 

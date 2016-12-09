@@ -35,7 +35,7 @@ if (isset($_SESSION['username'])){
 
 ?>
         <!-- form for the admin panel -->
-        <form name="admincontrol" method="post" action="admincontrol.php">
+        <form class="admincontrol" name="admincontrol" method="post" action="admincontrol.php">
         
         <?
             //These are the error messages that appear on this page when the code comes back for it.

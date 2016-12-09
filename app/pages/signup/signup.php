@@ -50,17 +50,17 @@ $userspace = 'false';
 $passspace = 'false';
 $pass2space = 'false';
 
-//This checks if the user tied to php inject
+//This checks if the user tried to php inject
 if (strpos($myusername, '&#') !== false) {
-    $myusername = ' ';
+    $myusername = '';
     $userspace = 'true';
 }
 if (strpos($mypassword, '&#') !== false) {
-    $mypassword = ' ';
+    $mypassword = '';
     $passspace = 'true';
 }
 if (strpos($passwordcheck, '&#') !== false) {
-    $passwordcheck = ' ';
+    $passwordcheck = '';
     $pass2space ='true';
 }
 

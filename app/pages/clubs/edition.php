@@ -32,7 +32,7 @@ File handling the creation and edition of clubs
 				$adress = $result['adress'];
 				$phone = $result['phone'];
 				$email = $result['email'];
-				$logoID = $result['logoID'];
+				$logoID = $result['mediaID'];
 			}
 			echo "get clubID : " . $_GET["clubID"] . " ; clubName : " . $title;
 			$db->close();
@@ -75,9 +75,7 @@ File handling the creation and edition of clubs
 
 			//TODO once everything else is done : http://us2.php.net/manual/en/features.file-upload.php
 			// and https://www.owasp.org/index.php/Unrestricted_File_Upload
-			$mediaID = $_POST['media']
-			echo "<br><br>media : "
-			if($_POST['media'] != null){
+			if(isset($_POST['media'])){
 				$uploaddir = '/var/www/uploads/';
 				$uploadfile = $uploaddir . basename($_FILES['media']['name']);
 

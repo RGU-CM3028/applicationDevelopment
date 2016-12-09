@@ -4,6 +4,7 @@ File handling the creation and edition of clubs
 
 <body>
 	<?php
+		ini_set('display_errors', 1);
 		include("../../dbconnect.php");
 
 		//Initialise the fields

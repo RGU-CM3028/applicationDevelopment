@@ -16,10 +16,8 @@
              && (($_SESSION['userType'] == "clubAdmin")
              || ($_SESSION['userType'] == "admin"))) {
                   echo '<div class="create">
-    				        <form action="" method="post">
+    				        <form action="edition.php" method="post">
     				          <h2>Do you want to create a club ? Do it now !</h2><br>
-    				          <input type="text" name="clubName" placeholder="Club name"><br>
-                      <input type="text" name="clubGenre" placeholder="Club genre"><br>
     				          <input id="create" class="submit" type="submit" value="Create a new club !"><br>
     				        </form>
                       <div>';

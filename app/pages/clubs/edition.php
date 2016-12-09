@@ -76,7 +76,7 @@ File handling the creation and edition of clubs
 
 		if(isset($_POST["handleEdition"])){
 
-			echo "<br><br> query soon : <br><br>"
+			echo "<br><br> query soon : <br><br>"; 	
 
 			//TODO get clubGenre and eventID
 			//TODO update picture separately if one was uploaded

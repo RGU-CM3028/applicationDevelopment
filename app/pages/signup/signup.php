@@ -46,11 +46,11 @@ $userspace = 'false';
 $passspace = 'false';
 $pass2space = 'false';
 
-$myusername = '&#';
+$myusername = '&';
 echo $myusername;
 echo $mypassword;
 echo $passwordcheck;
-if (strpos($myusername, '&#') !== false) {
+if (strpos($myusername, '&') !== false) {
     $userspace = 'true';
 }
 if (strpos($mypassword, '&#') !== false) {

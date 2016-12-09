@@ -77,8 +77,13 @@
 				            <tr class='tableTitle'>
 				              <th> Club name </th>
                       <th> Club description </th>
-				              <th> Edit </th>
-				            </tr>";
+                      ";
+            if(isset($_SESSION['userType'])
+             && (($_SESSION['userType'] == "clubAdmin")
+             || ($_SESSION['userType'] == "admin"))) {
+              echo "<th> Edit </th>";
+            }
+            echo "</tr>";
 
 				    while ($row = $result->fetch_array()) {
 				     echo "<tr class='tableRow'>
@@ -87,12 +92,17 @@
 				          ."</a></td>
                   <td><a href='clubDetails.php?clubID=" . $row['clubID'] . "'>"
 				          .$row["clubDescription"]
-				          ."</a></td>
+				          ."</a></td>";
+                  if(isset($_SESSION['userType'])
+                   && (($_SESSION['userType'] == "clubAdmin")
+                   || ($_SESSION['userType'] == "admin"))) {
+                     echo "
                   <td>
                   <form>
                   <a href='./edition.php?clubID=". $row['clubID']."'><img src='../../images/edit.svg' alt='edit'/>
                   </a></td>
                   </tr>";
+                }
 				    }
 				    echo "</table>";
 				  }
@@ -111,8 +121,13 @@
 				            <tr class='tableTitle'>
 				              <th> Club name </th>
                       <th> Club description </th>
-				              <th> Edit </th>
-				            </tr>";
+                      ";
+            if(isset($_SESSION['userType'])
+             && (($_SESSION['userType'] == "clubAdmin")
+             || ($_SESSION['userType'] == "admin"))) {
+              echo "<th> Edit </th>";
+            }
+            echo "</tr>";
 
 				    while ($row = $result->fetch_array()) {
 				     echo "<tr class='tableRow'>
@@ -121,11 +136,17 @@
 				          ."</a></td>
                   <td><a href='clubDetails.php?clubID=" . $row['clubID'] . "'>"
 				          .$row["clubDescription"]
-				          ."</a></td>
+				          ."</a></td>";
+                  if(isset($_SESSION['userType'])
+                   && (($_SESSION['userType'] == "clubAdmin")
+                   || ($_SESSION['userType'] == "admin"))) {
+                     echo "
                   <td>
-                  <a href='./edition.php'><img src='../../images/edit.svg' alt='edit'/>
+                  <form>
+                  <a href='./edition.php?clubID=". $row['clubID']."'><img src='../../images/edit.svg' alt='edit'/>
                   </a></td>
                   </tr>";
+                }
 				    }
 				    echo "</table>";
 				  }

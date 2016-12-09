@@ -2,24 +2,6 @@
 //This connects the database here.
 include("../../dbconnect.php");
 
-
-function sanitize($data)
-{
-    include("../../dbconnect.php");
-    // remove whitespaces (not a must though)
-    $data = trim($data);
-    // apply stripslashes if magic_quotes_gpc is enabled
-    if(get_magic_quotes_gpc())
-    {
-        $data = stripslashes($data);
-    }
-    // a mySQL connection is required before using this function
-    $data = filter_var($data, FILTER_SANITIZE_STRING);
-    $data = preg_replace('/[^a-z0-9\s]/i', '', $data);
-    //$data = mysqli_real_escape_string($db, $data);
-    return $data;
-}
-
 //html change safety check. This is to catch out any attempt to change variables and so on in the html.
 $myusername = "";
 $mypassword = "";
@@ -44,9 +26,36 @@ if(isset($_POST['passwordcheck'])) {
 }
 
 //This is the fields from the signup form.
-$myusername = sanitize($_POST["username"]);
-$mypassword = sanitize($_POST["password"]);
-$passwordcheck = sanitize($_POST["passwordcheck"]);
+$myusername = $_POST["username"];
+$mypassword = $_POST["password"];
+$passwordcheck = $_POST["passwordcheck"];
+
+$sql = "SELECT * FROM members WHERE username = ?";
+$sss = mysqli_prepare($db, $sql);
+$sss->bind_param("sss", $myusername, $mypassword);
+
+$sss-> execute();
+if(!empty($myusername) && !empty(!$mypassword) && !empty(!$passwordcheck) && $sss->fetch()<1){
+    $sqli = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'reader')";
+    $sq = mysqli_prepare($db, $sqli);
+    $sq->bind_param("sss", $names, $passes);
+    $names = $_POST["username"];
+    $passes = $_POST["password"];
+    $sq->execute();
+    $_SESSION['username'] = $names;
+    $_SESSION['userType'] = 'reader';
+    header("location:index.php");
+}
+//This checks to see if the fields are empty or not.
+if(empty($myusername) || empty($mypassword) || empty($passwordcheck))
+    {
+    header("location:index.php?empty=1");
+    die();
+}
+
+
+
+
 //$myusername = preg_replace('/[^a-z0-9\s]/i', '', $myusername);
 //$myusername = htmlentities($myusername);
 //$myusername = mysqli_real_escape_string($db, $myusername);

@@ -44,9 +44,12 @@ $userspace = 'false';
 $passspace = 'false';
 $pass2space = 'false';
 
+$username = '&';
 if (strpos($username, '&') !== false) {
     $userspace = 'true';
 }
+
+die();
 //This checks to see if their is any spaces in the variables
 if (strpos($myusername, ' ') !== false) {
     $userspace = 'true';

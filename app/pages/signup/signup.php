@@ -69,21 +69,23 @@ if (strpos($mypassword, ' ') !== false) {
 if (strpos($passwordcheck, ' ') !== false) {
     $pass2space ='true';
 }
-echo $myusername;
-echo $mypassword;
-echo $passwordcheck. "<br>";
-die();
+
 //This tests to see if there is any spaces in the text
 if($userspace=='true' || $passspace=='true' || $pass2space=='true') {
     header("location:index.php?space=1");
     die();
 }
+echo $myusername;
+echo $mypassword;
+echo $passwordcheck. "<br>";
+die();
 //This encrypts the password
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
 $mypassword = hash('sha256', $mypassword);
 $passwordcheck = $passwordcheck.$salt;
 $passwordcheck = hash('sha256', $passwordcheck);
+
 //This checks to see if the fields are empty or not.
 if(empty($myusername) || empty($mypassword) || empty($passwordcheck))
     {

@@ -31,6 +31,11 @@ $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 
+echo $myusername;
+echo $mypassword;
+echo $passwordcheck;
+die();
+
 //Security checking V1.
 $myusername = stripslashes($myusername);
 $myusername = filter_var($myusername, FILTER_SANITIZE_STRING);

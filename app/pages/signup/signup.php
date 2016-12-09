@@ -28,9 +28,7 @@ if(isset($_POST['passwordcheck'])) {
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
-echo $myusername;
-echo $mypassword;
-echo $passwordcheck. "<br>";
+
 //Security checking V1.
 $myusername = stripslashes($myusername);
 $myusername = filter_var($myusername, FILTER_SANITIZE_STRING);
@@ -41,11 +39,17 @@ $mypassword = htmlspecialchars($mypassword, ENT_QUOTES, "ISO-8859-1");
 $passwordcheck = stripslashes($passwordcheck);
 $passwordcheck = filter_var($passwordcheck, FILTER_SANITIZE_STRING);
 $passwordcheck = htmlspecialchars($passwordcheck, ENT_QUOTES, "ISO-8859-1");
-//$passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
+
+
+echo $myusername;
+echo $mypassword;
+echo $passwordcheck. "<br>";
+
 //This declairs the boolians so they dont cause an error
 $userspace = 'false';
 $passspace = 'false';
 $pass2space = 'false';
+
 //This checks if the user tied to php inject
 if (strpos($myusername, '&#') !== false) {
     $myusername = ' ';
@@ -59,14 +63,15 @@ if (strpos($passwordcheck, '&#') !== false) {
     $passwordcheck = ' ';
     $pass2space ='true';
 }
+
 //This checks to see if their is any spaces in the variables
-if (strpos($myusername, ' ') !== false) {
+if (strpos($myusername, '') !== false) {
     $userspace = 'true';
 }
-if (strpos($mypassword, ' ') !== false) {
+if (strpos($mypassword, '') !== false) {
     $passspace = 'true';
 }
-if (strpos($passwordcheck, ' ') !== false) {
+if (strpos($passwordcheck, '') !== false) {
     $pass2space ='true';
 }
 
@@ -79,6 +84,7 @@ echo $myusername;
 echo $mypassword;
 echo $passwordcheck. "<br>";
 die();
+
 //This encrypts the password
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;

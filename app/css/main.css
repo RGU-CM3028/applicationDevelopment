@@ -256,14 +256,14 @@ footer li{color: #ffffff; text-align: left; }
 }
 
 .dropdown-content a {
-    color:  #0014ff;
+    color:  #fff;
     padding: 2vh;
     text-decoration: none;
     display: block;
     text-align: left;;
 }
 
-.dropdown-content a:hover {background-color: #7E7E7E; color: #fff;}
+.dropdown-content a:hover {background-color: #7E7E7E; color: #0014ff;}
 
 .show {display:block; z-index: 9999;}
     

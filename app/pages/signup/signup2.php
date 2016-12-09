@@ -30,13 +30,6 @@ $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 
 //Security checking V1.
-$myusername = stripslashes($myusername);
-$myusername = filter_var($myusername, FILTER_SANITIZE_STRING);
-$myusername = htmlspecialchars($myusername, ENT_QUOTES, "ISO-8859-1");
-$mypassword = stripslashes($mypassword);
-$mypassword = mysqli_real_escape_string($db, $mypassword);
-$passwordcheck = stripslashes($passwordcheck);
-$passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
 $mypassword = hash('sha256', $mypassword);

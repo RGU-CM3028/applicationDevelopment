@@ -18,7 +18,7 @@ File handling the creation and edition of clubs
 		$logoID = "";
 
 		//If we are editing instead of creating a new
-		if(isset($_POST['edit']) && isset($_POST['clubID'])){
+		if(isset($_GET['edit']) && isset($_GET['clubID'])){
 			$sql_query = "SELECT clubName, clubDescription, clubGenre, mediaID, pname FROM club C, media M, clubGenre CG WHERE C.clubID = " . $_POST['clubID'] . " AND C.genre = CG.clubGenreID AND M.mediaID = C.mediaID"; // Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
 			$result = $db->query($sql_query);
 
@@ -36,27 +36,10 @@ File handling the creation and edition of clubs
 			$db->close();
 		}
 
-		if(isset($_POST['handleEdition'])){
+		if(isset($_POST['handleCreation'])){
 
 			//TODO once everything else is done : http://us2.php.net/manual/en/features.file-upload.php
 			// and https://www.owasp.org/index.php/Unrestricted_File_Upload
-
-			//Handle image upload
-			$target_dir = "uploads/";
-			$target_file = $target_dir . basename($_FILES["media"]["name"]);
-			$uploadOk = 1;
-			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-			// Check if image file is a actual image or fake image
-			if(isset($_POST["handleEdition"])) {
-			    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-			    if($check !== false) {
-			        echo "File is an image - " . $check["mime"] . ".";
-			        $uploadOk = 1;
-			    } else {
-			        echo "File is not an image.";
-			        $uploadOk = 0;
-			    }
-			}
 
 			$uploaddir = '/var/www/uploads/';
 			$uploadfile = $uploaddir . basename($_FILES['media']['name']);
@@ -86,6 +69,45 @@ File handling the creation and edition of clubs
 			$db->close();
 		}
 
+		if(isset($_POST['handleEdition'])){
+
+			//TODO once everything else is done : http://us2.php.net/manual/en/features.file-upload.php
+			// and https://www.owasp.org/index.php/Unrestricted_File_Upload
+
+			$uploaddir = '/var/www/uploads/';
+			$uploadfile = $uploaddir . basename($_FILES['media']['name']);
+
+			if (move_uploaded_file($_FILES['media']['tmp_name'], $uploadfile)) {
+			    echo "Image is valid, and was successfully uploaded.\n";
+			} else {
+			    echo "Image upload failed\n";
+			}
+
+
+			//Insert into media and get the generated id
+			$sql_query = "INSERT INTO Media(mediaType, mediaDescription, URL) VALUES('picture', 'Club Logo', '" . $uploadfile . "')";
+			$db->query($sql_query);
+
+			$mediaID = $db->insert_id;
+			$mediaID = 0;
+
+			//TODO get clubGenre and eventID
+			$sql_query = "UPDATE club SET clubName='" . $_POST['clubName'] . "', 
+			clubDescription = '" . $_POST['clubDescription'] . "', 
+			mediaID = '" . $mediaID . "',
+			pname = '" . $_POST['pname'] . "',
+			adress = '" .  $_POST['adress'] . "',
+			phone = '" .  $_POST['phone'] . "',
+			email = '" .  $_POST['email'] . "')";
+			if ($db->query($sql_query) === TRUE) {
+			    echo "Club edited successfully";
+			} else {
+			    echo "Error: " . $query . "<br>" . $db->error;
+			}
+
+			$db->close();
+		}
+
 	?>
 	<form action="" method="post">
 		Title: <br><input type="text" name="clubName" value="<?php echo $title;?>"><br>
@@ -98,8 +120,8 @@ File handling the creation and edition of clubs
 		email: <br><input type="text" name="email" value="<?php echo $email;?>"><br>
 
 		Select image to upload:
-    	<input type="file" name="media" id="fileToUpload">
+    	<input type="file" name="media">
 
-		<input type="submit" name="handleEdition">
+		<input type="submit" name="handle<?php if(isset($_GET['edit'])) {echo "Edition";} else {echo "Creation"}?>">
 	</form>
 </body>

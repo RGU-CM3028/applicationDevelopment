@@ -30,32 +30,6 @@ $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 
-$sql = "SELECT * FROM members WHERE username = ?";
-$sss = mysqli_prepare($db, $sql);
-$sss->bind_param("sss", $myusername, $mypassword);
-
-$sss-> execute();
-if(!empty($myusername) && !empty(!$mypassword) && !empty(!$passwordcheck) && $sss->fetch()<1){
-    $sqli = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'reader')";
-    $sq = mysqli_prepare($db, $sqli);
-    $sq->bind_param("sss", $names, $passes);
-    $names = $_POST["username"];
-    $passes = $_POST["password"];
-    $sq->execute();
-    $_SESSION['username'] = $names;
-    $_SESSION['userType'] = 'reader';
-    header("location:index.php");
-}
-//This checks to see if the fields are empty or not.
-if(empty($myusername) || empty($mypassword) || empty($passwordcheck))
-    {
-    header("location:index.php?empty=1");
-    die();
-}
-
-
-
-
 //$myusername = preg_replace('/[^a-z0-9\s]/i', '', $myusername);
 //$myusername = htmlentities($myusername);
 //$myusername = mysqli_real_escape_string($db, $myusername);

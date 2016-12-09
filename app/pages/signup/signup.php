@@ -33,8 +33,7 @@ $passwordcheck = $_POST["passwordcheck"];
 
 echo $myusername;
 echo $mypassword;
-echo $passwordcheck;
-die();
+echo $passwordcheck. "<br>";
 
 //Security checking V1.
 $myusername = stripslashes($myusername);

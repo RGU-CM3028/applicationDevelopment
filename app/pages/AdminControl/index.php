@@ -25,18 +25,18 @@ if ($usertypeholder = $_SESSION['userType']){
 
         //This gets basic user info so the page knows who is logged in.
 if (isset($_SESSION['username'])){
-    	echo "<br>Currently logged in as " . $_SESSION['username'];
-    	$sql = "SELECT * FROM users WHERE username='". $_SESSION['username'];
+    	echo "<br>Currently logged in as " . $_SESSION['username'] . "</br>";
+    	$sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "</br>";
     	$result = $db->query($sql);
     	while($row = $result->fetch_array()){
-        	echo "<br>The current user type is " . $_SESSION['userType'] . "<br>";
+        	echo "<br>The current user type is " . $_SESSION['userType'] . "</br>";
     	}
 
 ?>
         <!-- This is the form used for the admin to control other users privilages -->
         <form class="admincontrol" name="admincontrol" method="post" action="admincontrol.php">
             
-            <span>This account cannot be deleted or altered as this is the System Administrator.</span>
+            
         <?
             //These are the error messages that appear on this page when the code comes back for it.
             if (isset($_GET['same']))
@@ -64,6 +64,7 @@ if (isset($_SESSION['username'])){
                 echo "<p class='error-green'>Record updated.</font></p>";
             }
         ?>
+            <label>This account cannot be deleted or altered as this is the System Administrator.</label>
             
             <!--This is how the admin will select how to edit the profiles-->
             <label>Please select what you want to do with the profile:</label>

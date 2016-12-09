@@ -74,23 +74,7 @@ File handling the creation and edition of clubs
 			}
 		}
 
-		if(isset($_POST["handleEdition"])){
-
-			echo "<br><br> query soon : <br><br>"
-
-			//TODO get clubGenre and eventID
-			//TODO update picture separately if one was uploaded
-			$sql_query = "UPDATE club SET clubName='" . $_POST['clubName'] . "', 
-			clubDescription = '" . $_POST['clubDescription'] . "',
-			pname = '" . $_POST['pname'] . "',
-			adress = '" .  $_POST['adress'] . "',
-			phone = '" .  $_POST['phone'] . "',
-			email = '" .  $_POST['email'] . "')";
-
-			echo $sql_query;
-
-			
-		}
+		
 
 	?>
 	<form action="#" method="POST">

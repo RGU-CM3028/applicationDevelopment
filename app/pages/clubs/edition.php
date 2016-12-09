@@ -37,8 +37,40 @@ File handling the creation and edition of clubs
 			$db->close();
 		}
 
+		if(isset($_POST["handleCreation"])){
 
-		if(isset($_POST['handleEdition'])){
+			//TODO once everything else is done : http://us2.php.net/manual/en/features.file-upload.php
+			// and https://www.owasp.org/index.php/Unrestricted_File_Upload
+
+			$uploaddir = '/var/www/uploads/';
+			$uploadfile = $uploaddir . basename($_FILES['media']['name']);
+
+			if (move_uploaded_file($_FILES['media']['tmp_name'], $uploadfile)) {
+			    echo "Image is valid, and was successfully uploaded.\n";
+			} else {
+			    echo "Image upload failed\n";
+			}
+
+
+			//Insert into media and get the generated id
+			$sql_query = "INSERT INTO Media(mediaType, mediaDescription, URL) VALUES('picture', 'Club Logo', '" . $uploadfile . "')";
+			$db->query($sql_query);
+
+			$mediaID = $db->insert_id;
+			$mediaID = 0;
+
+			//TODO get clubGenre and eventID
+			$sql_query = "INSERT INTO club (clubName, clubDescription, logoID, pname, adress, phone, email) VALUES('" . $_POST['clubName'] . "','" . $_POST['clubDescription'] . "','" . $mediaID . "','" . $_POST['pname'] . "','" .  $_POST['adress'] . "','" .  $_POST['phone'] . "','" .  $_POST['email'] . "')";
+			if ($db->query($sql_query) === TRUE) {
+			    echo "New record created successfully";
+			} else {
+			    echo "Error: " . $query . "<br>" . $db->error;
+			}
+
+			$db->close();
+		}
+
+		if(isset($_POST["handleEdition"])){
 
 			//TODO once everything else is done : http://us2.php.net/manual/en/features.file-upload.php
 			// and https://www.owasp.org/index.php/Unrestricted_File_Upload
@@ -91,6 +123,8 @@ File handling the creation and edition of clubs
 		Select image to upload:
     	<input type="file" name="media">
 
-		<input type="submit" name="<?php if(isset($_GET['edit'])) {echo "handleEdition";} else {echo "handleCreation"}?>">
+    	<?php if(isset($_GET["edit"])) {echo "<input type=\"submit\" name=\"handleEdition\">";} else {echo "<input type=\"submit\" name=\"handleCreation\">";}
+    	?>
+		
 	</form>
 </body>

@@ -1,7 +1,8 @@
 <?php
-$aqq="SELECT *FROM users WHERE username=?";
+$sqq="SELECT *FROM users WHERE username=?";
 $sss=mysqli_prepare($db, $sqq);
 $sss->bind_param("sss", $auu);
+
 $auu=$_POST['username'];
 $pea=$_POST['password'];
 $peas=$_POST['passwordcheck'];

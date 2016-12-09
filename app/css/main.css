@@ -89,6 +89,7 @@ header{
 
 .register input{padding: 3%; color:#000; border: 1px solid #21556c;}
 .register label{padding: 3%;}
+.error-red{color: #ff0000; text-align: center;}
 
 nav{
     position: relative;

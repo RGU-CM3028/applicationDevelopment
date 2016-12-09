@@ -66,41 +66,16 @@ File handling the creation and edition of clubs
 			} else {
 			    echo "Error: " . $query . "<br>" . $db->error;
 			}
-
-			$db->close();
 		}
 
 		if(isset($_POST["handleEdition"])){
 
-			//TODO once everything else is done : http://us2.php.net/manual/en/features.file-upload.php
-			// and https://www.owasp.org/index.php/Unrestricted_File_Upload
-			if(isset($_POST['media'])){
-				echo var_dump($_FILES)
-				$uploaddir = '/var/www/uploads/';
-				$uploadfile = $uploaddir . basename($_FILES['media']['name']);
-
-				if (move_uploaded_file($_FILES['media']['tmp_name'], $uploadfile)) {
-				    echo "Image is valid, and was successfully uploaded.\n";
-				} else {
-				    echo "Image upload failed\n";
-				}
-
-
-				//Insert into media and get the generated id
-				$sql_query = "INSERT INTO Media(mediaType, mediaDescription, URL) VALUES('picture', 'Club Logo', '" . $uploadfile . "')";
-				$db->query($sql_query);
-
-				$mediaID = $db->insert_id;
-				$mediaID = 42;
-			}
-			$mediaID = 42;
 			echo "<br><br> query soon : <br><br>"
 
 			//TODO get clubGenre and eventID
 			//TODO update picture separately if one was uploaded
 			$sql_query = "UPDATE club SET clubName='" . $_POST['clubName'] . "', 
-			clubDescription = '" . $_POST['clubDescription'] . "', 
-			mediaID = '" . $mediaID . "',
+			clubDescription = '" . $_POST['clubDescription'] . "',
 			pname = '" . $_POST['pname'] . "',
 			adress = '" .  $_POST['adress'] . "',
 			phone = '" .  $_POST['phone'] . "',
@@ -110,7 +85,6 @@ File handling the creation and edition of clubs
 			} else {
 			    echo "Error: " . $query . "<br>" . $db->error;
 			}
-			$db->close();
 		}
 
 	?>

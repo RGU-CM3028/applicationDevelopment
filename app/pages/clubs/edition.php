@@ -32,6 +32,7 @@ File handling the creation and edition of clubs
 			$phone = $result['phone'];
 			$email = $result['mail'];
 			$logoID = $result['logoID'];
+			echo "get clubID : " . $_GET["clubID"] . " ; clubName : " . $title;
 			$db->close();
 		}
 

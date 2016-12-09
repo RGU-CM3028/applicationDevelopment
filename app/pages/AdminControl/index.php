@@ -16,81 +16,95 @@ if ($usertypeholder = $_SESSION['userType']){
 
 ?>
 
-<!--This is the control panel for the admin-->
-<h1>Admin control panel</h1>
-<!-- This is the form used for the admin to control other users privilages -->
-<p>Note: You cant delete/edit yourself. This is so there is always an admin on the system.</p>
+<section>
+    <div id="admin-control">
+        <!--This is the control panel for the admin-->
+        <h2>Admin control panel</h2><br>
+        <!-- This is the form used for the admin to control other users privilages -->
+        <span>Note: This account cannot be deleted or altered as this is the System Administrator.</span><br>
 <?
 
-//This nabs basic user info so the page says who is on it.
+        //This gets basic user info so the page knows who is logged in.
 if (isset($_SESSION['username'])){
-    	echo "<p>Hello " . $_SESSION['username'] . "</p>";
+    	echo "<p>Currently logged in as " . $_SESSION['username'] . "</p>";
     	$sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "'";
     	$result = $db->query($sql);
     	while($row = $result->fetch_array()){
-        	echo "<p>User type is " . $_SESSION['userType'] . "</p>";
+        	echo "<p>The current user type is " . $_SESSION['userType'] . "</p>";
     	}
 
-	//These are the error messages that appear on this page when the code comes back for it.
-	if (isset($_GET['same'])){
-            echo "<p><font color='red'>Please ensure you dont pick your own username.</font></p>";
-        }
-        if (isset($_GET['nodata'])){
-            echo "<p><font color='red'>Please ensure you pick a valid user.</font></p>";
-        }
-        if (isset($_GET['fail'])){
-            echo "<p><font color='red'>Please don't edit the html.</font></p>";
-        }
-        if (isset($_GET['select'])){
-            echo "<p><font color='red'>Please pick a option on what to do to the profile.</font></p>";
-        }
-        if (isset($_GET['delete'])){
-            echo "<p><font color='green'>Record deleted.</font></p>";
-        }
-	if (isset($_GET['update'])){
-            echo "<p><font color='green'>Record updated.</font></p>";
-        }
 ?>
-        <form method="post" action="admincontrol.php">
+        <!-- form for the admin panel -->
+        <form name="admincontrol" method="post" action="admincontrol.php">
+        
+        <?
+            //These are the error messages that appear on this page when the code comes back for it.
+            if (isset($_GET['same']))
+            {
+                echo "<p class='error-red'>Please ensure you dont pick your own username.</font></p>";
+            }
+            if (isset($_GET['nodata']))
+            {
+                echo "<p class='error-red'>Please ensure you pick a valid user.</font></p>";
+            }
+            if (isset($_GET['fail']))
+            {
+                echo "<p class='error-red'>Please don't edit the html.</font></p>";
+            }
+            if (isset($_GET['select']))
+            {
+                echo "<p class='error-red'>Please pick a option on what to do to the profile.</font></p>";
+            }
+            if (isset($_GET['delete']))
+            {
+                echo "<p class='error-green'>Record deleted.</font></p>";
+            }
+            if (isset($_GET['update']))
+            {
+                echo "<p class='error-green'>Record updated.</font></p>";
+            }
+        ?>
+            
+            <!--This is how the admin will select how to edit the profiles-->
+            <label>Please select what you want to do with the profile:</label>
+            <select name='choice'>
+                <option value="">Select...</option>
+                <option value="delete">Delete user</option>
+                <option value="usertype">Change usertype</option>
+            </select>
+            <br>
 
-		<!--This is how the admin will select how to edit the profiles-->
-		<p>Please select what you want to do with the profile:
-		<select name='choice'>
-			<option value="">Select...</option>
-			<option value="delete">Delete user</option>
-			<option value="usertype">Change usertype</option>
-		</select>
-		</p>
+            <!--This is how the admin will select what usertype to give a user-->
+            <label>If you are changing a users "usertype", please select it here:</label>
+            <select name='usertype'>
+                <option value="">Select...</option>
+                <option value="reader">reader</option>
+                <option value="admin">admin</option>
+                <option value="clubAdmin">clubAdmin</option>
+                <option value="NKPAG">NKPAG</option>
+            </select>
+            <br>
 
-		<!--This is how the admin will select what usertype to give a user-->
-		<p>If you are changing a users "usertype", please select it here:
-		<select name='usertype'>
-			<option value="">Select...</option>
-			<option value="reader">reader</option>
-			<option value="admin">admin</option>
-			<option value="clubAdmin">clubAdmin</option>
-			<option value="NKPAG">NKPAG</option>
-		</select>
-		</p>
+            <!--This is how the admin will say what user is going to be edited or deleted-->
+            <label>Please select a user:</label>
+            <select name='username'>
+                <option value="">Select...</option>
+                <?
+                $boom = "SELECT * FROM users";
+                    $result = $db->query($boom);
+                    while($row = $result->fetch_array()){
+                    echo "<option value='" . $row['username'] ."'>" . $row['username'] ."</option>";
+                    }
+                ?>
+            </select>
+            <br><br>
 
-		<!--This is how the admin will say what user is going to be edited or deleted-->
-		<p>Please select a user:
-		<select name='username'>
-			<option value="">Select...</option>
-			<?
-			$boom = "SELECT * FROM users";
-    			$result = $db->query($boom);
-    			while($row = $result->fetch_array()){
-				echo "<option value='" . $row['username'] ."'>" . $row['username'] ."</option>";
-    			}
-			?>
-		</select>
-		</p>
-
-                <p class="submit"><input type="submit" name="commit" value="Submit"></p>
+            <input type="submit" name="commit" value="Submit">
         </form>
-    	<!--This is a link to logout the site-->
+    </div>
+</section>
 	<?
 }
+    
   include("../../inc/footer.inc");
 ?>

@@ -44,11 +44,11 @@ $userspace = 'false';
 $passspace = 'false';
 $pass2space = 'false';
 
-$username = '&';
+$myusername = '&';
+echo $
 if (strpos($myusername, '&') !== false) {
     $userspace = 'true';
 }
-
 
 //sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
 if($userspace=='true') {

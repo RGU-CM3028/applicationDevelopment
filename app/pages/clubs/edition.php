@@ -123,6 +123,6 @@ File handling the creation and edition of clubs
 		Select image to upload:
     	<input type="file" name="media">
 
-		<input type="submit" name="handle<?php if(isset($_GET['edit'])) {echo "Edition";} else {echo "Creation"}?>">
+		<input type="submit" name="<?php if(isset($_GET['edit'])) {echo "HandleEdition";} else {echo "HandleCreation"}?>">
 	</form>
 </body>

@@ -19,24 +19,24 @@ if ($usertypeholder = $_SESSION['userType']){
 <section>
     <div id="admin-control">
         <!--This is the control panel for the admin-->
-        <h2>Admin control panel</h2><br>
-        <!-- This is the form used for the admin to control other users privilages -->
-        <span>Note: This account cannot be deleted or altered as this is the System Administrator.</span><br>
+        <h2>Admin control panel</h2>
+        <br>
 <?
 
         //This gets basic user info so the page knows who is logged in.
 if (isset($_SESSION['username'])){
-    	echo "<p>Currently logged in as " . $_SESSION['username'] . "</p>";
-    	$sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "'";
+    	echo "<br>Currently logged in as " . $_SESSION['username'];
+    	$sql = "SELECT * FROM users WHERE username='". $_SESSION['username'];
     	$result = $db->query($sql);
     	while($row = $result->fetch_array()){
-        	echo "<p>The current user type is " . $_SESSION['userType'] . "</p>";
+        	echo "<br>The current user type is " . $_SESSION['userType'] . "<br>";
     	}
 
 ?>
-        <!-- form for the admin panel -->
+        <!-- This is the form used for the admin to control other users privilages -->
         <form class="admincontrol" name="admincontrol" method="post" action="admincontrol.php">
-        
+            
+            <span>This account cannot be deleted or altered as this is the System Administrator.</span>
         <?
             //These are the error messages that appear on this page when the code comes back for it.
             if (isset($_GET['same']))

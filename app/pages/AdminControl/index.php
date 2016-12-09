@@ -21,6 +21,7 @@ if ($usertypeholder = $_SESSION['userType']){
         <!--This is the control panel for the admin-->
         <h2>Admin control panel</h2>
         <br>
+        <span>This account cannot be deleted or altered as this is the System Administrator.</span>
 <?
 
         //This gets basic user info so the page knows who is logged in.
@@ -64,8 +65,7 @@ if (isset($_SESSION['username'])){
                 echo "<p class='error-green'>Record updated.</font></p>";
             }
         ?>
-            <label>This account cannot be deleted or altered as this is the System Administrator.</label>
-            
+                        
             <!--This is how the admin will select how to edit the profiles-->
             <label>Please select what you want to do with the profile:</label>
             <select name='choice'>

@@ -2,6 +2,23 @@
 //This connects the database here.
 include("../../dbconnect.php");
 
+
+function sanitize($data)
+{
+    include("../../dbconnect.php");
+    // remove whitespaces (not a must though)
+    $data = trim($data);
+    // apply stripslashes if magic_quotes_gpc is enabled
+    if(get_magic_quotes_gpc())
+    {
+        $data = stripslashes($data);
+    }
+    // a mySQL connection is required before using this function
+    $data = filter_var($data, FILTER_SANITIZE_STRING);
+    $data = mysqli_real_escape_string($db, $data);
+    return $data;
+}
+
 //html change safety check. This is to catch out any attempt to change variables and so on in the html.
 $myusername = "";
 $mypassword = "";
@@ -26,9 +43,9 @@ if(isset($_POST['passwordcheck'])) {
 }
 
 //This is the fields from the signup form.
-$myusername = $_POST["username"];
-$mypassword = $_POST["password"];
-$passwordcheck = $_POST["passwordcheck"];
+$myusername = sanitize($_POST["username"]);
+$mypassword = sanitize($_POST["password"]);
+$passwordcheck = sanitize($_POST["passwordcheck"]);
 
 $myusername = htmlentities($myusername);
 $myusername = mysqli_real_escape_string($db, $myusername);

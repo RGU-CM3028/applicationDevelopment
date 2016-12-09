@@ -6,22 +6,19 @@ include('../../dbconnect.php');
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 	<section>
-		
+
 		<?
-		//admin area use this to allow admin users to see certain stuff
-		session_start();
-		$usertypeholder1 = 'admin';
-		$usertypeholder2 = 'NKPAG';
-   		if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['userType']){
-			echo "Welcome admin to the map screen.";
-   		} else {
-	   		//safe
-   		}
-		
+		//admin area use this to allow admin and map admin users to see certain stuff
+		if(isset($_SESSION['userType'])
+		 && (($_SESSION['userType'] == "NKPAG")
+		 || ($_SESSION['userType'] == "admin"))) {
+			 echo "EDIT MAP";
+		 }
 		?>
+
   <div id="map-data" style="display: none;">
     <?php
-      //Query the map datas
+      //Query the map datask
       $sql = "SELECT pointType, pointDescription, coordinateX, coordinateY FROM GeoPoint";
       $points = $db->query($sql);
 
@@ -82,7 +79,6 @@ include('../../dbconnect.php');
 
 
 <script>
-
   //+Create a Leaflet map
   let map = L.map('map').setView([57.06, -2.169664], 12);
 
@@ -134,6 +130,13 @@ include('../../dbconnect.php');
     for(let i=0;i<coordinates.length;i+=2){
       coordinatesTuples.push([coordinates[i], coordinates[i+1]])
     }
+
+		// let customOptions =
+    // {
+    // 'maxWidth': '20%',
+    // 'width': '20%',
+    // 'className' : 'popupCustom'
+    // }
 
     polygons.push(L.polyline(coordinatesTuples).addTo(map)
       .bindPopup(myPath.type + "<br>" + myPath.description)

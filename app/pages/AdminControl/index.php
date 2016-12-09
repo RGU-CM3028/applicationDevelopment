@@ -25,11 +25,11 @@ if ($usertypeholder = $_SESSION['userType']){
 
         //This gets basic user info so the page knows who is logged in.
 if (isset($_SESSION['username'])){
-    	echo "<br>Currently logged in as " . $_SESSION['username'] . "</br>";
-    	$sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "</br>";
+    	echo "<p>Currently logged in as " . $_SESSION['username'] . "</p>";
+    	$sql = "SELECT * FROM users WHERE username='". $_SESSION['username'];
     	$result = $db->query($sql);
     	while($row = $result->fetch_array()){
-        	echo "<br>The current user type is " . $_SESSION['userType'] . "</br>";
+        	echo "<p>The current user type is " . $_SESSION['userType'] . "</p>";
     	}
 
 ?>
@@ -98,14 +98,12 @@ if (isset($_SESSION['username'])){
                     }
                 ?>
             </select>
-            <br><br>
-
+            <br>
             <input type="submit" name="commit" value="Submit">
         </form>
     </div>
 </section>
-	<?
-}
+<?
     
   include("../../inc/footer.inc");
 ?>

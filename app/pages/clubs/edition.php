@@ -110,14 +110,14 @@ File handling the creation and edition of clubs
 
 	?>
 	<form action="" method="post">
-		Title: <br><input type="text" name="clubName" value="<?php echo $title;?>"><br>
+		Title: <br><input type="text" name="clubName" value=<?php echo "\"" . $title . "\"";?>><br>
 		Description: <br><textarea name="clubDescription" rows="5" cols="40"><?php echo $description;?></textarea><br>
 
     	<br>Contact info<br>
-		Name: <br><input type="text" name="pname" value="<?php echo $pname;?>"><br>
-		adress: <br><input type="text" name="adress" value="<?php echo $adress;?>"><br>
-		phone: <br><input type="text" name="phone" value="<?php echo $phone;?>"><br>
-		email: <br><input type="text" name="email" value="<?php echo $email;?>"><br>
+		Name: <br><input type="text" name="pname" value=<?php echo "\"" . $pname . "\"";?>><br>
+		adress: <br><input type="text" name="adress" value=<?php echo "\"" . $adress . "\"";?>><br>
+		phone: <br><input type="text" name="phone" value=<?php echo "\"" . $phone . "\"";?>><br>
+		email: <br><input type="text" name="email" value=<?php echo "\"" . $email . "\"";?>><br>
 
 		Select image to upload:
     	<input type="file" name="media">

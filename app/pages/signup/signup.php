@@ -43,7 +43,6 @@ echo $myusername;
 echo $passwordcheck. "<br>";
 
 $myusername = mysqli_real_escape_string($db, $myusername);
-die();
 
 echo $myusername;
 echo $mypassword;

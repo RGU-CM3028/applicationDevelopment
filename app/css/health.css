@@ -9,23 +9,34 @@
   margin: 2em;
 }
 
-#news {
+.news {
   padding: 2em;
   margin: 1em;
   margin-top:0;
   background: white;
-  max-width: 30%;
+  width: 100%;
 }
 
-#news:hover {
+.newsHeader {
+  display: flex;
+  direction: row;
+  justify-content: space-between;
+}
+#newsColumn {
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+  align-items: center;
+}
+.news:hover {
   background: grey;
 }
 
-#newsDate {
+.newsDate {
   font-style: italic;
 }
 
-#newsText {
+.newsText {
   margin-top: 2em;
 }
 

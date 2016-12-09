@@ -4,40 +4,19 @@ include("../../inc/header.inc");
 include('../../dbconnect.php');
 global $db;
 ?>
-	<!--Body Text-->
-<!--<h3>Thi is infomation on how to be healthy</h3>
-			//<p>Healthy food:</p>
-			<ol>
-				<li>Apple</li>
-  				<li>Banana</li>
-  				<li>Orangle</li>
-			</ol>
-
-			<p>Healthy body:</p>
-				<ol>
-  				<li>Running</li>
-  				<li>Try some of our routes to get excerise</li>
-  				<li>Go to the gym</li>
-			</ol>-->
-
 		<div id="healthPage">
 			<?
 			//admin area use this to allow admin users to see certain stuffsession_start();
 			if(isset($_SESSION['userType'])
 			 && ($_SESSION['userType'] == "admin")) {
 						echo '<div class="create">
-							<form action="" method="post">
+							<form action="edition.php" method="post">
 								<h2>Do you want to create a news ? Do it now !</h2><br>
-								<input type="text" name="newsTitle" placeholder="News title"><br>
 								<input id="create" class="submit" type="submit" value="Go create a news !"><br>
 							</form>
-								<div>';
-					if(isset($_POST['clubName']) && isset($_POST['clubGenreID']) && isset($_POST['clubDescription'])) {
-						createClub($_POST['clubName'], $_POST['clubGenreID'], $_POST['clubDescription']);
-					}
-					echo "
-				</div>
-			</div>";
+						<div>
+					</div>
+				</div>';
 		}
 			?>
 			<div id="fb-root"></div>
@@ -74,16 +53,23 @@ global $db;
 					if($result->num_rows <= 0) {
 						echo "There's no news for the moment";
 					} else {
+						echo "<div id='newsColumn'>";
 						while($row = $result->fetch_array()){
-							echo "<div id='news'>
-										<h1> " . $row['HWNewsName'] . " </h1>
-										<p id='newsDate'> " . $row['HWNewsDate'] . "</p>
-									<p id='newsText'> " . $row['HWNewsText'] . "</p>
+							echo "<div class='news'>
+										<div class='newsHeader'>
+											<h1> " . $row['HWNewsName'] . " </h1>";
+							if(isset($_SESSION['userType'])
+               && ($_SESSION['userType'] == "admin")) {
+                 echo "<a href='./edition.php?HWNewsID=". $row['HWNewsID']."'>
+								 				<img src='../../images/edit.svg' alt='edit'/>
+              				</a>";
+            	}
+							echo "</div><p class='newsDate'> " . $row['HWNewsDate'] . "</p>
+									<p class='newsText'> " . $row['HWNewsText'] . "</p>
 							</div>";
 						}
+						echo "</div>";
 					}
-					$result->close();
-	   			$db->close();
 	    	?>
 
 				<a class="twitter-timeline" href="https://twitter.com/goodhealth" data-width="400"  data-height="800"> Tweets by @goodhealth</a>

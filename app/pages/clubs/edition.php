@@ -21,7 +21,8 @@ File handling the creation and edition of clubs
 		//If we are editing instead of creating a new
 		if(isset($_GET['edit']) && isset($_GET['clubID'])){
 			$sql_query = "SELECT clubName, clubDescription, clubGenreID, mediaID, pname, adress, phone, email FROM club WHERE clubID = " . $_GET['clubID']; // Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
-			$result = $db->query($sql_query);
+			$queryResult = $db->query($sql_query);
+			$result = $queryResult->fetch_assoc()
 
 			$title = $result['clubName'];
 			$description = $result['clubDescription'];

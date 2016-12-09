@@ -35,9 +35,11 @@ $myusername = stripslashes($myusername);
 $myusername = filter_var($myusername, FILTER_SANITIZE_STRING);
 $myusername = htmlspecialchars($myusername, ENT_QUOTES, "ISO-8859-1");
 $mypassword = stripslashes($mypassword);
-$mypassword = mysqli_real_escape_string($db, $mypassword);
+$mypassword = filter_var($mypassword, FILTER_SANITIZE_STRING);
+$mypassword = htmlspecialchars($mypassword, ENT_QUOTES, "ISO-8859-1");
 $passwordcheck = stripslashes($passwordcheck);
-$passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
+$passwordcheck = filter_var($passwordcheck, FILTER_SANITIZE_STRING);
+$passwordcheck = htmlspecialchars($passwordcheck, ENT_QUOTES, "ISO-8859-1");
 
 //This declairs the boolians so they dont cause an error
 $userspace = 'false';
@@ -45,16 +47,17 @@ $passspace = 'false';
 $pass2space = 'false';
 
 echo $myusername;
-if (strpos($myusername, '&') !== false) {
+echo $mypassword;
+echo $passwordcheck;
+if (strpos($myusername, '&#') !== false) {
     $userspace = 'true';
 }
-
-//sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-if($userspace=='true') {
-    header("location:index.php?space=1");
-    die();
+if (strpos($mypassword, '&#') !== false) {
+    $userspace = 'true';
 }
-die();
+if (strpos($mypassword, '&#') !== false) {
+    $userspace = 'true';
+}
 
 //This checks to see if their is any spaces in the variables
 if (strpos($myusername, ' ') !== false) {
@@ -66,7 +69,7 @@ if (strpos($mypassword, ' ') !== false) {
 if (strpos($passwordcheck, ' ') !== false) {
     $pass2space ='true';
 }
-
+die();
 //This tests to see if there is any spaces in the text
 if($userspace=='true' || $passspace=='true' || $pass2space=='true') {
     header("location:index.php?space=1");

@@ -223,7 +223,7 @@ footer li{color: #ffffff; text-align: left; }
     margin: 0%;
     padding: 0%;
     overflow: hidden;
-    background-color: #3c3c3c;
+    background-color: #7e7e7e;
     display: block
 }
 
@@ -270,14 +270,14 @@ footer li{color: #ffffff; text-align: left; }
 .logo{
     position: relative;
     float: left;
-    height: 10vh;
-    width: 10vh;
+    height: 20vh;
+    width: 20vh;
 }
 
 .title{
     position: relative;
     float: left;
     left: 1%;
-    height: 10vh;
-    width: 30vh;
+    height: 20vh;
+    width: 40vh;
 }

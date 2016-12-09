@@ -14,7 +14,8 @@ if(strpos($actual_link, 'pages') == true) {
 		<meta name="keywords" content="sports">
 		<meta name="author" content="Black Rabbit -Unicorns-">
 		<title>Sportlethen</title>
-		<script src="https://use.fontawesome.com/59db90bae7.js"></script>
+        <script src="https://use.fontawesome.com/59db90bae7.js"></script>
+        <script src="scripts/dropdown.js"></script>
 		<? 	
 		if($isIndex) {
   			echo '<link rel="stylesheet" type="text/css" href="css/main.css">';

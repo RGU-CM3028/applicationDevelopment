@@ -31,7 +31,7 @@ $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 
 $myusername =  mysqli_real_escape_string($myusername);
-echo $myuername;
+echo $myusername;
 die();
 
 //Security checking V1.

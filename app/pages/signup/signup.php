@@ -16,6 +16,7 @@ function sanitize($data)
     // a mySQL connection is required before using this function
     $data = filter_var($data, FILTER_SANITIZE_STRING);
     $data = mysqli_real_escape_string($db, $data);
+    $myusername = preg_replace('/[^a-z0-9\s]/i', '', $myusername);
     return $data;
 }
 
@@ -43,10 +44,10 @@ if(isset($_POST['passwordcheck'])) {
 }
 
 //This is the fields from the signup form.
-$myusername = $_POST["username"];
+$myusername = sanitize($_POST["username"]);
 $mypassword = sanitize($_POST["password"]);
 $passwordcheck = sanitize($_POST["passwordcheck"]);
-$myusername = preg_replace('/[^a-z0-9\s]/i', '', $myusername);
+//$myusername = preg_replace('/[^a-z0-9\s]/i', '', $myusername);
 //$myusername = htmlentities($myusername);
 //$myusername = mysqli_real_escape_string($db, $myusername);
 //$myusername = stripslashes($myusername);

@@ -74,7 +74,7 @@ if(mysqli_num_rows($dup) >0){
 
 //This compares the passwords. If the match then the user is created. If not then the user is told to check again.
 if($mypassword==$passwordcheck) {
-    $stmt = $db->prepare("INSERT INTO users (name, password, userType) VALUES (?, ?, ?)");
+    $stmt = $db->prepare("INSERT INTO users (username, password, userType) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $myusername, $mypassword, $myusertype);
     $stmt->execute();
     echo "done";

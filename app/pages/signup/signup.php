@@ -47,10 +47,10 @@ $myusername = sanitize($_POST["username"]);
 $mypassword = sanitize($_POST["password"]);
 $passwordcheck = sanitize($_POST["passwordcheck"]);
 
-$myusername = htmlentities($myusername);
-$myusername = mysqli_real_escape_string($db, $myusername);
-$myusername = stripslashes($myusername);
-$myusername = filter_var($myusername, FILTER_SANITIZE_STRING);
+//$myusername = htmlentities($myusername);
+//$myusername = mysqli_real_escape_string($db, $myusername);
+//$myusername = stripslashes($myusername);
+//$myusername = filter_var($myusername, FILTER_SANITIZE_STRING);
 
 echo $myusername;
 die();

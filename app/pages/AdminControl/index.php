@@ -23,15 +23,15 @@ if ($usertypeholder = $_SESSION['userType']){
         <br>
         <span>This account cannot be deleted or altered as this is the System Administrator.</span>
 <?
-
-        //This gets basic user info so the page knows who is logged in.
-if (isset($_SESSION['username'])){
-    	echo "<p>Currently logged in as " . $_SESSION['username'] . "</p>";
-    	$sql = "SELECT * FROM users WHERE username='". $_SESSION['username'];
-    	$result = $db->query($sql);
-    	while($row = $result->fetch_array()){
-        	echo "<p>The current user type is " . $_SESSION['userType'] . "</p>";
-    	}
+    
+    //This gets basic user info so the page knows who is logged in.
+    if (isset($_SESSION['username'])){
+        echo "<p>Currently logged in as " . $_SESSION['username'] . "</p>";
+        $sql = "SELECT * FROM users WHERE username='". $_SESSION['username'] . "'";
+        $result = $db->query($sql);
+        while($row = $result->fetch_array()){
+            echo "<p>The current user type is " . $_SESSION['userType'] . "</p>";
+        }
 
 ?>
         <!-- This is the form used for the admin to control other users privilages -->

@@ -38,8 +38,8 @@ $myusername = stripslashes($myusername);
 $myusername = filter_var($myusername, FILTER_SANITIZE_STRING);
 $myusername = htmlspecialchars($myusername, ENT_QUOTES, "ISO-8859-1");
 $mypassword = stripslashes($mypassword);
-$mypassword = stripslashes($mypassword);
-$mypassword = mysqli_real_escape_string($db, $mypassword);
+$mypassword = filter_var($mypassword, FILTER_SANITIZE_STRING);
+$mypassword = htmlspecialchars($mypassword, ENT_QUOTES, "ISO-8859-1");
 $passwordcheck = stripslashes($passwordcheck);
 $passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
     

@@ -43,7 +43,8 @@ $passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
 $userspace = 'false';
 $passspace = 'false';
 $pass2space = 'false';
-if (strpos($username, '&#') !== false) {
+
+if (strpos($username, '&') !== false) {
     $userspace = 'true';
 }
 //This checks to see if their is any spaces in the variables

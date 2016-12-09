@@ -38,9 +38,6 @@ echo $passwordcheck. "<br>";
 //Security checking V1.
 $myusername = stripslashes($myusername);
 $myusername = mysqli_real_escape_string($db, $myusername);
-
-//$myusername = filter_var($myusername, FILTER_SANITIZE_STRING);
-//$myusername = htmlspecialchars($myusername, ENT_QUOTES, "ISO-8859-1");
 $mypassword = stripslashes($mypassword);
 $mypassword = mysqli_real_escape_string($db, $mypassword);
 $passwordcheck = stripslashes($passwordcheck);

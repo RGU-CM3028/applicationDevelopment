@@ -6,6 +6,9 @@ $sss->bind_param("sss", $auu);
 $auu=$_POST['username'];
 $pea=$_POST['password'];
 $peas=$_POST['passwordcheck'];
+echo $auu;
+echo $pea;
+echo $peas;
 $sss->execute();
 if(!empty($auu) && !empty(!$pea) && !empty(!$peas) && $sss->fetch()<1){
     $iq = "INSERT INTO users (username, password, userType) VALUES (?,?,?)";

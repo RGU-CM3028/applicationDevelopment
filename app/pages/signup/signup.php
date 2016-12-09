@@ -39,7 +39,7 @@ echo $passwordcheck. "<br>";
 $myusername = stripslashes($myusername);
 
 echo $myusername;
-echo $mypassword;
+//echo $mypassword;
 echo $passwordcheck. "<br>";
 
 $myusername = mysqli_real_escape_string($db, $myusername);
@@ -48,6 +48,7 @@ die();
 echo $myusername;
 echo $mypassword;
 echo $passwordcheck. "<br>";
+die();
 
 $mypassword = stripslashes($mypassword);
 $mypassword = mysqli_real_escape_string($db, $mypassword);

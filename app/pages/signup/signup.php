@@ -45,7 +45,7 @@ $passspace = 'false';
 $pass2space = 'false';
 
 $username = '&';
-if (strpos($username, '&') !== false) {
+if (strpos($myusername, '&') !== false) {
     $userspace = 'true';
 }
 

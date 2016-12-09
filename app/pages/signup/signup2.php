@@ -77,15 +77,12 @@ if($mypassword==$passwordcheck) {
     $stmt = $db->prepare("INSERT INTO users (name, password, userType) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $myusername, $mypassword, $myusertype);
     $stmt->execute();
-    if (mysqli_query($db, $stmt)) {        
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($db);
-    }
-    session_start();
-    $_SESSION['username'] = $myusername;
-    $_SESSION['userType'] = 'reader';
-    header("location:index.php");
-    $sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'reader')";
+    echo "done";
+    //session_start();
+    //$_SESSION['username'] = $myusername;
+    //$_SESSION['userType'] = 'reader';
+    //header("location:index.php");
+    //$sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'reader')";
     
 } else {
     header("location:index.php?same=1");

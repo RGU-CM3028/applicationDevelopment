@@ -4,18 +4,19 @@
     include('../../dbconnect.php');
 ?>
     <section>
-	    
-	    
+
+
 	    <?
-	 $usertypeholder1 = 'admin';
-$usertypeholder2 = 'reader';
-$usertypeholder3 = 'NKPAG';
-   if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['userType'] || $usertypeholder3 = $_SESSION['userType'] ){
-	echo "Welcome user";
-   } else {
-	   //safe
-   }   ?>
-	    
+	// $usertypeholder1 = 'admin';
+  // $usertypeholder2 = 'reader';
+  // $usertypeholder3 = 'NKPAG';
+  // $usertypeholder4 = 'clubAdmin';
+  //  if ($usertypeholde1 = $_SESSION['userType']
+  //  || $usertypeholder2 = $_SESSION['userType']
+  //  || $usertypeholder3 = $_SESSION['userType']
+  //  || $usertypeholder4 = $_SESSION['userType'] )
+  //  { ?>
+
 		<!--Body Text-->
 		<div id="BodyText">
 				<div>
@@ -38,6 +39,30 @@ $usertypeholder3 = 'NKPAG';
 				  	slider.addBulletNav();
 				  	slider.start();
 					</script> -->
+
+                        <?
+                        //admin and clubAdmin area use this to allow
+                        //admin users and clubAdmin users to see certain
+                        //stuffsession_start();
+                        if(isset($_SESSION['userType'])
+                         && (($_SESSION['userType'] == "clubAdmin")
+                         || ($_SESSION['userType'] == "admin"))) {
+                              echo '<div class="create">
+                				        <form action="" method="post">
+                				          <h2>Do you want to create a club ? Do it now !</h2><br>
+                				          <input type="text" name="clubName" placeholder="Club name"><br>
+                                  <input type="text" name="clubGenre" placeholder="Club genre"><br>
+                				          <input id="create" class="submit" type="submit" value="Create a new club !"><br>
+                				        </form>
+                                  <div>';
+            								if(isset($_POST['clubName']) && isset($_POST['clubGenreID']) && isset($_POST['clubDescription'])) {
+            									createClub($_POST['clubName'], $_POST['clubGenreID'], $_POST['clubDescription']);
+            								}
+                            echo "
+                          </div>
+          				      </div>";
+                      }
+                        ?>
 				  <div>
             <h2 class="pageTitle"> Clubs and Societies </h2>
           </div>
@@ -59,23 +84,6 @@ $usertypeholder3 = 'NKPAG';
 				            } else { showAllClubs(); }
 				            ?>
 				        </div>
-				      <!-- Only if user = levelCode 1 !-->
-				      </div>
-				      <div class="createClub">
-				        <form action="" method="post">
-				          <h2>Do you want to create a club ? Do it now !</h2><br>
-				          <input type="text" name="clubName" placeholder="Club name"><br>
-                  <input type="text" name="clubGenre" placeholder="Club genre"><br>
-				          <input id="create" class="submit" type="submit" value="Create a new club !"><br>
-				          <!-- Club genre may be a list ?-->
-				        </form>
-                  <div>
-  								<?php
-  								if(isset($_POST['clubName']) && isset($_POST['clubGenreID']) && isset($_POST['clubDescription'])) {
-  									createClub($_POST['clubName'], $_POST['clubGenreID'], $_POST['clubDescription']);
-  								}
-  								?>
-                </div>
 				      </div>
 				    </div>
 				  </div>

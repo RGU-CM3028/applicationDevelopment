@@ -36,3 +36,10 @@
 .twitter-timeline {
   max-width: 20%;
 }
+
+.createNew {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  text-align:center;
+  border-bottom: 1px solid grey;
+}

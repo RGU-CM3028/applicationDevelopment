@@ -135,6 +135,13 @@ footer li{color: #ffffff; text-align: left; }
 .fa{color:#ffffff;}
 .fa:hover{color:#4c7eed;}
 
+.create {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid grey;
+  text-align: center;
+}
+
 @media only screen and (max-width:1900px){
     nav{
         display: block;

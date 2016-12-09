@@ -12,7 +12,7 @@ global $db;
   				<li>Banana</li>
   				<li>Orangle</li>
 			</ol>
-			
+
 			<p>Healthy body:</p>
 				<ol>
   				<li>Running</li>
@@ -21,6 +21,25 @@ global $db;
 			</ol>-->
 
 		<div id="healthPage">
+			<?
+			//admin area use this to allow admin users to see certain stuffsession_start();
+			if(isset($_SESSION['userType'])
+			 && ($_SESSION['userType'] == "admin")) {
+						echo '<div class="create">
+							<form action="" method="post">
+								<h2>Do you want to create a news ? Do it now !</h2><br>
+								<input type="text" name="newsTitle" placeholder="News title"><br>
+								<input id="create" class="submit" type="submit" value="Go create a news !"><br>
+							</form>
+								<div>';
+					if(isset($_POST['clubName']) && isset($_POST['clubGenreID']) && isset($_POST['clubDescription'])) {
+						createClub($_POST['clubName'], $_POST['clubGenreID'], $_POST['clubDescription']);
+					}
+					echo "
+				</div>
+			</div>";
+		}
+			?>
 			<div id="fb-root"></div>
 				<script>(function(d, s, id) {
 				  var js, fjs = d.getElementsByTagName(s)[0];
@@ -49,22 +68,7 @@ global $db;
 					</div>
 				</div>
 				<?php
-				
-						//admin area use this to allow admin users to see certain stuffsession_start();
-				$usertypeholder1 = 'admin';
-				if ($usertypeholde1 = $_SESSION['userType']){
-					?>    
-					<form method="post" action="edition.php">
-        					<p class="submit"><input type="submit" name="edit" value="edit"></p>
-						<p class="submit"><input type="submit" name="update" value="update"></p>
-    					</form>
-				<?
-   				} else {
-	   				//safe
-   				}
-		
-		
-				
+
 					$sql_query = "SELECT * FROM hwnews ORDER BY HWNewsDate DESC";
 					$result = $db->query($sql_query);
 					if($result->num_rows <= 0) {
@@ -91,10 +95,3 @@ global $db;
 	// imports the footer
 	include("../../inc/footer.inc");
 	?>
-
-
-
-
-
-
-

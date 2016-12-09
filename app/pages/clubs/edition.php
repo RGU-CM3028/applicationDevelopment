@@ -1,7 +1,13 @@
 <!--
 File handling the creation and edition of clubs
 -->
+<!DOCTYPE html>
+<html>
 
+<head>
+  <title>My First HTML</title>
+  <meta charset="UTF-8">
+</head>
 <body>
 	<?php
 		ini_set('display_errors', 1);

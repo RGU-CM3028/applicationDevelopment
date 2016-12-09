@@ -104,6 +104,6 @@ if (isset($_SESSION['username'])){
     </div>
 </section>
 <?
-    
+}
   include("../../inc/footer.inc");
 ?>

@@ -49,7 +49,14 @@ if (strpos($myusername, '&') !== false) {
     $userspace = 'true';
 }
 
+
+//sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+if($userspace=='true') {
+    header("location:index.php?space=1");
+    die();
+}
 die();
+
 //This checks to see if their is any spaces in the variables
 if (strpos($myusername, ' ') !== false) {
     $userspace = 'true';

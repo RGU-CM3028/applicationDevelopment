@@ -22,17 +22,18 @@ File handling the creation and edition of clubs
 		if(isset($_GET['edit']) && isset($_GET['clubID'])){
 			$sql_query = "SELECT clubName, clubDescription, clubGenreID, mediaID, pname, adress, phone, email FROM club WHERE clubID = " . $_GET['clubID']; // Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
 			$queryResult = $db->query($sql_query);
-			$result = $queryResult->fetch_assoc()
-
-			$title = $result['clubName'];
-			$description = $result['clubDescription'];
-			$clubGenreID = $result['clubGenreID'];
-			$media = $result['mediaID'];
-			$pname = $result['pname'];
-			$adress = $result['adress'];
-			$phone = $result['phone'];
-			$email = $result['email'];
-			$logoID = $result['logoID'];
+			
+			while($result = $queryResult->fetch_array(MYSQLI_ASSOC)){
+				$title = $result['clubName'];
+				$description = $result['clubDescription'];
+				$clubGenreID = $result['clubGenreID'];
+				$media = $result['mediaID'];
+				$pname = $result['pname'];
+				$adress = $result['adress'];
+				$phone = $result['phone'];
+				$email = $result['email'];
+				$logoID = $result['logoID'];
+			}
 			echo "get clubID : " . $_GET["clubID"] . " ; clubName : " . $title;
 			$db->close();
 		}

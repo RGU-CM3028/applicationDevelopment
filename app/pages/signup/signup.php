@@ -15,7 +15,7 @@ function sanitize($data)
     }
     // a mySQL connection is required before using this function
     $data = filter_var($data, FILTER_SANITIZE_STRING);
-    //$data = preg_replace('/[^a-z0-9\s]/i', '', $data);
+    $data = preg_replace('/[^a-z0-9\s]/i', '', $data);
     //$data = mysqli_real_escape_string($db, $data);
     return $data;
 }

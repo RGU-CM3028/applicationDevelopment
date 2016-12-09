@@ -47,13 +47,17 @@ $passspace = 'false';
 $pass2space = 'false';
 
 //testestestestestestestest
-if (strpos($myusername, '&#') !== false) {
+$test = '&#';
+if (strpos($myusername, $test) !== false) {
     $userspace = 'true';
 }
 if($userspace=='true') {
     header("location:index.php?space=1");
     die();
 }
+echo $test;
+echo $userspace;
+echo $myusername;
 die();
 
 

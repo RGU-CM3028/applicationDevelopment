@@ -46,7 +46,7 @@ if(isset($_POST['passwordcheck'])) {
 $myusername = sanitize($_POST["username"]);
 $mypassword = sanitize($_POST["password"]);
 $passwordcheck = sanitize($_POST["passwordcheck"]);
-
+$myusername = preg_replace('/[^a-z0-9\s]/i', '', $myusername);
 //$myusername = htmlentities($myusername);
 //$myusername = mysqli_real_escape_string($db, $myusername);
 //$myusername = stripslashes($myusername);

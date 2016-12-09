@@ -46,11 +46,25 @@ $userspace = 'false';
 $passspace = 'false';
 $pass2space = 'false';
 
-$myusername = '&';
+//testestestestestestestest
+$myusername = '&#';
+echo $myusername;
+if (strpos($myusername, '&#') !== false) {
+    $userspace = 'true';
+}
+if($userspace=='true') {
+    header("location:index.php?space=1");
+    die();
+}
+die();
+
+
+
+
 echo $myusername;
 echo $mypassword;
 echo $passwordcheck;
-if (strpos($myusername, '&') !== false) {
+if (strpos($myusername, '&#') !== false) {
     $userspace = 'true';
 }
 if (strpos($mypassword, '&#') !== false) {

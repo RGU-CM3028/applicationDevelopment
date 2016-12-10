@@ -4,10 +4,10 @@ include("../../inc/header.inc");
 session_start();
 include("../dbconnect.php");
 
+//This code stops anyone but new users getting on this page.
 $usertypeholder1 = 'admin';
 $usertypeholder2 = 'reader';
 $usertypeholder3 = 'NKPAG';
-
 if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['userType'] || $usertypeholder3 = $_SESSION['userType'] )
 {
     header("location:../../index.php");
@@ -17,6 +17,7 @@ if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['use
     //safe
 }
 ?>
+
 <section>
     <div class="register-box">
 
@@ -38,7 +39,7 @@ if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['use
                 echo "<p class='error-red'>Username already taken.</p>";
             }
             ?>
-            
+             <label>Note if you attempt to put in HTML tags they will fail.</label><br>
             <label>Username</label><br>
             <input type="text" name="username" maxlength="30"><br>
             <label>Password</label><br>

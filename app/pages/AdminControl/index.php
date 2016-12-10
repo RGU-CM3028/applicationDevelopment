@@ -1,19 +1,18 @@
 <?
-
 include("../../inc/header.inc");
+
 //This starts the sessions. And connects the database here.
 session_start();
 include("../../dbconnect.php");
 
+//This ensures if the user is an admin or not.
 $usertypeholder = 'admin';
-
 if ($usertypeholder = $_SESSION['userType']){
 	//safe
 } else {
 	header("location:../../index.php");
 	die();
 }
-
 ?>
 
 <section>
@@ -33,10 +32,10 @@ if ($usertypeholder = $_SESSION['userType']){
         }
 
 ?>
+	    
         <!-- This is the form used for the admin to control other users privilages -->
-        <form class="admincontrol" name="admincontrol" method="post" action="admincontrol2.php">
-            
-            
+        <form class="admincontrol" name="admincontrol" method="post" action="admincontrol.php">
+                        
         <?
             //These are the error messages that appear on this page when the code comes back for it.
             if (isset($_GET['same']))
@@ -47,7 +46,7 @@ if ($usertypeholder = $_SESSION['userType']){
             {
                 echo "<p class='error-red'>Please ensure you pick a valid user.</font></p>";
             }
-            if (isset($_GET['fail']))
+            if (isset($_GET['Fail']))
             {
                 echo "<p class='error-red'>Please don't edit the html.</font></p>";
             }
@@ -76,6 +75,7 @@ if ($usertypeholder = $_SESSION['userType']){
                     while($row = $result->fetch_array()){
                         echo "<option value='" . $row['username'] ."'>" . $row['username'] ."</option>";
                     }
+	    
                 ?>
             </select>
             <br>

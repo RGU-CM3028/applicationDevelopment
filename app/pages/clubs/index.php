@@ -60,6 +60,7 @@
 
 <?php
     // imports the footer
+    phpinfo();
     include("../../inc/footer.inc");
 ?>
 

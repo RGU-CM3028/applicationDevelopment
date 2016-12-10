@@ -89,10 +89,8 @@ if($username == $myusername){
 //This compares the passwords. If the match then the user is created. If not then the user is told to check again.
 if($mypassword==$passwordcheck) {
     
+    //Password test
     $mypassword = password_hash($mypassword, PASSWORD_BCRYPT, array( 'cost' => 12));
-    echo $mypassword;
-    die();
-    
     
     //This prepared statement protects the inserting of data input of the database
     $stmt = $db->prepare("INSERT INTO users (username, password, userType) VALUES (?, ?, ?)");

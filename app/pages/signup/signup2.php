@@ -97,4 +97,3 @@ if($mypassword==$passwordcheck) {
     die();
 }
 ?>
-?>

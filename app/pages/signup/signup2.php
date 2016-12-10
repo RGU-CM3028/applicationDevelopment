@@ -71,7 +71,10 @@ if(empty($myusername) || empty($mypassword) || empty($passwordcheck))
 }
 
 //This checks to see if the username is taken or not.
-$dup = mysqli_query($db, "SELECT username FROM users WHERE username='$myusername'");
+$dup = $db->prepare("SELECT username FROM users WHERE username=?");
+$dup->bind_param("s", $myusername);
+$dup->execute(); 
+//$dup = mysqli_query($db, "SELECT username FROM users WHERE username='$myusername'");
 $userchecker = mysqli_fetch_assoc($dup);
 if(mysqli_num_rows($dup) >0){
     header("location:index.php?dup=1");

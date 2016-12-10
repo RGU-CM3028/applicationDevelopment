@@ -81,8 +81,10 @@ if($mypassword==$passwordcheck) {
     $stmt->bind_param("sss", $myusername, $mypassword, $myusertype);
     $stmt->execute();   
     
+    echo $myusername;
+    
     //This is meant to recover the info used for the session
-    $boom = $db->prepare("SELECT username FROM users WHERE username =? LIMIT 1");
+    $boom = $db->prepare("SELECT username FROM users WHERE username =?");
     $boom->bind_param("s", $myusername);
     $booms->execute();
     $result = $db->query($boom);

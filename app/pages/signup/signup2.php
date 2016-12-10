@@ -86,7 +86,7 @@ if($mypassword==$passwordcheck) {
     //This is meant to recover the info used for the session
     $boom = $db->prepare("SELECT username FROM users WHERE username =?");
     $boom->bind_param("s", $myusername);
-    $booms->execute();
+    $boom->execute();
     $result = $db->query($boom);
     while($row = $result->fetch_array()){
         $username = $row['username'];

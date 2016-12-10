@@ -66,19 +66,65 @@ include('../../dbconnect.php');
      && (($_SESSION['userType'] == "NKPAG")
      || ($_SESSION['userType'] == "admin"))) {
 
-      //Create the edition box for the points
+        //---- Point
+        //Query all the points from the DB
+        $sql = "SELECT pointID, pointType, pointDescription, coordinateX, coordinateY FROM GeoPoint";
+        $points = $db->query($sql);
+
+        //Create the edition box for the points
         echo '<form action="edition.php" method="GET">';
         echo '<input type="submit" name="create" value="Add an element to the map" />';
+        echo '<form>';
 
         echo '<form action="edition.php" method="GET">
-              Select an element <select required>';
+              Select a point <select required>';
           while($row = $points->fetch_assoc()) {
-            echo "<option value=\"". $row["pointType"] . "\">\"". $row["pointType"] . "\"</option>";
+            echo "<option value=\"". $row["pointID"] . "\">\"". $row["pointType"] . "\"</option>";
           }
         echo "</select>";
         echo '<input type="submit" name="edit" value="Edit" />';
         echo '<input type="submit" name="delete" value="Delete" /> </form>';
-     }
+
+        //---- Path
+        //Query all the paths from the DB
+        $sql = "SELECT pathID, pathType, pathDescription, coordinateX, coordinateY FROM Geopath";
+        $paths = $db->query($sql);
+
+        //Create the edition box for the paths
+        echo '<form action="edition.php" method="GET">';
+        echo '<input type="submit" name="create" value="Add an element to the map" />';
+        echo '<form>';
+
+        echo '<form action="edition.php" method="GET">
+              Select a path<select required>';
+          while($row = $paths->fetch_assoc()) {
+            echo "<option value=\"". $row["pathID"] . "\">\"". $row["pathType"] . "\"</option>";
+          }
+        echo "</select>";
+        echo '<input type="submit" name="edit" value="Edit" />';
+        echo '<input type="submit" name="delete" value="Delete" /> </form>';
+
+
+        //---- Area
+        //Query all the areas from the DB
+        $sql = "SELECT areaID, areaType, areaDescription, coordinateX, coordinateY FROM Geoarea";
+        $areas = $db->query($sql);
+
+        //Create the edition box for the areas
+        echo '<form action="edition.php" method="GET">';
+        echo '<input type="submit" name="create" value="Add an element to the map" />';
+        echo '<form>';
+
+        echo '<form action="edition.php" method="GET">
+              Select an area <select required>';
+          while($row = $areas->fetch_assoc()) {
+            echo "<option value=\"". $row["areaID"] . "\">\"". $row["areaType"] . "\"</option>";
+          }
+        echo "</select>";
+        echo '<input type="submit" name="edit" value="Edit" />';
+        echo '<input type="submit" name="delete" value="Delete" /> </form>';
+
+      }
     ?>
 
   <div id="map" style="height: 65vh;"></div>

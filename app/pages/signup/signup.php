@@ -37,11 +37,15 @@ $mypassword = strip_tags($mypassword);
 $passwordcheck = strip_tags($passwordcheck);
 
 //Hashing password for password security
-$salt = "qwertgfdert45t456545655";
-$mypassword = $mypassword.$salt;
-$mypassword = hash('sha256', $mypassword);
-$passwordcheck = $passwordcheck.$salt;
-$passwordcheck = hash('sha256', $passwordcheck);
+
+$mypassword = pasword_hash('password', PASSWORD_BCRYPT, array( 'cost' => 12));
+
+
+//$salt = "qwertgfdert45t456545655";
+//$mypassword = $mypassword.$salt;
+//$mypassword = hash('sha256', $mypassword);
+//$passwordcheck = $passwordcheck.$salt;
+//$passwordcheck = hash('sha256', $passwordcheck);
 
 //This declairs the boolians so they dont cause an error
 $userspace = 'false';

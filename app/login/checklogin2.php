@@ -32,7 +32,7 @@ $mypassword = $_POST["password"];
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
 $mypassword = hash('sha256', $mypassword);
-
+/*
 //Code that checks to see if any usernames and password pairs match any in the database.
 $checker = 0;
 $user = $db->prepare("SELECT username FROM users WHERE username=?");
@@ -41,7 +41,7 @@ if ($user->execute()){
     $user->bind_result($dbusername);
     $user->fetch();
 }
-echo $dbusername;
+echo $dbusername;*/
 
 $user = $db->prepare("SELECT password FROM users WHERE username=?");
 $user->bind_param("s", $myusername);

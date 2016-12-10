@@ -15,15 +15,19 @@ $clubID = $_GET['clubID'];
 $clubName = "club not found";
 $clubDescription = "club not found";
 
-$query = "SELECT clubName, clubDescription, clubGenreID
-          FROM Club C
-          WHERE C.clubID = " . $clubID;
+$query = "SELECT clubName, clubDescription, clubGenreID, pname, adress, phone, email
+          FROM Club
+          WHERE clubID = " . $clubID;
 $result = $db->query($query);
 
 while ($row = $result->fetch_array()) {
     $clubName = $row['clubName'];
     $clubDescription = $row['clubDescription'];
     $clubGenreID = $row{'clubGenreID'};
+    $pname = $row{'pname'};
+    $adress = $row{'adress'};
+    $phone = $row{'phone'};
+    $email = $row{'email'};
 }
 
 $query = "SELECT pname
@@ -40,26 +44,40 @@ $query = "SELECT mediaID
           WHERE C.clubID = " . $clubID;
 $result = $db->query($query);
 
-$i = 0;
-while ($row = $result->fetch_array()) {
-    $images [i] = $row['mediaID'];
-    $i++;
+if(!$result->num_rows <= 0) {
+  $i = 0;
+  while ($row = $result->fetch_array()) {
+      $images [i] = $row['mediaID'];
+      $i++;
+    }
 }
 
 
 echo "<section>
-    <div>
-        <img src=
-                 " . $mediaID . "
-                                    >
-    <h1>
-            " . $clubName . "
-
-                                      " . $clubGenre . "
-                                                        </h1>
-        <p>
-           " . $clubDescription . "
-                                   </p>
-        <h2> Events </h2>
+    <div>";
+  if(isset($mediaID)) {
+    echo "<img src=" . $mediaID . ">";
+  }
+  echo "<h1>" . $clubName . "<h1>
+        <p>" . $clubGenre . "</p>
+        <p>" . $clubDescription . "</p>";
+  if($pname != "" || $adress != "" || $phone != "" || $email != "") {
+    echo "<h2> Contact infos </h2>";
+    if($pname != "") {
+      echo "<p>You can contact " . $pname ." for further information. </p>";
+    } else {
+      echo "<p>You can contact us for further information. </p>";
+    }
+    if($adress != "") {
+      echo "<p>Club adress : ".$adress."</p>";
+    }
+    if($email != "") {
+      echo "<p>Email : ".$email."</p>";
+    }
+    if($phone != "") {
+      echo "<p>Phone : ".$phone."</p>";
+    }
+  }
+  echo "<h2> Events </h2>
     </div>
 </section>";

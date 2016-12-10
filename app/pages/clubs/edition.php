@@ -61,6 +61,9 @@ File handling the creation and edition of clubs
     }
     if(isset($_POST['submitUpdate'])) {
 
+        echo "post : " . $_POST['clubName'];
+        echo "escaped ! " . mysqli_real_escape_string($_POST['clubName']);
+
         $sql_query = "UPDATE Club
         SET clubName='".mysqli_real_escape_string($_POST['clubName'])."',
         clubDescription='".mysqli_real_escape_string($_POST['clubDescription'])."',

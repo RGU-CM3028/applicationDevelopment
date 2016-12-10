@@ -47,13 +47,14 @@ if ($user->execute()){
 echo $dbusername;
 
 $pass = $db->prepare("SELECT password FROM users WHERE username=?");
-$pass->bind_param("s", $myusername);
+$pass->bind_param("s", $dbusername);
 if ($pass->execute()){
     $pass->bind_result($dbpassword);
     $pass->fetch();
 }
 echo $dbpassword;
     die();
+
 if ($dbusername == $myusername && $dbpassword == $mypassword){
     $checker = 1;
 }

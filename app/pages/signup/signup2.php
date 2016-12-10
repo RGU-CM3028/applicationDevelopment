@@ -41,6 +41,7 @@ $passwordcheck = hash('sha256', $passwordcheck);
 $userspace = 'false';
 $passspace = 'false';
 $pass2space = 'false';
+
 //This checks to see if their is any spaces in the variables
 if (strpos($myusername, ' ') !== false) {
     $userspace = 'true';
@@ -65,22 +66,17 @@ if(empty($myusername) || empty($mypassword) || empty($passwordcheck))
     die();
 }
 
-echo $myusername;
-
 //This checks to see if the username is taken or not.
 $dup = $db->prepare("SELECT username FROM users WHERE username=?");
 $dup->bind_param("s", $myusername);
-$dup->execute(); 
-$dup->fetch();
-echo $dup;
-//$dup = mysqli_query($db, "SELECT username FROM users WHERE username='$myusername'");
-$userchecker = mysqli_fetch_assoc($dup);
-if(mysqli_num_rows($dup) >0){
+if ($dup->execute()){
+    $dup->bind_result($username);
+    $dup->fetch();
+}
+if($username == $myusername){
     header("location:index.php?dup=1");
     die();
-} 
-
-die();
+}
 
 //This compares the passwords. If the match then the user is created. If not then the user is told to check again.
 if($mypassword==$passwordcheck) {
@@ -88,27 +84,21 @@ if($mypassword==$passwordcheck) {
     //This prepared statement protects the inserting of data input of the database
     $stmt = $db->prepare("INSERT INTO users (username, password, userType) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $myusername, $mypassword, $myusertype);
-    $stmt->execute();   
-    
-    echo $myusername;
+    $stmt->execute();  
     
     //This is meant to recover the info used for the session
-    $username = "";
-    $boom = $db->prepare("SELECT username FROM users WHERE username =?");
-    $boom->bind_param("s", $myusername);
-    $boom->execute();
-    $result = $db->query($boom);
-    echo $result;
-    while($row = $result->fetch_array()){
-        $username = $row['username'];
+    $get = $db->prepare("SELECT username FROM users WHERE username=?");
+    $get->bind_param("s", $myusername);
+    if ($get->execute()){
+        $get->bind_result($username);
+        $get->fetch();
     }
-    echo $username;
-    echo $myusername;
+    
     //This is the session
-    //session_start();
-    //$_SESSION['username'] = $username;
-    //$_SESSION['userType'] = 'reader';
-    //header("location:index.php");    
+    session_start();
+    $_SESSION['username'] = $username;
+    $_SESSION['userType'] = 'reader';
+    header("location:index.php");    
 } else {
     header("location:index.php?same=1");
     die();

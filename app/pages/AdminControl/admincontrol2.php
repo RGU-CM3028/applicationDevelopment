@@ -81,13 +81,22 @@ if ($adminusername == $_SESSION['username']){
 
 //This is the code that deletes the user the admin selected.
 if($adminchoice == "delete"){
-	$query = "DELETE FROM users WHERE username = '".$adminusername."'";
-	if (mysqli_query($db, $query)) {    
-		header("location:index.php?delete=1");
-    		die();
-    	} else {
-        	echo "Error: " . $query . "<br>" . mysqli_error($db);
+	$stmt = $db->prepare("DELETE FROM users WHERE username =?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();  
+        $stmt->close();
+	
+	$check = $db->prepare("SELECT username FROM users WHERE username=?");
+	$check->bind_param("s", $adminusername);
+	if ($check->execute()){
+		$check->bind_result($username);
+        	$check->fetch();
+        	$check->close();
     	}
+	if ($username == $adminusername) {
+		header("location:index.php?nodata=1");
+    		die();
+	} 
 } 
 
 //This is the code that updates the user with the info the admin selected.

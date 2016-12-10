@@ -48,6 +48,7 @@ $user->bind_param("s", $myusername);
 if ($user->execute()){
     $user->bind_result($dbpassword);
     $user->fetch();
+    $user->close();
 }
 echo $dbpassword;
     die();
@@ -63,6 +64,7 @@ $pass->bind_param("s", $myusername);
 if ($pass->execute()){
     $pass->bind_result($dbuserType);
     $pass->fetch();
+    $pass->close();
 }
 
 //This checks if any pairs matched or not. And send the user back to the index page.

@@ -93,7 +93,7 @@ if($mypassword==$passwordcheck) {
         $username = $row['username'];
     }
     echo $username;
-    
+    echo $myusername;
     //This is the session
     session_start();
     $_SESSION['username'] = $username;

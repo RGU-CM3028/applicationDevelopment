@@ -30,9 +30,6 @@ $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 $myusertype = 'reader';
 
-echo $myusername;
-die();
-
 //Security checking V1.
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;

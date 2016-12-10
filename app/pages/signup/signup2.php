@@ -12,7 +12,9 @@ function sanitize($data)
         $data = stripslashes($data);
     }
     // a mySQL connection is required before using this function
-    $data = filter_var($data, FILTER_SANITIZE_STRING);
+    $data = mysql_real_escape_string(htmlentities($data));
+    $data = strip_tags($data);
+    //$data = filter_var($data, FILTER_SANITIZE_STRING);
     //$data = preg_replace('/[^a-z0-9\s]/i', '', $data);
     $data = mysqli_real_escape_string($db, $data);
     return $data;

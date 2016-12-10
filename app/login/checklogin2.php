@@ -33,12 +33,9 @@ $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
 $mypassword = hash('sha256', $mypassword);
 
-echo $myusername;
-echo $mypassword."<br>";
-
 //Code that checks to see if any usernames and password pairs match any in the database.
 $checker = 0;
-$user = $db->prepare("SELECT username FROM users WHERE username=?");
+$user = $db->prepare("SELECT password FROM users WHERE username=?");
 $user->bind_param("s", $myusername);
 if ($user->execute()){
     $user->bind_result($dbusername);

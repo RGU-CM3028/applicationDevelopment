@@ -43,18 +43,18 @@ File handling the creation and edition of clubs
 
     if(isset($_POST['submitAdd'])) {
 
-      //addslashes($_POST['clubName']) not working,
-      //addslashes($db, $_POST['clubName']) neither
+      //str_replace('"', '\"', $_POST['clubName']) not working,
+      //str_replace('"', '\"', $db, $_POST['clubName']) neither
       $sql_query = "INSERT INTO Club (clubName, clubDescription, clubGenreID,
         logoID, pname, adress, phone, email) VALUES ('"
-      . addslashes($_POST['clubName']) . "',' "
-      . addslashes($_POST['clubDescription']) . "',' "
-      . addslashes($_POST['clubGenreID']) . "',
+      . str_replace('"', '\"', $_POST['clubName']) . "',' "
+      . str_replace('"', '\"', $_POST['clubDescription']) . "',' "
+      . str_replace('"', '\"', $_POST['clubGenreID']) . "',
         0,' "
-      . addslashes($_POST['pname']) . "',' "
-      . addslashes($_POST['adress']) . "',' "
-      . addslashes($_POST['phone']) . "',' "
-      . addslashes($_POST['email']) . "');";
+      . str_replace('"', '\"', $_POST['pname']) . "',' "
+      . str_replace('"', '\"', $_POST['adress']) . "',' "
+      . str_replace('"', '\"', $_POST['phone']) . "',' "
+      . str_replace('"', '\"', $_POST['email']) . "');";
 
       if ($db->query($sql_query) === TRUE) {
       	    header("location:clubDetails.php?clubID=".$_GET['clubID']);
@@ -65,16 +65,16 @@ File handling the creation and edition of clubs
     if(isset($_POST['submitUpdate'])) {
 
         echo "post : " . $_POST['clubName'];
-        echo "escaped ! " . addslashes($_POST['clubName']);
+        echo "escaped ! " . str_replace('"', '\"', $_POST['clubName']);
 
         $sql_query = "UPDATE Club
-        SET clubName='".addslashes($_POST['clubName'])."',
-        clubDescription='".addslashes($_POST['clubDescription'])."',
-        clubGenreID='".addslashes($_POST['clubGenreID'])."',
-        pname='".addslashes($_POST['pname'])."',
-        adress='".addslashes($_POST['adress'])."',
-        phone='".addslashes($_POST['phone'])."',
-        email='".addslashes($_POST['email'])."'
+        SET clubName='".str_replace('"', '\"', $_POST['clubName'])."',
+        clubDescription='".str_replace('"', '\"', $_POST['clubDescription'])."',
+        clubGenreID='".str_replace('"', '\"', $_POST['clubGenreID'])."',
+        pname='".str_replace('"', '\"', $_POST['pname'])."',
+        adress='".str_replace('"', '\"', $_POST['adress'])."',
+        phone='".str_replace('"', '\"', $_POST['phone'])."',
+        email='".str_replace('"', '\"', $_POST['email'])."'
          WHERE clubID='".$_GET['clubID']."'";
 
         if ($db->query($sql_query) === TRUE) {

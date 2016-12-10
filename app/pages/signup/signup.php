@@ -73,6 +73,9 @@ if ($dup->execute()){
     $dup->bind_result($username);
     $dup->fetch();
 }
+echo $username;
+die();
+
 if($username == $myusername){
     header("location:index.php?dup=1");
     die();

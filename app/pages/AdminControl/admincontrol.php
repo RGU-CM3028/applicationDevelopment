@@ -47,13 +47,10 @@ $adminchoice = $_POST["choice"];
 $adminuserchoice = $_POST["usertype"];
 $adminusername = $_POST["username"];
 
-/*//Security checks Version1
-$adminchoice = stripslashes($adminchoice);
-$adminchoice = mysqli_real_escape_string($db,$adminchoice);
-$adminuserchoice = stripslashes($adminuserchoice);
-$adminuserchoice = mysqli_real_escape_string($db,$adminuserchoice);
-$adminusername = stripslashes($adminusername);
-$adminusername = mysqli_real_escape_string($db,$adminusername);*/
+//Removes html tags from the username.
+$myusername = strip_tags($adminchoice);
+$mypassword = strip_tags($adminuserchoice);
+$passwordcheck = strip_tags($adminusername);
 
 $check = $db->prepare("SELECT username FROM users WHERE username=?");
 $check->bind_param("s", $adminusername);

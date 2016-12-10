@@ -57,8 +57,8 @@ File handling the creation and edition of clubs
       . mysqli_real_escape_string($db, $_POST['email']) . "');";
 
       if ($db->query($sql_query) === TRUE) {
-        $clubId = $db->insert_id;
-  	    header("location:clubDetails.php?clubID=".$clubID);
+        //$clubId = $db->insert_id; not getting last ID
+  	    header("location:index.php");
     	} else {
     	    echo "Error: " . $sql_query . "<br>" . $db->error;
     	}

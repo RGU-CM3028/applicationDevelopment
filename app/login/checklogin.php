@@ -45,8 +45,8 @@ if ($user->execute()){
     $user->fetch();
     $user->close();
 }
-echo $dbpassword;
-die();
+
+
 if(password_verify($mypassword, $dbpassword)) {
     echo "Welcome";
 } else {
@@ -54,6 +54,8 @@ if(password_verify($mypassword, $dbpassword)) {
     header("location:../index.php?Loginfail=1");
     die();
 }
+echo $dbpassword;
+die();
 /*$salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
 $mypassword = hash('sha256', $mypassword);*/

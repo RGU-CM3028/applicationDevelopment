@@ -2,7 +2,7 @@
 //This connects the database here.
 include("../../dbconnect.php");
 
-//Good for login and so on. Not for here
+//Gets rid of dangerous html
 function sanitize($data)
 {
     include("../../dbconnect.php");
@@ -14,7 +14,7 @@ function sanitize($data)
     // a mySQL connection is required before using this function
     $data = filter_var($data, FILTER_SANITIZE_STRING);
     //$data = preg_replace('/[^a-z0-9\s]/i', '', $data);
-    //$data = mysqli_real_escape_string($db, $data);
+    $data = mysqli_real_escape_string($db, $data);
     return $data;
 }
 

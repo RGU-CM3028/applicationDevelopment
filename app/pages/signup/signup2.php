@@ -41,7 +41,7 @@ if(isset($_POST['passwordcheck'])) {
     die();
 }
 //This is the fields from the signup form.
-$myusername = sanitize($_POST["username"]);
+$myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 $myusertype = 'reader';

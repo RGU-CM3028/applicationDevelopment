@@ -55,7 +55,6 @@ $adminuserchoice = mysqli_real_escape_string($db,$adminuserchoice);
 $adminusername = stripslashes($adminusername);
 $adminusername = mysqli_real_escape_string($db,$adminusername);*/
 
-
 $check = $db->prepare("SELECT username FROM users WHERE username=?");
 $check->bind_param("s", $adminusername);
 if ($check->execute()){
@@ -88,18 +87,6 @@ if($adminchoice == "delete"){
 	header("location:index.php?nodata=1");
     	die();
 }
-	/*$check = $db->prepare("SELECT username FROM users WHERE username=?");
-	$check->bind_param("s", $adminusername);
-	if ($check->execute()){
-		$check->bind_result($username);
-        	$check->fetch();
-        	$check->close();
-    	}
-	if ($username == $adminusername) {
-		header("location:index.php?nodata=1");
-    		die();
-	} 
-} */
 
 //This is the code that updates the user with the info the admin selected.
 elseif($adminchoice == "usertype") {
@@ -110,16 +97,6 @@ elseif($adminchoice == "usertype") {
 	header("location:index.php?update=1");
     	die();
 }
-	
-	
-	/*
-	if (mysqli_query($db, $sql)) {    
-		header("location:index.php?update=1");
-    		die();
-    	} else {
-        	echo "Error: " . $sql . "<br>" . mysqli_error($db);
-    	}
-} */
 
 //This takes the user back to the control panel with an error message
 elseif($adminchoice == "") {

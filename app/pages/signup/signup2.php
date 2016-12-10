@@ -29,8 +29,8 @@ $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 $myusertype = 'reader';
-
-$myusername = mysqli_real_escape_string($db, $myusername);
+$myusername = preg_replace("/[^a-zA-Z0-9]+/", "", $s);
+//$myusername = mysqli_real_escape_string($db, $myusername);
 
 echo $myusername;
 die();

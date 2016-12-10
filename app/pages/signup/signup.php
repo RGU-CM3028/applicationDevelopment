@@ -39,7 +39,9 @@ $passwordcheck = strip_tags($passwordcheck);
 //Hashing password for password security
 
 $mypassword = password_hash($mypassword, PASSWORD_BCRYPT, array( 'cost' => 12));
-echo $mypassword;
+echo $mypassword. "<br>";
+$passwordcheck = password_hash($passwordcheck, PASSWORD_BCRYPT, array( 'cost' => 12));
+echo $passwordcheck;
 die();
 
 //$salt = "qwertgfdert45t456545655";

@@ -1,6 +1,6 @@
 <?
-
 include("../../inc/header.inc");
+
 //This starts the sessions. And connects the database here.
 session_start();
 include("../../dbconnect.php");
@@ -32,10 +32,10 @@ if ($usertypeholder = $_SESSION['userType']){
         }
 
 ?>
+	    
         <!-- This is the form used for the admin to control other users privilages -->
         <form class="admincontrol" name="admincontrol" method="post" action="admincontrol.php">
-            
-            
+                        
         <?
             //These are the error messages that appear on this page when the code comes back for it.
             if (isset($_GET['same']))
@@ -75,6 +75,7 @@ if ($usertypeholder = $_SESSION['userType']){
                     while($row = $result->fetch_array()){
                         echo "<option value='" . $row['username'] ."'>" . $row['username'] ."</option>";
                     }
+	    
                 ?>
             </select>
             <br>

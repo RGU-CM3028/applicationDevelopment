@@ -32,7 +32,8 @@ $mypassword = $_POST["password"];
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
 $mypassword = hash('sha256', $mypassword);
-
+echo $myusername;
+echo $mypassword."<br>";
 //Code that checks to see if any usernames and password pairs match any in the database.
 $checker = 0;
 $user = $db->prepare("SELECT username FROM users WHERE username=?");
@@ -51,7 +52,8 @@ if ($pass->execute()){
 if ($dbusername == $myusername && $dbpassword == $mypassword){
     $checker = 1;
 }
-
+echo $myusername;
+echo $mypassword."<br>";
 //Code for getting usertype extracted for the session.
 $pass = $db->prepare("SELECT userType FROM users WHERE username=?");
 $pass->bind_param("s", $myusername);

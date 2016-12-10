@@ -5,15 +5,14 @@ include("../../inc/header.inc");
 session_start();
 include("../../dbconnect.php");
 
+//This ensures if the user is an admin or not.
 $usertypeholder = 'admin';
-
 if ($usertypeholder = $_SESSION['userType']){
 	//safe
 } else {
 	header("location:../../index.php");
 	die();
 }
-
 ?>
 
 <section>
@@ -47,7 +46,7 @@ if ($usertypeholder = $_SESSION['userType']){
             {
                 echo "<p class='error-red'>Please ensure you pick a valid user.</font></p>";
             }
-            if (isset($_GET['fail']))
+            if (isset($_GET['Fail']))
             {
                 echo "<p class='error-red'>Please don't edit the html.</font></p>";
             }

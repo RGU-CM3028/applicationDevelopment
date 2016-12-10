@@ -47,28 +47,31 @@ $adminchoice = $_POST["choice"];
 $adminuserchoice = $_POST["usertype"];
 $adminusername = $_POST["username"];
 
-//Security checks Version1
+/*//Security checks Version1
 $adminchoice = stripslashes($adminchoice);
 $adminchoice = mysqli_real_escape_string($db,$adminchoice);
 $adminuserchoice = stripslashes($adminuserchoice);
 $adminuserchoice = mysqli_real_escape_string($db,$adminuserchoice);
 $adminusername = stripslashes($adminusername);
-$adminusername = mysqli_real_escape_string($db,$adminusername);
+$adminusername = mysqli_real_escape_string($db,$adminusername);*/
 
-//This checks to see if any usernames was edited in the html(by the user) or is empty.
-$checkname = mysqli_query($db, "SELECT * from users WHERE username = '$adminusername'");
-if (!$checkname) {
-    	die('Query failed to execute for some reason');
-}
-if (mysqli_num_rows($checkname) > 0) {
+$check = $db->prepare("SELECT username FROM users WHERE username=?");
+$check->bind_param("s", $adminusername);
+if ($check->execute()){
+	$check->bind_result($username);
+        $check->fetch();
+        $check->close();
+    }
+
+if ($username == $adminusername) {
 	//safe
-} else {
-    	header("location:index.php?nodata=1");
+} else {  
+	header("location:index.php?nodata=1");
     	die();
 }
 
 //This takes the user out to the control panel again if they chose themselfs to be edited.
-if ($adminusername == $_SESSION['username']){
+if ($username == $_SESSION['username']){
 	header("location:index.php?same=1");
    	die();
 } else {
@@ -77,25 +80,23 @@ if ($adminusername == $_SESSION['username']){
 
 //This is the code that deletes the user the admin selected.
 if($adminchoice == "delete"){
-	$query = "DELETE FROM users WHERE username = '".$adminusername."'";
-	if (mysqli_query($db, $query)) {    
-		header("location:index.php?delete=1");
-    		die();
-    	} else {
-        	echo "Error: " . $query . "<br>" . mysqli_error($db);
-    	}
-} 
+	$stmt = $db->prepare("DELETE FROM users WHERE username =?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();  
+        $stmt->close();
+	header("location:index.php?nodata=1");
+    	die();
+}
 
 //This is the code that updates the user with the info the admin selected.
 elseif($adminchoice == "usertype") {
-	$sql = "UPDATE users SET userType='".$adminuserchoice."' WHERE username='".$adminusername."'";
-	if (mysqli_query($db, $sql)) {    
-		header("location:index.php?update=1");
-    		die();
-    	} else {
-        	echo "Error: " . $sql . "<br>" . mysqli_error($db);
-    	}
-} 
+	$stmt = $db->prepare("UPDATE users SET userType=? WHERE username=?");
+        $stmt->bind_param("ss", $adminuserchoice, $username);
+        $stmt->execute();  
+        $stmt->close();
+	header("location:index.php?update=1");
+    	die();
+}
 
 //This takes the user back to the control panel with an error message
 elseif($adminchoice == "") {

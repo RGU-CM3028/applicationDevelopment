@@ -2,6 +2,23 @@
 //This connects the database here.
 include("../../dbconnect.php");
 
+//Good for login and so on. Not for here		
+ function sanitize($data)		
+ {		
+     include("../../dbconnect.php");		
+     // apply stripslashes if magic_quotes_gpc is enabled		
+     if(get_magic_quotes_gpc())		
+     {		
+         $data = stripslashes($data);		
+     }		
+     // a mySQL connection is required before using this function		
+     $data = filter_var($data, FILTER_SANITIZE_STRING);		
+     $data = preg_replace('/[^a-z0-9\s]/i', '', $data);		
+     //$data = mysqli_real_escape_string($db, $data);		
+     return $data;		
+ }		
+ 
+
 //html change safety check. This is to catch out any attempt to change variables and so on in the html.
 $myusername = "";
 $mypassword = "";
@@ -83,12 +100,7 @@ if($mypassword==$passwordcheck) {
     $stmt->execute();
     echo "done";
     session_start();
-    
-    $stmt = prepare("$_SESSION['username']) VALUES (?)");
-    $stmt->bind_param("s", $myusername);
-    $stmt->execute();
-    
-    //$_SESSION['username'] = $myusername;
+    $_SESSION['username'] = $myusername;
     $_SESSION['userType'] = 'reader';
     header("location:index.php");
     //$sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'reader')";

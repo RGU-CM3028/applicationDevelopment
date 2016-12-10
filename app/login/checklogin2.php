@@ -42,7 +42,7 @@ $user = $db->prepare("SELECT username FROM users WHERE username=?");
 $user->bind_param("s", $myusername);
 if ($user->execute()){
     $user->bind_result($dbusername);
-    $dup->fetch();
+    $user->fetch();
 }
 echo $dbusername;
 
@@ -53,7 +53,7 @@ if ($pass->execute()){
     $pass->fetch();
 }
 echo $dbpassword;
-    
+    die();
 if ($dbusername == $myusername && $dbpassword == $mypassword){
     $checker = 1;
 }

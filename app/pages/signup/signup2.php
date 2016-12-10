@@ -96,10 +96,10 @@ if($mypassword==$passwordcheck) {
     echo $username;
     echo $myusername;
     //This is the session
-    session_start();
-    $_SESSION['username'] = $myusername;
-    $_SESSION['userType'] = 'reader';
-    header("location:index.php");    
+    //session_start();
+    //$_SESSION['username'] = $username;
+    //$_SESSION['userType'] = 'reader';
+    //header("location:index.php");    
 } else {
     header("location:index.php?same=1");
     die();

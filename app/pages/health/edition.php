@@ -4,7 +4,7 @@ File handling the creation and edition of news
 
 	<?php
 
-    var_dump($_POST)
+    var_dump($_POST);
 		include("../../dbconnect.php");
 
 		//If we are editing instead of creating a new

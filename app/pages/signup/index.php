@@ -21,7 +21,7 @@ if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['use
     <div class="register-box">
 
         <!-- This is the form used for users to sign up -->
-        <form class="register" name="signup" method="post" action="signup2.php">		
+        <form class="register" name="signup" method="post" action="signup.php">		
             <h1>Signup Form</h1>
             <?
             //This is used to get the error message associated to the error code.

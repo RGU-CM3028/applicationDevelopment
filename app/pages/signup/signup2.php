@@ -89,6 +89,7 @@ if($mypassword==$passwordcheck) {
     $boom->bind_param("s", $myusername);
     $boom->execute();
     $result = $db->query($boom);
+    echo $result;
     while($row = $result->fetch_array()){
         $username = $row['username'];
     }

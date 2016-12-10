@@ -43,18 +43,18 @@ File handling the creation and edition of clubs
 
     if(isset($_POST['submitAdd'])) {
 
-      //$_POST['clubName']) not working,
-      //$db, $_POST['clubName']) neither
+      //mysqli_real_escape_string($db, $_POST['clubName']) not working,
+      //mysqli_real_escape_string($db, $db, $_POST['clubName']) neither
       $sql_query = "INSERT INTO Club (clubName, clubDescription, clubGenreID,
         logoID, pname, adress, phone, email) VALUES ('"
-      . $_POST['clubName'] . "',' "
-      . $_POST['clubDescription'] . "',' "
-      . $_POST['clubGenreID'] . "',
+      . mysqli_real_escape_string($db, $_POST['clubName']) . "',' "
+      . mysqli_real_escape_string($db, $_POST['clubDescription']) . "',' "
+      . mysqli_real_escape_string($db, $_POST['clubGenreID']) . "',
         0,' "
-      . $_POST['pname'] . "',' "
-      . $_POST['adress'] . "',' "
-      . $_POST['phone'] . "',' "
-      . $_POST['email'] . "');";
+      . mysqli_real_escape_string($db, $_POST['pname']) . "',' "
+      . mysqli_real_escape_string($db, $_POST['adress']) . "',' "
+      . mysqli_real_escape_string($db, $_POST['phone']) . "',' "
+      . mysqli_real_escape_string($db, $_POST['email']) . "');";
 
       if ($db->query($sql_query) === TRUE) {
       	    header("location:clubDetails.php?clubID=".$_GET['clubID']);
@@ -65,16 +65,16 @@ File handling the creation and edition of clubs
     if(isset($_POST['submitUpdate'])) {
 
         echo "post : " . $_POST['clubName'];
-        echo "escaped ! " . $_POST['clubName'];
+        echo "escaped ! " . mysqli_real_escape_string($db, $_POST['clubName']);
 
         $sql_query = "UPDATE Club
-        SET clubName='".$_POST['clubName']."',
-        clubDescription='".$_POST['clubDescription']."',
-        clubGenreID='".$_POST['clubGenreID']."',
-        pname='".$_POST['pname']."',
-        adress='".$_POST['adress']."',
-        phone='".$_POST['phone']."',
-        email='".$_POST['email']."'
+        SET clubName='".mysqli_real_escape_string($db, $_POST['clubName'])."',
+        clubDescription='".mysqli_real_escape_string($db, $_POST['clubDescription'])."',
+        clubGenreID='".mysqli_real_escape_string($db, $_POST['clubGenreID'])."',
+        pname='".mysqli_real_escape_string($db, $_POST['pname'])."',
+        adress='".mysqli_real_escape_string($db, $_POST['adress'])."',
+        phone='".mysqli_real_escape_string($db, $_POST['phone'])."',
+        email='".mysqli_real_escape_string($db, $_POST['email'])."'
          WHERE clubID='".$_GET['clubID']."'";
 
         if ($db->query($sql_query) === TRUE) {
@@ -103,4 +103,10 @@ File handling the creation and edition of clubs
     }
     ?>
 	</form>
+
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      Select image to upload:
+      <input type="file" name="fileToUpload" id="fileToUpload">
+      <input type="submit" value="Upload Image" name="submit">
+  </form>
 </body>

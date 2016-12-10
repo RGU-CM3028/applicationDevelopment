@@ -33,8 +33,8 @@ $myusertype = 'reader';
 
 //Removes html tags from the username.
 $myusername = strip_tags($myusername);
-echo $myusername;
-die();
+$mypassword = strip_tags($mypassword);
+$passwordcheck = strip_tags($passwordcheck);
 
 //Hashing password for password security
 $salt = "qwertgfdert45t456545655";

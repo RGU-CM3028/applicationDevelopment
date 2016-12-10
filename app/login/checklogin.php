@@ -46,16 +46,16 @@ if ($user->execute()){
     $user->close();
 }
 
-//if(password_verify($mypassword, $dbpassword)) {
-//    echo "Welcome";
-//} else {
-//    echo "Try again";
-//    header("location:../index.php?Loginfail=1");
-//    die();
-//}
-$salt = "qwertgfdert45t456545655";
+if(password_verify($mypassword, $dbpassword)) {
+    echo "Welcome";
+} else {
+    echo "Try again";
+    header("location:../index.php?Loginfail=1");
+    die();
+}
+/*$salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
-$mypassword = hash('sha256', $mypassword);
+$mypassword = hash('sha256', $mypassword);*/
 
 //This compares the usernames and passwords with each other, and if they match a counter goes up by one.
 if ($dbusername == $myusername && $dbpassword == $mypassword){

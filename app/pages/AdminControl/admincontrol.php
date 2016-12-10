@@ -88,6 +88,8 @@ if($adminchoice == "delete"){
     	die();
 }
 
+echo "This is the admin choice ";
+echo $adminuserchoice;
 //This is the code that updates the user with the info the admin selected.
 elseif($adminchoice == "usertype") {
 	if ($adminuserchoice == "reader" || $adminuserchoice == "admin" || $adminuserchoice == "clubAdmin" || $adminuserchoice == "NKPAG"){
@@ -95,10 +97,10 @@ elseif($adminchoice == "usertype") {
         	$stmt->bind_param("ss", $adminuserchoice, $username);
         	$stmt->execute();  
         	$stmt->close();
-		header("location:index.php?update=1");
+		//header("location:index.php?update=1");
     		die();
 	} else {
-		header("location:index.php?select=1");
+		//header("location:index.php?select=1");
     		die();
 	}
 }

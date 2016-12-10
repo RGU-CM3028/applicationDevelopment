@@ -44,14 +44,14 @@ File handling the creation and edition of clubs
     if(isset($_POST['submitAdd'])) {
       $sql_query = "INSERT INTO Club (clubName, clubDescription, clubGenreID,
         logoID, pname, adress, phone, email) VALUES ('"
-      . mysql_real_escape_string($_POST['clubName']) . "',' "
-      . mysql_real_escape_string($_POST['clubDescription']) . "',' "
-      . mysql_real_escape_string($_POST['clubGenreID']) . "',
+      . mysqli_real_escape_string($_POST['clubName']) . "',' "
+      . mysqli_real_escape_string($_POST['clubDescription']) . "',' "
+      . mysqli_real_escape_string($_POST['clubGenreID']) . "',
         0,' "
-      . mysql_real_escape_string($_POST['pname']) . "',' "
-      . mysql_real_escape_string($_POST['adress']) . "',' "
-      . mysql_real_escape_string($_POST['phone']) . "',' "
-      . mysql_real_escape_string($_POST['email']) . "');";
+      . mysqli_real_escape_string($_POST['pname']) . "',' "
+      . mysqli_real_escape_string($_POST['adress']) . "',' "
+      . mysqli_real_escape_string($_POST['phone']) . "',' "
+      . mysqli_real_escape_string($_POST['email']) . "');";
 
       if ($db->query($sql_query) === TRUE) {
       	    header("location:clubDetails.php?clubID=".$_GET['clubID']);
@@ -62,13 +62,13 @@ File handling the creation and edition of clubs
     if(isset($_POST['submitUpdate'])) {
 
         $sql_query = "UPDATE Club
-        SET clubName='".mysql_real_escape_string($_POST['clubName'])."',
-        clubDescription='".mysql_real_escape_string($_POST['clubDescription'])."',
-        clubGenreID='".mysql_real_escape_string($_POST['clubGenreID'])."',
-        pname='".mysql_real_escape_string($_POST['pname'])."',
-        adress='".mysql_real_escape_string($_POST['adress'])."',
-        phone='".mysql_real_escape_string($_POST['phone'])."',
-        email='".mysql_real_escape_string($_POST['email'])."'
+        SET clubName='".mysqli_real_escape_string($_POST['clubName'])."',
+        clubDescription='".mysqli_real_escape_string($_POST['clubDescription'])."',
+        clubGenreID='".mysqli_real_escape_string($_POST['clubGenreID'])."',
+        pname='".mysqli_real_escape_string($_POST['pname'])."',
+        adress='".mysqli_real_escape_string($_POST['adress'])."',
+        phone='".mysqli_real_escape_string($_POST['phone'])."',
+        email='".mysqli_real_escape_string($_POST['email'])."'
          WHERE clubID='".$_GET['clubID']."'";
 
         if ($db->query($sql_query) === TRUE) {

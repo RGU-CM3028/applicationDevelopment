@@ -79,10 +79,6 @@ if($mypassword==$passwordcheck) {
     $stmt->bind_param("sss", $myusername, $mypassword, $myusertype);
     $stmt->execute();
     echo "done";
-    if (mysqli_query($db, $stmt)) {        
-    } else {
-        echo "Error: " . $stmt . "<br>" . mysqli_error($db);
-    }
     session_start();
     $_SESSION['username'] = $myusername;
     $_SESSION['userType'] = 'reader';

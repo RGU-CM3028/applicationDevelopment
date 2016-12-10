@@ -90,12 +90,14 @@ if($adminchoice == "delete"){
 
 //This is the code that updates the user with the info the admin selected.
 elseif($adminchoice == "usertype") {
-	$stmt = $db->prepare("UPDATE users SET userType=? WHERE username=?");
-        $stmt->bind_param("ss", $adminuserchoice, $username);
-        $stmt->execute();  
-        $stmt->close();
-	header("location:index.php?update=1");
-    	die();
+	if ($adminuserchoice == "reader" || $adminuserchoice == "admin" || $adminuserchoice == "clubAdmin" || $adminuserchoice == "NKPAG"){
+		$stmt = $db->prepare("UPDATE users SET userType=? WHERE username=?");
+        	$stmt->bind_param("ss", $adminuserchoice, $username);
+        	$stmt->execute();  
+        	$stmt->close();
+		header("location:index.php?update=1");
+    		die();
+	}
 }
 
 //This takes the user back to the control panel with an error message

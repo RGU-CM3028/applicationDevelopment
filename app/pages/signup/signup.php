@@ -37,11 +37,11 @@ $mypassword = strip_tags($mypassword);
 $passwordcheck = strip_tags($passwordcheck);
 
 //Hashing password for password security
-//$salt = "qwertgfdert45t456545655";
-//$mypassword = $mypassword.$salt;
-//$mypassword = hash('sha256', $mypassword);
-//$passwordcheck = $passwordcheck.$salt;
-//$passwordcheck = hash('sha256', $passwordcheck);
+$salt = "qwertgfdert45t456545655";
+$mypassword = $mypassword.$salt;
+$mypassword = hash('sha256', $mypassword);
+$passwordcheck = $passwordcheck.$salt;
+$passwordcheck = hash('sha256', $passwordcheck);
 
 //This declairs the boolians so they dont cause an error
 $userspace = 'false';
@@ -90,7 +90,7 @@ if($username == $myusername){
 if($mypassword==$passwordcheck) {
     
     //Password test
-    $mypassword = password_hash($mypassword, PASSWORD_BCRYPT, array( 'cost' => 12));
+    //$mypassword = password_hash($mypassword, PASSWORD_BCRYPT, array( 'cost' => 12));
     
     //This prepared statement protects the inserting of data input of the database
     $stmt = $db->prepare("INSERT INTO users (username, password, userType) VALUES (?, ?, ?)");

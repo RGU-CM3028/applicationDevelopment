@@ -4,7 +4,6 @@ File handling the creation and edition of news
 
 	<?php
 
-    var_dump($_POST);
 		include("../../dbconnect.php");
 
 		//If we are editing instead of creating a new
@@ -29,11 +28,11 @@ File handling the creation and edition of news
       $sql_query = 'INSERT INTO HWNews (HWNewsDate, HWNewsName, HWNewsText)
 				 VALUES (
 					 CURDATE(), "'
-      . mysql_real_escape_string($_POST['HWNewsName']) . '","'
-      . mysql_real_escape_string($_POST['HWNewsText']) . '");';
+      . mysqli_real_escape_string($db, $_POST['HWNewsName']) . '","'
+      . mysqli_real_escape_string($db, $_POST['HWNewsText']) . '");';
 
       if ($db->query($sql_query) === TRUE) {
-      	    //header("location:index.php");
+      	    header("location:index.php");
       	} else {
       	    echo "Error: " . $sql_query . "<br>" . $db->error;
       	}
@@ -41,12 +40,12 @@ File handling the creation and edition of news
     if(isset($_POST['submitUpdate'])) {
 
         $sql_query = 'UPDATE HWNews
-        SET HWNewsName="'.mysql_real_escape_string($_POST['HWNewsName']).'",
-        HWNewsText="'.mysql_real_escape_string($_POST['HWNewsText']).'"
+        SET HWNewsName="'.mysqli_real_escape_string($db, $_POST['HWNewsName']).'",
+        HWNewsText="'.mysqli_real_escape_string($db, $_POST['HWNewsText']).'"
 				WHERE HWNewsID='.$_GET['HWNewsID'];
 
         if ($db->query($sql_query) == TRUE) {
-              //header("location:index.php");
+              header("location:index.php");
           } else {
               echo "Error: " . $sql_query . "<br>" . $db->error;
           }

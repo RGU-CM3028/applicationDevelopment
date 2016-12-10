@@ -72,6 +72,7 @@ $dup->bind_param("s", $myusername);
 if ($dup->execute()){
     $dup->bind_result($username);
     $dup->fetch();
+    $dup->close();
 }
 
 if($username == $myusername){
@@ -86,6 +87,7 @@ if($mypassword==$passwordcheck) {
     $stmt = $db->prepare("INSERT INTO users (username, password, userType) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $myusername, $mypassword, $myusertype);
     $stmt->execute();  
+    $stmt->close();
     
     //This is meant to recover the info used for the session
     $get = $db->prepare("SELECT username FROM users WHERE username=?");
@@ -93,6 +95,7 @@ if($mypassword==$passwordcheck) {
     if ($get->execute()){
         $get->bind_result($username);
         $get->fetch();
+        $get->close();
     }
     
     //This is the session

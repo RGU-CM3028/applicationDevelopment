@@ -28,6 +28,7 @@ if(isset($_POST['passwordcheck'])) {
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
+$myusertype = 'reader';
 
 //Security checking V1.
 $salt = "qwertgfdert45t456545655";
@@ -78,11 +79,18 @@ if($mypassword==$passwordcheck) {
     $stmt->bind_param("sss", $myusername, $mypassword, $myusertype);
     $stmt->execute();
     echo "done";
-    //session_start();
-    //$_SESSION['username'] = $myusername;
-    //$_SESSION['userType'] = 'reader';
-    //header("location:index.php");
+    if (mysqli_query($db, $stmt)) {        
+    } else {
+        echo "Error: " . $stmt . "<br>" . mysqli_error($db);
+    }
+    session_start();
+    $_SESSION['username'] = $myusername;
+    $_SESSION['userType'] = 'reader';
+    header("location:index.php");
     //$sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'reader')";
+    $stmt = $db->prepare("INSERT INTO users (username, password, userType) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $myusername, $mypassword, $myusertype);
+    $stmt->execute();
     
 } else {
     header("location:index.php?same=1");

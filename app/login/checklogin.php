@@ -28,9 +28,9 @@ $mypassword = strip_tags($mypassword);
 $passwordcheck = strip_tags($passwordcheck);
 
 //password salting
-$salt = "qwertgfdert45t456545655";
-$mypassword = $mypassword.$salt;
-$mypassword = hash('sha256', $mypassword);
+//$salt = "qwertgfdert45t456545655";
+//$mypassword = $mypassword.$salt;
+//$mypassword = hash('sha256', $mypassword);
 
 //This gets the username from the database.
 $checker = 0;
@@ -49,6 +49,14 @@ if ($user->execute()){
     $user->bind_result($dbpassword);
     $user->fetch();
     $user->close();
+}
+
+if(password_verify($mypassword, $dbpassword)) {
+    echo "Welcome";
+} else {
+    echo "Try again";
+    header("location:../index.php?Loginfail=1");
+    die();
 }
 
 //This compares the usernames and passwords with each other, and if they match a counter goes up by one.

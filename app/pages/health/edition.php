@@ -38,7 +38,6 @@ File handling the creation and edition of news
       	}
     }
     if(isset($_POST['submitUpdate'])) {
-
         $sql_query = 'UPDATE HWNews
         SET HWNewsName="'.mysqli_real_escape_string($db, $_POST['HWNewsName']).'",
         HWNewsText="'.mysqli_real_escape_string($db, $_POST['HWNewsText']).'"

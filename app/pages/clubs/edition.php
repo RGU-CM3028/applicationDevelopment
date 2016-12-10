@@ -64,10 +64,6 @@ File handling the creation and edition of clubs
     	}
     }
     if(isset($_POST['submitUpdate'])) {
-
-        echo "post : " . $_POST['clubName'];
-        echo "escaped ! " . mysqli_real_escape_string($db, $_POST['clubName']);
-
         $sql_query = "UPDATE Club
         SET clubName='".mysqli_real_escape_string($db, $_POST['clubName'])."',
         clubDescription='".mysqli_real_escape_string($db, $_POST['clubDescription'])."',
@@ -79,10 +75,39 @@ File handling the creation and edition of clubs
          WHERE clubID='".$_GET['clubID']."'";
 
         if ($db->query($sql_query) === TRUE) {
-              header("location:clubDetails.php?clubID=".$_GET['clubID']);
+          echo "";
           } else {
               echo "Error: " . $sql_query . "<br>" . $db->error;
           }
+
+
+        if($_POST['existingEvent'] != "none" ) {
+          $sql_query = "SELECT * FROM clubeventassociation";
+          $result = $db->query($sql_query);
+          if(!$result->num_rows <= 0) {
+            $existingRow = false;
+            while ($row = $result->fetch_array()) {
+              if(($row['clubID'] == $_GET['clubID']) &&
+              ($row['eventID'] == $_POST['existingEvent'])) {
+                echo "<p> Error, your club is already participating
+                to this event ! </p>";
+                $existingRow = true;
+              }
+            }
+          }
+
+          if(!$existingRow = false) {
+            $sql_query = "INSERT INTO clubeventassociation (clubID, eventID)
+            VALUES ('". mysqli_real_escape_string($db, $_GET['clubID']) . "',
+            '". mysqli_real_escape_string($db, $_POST['existingEvent']) . "');";
+
+            if($db->query($sql_query) === TRUE) {
+              header("location:clubDetails.php?clubID=".$_GET['clubID']);
+          	} else {
+          	    echo "Error: " . $sql_query . "<br>" . $db->error;
+          	}
+          } else { echo $existingRow;}
+        }
       }
 	?>
 	<form action="" method="POST">
@@ -96,6 +121,26 @@ File handling the creation and edition of clubs
 		Address: <br><input type="text" name="adress" value=<?php echo "\"" . $adress . "\"";?>><br>
 		Phone: <br><input type="tel" name="phone" value=<?php echo "\"" . $phone . "\"";?>><br>
 		Email: <br><input type="email" name="email" value=<?php echo "\"" . $email . "\"";?>><br>
+
+		<h1> Want to add an event ? </h1>
+      <?
+      $sql_query = "SELECT eventName, eventID from clubevent;";
+
+      $result = $db->query($sql_query);
+
+      if(!$result->num_rows <= 0) {
+          echo "<h2>Susribe to an existing event</h2>";
+          echo "<select name='existingEvent' size=1>";
+          echo "<option value='none'>Select an event";
+        while ($row = $result->fetch_array()) {
+          echo "<option value=".$row['eventID'].">".$row['eventName'];
+        }
+          echo "</select>";
+      }
+      ?>
+      <br>
+		<a href="../event?clubID=<?echo $_GET['clubID']?>"> Create your own event </a>
+
 
     <? if(isset($_GET['clubID'])) {
       echo "<input type='submit' name='submitUpdate' value='Update club'>";

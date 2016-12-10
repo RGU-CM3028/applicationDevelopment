@@ -78,6 +78,24 @@ echo "<section>
       echo "<p>Phone : ".$phone."</p>";
     }
   }
-  echo "<h2> Events </h2>
-    </div>
+
+$sql_query = "SELECT * from clubevent c, clubeventassociation a
+WHERE a.clubID = ".$_GET['clubID'].";";
+
+
+$result = $db->query($sql_query);
+
+if(!$result->num_rows <= 0) {
+  echo "<h2> Events we are participating in</h2>";
+  while ($row = $result->fetch_array()) {
+      echo "<div>
+        <p> ".$row['eventName'] . "</p>
+        <p> ".$row['pdate']." </p>
+        <p> " .$row['localisation'] ."
+        <p> ".$row['pdescription'] ."</p>
+        </div>";
+    }
+}
+
+    echo "</div>
 </section>";

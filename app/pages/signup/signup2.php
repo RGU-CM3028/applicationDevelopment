@@ -30,6 +30,13 @@ $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 $myusertype = 'reader';
 
+echo $myusername;
+//Removes any html that could ruin the site
+$myusername = stripslashes($myusername);
+$myusername = filter_var($myusername, FILTER_SANITIZE_STRING);
+echo $myusername;
+die();
+
 //Security checking V1.
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;

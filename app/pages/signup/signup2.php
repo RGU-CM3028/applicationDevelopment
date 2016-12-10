@@ -75,9 +75,13 @@ if(mysqli_num_rows($dup) >0){
 
 //This compares the passwords. If the match then the user is created. If not then the user is told to check again.
 if($mypassword==$passwordcheck) {
+    
+    //This prepared statement protects the input of the informaiton
     $stmt = $db->prepare("INSERT INTO users (username, password, userType) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $myusername, $mypassword, $myusertype);
     $stmt->execute();   
+    
+    //This is meant to recover the info used for the session
     $boom = $db->prepare("SELECT userType FROM users WHERE username =? LIMIT 1");
     $boom->bind_param("s", $myusername);
     $booms->execute();
@@ -85,15 +89,17 @@ if($mypassword==$passwordcheck) {
     while($row = $result->fetch_array()){
         $username = $row['username'];
     }
+    echo $username;
     
+    //This is the session
     session_start();
     $_SESSION['username'] = $username;
     $_SESSION['userType'] = 'reader';
     header("location:index.php");
     //$sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'reader')";
-    $stmt = $db->prepare("INSERT INTO users (username, password, userType) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $myusername, $mypassword, $myusertype);
-    $stmt->execute();
+    //$stmt = $db->prepare("INSERT INTO users (username, password, userType) VALUES (?, ?, ?)");
+    //$stmt->bind_param("sss", $myusername, $mypassword, $myusertype);
+    //$stmt->execute();
     
 } else {
     header("location:index.php?same=1");

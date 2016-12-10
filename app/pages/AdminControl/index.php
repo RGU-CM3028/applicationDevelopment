@@ -34,7 +34,7 @@ if ($usertypeholder = $_SESSION['userType']){
 
 ?>
         <!-- This is the form used for the admin to control other users privilages -->
-        <form class="admincontrol" name="admincontrol" method="post" action="admincontrol.php">
+        <form class="admincontrol" name="admincontrol" method="post" action="admincontrol2.php">
             
             
         <?

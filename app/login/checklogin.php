@@ -45,7 +45,8 @@ if ($user->execute()){
     $user->fetch();
     $user->close();
 }
-
+echo $dbpassword;
+die();
 if(password_verify($mypassword, $dbpassword)) {
     echo "Welcome";
 } else {

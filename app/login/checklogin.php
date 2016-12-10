@@ -49,19 +49,19 @@ if ($user->execute()){
 
 if(password_verify($mypassword, $dbpassword)) {
     echo "Welcome";
+    $checks = 2;
 } else {
+    $checks = 99;
     echo "Try again";
     header("location:../index.php?Loginfail=1");
     die();
 }
-echo $dbpassword;
-die();
 /*$salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
 $mypassword = hash('sha256', $mypassword);*/
 
 //This compares the usernames and passwords with each other, and if they match a counter goes up by one.
-if ($dbusername == $myusername && $dbpassword == $mypassword){
+if ($dbusername == $myusername && $checks = 2){
     $checker = 1;
 }
 

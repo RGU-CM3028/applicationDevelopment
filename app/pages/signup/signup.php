@@ -83,12 +83,12 @@ if($username == $myusername){
 if($mypassword==$passwordcheck) {
     
     //Password test
-    //$mypassword = password_hash($mypassword, PASSWORD_BCRYPT, array( 'cost' => 12));
-    $salt = "qwertgfdert45t456545655";
+    $mypassword = password_hash($mypassword, PASSWORD_BCRYPT, array( 'cost' => 12));
+    /*$salt = "qwertgfdert45t456545655";
     $mypassword = $mypassword.$salt;
     $mypassword = hash('sha256', $mypassword);
     $passwordcheck = $passwordcheck.$salt;
-    $passwordcheck = hash('sha256', $passwordcheck);
+    $passwordcheck = hash('sha256', $passwordcheck);*/
     
     
     //This prepared statement protects the inserting of data input of the database

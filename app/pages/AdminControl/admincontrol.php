@@ -97,6 +97,9 @@ elseif($adminchoice == "usertype") {
         	$stmt->close();
 		header("location:index.php?update=1");
     		die();
+	} else {
+		header("location:index.php?select=1");
+    		die();
 	}
 }
 

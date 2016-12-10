@@ -6,26 +6,16 @@ include('../../dbconnect.php');
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 	<section>
-
-		<?
-		//admin area use this to allow admin and map admin users to see certain stuff
-		if(isset($_SESSION['userType'])
-		 && (($_SESSION['userType'] == "NKPAG")
-		 || ($_SESSION['userType'] == "admin"))) {
-			 echo "EDIT MAP";
-		 }
-		?>
-
   <div id="map-data" style="display: none;">
     <?php
       //Query the map datask
-      $sql = "SELECT pointType, pointDescription, coordinateX, coordinateY FROM GeoPoint";
+      $sql = "SELECT pointID, pointType, pointDescription, coordinateX, coordinateY FROM GeoPoint";
       $points = $db->query($sql);
 
-      $sql = "SELECT pathType, pathDescription, vectors FROM GeoPath";
+      $sql = "SELECT pathID, pathType, pathDescription, vectors FROM GeoPath";
       $path = $db->query($sql);
 
-      $sql = "SELECT areaType, areaDescription, vectors FROM GeoArea";
+      $sql = "SELECT areaID, areaType, areaDescription, vectors FROM GeoArea";
       $area = $db->query($sql);
 
       $db->close();
@@ -70,7 +60,28 @@ include('../../dbconnect.php');
     ?>
   </div>
 
-  <div id="map" style="height: 95vh;"></div>
+  <?
+    //admin area use this to allow admin and map admin users to see certain stuff
+    if(isset($_SESSION['userType'])
+     && (($_SESSION['userType'] == "NKPAG")
+     || ($_SESSION['userType'] == "admin"))) {
+
+      //Create the edition box for the points
+        echo '<form action="edition.php" method="GET">';
+        echo '<input type="submit" name="create" value="Add an element to the map" />';
+
+        echo '<form action="edition.php" method="GET">
+              Select an element <select required>';
+          while($row = $points->fetch_assoc()) {
+            echo "<option value=\"". $row["pointType"] . "\">\"". $row["pointType"] . "\"</option>";
+          }
+        echo "</select>";
+        echo '<input type="submit" name="edit" value="Edit" />';
+        echo '<input type="submit" name="delete" value="Delete" /> </form>';
+     }
+    ?>
+
+  <div id="map" style="height: 65vh;"></div>
 </section>
   <?php
   // imports the footer

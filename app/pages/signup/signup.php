@@ -24,11 +24,17 @@ if(isset($_POST['passwordcheck'])) {
     header("location:index.php");
     die();
 }
+
 //This is the fields from the signup form.
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 $myusertype = 'reader';
+
+//Removes html tags from the username.
+$myusername = strip_tags($myusername);
+echo $myusername;
+die();
 
 //Hashing password for password security
 $salt = "qwertgfdert45t456545655";

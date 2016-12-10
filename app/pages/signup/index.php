@@ -38,7 +38,7 @@ if ($usertypeholde1 = $_SESSION['userType'] || $usertypeholder2 = $_SESSION['use
                 echo "<p class='error-red'>Username already taken.</p>";
             }
             ?>
-            
+             <label>Note if you attempt to put in HTML tags they will fail.</label><br>
             <label>Username</label><br>
             <input type="text" name="username" maxlength="30"><br>
             <label>Password</label><br>

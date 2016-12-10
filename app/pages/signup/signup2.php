@@ -80,7 +80,12 @@ if($mypassword==$passwordcheck) {
     $stmt->execute();
     echo "done";
     session_start();
-    $_SESSION['username'] = $myusername;
+    
+    $stmt = prepare("$_SESSION['username']) VALUES (?)");
+    $stmt->bind_param("s", $myusername);
+    $stmt->execute();
+    
+    //$_SESSION['username'] = $myusername;
     $_SESSION['userType'] = 'reader';
     header("location:index.php");
     //$sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'reader')";

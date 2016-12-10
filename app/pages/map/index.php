@@ -87,7 +87,7 @@ include('../../dbconnect.php');
 
         //---- Path
         //Query all the paths from the DB
-        $sql = "SELECT pathID, pathType, pathDescription, coordinateX, coordinateY FROM Geopath";
+        $sql = "SELECT pathID, pathType, pathDescription, vectors FROM Geopath";
         $paths = $db->query($sql);
 
         //Create the edition box for the paths
@@ -107,7 +107,7 @@ include('../../dbconnect.php');
 
         //---- Area
         //Query all the areas from the DB
-        $sql = "SELECT areaID, areaType, areaDescription, coordinateX, coordinateY FROM Geoarea";
+        $sql = "SELECT areaID, areaType, areaDescription, vectors FROM Geoarea";
         $areas = $db->query($sql);
 
         //Create the edition box for the areas

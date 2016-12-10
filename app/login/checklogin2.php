@@ -35,7 +35,7 @@ $mypassword = hash('sha256', $mypassword);
 
 //Code that checks to see if any usernames and password pairs match any in the database.
 $checker = 0;
-$user = $db->prepare("SELECT password FROM users WHERE username=?");
+$user = $db->prepare("SELECT username FROM users WHERE username=?");
 $user->bind_param("s", $myusername);
 if ($user->execute()){
     $user->bind_result($dbusername);
@@ -43,11 +43,11 @@ if ($user->execute()){
 }
 echo $dbusername;
 
-$pass = $db->prepare("SELECT password FROM users WHERE username=?");
-$pass->bind_param("s", $dbusername);
-if ($pass->execute()){
-    $pass->bind_result($dbpassword);
-    $pass->fetch();
+$user = $db->prepare("SELECT password FROM users WHERE username=?");
+$user->bind_param("s", $myusername);
+if ($user->execute()){
+    $user->bind_result($dbpassword);
+    $user->fetch();
 }
 echo $dbpassword;
     die();

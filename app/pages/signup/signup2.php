@@ -65,6 +65,8 @@ if(empty($myusername) || empty($mypassword) || empty($passwordcheck))
     die();
 }
 
+echo $myusername;
+
 //This checks to see if the username is taken or not.
 $dup = $db->prepare("SELECT username FROM users WHERE username=?");
 $dup->bind_param("s", $myusername);

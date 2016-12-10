@@ -29,13 +29,8 @@ $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 $myusertype = 'reader';
-$myusername = preg_replace("/[^a-zA-Z0-9]+/", "", $myusername);
-//$myusername = mysqli_real_escape_string($db, $myusername);
 
-echo $myusername;
-die();
-
-//Security checking V1.
+//Hashing password for password security
 $salt = "qwertgfdert45t456545655";
 $mypassword = $mypassword.$salt;
 $mypassword = hash('sha256', $mypassword);
@@ -80,6 +75,8 @@ if(mysqli_num_rows($dup) >0){
     header("location:index.php?dup=1");
     die();
 } 
+
+die();
 
 //This compares the passwords. If the match then the user is created. If not then the user is told to check again.
 if($mypassword==$passwordcheck) {

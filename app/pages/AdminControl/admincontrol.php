@@ -47,10 +47,10 @@ $adminchoice = $_POST["choice"];
 $adminuserchoice = $_POST["usertype"];
 $adminusername = $_POST["username"];
 
-//Removes html tags from the username.
-$myusername = strip_tags($adminchoice);
-$mypassword = strip_tags($adminuserchoice);
-$passwordcheck = strip_tags($adminusername);
+//Removes html tags from the username.(though almost useless better safe than sorry)
+$adminchoice = strip_tags($adminchoice);
+$adminuserchoice = strip_tags($adminuserchoice);
+$adminusername = strip_tags($adminusername);
 
 $check = $db->prepare("SELECT username FROM users WHERE username=?");
 $check->bind_param("s", $adminusername);

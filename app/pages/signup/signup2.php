@@ -80,10 +80,17 @@ if(mysqli_num_rows($dup) >0){
 if($mypassword==$passwordcheck) {
     $stmt = $db->prepare("INSERT INTO users (username, password, userType) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $myusername, $mypassword, $myusertype);
-    $stmt->execute();
-    echo "done";
+    $stmt->execute();   
+    $boom = $db->prepare("SELECT userType FROM users WHERE username =? LIMIT 1");
+    $boom->bind_param("s", $myusername);
+    $booms->execute();
+    $result = $db->query($boom);
+    while($row = $result->fetch_array()){
+        $username = $row['username'];
+    }
+    
     session_start();
-    $_SESSION['username'] = $myusername;
+    $_SESSION['username'] = $username;
     $_SESSION['userType'] = 'reader';
     header("location:index.php");
     //$sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'reader')";

@@ -22,11 +22,10 @@ if(isset($_POST['password'])) {
 $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 
-//Security checks Version1
-//$myusername = stripslashes($myusername);
-//$myusername = mysqli_real_escape_string($db,$myusername);
-//$mypassword = stripslashes($mypassword);
-//$mypassword = mysqli_real_escape_string($db,$mypassword);
+//Removes html tags from the username.
+$myusername = strip_tags($myusername);
+$mypassword = strip_tags($mypassword);
+$passwordcheck = strip_tags($passwordcheck);
 
 //password salting
 $salt = "qwertgfdert45t456545655";

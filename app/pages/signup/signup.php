@@ -37,13 +37,6 @@ $mypassword = strip_tags($mypassword);
 $passwordcheck = strip_tags($passwordcheck);
 
 //Hashing password for password security
-
-$mypassword = password_hash($mypassword, PASSWORD_BCRYPT, array( 'cost' => 12));
-echo $mypassword. "<br>";
-$passwordcheck = password_hash($passwordcheck, PASSWORD_BCRYPT, array( 'cost' => 12));
-echo $passwordcheck;
-die();
-
 //$salt = "qwertgfdert45t456545655";
 //$mypassword = $mypassword.$salt;
 //$mypassword = hash('sha256', $mypassword);
@@ -95,6 +88,11 @@ if($username == $myusername){
 
 //This compares the passwords. If the match then the user is created. If not then the user is told to check again.
 if($mypassword==$passwordcheck) {
+    
+    $mypassword = password_hash($mypassword, PASSWORD_BCRYPT, array( 'cost' => 12));
+    echo $mypassword;
+    die();
+    
     
     //This prepared statement protects the inserting of data input of the database
     $stmt = $db->prepare("INSERT INTO users (username, password, userType) VALUES (?, ?, ?)");

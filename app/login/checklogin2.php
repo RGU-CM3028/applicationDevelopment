@@ -52,27 +52,20 @@ if ($dbusername == $myusername && $dbpassword == $mypassword){
     $checker = 1;
 }
 
-//$sql = "SELECT * FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "' LIMIT 1;";
-//$result = $db->query($sql);
-//$checker = 0;
-//while($row = $result->fetch_array()) {
-    //$checker = 1;
-//}
-
 //Code for getting usertype extracted for the session.
-$userType = "";
-$boom = "SELECT userType FROM users WHERE username ='". $myusername ."' and password ='". $mypassword . "' LIMIT 1;";
-$result = $db->query($boom);
-while($row = $result->fetch_array()){
-  $userType = $row['userType'];
+$pass = $db->prepare("SELECT userType FROM users WHERE username=?");
+$pass->bind_param("s", $myusername);
+if ($pass->execute()){
+    $pass->bind_result($dbuserType);
+    $pass->fetch();
 }
 
 //This checks if any pairs matched or not. And send the user back to the index page.
 //If the user managed to log in the username and usertype is saved as a session.
 if($checker==1){
     session_start();
-      $_SESSION['username'] = $myusername;
-      $_SESSION['userType'] = $userType;
+      $_SESSION['username'] = $dbusername;
+      $_SESSION['userType'] = $dbuserType;
     header("location:../index.php");
 } else {
     header("location:../index.php?Loginfail=1");

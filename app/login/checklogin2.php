@@ -42,7 +42,6 @@ if ($user->execute()){
     $user->fetch();
     $user->close();
 }
-echo $dbusername;
 
 $user = $db->prepare("SELECT password FROM users WHERE username=?");
 $user->bind_param("s", $myusername);
@@ -51,8 +50,6 @@ if ($user->execute()){
     $user->fetch();
     $user->close();
 }
-echo $dbpassword;
-    die();
 
 if ($dbusername == $myusername && $dbpassword == $mypassword){
     $checker = 1;

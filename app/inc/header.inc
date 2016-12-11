@@ -16,7 +16,7 @@ if(strpos($actual_link, 'pages') == true) {
 		<title>Sportlethen</title>
         <script src="https://use.fontawesome.com/59db90bae7.js"></script>
         <script src="scripts/dropdown.js"></script>
-		<? 	
+		<?
 		if($isIndex) {
   			echo '<link rel="stylesheet" type="text/css" href="css/main.css">';
 		} else {
@@ -24,11 +24,11 @@ if(strpos($actual_link, 'pages') == true) {
 		}
 		?>
 	</head>
-	
+
 	<body>
 		<div id="container">
 			<header class="clearfix">
-				<? 
+				<?
 				if($isIndex) {
     					echo '<a href="index.php"><img src="images/logo.png" class="logo"></img>
     					<img src="images/banner.png" class="title"></a>';
@@ -40,14 +40,17 @@ if(strpos($actual_link, 'pages') == true) {
 				<div id="login">
 					<?
 					//This starts the sessions.
-					session_start();  
-	 
+					session_start();
+
 					//This prepares the accesslevel.
-					$accesslevel = $_SESSION['userType'];
-	
-					//This displays the function contents	
-					displayAccessLevelInformation($accesslevel);
-					//This is the function doing its magic on a set piece of code.	
+					if(isset($_SESSION['userType'])) {
+            $accesslevel = $_SESSION['userType'];
+
+  					displayAccessLevelInformation($accesslevel);
+          }
+
+					//This displays the function contents
+					//This is the function doing its magic on a set piece of code.
 					function displayAccessLevelInformation($accessLevel){
 						$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 						$isIndex = true;
@@ -62,29 +65,33 @@ if(strpos($actual_link, 'pages') == true) {
 							}
 						}
 					}
-					
+
 					//This checks to see if the user is logged in or not. If the user is logged in then the user is able to see the following text.
 					if (isset($_SESSION['username'])){
 						echo "<p>Hello " . $_SESSION['username'] . "</p>";
 						echo "<p>User type is " . $_SESSION['userType'] . "</p>";
-						if($isIndex) { 	  
-							echo '<a href="login/logout.php">Logout</a> ';   
+						if($isIndex) {
+							echo '<a href="login/logout.php">Logout</a> ';
   						} else {
-							echo '<a href="../../login/logout.php">Logout</a>';  
+							echo '<a href="../../login/logout.php">Logout</a>';
 						}
-					}	
+					}
 					//If the user isnt logged in then they see the following form. To log in.
     					else{
     						//This is the error message for if there is a login fail.
-    						if(isset($_GET["Loginfail"]))  
-    					{  
-        					echo "<p><font color='red'>Please make sure you enter the correct information.</font></p>";  
- 					}  
-										
-					if($isIndex) { 	  
-						echo '<form method="post" action="login/checklogin.php"> ';   
+    						if(isset($_GET["Loginfail"]))
+						{
+        						echo "<p><font color='red'>Please make sure you enter the correct information.</font></p>";
+ 						}
+						if (isset($_GET['html']))
+            					{
+                					echo "<p class='error-red'>Please don't edit the html.</font></p>";
+            					}
+
+					if($isIndex) {
+						echo '<form method="post" action="login/checklogin.php"> ';
   					} else {
-						echo '<form method="post" action="../../login/checklogin.php">';  
+						echo '<form method="post" action="../../login/checklogin.php">';
 					}
 					?>
 						<p><label>Username</label><input type="text" name="username" maxlength="30"></p>
@@ -94,20 +101,20 @@ if(strpos($actual_link, 'pages') == true) {
 						<p><input type="submit" value="submit"></p>
 					</form>
     					<?
-					if($isIndex) { 	  
-						echo '<a href="./pages/signup/">Signup</a> ';   
+					if($isIndex) {
+						echo '<a href="./pages/signup/">Signup</a> ';
   					} else {
-						echo '<a href="../signup/">Signup</a>';  
+						echo '<a href="../signup/">Signup</a>';
 					}
 						?>
 				<? } ?>
-				
-				
+
+
 				</div>
 			</header>
 			<!-- Desktop navigation w:801 onwards -->
 			<nav>
-				<ul> 
+				<ul>
 					<?
 					if($isIndex) {
     						echo '

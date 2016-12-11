@@ -1,19 +1,17 @@
 <?
-
 include("../../inc/header.inc");
-//This starts the sessions. And connects the database here.
-session_start();
+
+//This connects the database here.
 include("../../dbconnect.php");
 
+//This ensures if the user is an admin or not.
 $usertypeholder = 'admin';
-
 if ($usertypeholder = $_SESSION['userType']){
 	//safe
 } else {
 	header("location:../../index.php");
 	die();
 }
-
 ?>
 
 <section>
@@ -21,8 +19,8 @@ if ($usertypeholder = $_SESSION['userType']){
         <!--This is the control panel for the admin-->
         <h2>Admin control panel</h2>
         <br>
+
 <?
-    
     //This gets basic user info so the page knows who is logged in.
     if (isset($_SESSION['username'])){
         echo "<p>Currently logged in as " . $_SESSION['username'] . "</p>";
@@ -31,12 +29,13 @@ if ($usertypeholder = $_SESSION['userType']){
         while($row = $result->fetch_array()){
             echo "<p>The current user type is " . $_SESSION['userType'] . "</p>";
         }
+			}
 
 ?>
+
         <!-- This is the form used for the admin to control other users privilages -->
-        <form class="admincontrol" name="admincontrol" method="post" action="admincontrol.php">
-            
-            
+				<form class="admincontrol" name="admincontrol" method="post" action="admincontrol.php">
+
         <?
             //These are the error messages that appear on this page when the code comes back for it.
             if (isset($_GET['same']))
@@ -47,7 +46,7 @@ if ($usertypeholder = $_SESSION['userType']){
             {
                 echo "<p class='error-red'>Please ensure you pick a valid user.</font></p>";
             }
-            if (isset($_GET['fail']))
+            if (isset($_GET['Fail']))
             {
                 echo "<p class='error-red'>Please don't edit the html.</font></p>";
             }
@@ -64,11 +63,11 @@ if ($usertypeholder = $_SESSION['userType']){
                 echo "<p class='error-green'>Record updated.</font></p>";
             }
         ?>
-            
+
             <!--This is how the admin will say what user is going to be edited or deleted-->
             <span>This account cannot be deleted or altered as this is the System Administrator.</span><br>
             <label>Please select a user</label><br>
-            <select name='username'>
+						<select name='username'>
                 <option value="">Select...</option>
                 <?
                     $boom = "SELECT * FROM users";
@@ -76,12 +75,13 @@ if ($usertypeholder = $_SESSION['userType']){
                     while($row = $result->fetch_array()){
                         echo "<option value='" . $row['username'] ."'>" . $row['username'] ."</option>";
                     }
+
                 ?>
             </select>
             <br>
-                        
+
             <!--This is how the admin will select how to edit the profiles-->
-            <label>Please select what you want to do with the profile</label><br>
+						<label>Please select what you want to do with the profile</label><br>
             <select name='choice'>
                 <option value="">Select...</option>
                 <option value="delete">Delete user</option>
@@ -90,7 +90,7 @@ if ($usertypeholder = $_SESSION['userType']){
             <br>
 
             <!--This is how the admin will select what usertype to give a user-->
-            <label>If you are changing a users "usertype", please select it here</label><br>
+						<label>If you are changing a users "usertype", please select it here</label><br>
             <select name='usertype'>
                 <option value="">Select...</option>
                 <option value="reader">reader</option>
@@ -99,11 +99,27 @@ if ($usertypeholder = $_SESSION['userType']){
                 <option value="NKPAG">NKPAG</option>
             </select>
             <br>
+
+						<label>If you are setting a user to clubdmin, please select the
+							club he will manage </label><br>
+							<select name='clubID'>
+								<option value=''>Select...</option>;
+									<?
+									$boom = "SELECT * FROM club";
+									$result = $db->query($boom);
+									while($row = $result->fetch_array()){
+										echo "<option value='"
+										. $row['clubID'] ."'>"
+										. $row['clubName'] ."</option>";
+									}
+									?>
+								</select>
+								<br>
             <input type="submit" name="commit" value="Submit">
         </form>
     </div>
 </section>
+
 <?
-}
   include("../../inc/footer.inc");
 ?>

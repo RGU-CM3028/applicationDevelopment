@@ -1,36 +1,75 @@
 <!--
-File handling the creation and edition of events
+File handling the creation and edition of news
 -->
 
-<body>
 	<?php
-		include("../dbconnect.php");
 
-		date_default_timezone_set('UTC');
-		$title = "";
-		$content = "";
+		include("../../dbconnect.php");
+		include("../../inc/header.inc");
 
+    if(!(isset($_SESSION['userType']))) {
+      header('location:./');
+    } else if($_SESSION['userType'] !== 'admin') {
+        header('location:./');
+    }
 		//If we are editing instead of creating a new
-		if(isset($_POST['edit']) && isset($_POST['eventID'])){
-			$sql_query = "SELECT * FROM hwnews WHERE HWNewsID = " . $_POST['eventID']; // Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
-			$result = $db->query($sql_query);
-			$title = $result['name'];
-			$content = $result['text'];
+    // if HWNewsID setted, we update
+		if(isset($_GET['HWNewsID'])){
+      echo "<h1> Update your news </h1>";
+			$sql_query = "SELECT HWNewsName, HWNewsText FROM hwnews WHERE HWNewsID = " . $_GET['HWNewsID'];
+			// Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
+			$queryResult = $db->query($sql_query);
+      while ($row = $queryResult->fetch_array()) {
+        $title = $row['HWNewsName'];
+				$description = $row['HWNewsText'];
+      }
+    } else {
+      echo "<h1> Create a news </h1>";
+      //Initialise the fields
+      $title = "";
+      $description = "";
+    }
 
-			$result->close();
-			$db->close();
-		}
+    if(isset($_POST['submitAdd'])) {
+      $sql_query = 'INSERT INTO HWNews (HWNewsDate, HWNewsName, HWNewsText)
+				 VALUES (
+					 CURDATE(), "'
+      . mysqli_real_escape_string($db, $_POST['HWNewsName']) . '","'
+      . mysqli_real_escape_string($db, $_POST['HWNewsText']) . '");';
 
-		if(isset($_POST['handleEdition'])){
-			$sql_query = "INSERT INTO HWNews(HWNewsDate, HWNewsName, HWNewsText) VALUES(" . $_POST['name'] . "," . $_POST['text'] . "," . date(DATE_RFC2822) . ")";
-			$db->query($sql_query);
-			$db->close();
-		}
+      if ($db->query($sql_query) === TRUE) {
+      	    header("location:index.php");
+      	} else {
+      	    echo "Error: " . $sql_query . "<br>" . $db->error;
+      	}
+    }
+    if(isset($_POST['submitUpdate'])) {
+        $sql_query = 'UPDATE HWNews
+        SET HWNewsName="'.mysqli_real_escape_string($db, $_POST['HWNewsName']).'",
+        HWNewsText="'.mysqli_real_escape_string($db, $_POST['HWNewsText']).'"
+				WHERE HWNewsID='.$_GET['HWNewsID'];
 
+        if ($db->query($sql_query) == TRUE) {
+              header("location:index.php");
+          } else {
+              echo "Error: " . $sql_query . "<br>" . $db->error;
+          }
+      }
 	?>
-	<form action="handleEdition" method="post">
-		Title: <br><input type="text" name="name" value="<?php echo $title;?>">
-		Content: <br><textarea name="text" rows="5" cols="40"><?php echo $content;?></textarea>
-		<input type="submit">
+	<form action="" method="POST">
+		Title : <br>
+    <input type="text" name="HWNewsName" value=<?php echo "\"" . $title . "\"";?>><br>
+		Description : <br>
+    <textarea name="HWNewsText" rows="5" cols="40"><?php echo $description;?></textarea><br>
+
+    <? if(isset($_GET['HWNewsID'])) {
+      echo "<input type='submit' name='submitUpdate' value='Update news'>";
+    } else {
+      echo "<input type='submit' name='submitAdd' value='Add news'>";
+    }
+    ?>
+		<a href='./'>Back to Health and Wellbeing</a>
 	</form>
-</body>
+
+<?
+include('../../inc/footer.inc');

@@ -13,13 +13,10 @@
             //admin users and clubAdmin users to see certain
             //stuffsession_start();
             if(isset($_SESSION['userType'])
-             && (($_SESSION['userType'] == "clubAdmin")
-             || ($_SESSION['userType'] == "admin"))) {
+             && ($_SESSION['userType'] == "admin")) {
                   echo '<div class="create">
-    				        <form action="" method="post">
+    				        <form action="edition.php" method="post">
     				          <h2>Do you want to create a club ? Do it now !</h2><br>
-    				          <input type="text" name="clubName" placeholder="Club name"><br>
-                      <input type="text" name="clubGenre" placeholder="Club genre"><br>
     				          <input id="create" class="submit" type="submit" value="Create a new club !"><br>
     				        </form>
                       <div>';
@@ -69,6 +66,15 @@
 				<?php
 				function showAllClubs() {
 				  global $db;
+          
+          $sql_query="SELECT clubID from junctionuserclub
+          where username='" . $_SESSION['username'] ."'";
+          $result = $db->query($sql_query);
+          $clubs = array();
+          while ($row = $result->fetch_array()) {
+            array_push($clubs, $row['clubID']);
+          }
+
           unset($_POST['search']);
           $query = "SELECT clubID, clubName, clubDescription FROM Club";
 				  $result = $db->query($query);
@@ -79,8 +85,13 @@
 				            <tr class='tableTitle'>
 				              <th> Club name </th>
                       <th> Club description </th>
-				              <th> Edit </th>
-				            </tr>";
+                      ";
+            if(isset($_SESSION['userType'])
+             && (($_SESSION['userType'] == "clubAdmin")
+             || ($_SESSION['userType'] == "admin"))) {
+              echo "<th> Edit </th>";
+            }
+            echo "</tr>";
 
 				    while ($row = $result->fetch_array()) {
 				     echo "<tr class='tableRow'>
@@ -89,11 +100,17 @@
 				          ."</a></td>
                   <td><a href='clubDetails.php?clubID=" . $row['clubID'] . "'>"
 				          .$row["clubDescription"]
-				          ."</a></td>
+				          ."</a></td>";
+                  if(isset($_SESSION['userType'])
+                  && ($_SESSION['userType'] == "admin")
+                  || in_array($row['clubID'], $clubs)) {
+                     echo "
                   <td>
-                  <a href='./edition.php'><img src='../../images/edit.svg' alt='edit'/>
+                  <form>
+                  <a href='./edition.php?clubID=". $row['clubID']."'><img src='../../images/edit.svg' alt='edit'/>
                   </a></td>
                   </tr>";
+                }
 				    }
 				    echo "</table>";
 				  }
@@ -112,8 +129,13 @@
 				            <tr class='tableTitle'>
 				              <th> Club name </th>
                       <th> Club description </th>
-				              <th> Edit </th>
-				            </tr>";
+                      ";
+            if(isset($_SESSION['userType'])
+             && (($_SESSION['userType'] == "clubAdmin")
+             || ($_SESSION['userType'] == "admin"))) {
+              echo "<th> Edit </th>";
+            }
+            echo "</tr>";
 
 				    while ($row = $result->fetch_array()) {
 				     echo "<tr class='tableRow'>
@@ -122,11 +144,17 @@
 				          ."</a></td>
                   <td><a href='clubDetails.php?clubID=" . $row['clubID'] . "'>"
 				          .$row["clubDescription"]
-				          ."</a></td>
+				          ."</a></td>";
+                  if(isset($_SESSION['userType'])
+                   && (($_SESSION['userType'] == "clubAdmin")
+                   || ($_SESSION['userType'] == "admin"))) {
+                     echo "
                   <td>
-                  <a href='./edition.php'><img src='../../images/edit.svg' alt='edit'/>
+                  <form>
+                  <a href='./edition.php?clubID=". $row['clubID']."'><img src='../../images/edit.svg' alt='edit'/>
                   </a></td>
                   </tr>";
+                }
 				    }
 				    echo "</table>";
 				  }

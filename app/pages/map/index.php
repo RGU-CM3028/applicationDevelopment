@@ -6,29 +6,17 @@ include('../../dbconnect.php');
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 	<section>
-
-		<?
-		//admin area use this to allow admin and map admin users to see certain stuff
-		if(isset($_SESSION['userType'])
-		 && (($_SESSION['userType'] == "NKPAG")
-		 || ($_SESSION['userType'] == "admin"))) {
-			 echo "EDIT MAP";
-		 }
-		?>
-
   <div id="map-data" style="display: none;">
     <?php
       //Query the map datask
-      $sql = "SELECT pointType, pointDescription, coordinateX, coordinateY FROM GeoPoint";
+      $sql = "SELECT pointID, pointType, pointDescription, coordinateX, coordinateY FROM GeoPoint";
       $points = $db->query($sql);
 
-      $sql = "SELECT pathType, pathDescription, vectors FROM GeoPath";
+      $sql = "SELECT pathID, pathType, pathDescription, vectors FROM GeoPath";
       $path = $db->query($sql);
 
-      $sql = "SELECT areaType, areaDescription, vectors FROM GeoArea";
+      $sql = "SELECT areaID, areaType, areaDescription, vectors FROM GeoArea";
       $area = $db->query($sql);
-
-      $db->close();
 
       $output = "";
 
@@ -70,7 +58,77 @@ include('../../dbconnect.php');
     ?>
   </div>
 
-  <div id="map" style="height: 95vh;"></div>
+  <?
+    //admin area use this to allow admin and map admin users to see certain stuff
+    if(isset($_SESSION['userType'])
+     && (($_SESSION['userType'] == "NKPAG")
+     || ($_SESSION['userType'] == "admin"))) {
+        //---- Point
+        //Query all the points from the DB
+        $sql = "SELECT pointID, pointType, pointDescription, coordinateX, coordinateY FROM GeoPoint";
+        $points = $db->query($sql);
+
+        //Create the edition box for the points
+        echo '<form action="edition.php" method="GET">';
+        echo '<input type="submit" name="point" value="Add a point to the map" />';
+        echo '<form>';
+
+        echo '<form action="edition.php" method="GET">
+              Select a point <select name="id" required>';
+          while($row = $points->fetch_assoc()) {
+            var_dump($row);
+            echo "<option value=\"". $row["pointID"] . "\">\"". $row["pointType"] . "\"</option>";
+          }
+        echo "</select>";
+        echo '<input type="hidden" name="point">';
+        echo '<input type="submit" name="edit" value="Edit" />';
+        echo '<input type="submit" name="delete" value="Delete" /> </form>';
+
+        //---- Path
+        //Query all the paths from the DB
+        $sql = "SELECT pathID, pathType, pathDescription, vectors FROM Geopath";
+        $paths = $db->query($sql);
+
+        //Create the edition box for the paths
+        echo '<form action="edition.php" method="GET">';
+        echo '<input type="submit" name="path" value="Add a path to the map" />';
+        echo '<form>';
+
+        echo '<form action="edition.php" method="GET">
+              Select a path<select name="id" required>';
+          while($row = $paths->fetch_assoc()) {
+            echo "<option value=\"". $row["pathID"] . "\">\"". $row["pathType"] . "\"</option>";
+          }
+        echo "</select>";
+        echo '<input type="hidden" name="path">';
+        echo '<input type="submit" name="edit" value="Edit" />';
+        echo '<input type="submit" name="delete" value="Delete" /> </form>';
+
+
+        //---- Area
+        //Query all the areas from the DB
+        $sql = "SELECT areaID, areaType, areaDescription, vectors FROM Geoarea";
+        $areas = $db->query($sql);
+
+        //Create the edition box for the areas
+        echo '<form action="edition.php?area" method="GET">';
+        echo '<input type="submit" name="area" value="Add an Area to the map" />';
+        echo '<form>';
+
+        echo '<form action="edition.php?area" method="GET">
+              Select an area <select name="id" required>';
+          while($row = $areas->fetch_assoc()) {
+            echo "<option value=\"". $row["areaID"] . "\">\"". $row["areaType"] . "\"</option>";
+          }
+        echo "</select>";
+        echo '<input type="hidden" name="path">';
+        echo '<input type="submit" name="edit" value="Edit" />';
+        echo '<input type="submit" name="delete" value="Delete" /> </form>';
+
+      }
+    ?>
+
+  <div id="map" style="height: 65vh;"></div>
 </section>
   <?php
   // imports the footer
@@ -100,7 +158,7 @@ include('../../dbconnect.php');
     myPoint = myData.points[point];
     //console.log(myPoint.description);
     markers.push(L.marker([myPoint.coordinateX, myPoint.coordinateY]).addTo(map)
-      .bindPopup(myPoint.type + "<br>"+ myPoint.description));
+      .bindPopup(myPoint.type + "<br>" + myPoint.description));
   }
 
 
@@ -116,8 +174,7 @@ include('../../dbconnect.php');
     }
 
     polygons.push(L.polygon(coordinatesTuples).addTo(map)
-      .bindPopup(myArea.type + "<br>" + myArea.description)
-      .openPopup());
+      .bindPopup(myArea.type + "<br>" + myArea.description));
   }
 
   //Paths, same method as areas
@@ -139,8 +196,7 @@ include('../../dbconnect.php');
     // }
 
     polygons.push(L.polyline(coordinatesTuples).addTo(map)
-      .bindPopup(myPath.type + "<br>" + myPath.description)
-      .openPopup());
+      .bindPopup(myPath.type + "<br>" + myPath.description));
   }
 
 

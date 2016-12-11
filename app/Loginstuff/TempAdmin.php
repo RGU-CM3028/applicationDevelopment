@@ -7,19 +7,6 @@ $myusername = $_POST["username"];
 $mypassword = $_POST["password"];
 $passwordcheck = $_POST["passwordcheck"];
 
-//Security checking V1.
-$myusername = stripslashes($myusername);
-$myusername = mysqli_real_escape_string($db, $myusername);
-$mypassword = stripslashes($mypassword);
-$mypassword = mysqli_real_escape_string($db, $mypassword);
-$passwordcheck = stripslashes($passwordcheck);
-$passwordcheck = mysqli_real_escape_string($db, $passwordcheck);
-$salt = "qwertgfdert45t456545655";
-$mypassword = $mypassword.$salt;
-$mypassword = hash('sha256', $mypassword);
-$passwordcheck = $passwordcheck.$salt;
-$passwordcheck = hash('sha256', $passwordcheck);
-
 //This declairs the boolians so they dont cause an error
 $userspace = 'false';
 $passspace = 'false';
@@ -59,6 +46,9 @@ if(mysqli_num_rows($dup) >0){
 
 //This compares the passwords. If the match then the user is created. If not then the user is told to check again.
 if($mypassword==$passwordcheck) {
+    
+    $mypassword = password_hash($mypassword, PASSWORD_BCRYPT, array( 'cost' => 12));
+    
     $sql = "INSERT INTO users (username, password, userType) VALUES ('". $myusername ."', '" .$mypassword."', 'admin')";
     if (mysqli_query($db, $sql)) {        
     } else {

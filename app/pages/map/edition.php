@@ -74,7 +74,7 @@ File handling the creation and edition of points, area and path
 	<form action="" method="POST">
 		Name of the element <br>
     <input type="text" name="type" value=<?php echo "\"" . $type . "\"";?>><br>
-		Description : <br>
+		Description : (accepts html)<br>
     <textarea name="description" rows="5" cols="40"><?php echo $description;?></textarea><br>
 
     <?

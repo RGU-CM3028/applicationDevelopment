@@ -18,8 +18,6 @@ include('../../dbconnect.php');
       $sql = "SELECT areaID, areaType, areaDescription, vectors FROM GeoArea";
       $area = $db->query($sql);
 
-      $db->close();
-
       $output = "";
 
       //Write the data into html in json format, so the javascript can read it (Better for security than writing inside javascript)

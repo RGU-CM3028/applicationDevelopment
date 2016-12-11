@@ -6,6 +6,7 @@
 </head>
 <body>
     <?
+	/*
     //This connects the database and continues the session onto this page.
     session_start();
     include("../dbconnect.php");

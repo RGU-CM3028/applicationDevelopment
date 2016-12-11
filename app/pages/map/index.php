@@ -74,7 +74,7 @@ include('../../dbconnect.php');
         echo '<form>';
 
         echo '<form action="edition.php" method="GET">
-              Select a point <select name="element" required>';
+              Select a point <select name="id" required>';
           while($row = $points->fetch_assoc()) {
             var_dump($row);
             echo "<option value=\"". $row["pointID"] . "\">\"". $row["pointType"] . "\"</option>";
@@ -95,7 +95,7 @@ include('../../dbconnect.php');
         echo '<form>';
 
         echo '<form action="edition.php" method="GET">
-              Select a path<select name="element" required>';
+              Select a path<select name="id" required>';
           while($row = $paths->fetch_assoc()) {
             echo "<option value=\"". $row["pathID"] . "\">\"". $row["pathType"] . "\"</option>";
           }
@@ -116,7 +116,7 @@ include('../../dbconnect.php');
         echo '<form>';
 
         echo '<form action="edition.php?area" method="GET">
-              Select an area <select name="element" required>';
+              Select an area <select name="id" required>';
           while($row = $areas->fetch_assoc()) {
             echo "<option value=\"". $row["areaID"] . "\">\"". $row["areaType"] . "\"</option>";
           }

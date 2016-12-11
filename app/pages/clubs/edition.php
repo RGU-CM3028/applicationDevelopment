@@ -51,44 +51,6 @@ File handling the creation and edition of clubs
       $email = "";
     }
 
-    if(isset($_POST['submitAdd'])) {
-      $sql_query = "INSERT INTO Club (clubName, clubDescription, clubGenreID,
-        logoID, pname, adress, phone, email) VALUES ('"
-      . mysqli_real_escape_string($db, $_POST['clubName']) . "',' "
-      . mysqli_real_escape_string($db, $_POST['clubDescription']) . "',' "
-      . mysqli_real_escape_string($db, $_POST['clubGenreID']) . "',
-        0,' "
-      . mysqli_real_escape_string($db, $_POST['pname']) . "',' "
-      . mysqli_real_escape_string($db, $_POST['adress']) . "',' "
-      . mysqli_real_escape_string($db, $_POST['phone']) . "',' "
-      . mysqli_real_escape_string($db, $_POST['email']) . "');";
-
-      if ($db->query($sql_query) === TRUE) {
-        //$clubId = $db->insert_id; not getting last ID
-  	    // header("location:index.php");
-    	} else {
-    	    echo "Error: " . $sql_query . "<br>" . $db->error;
-    	}
-
-
-    }
-    if(isset($_POST['submitUpdate'])) {
-      $sql_query = "UPDATE Club
-      SET clubName='".mysqli_real_escape_string($db, $_POST['clubName'])."',
-      clubDescription='".mysqli_real_escape_string($db, $_POST['clubDescription'])."',
-      clubGenreID='".mysqli_real_escape_string($db, $_POST['clubGenreID'])."',
-      pname='".mysqli_real_escape_string($db, $_POST['pname'])."',
-      adress='".mysqli_real_escape_string($db, $_POST['adress'])."',
-      phone='".mysqli_real_escape_string($db, $_POST['phone'])."',
-      email='".mysqli_real_escape_string($db, $_POST['email'])."'
-       WHERE clubID='".$_GET['clubID']."'";
-
-      if ($db->query($sql_query) === TRUE) {
-        //safe
-      } else {
-          echo "Error: " . $sql_query . "<br>" . $db->error;
-      }
-    }
 		if(isset($_POST['submitUpdate']) || isset($_POST['submitAdd'])) {
 			if($_POST['existingEvent'] != "none") {
 				$sql_query = "SELECT * FROM clubeventassociation";
@@ -118,7 +80,7 @@ File handling the creation and edition of clubs
 				} else { echo $existingRow;}
 			}
 
-			if($_POST['mediaLink']) {
+			if(isset($_POST['mediaLink'])) {
 				if($_POST['mediaLink'] != "") {
 					echo $_POST['mediaDesc'];
 					echo $_POST['mediaLink'];
@@ -139,12 +101,49 @@ File handling the creation and edition of clubs
 					'". mysqli_real_escape_string($db, $_GET['clubID']) . "');";
 
 					if($db->query($sql_query) === TRUE) {
-						header("location:clubDetails.php?clubID=".$_GET['clubID']);
+						//Safe
 					} else {
 							echo "Error: " . $sql_query . "<br>" . $db->error;
 					}
 				}
 			}
+		}
+    if(isset($_POST['submitAdd'])) {
+      $sql_query = "INSERT INTO Club (clubName, clubDescription, clubGenreID,
+        logoID, pname, adress, phone, email) VALUES ('"
+      . mysqli_real_escape_string($db, $_POST['clubName']) . "',' "
+      . mysqli_real_escape_string($db, $_POST['clubDescription']) . "',' "
+      . mysqli_real_escape_string($db, $_POST['clubGenreID']) . "',
+        0,' "
+      . mysqli_real_escape_string($db, $_POST['pname']) . "',' "
+      . mysqli_real_escape_string($db, $_POST['adress']) . "',' "
+      . mysqli_real_escape_string($db, $_POST['phone']) . "',' "
+      . mysqli_real_escape_string($db, $_POST['email']) . "');";
+
+			$clubID = $db->insert_id;
+			
+      if ($db->query($sql_query) === TRUE) {
+					header("location:clubDetails.php?clubID=".$clubID);
+    	} else {
+    	    echo "Error: " . $sql_query . "<br>" . $db->error;
+    	}
+    }
+    if(isset($_POST['submitUpdate'])) {
+      $sql_query = "UPDATE Club
+      SET clubName='".mysqli_real_escape_string($db, $_POST['clubName'])."',
+      clubDescription='".mysqli_real_escape_string($db, $_POST['clubDescription'])."',
+      clubGenreID='".mysqli_real_escape_string($db, $_POST['clubGenreID'])."',
+      pname='".mysqli_real_escape_string($db, $_POST['pname'])."',
+      adress='".mysqli_real_escape_string($db, $_POST['adress'])."',
+      phone='".mysqli_real_escape_string($db, $_POST['phone'])."',
+      email='".mysqli_real_escape_string($db, $_POST['email'])."'
+       WHERE clubID='".$_GET['clubID']."'";
+
+      if ($db->query($sql_query) === TRUE) {
+					header("location:clubDetails.php?clubID=".$_GET['clubID']);
+      } else {
+          echo "Error: " . $sql_query . "<br>" . $db->error;
+      }
 		}
 	?>
 	<form action="" method="POST">

@@ -81,12 +81,12 @@ File handling the creation and edition of points, area and path
     //Addapt the form for the point, area of path
     if(isset($_GET['point'])){
       echo "CoordinateX <br>
-          <input type='number' name='coordinateX' value= '" . $coordinateX . "'><br>
+          <input type='number' step='0.01' name='coordinateX' value= '" . $coordinateX . "'><br>
           CoordinateY <br>
           <input type='number' step='0.01' name='coordinateY' value='" . $coordinateY . "'><br>";
     } elseif(isset($_GET['path']) or isset($_GET['area'])){
       echo "Coordinates : (pointA_X,pointA_Y,pointB_X,pointB_Y,...) <br>
-          <input type='number' step='0.01' name='vectors' value= '" . $coordinateX . "'><br>";
+          <input type='text' name='vectors' value= '" . $coordinateX . "'><br>";
     }
 
     //changes if we are updating or adding a new value

@@ -56,9 +56,6 @@ if(password_verify($mypassword, $dbpassword)) {
     header("location:../index.php?Loginfail=1");
     die();
 }
-/*$salt = "qwertgfdert45t456545655";
-$mypassword = $mypassword.$salt;
-$mypassword = hash('sha256', $mypassword);*/
 
 //This compares the usernames and passwords with each other, and if they match a counter goes up by one.
 if ($dbusername == $myusername && $checks = 2){

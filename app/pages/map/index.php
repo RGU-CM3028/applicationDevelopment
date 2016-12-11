@@ -18,8 +18,6 @@ include('../../dbconnect.php');
       $sql = "SELECT areaID, areaType, areaDescription, vectors FROM GeoArea";
       $area = $db->query($sql);
 
-      $db->close();
-
       $output = "";
 
       //Write the data into html in json format, so the javascript can read it (Better for security than writing inside javascript)
@@ -65,7 +63,6 @@ include('../../dbconnect.php');
     if(isset($_SESSION['userType'])
      && (($_SESSION['userType'] == "NKPAG")
      || ($_SESSION['userType'] == "admin"))) {
-        echo "string";
         //---- Point
         //Query all the points from the DB
         $sql = "SELECT pointID, pointType, pointDescription, coordinateX, coordinateY FROM GeoPoint";
@@ -79,6 +76,7 @@ include('../../dbconnect.php');
         echo '<form action="edition.php" method="GET">
               Select a point <select required>';
           while($row = $points->fetch_assoc()) {
+            var_dump($row);
             echo "<option value=\"". $row["pointID"] . "\">\"". $row["pointType"] . "\"</option>";
           }
         echo "</select>";

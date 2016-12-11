@@ -42,7 +42,6 @@ File handling the creation and edition of points, area and path
 
     if(isset($_POST['submitAdd'])) {
       $sql_query = "INSERT INTO GeoPoint (pointType, pointDescription, coordinateX, coordinateY ) VALUES ('"
-      . $_POST['id'] . "',' "
       . $_POST['type'] . "',' "
       . $_POST['description'] . "',' "
       . $_POST['coordinateX'] . "',' "
@@ -88,7 +87,7 @@ File handling the creation and edition of points, area and path
       echo "Coordinates : (pointA_X,pointA_Y,pointB_X,pointB_Y,...) <br>
           <input type='text' name='vectors' value= '" . $coordinateX . "'><br>";
     }
-        echo '<input type="hidden" name="id" value="' . $_GET['id'] . '">';
+      echo '<input type="hidden" name="id" value="' . $_GET['id'] . '">';
 
     //changes if we are updating or adding a new value
     if(isset($_GET['id'])) {

@@ -69,12 +69,12 @@ include('../../dbconnect.php');
         $points = $db->query($sql);
 
         //Create the edition box for the points
-        echo '<form action="edition.php" method="GET">';
+        echo '<form action="edition.php?point" method="GET">';
         echo '<input type="submit" name="create" value="Add an element to the map" />';
         echo '<form>';
 
-        echo '<form action="edition.php" method="GET">
-              Select a point <select required>';
+        echo '<form action="edition.php?point" method="GET">
+              Select a point <select name="element" required>';
           while($row = $points->fetch_assoc()) {
             var_dump($row);
             echo "<option value=\"". $row["pointID"] . "\">\"". $row["pointType"] . "\"</option>";
@@ -89,12 +89,12 @@ include('../../dbconnect.php');
         $paths = $db->query($sql);
 
         //Create the edition box for the paths
-        echo '<form action="edition.php" method="GET">';
+        echo '<form action="edition.php?path" method="GET">';
         echo '<input type="submit" name="create" value="Add an element to the map" />';
         echo '<form>';
 
-        echo '<form action="edition.php" method="GET">
-              Select a path<select required>';
+        echo '<form action="edition.php?path" method="GET">
+              Select a path<select name="element" required>';
           while($row = $paths->fetch_assoc()) {
             echo "<option value=\"". $row["pathID"] . "\">\"". $row["pathType"] . "\"</option>";
           }
@@ -109,12 +109,12 @@ include('../../dbconnect.php');
         $areas = $db->query($sql);
 
         //Create the edition box for the areas
-        echo '<form action="edition.php" method="GET">';
+        echo '<form action="edition.php?area" method="GET">';
         echo '<input type="submit" name="create" value="Add an element to the map" />';
         echo '<form>';
 
-        echo '<form action="edition.php" method="GET">
-              Select an area <select required>';
+        echo '<form action="edition.php?area" method="GET">
+              Select an area <select name="element" required>';
           while($row = $areas->fetch_assoc()) {
             echo "<option value=\"". $row["areaID"] . "\">\"". $row["areaType"] . "\"</option>";
           }

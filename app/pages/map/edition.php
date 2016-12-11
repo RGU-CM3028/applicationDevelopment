@@ -7,10 +7,12 @@ File handling the creation and edition of points, area and path
     include("../../inc/header.inc");
 
     if(!(isset($_SESSION['userType']))) {
-      header('location:./');
+      //header('location:./');
+      echo "1";
     } else if($_SESSION['userType'] !== 'NKAPG' ||
     $_SESSION['userType'] !== 'admin') {
-        header('location:./');
+        //header('location:./');
+      echo "2";
     }
 
 		//If we are editing instead of creating a new
@@ -73,7 +75,7 @@ File handling the creation and edition of points, area and path
          WHERE clubID='".$_GET['clubID']."'";
 
         if ($db->query($sql_query) === TRUE) {
-              header("location:clubDetails.php?clubID=".$_GET['clubID']);
+              //header("location:clubDetails.php?clubID=".$_GET['clubID']);
           } else {
               echo "Error: " . $sql_query . "<br>" . $db->error;
           }

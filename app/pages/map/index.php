@@ -63,7 +63,6 @@ include('../../dbconnect.php');
     if(isset($_SESSION['userType'])
      && (($_SESSION['userType'] == "NKPAG")
      || ($_SESSION['userType'] == "admin"))) {
-        echo "string";
         //---- Point
         //Query all the points from the DB
         $sql = "SELECT pointID, pointType, pointDescription, coordinateX, coordinateY FROM GeoPoint";

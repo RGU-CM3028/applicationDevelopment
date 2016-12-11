@@ -158,8 +158,7 @@ include('../../dbconnect.php');
     myPoint = myData.points[point];
     //console.log(myPoint.description);
     markers.push(L.marker([myPoint.coordinateX, myPoint.coordinateY]).addTo(map)
-      .bindPopup(myPoint.type + "<br>"+ myPoint.description)
-      .openPopup());
+      .bindPopup(myPoint.type + "<br>" + myPoint.description));
   }
 
 

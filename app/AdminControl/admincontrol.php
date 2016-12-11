@@ -1,4 +1,9 @@
-<?php
+<?php/*
+
+This page will be deleted soon
+This page will be deleted soon
+This page will be deleted soon
+
 //This connects the database here. And continues the session.
 include("../dbconnect.php");
 
@@ -100,5 +105,5 @@ elseif($adminchoice == "usertype") {
 elseif($adminchoice == "") {
 	header("location:admincontrolform.php?select=1");
     	die();
-}
+}*/
 ?>

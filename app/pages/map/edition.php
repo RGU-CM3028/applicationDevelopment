@@ -83,10 +83,10 @@ File handling the creation and edition of points, area and path
       echo "CoordinateX <br>
           <input type='number' name='coordinateX' value= '" . $coordinateX . "'><br>
           CoordinateY <br>
-          <input type='number' name='coordinateY' value='" . $coordinateY . "'><br>";
+          <input type='number' step='0.01' name='coordinateY' value='" . $coordinateY . "'><br>";
     } elseif(isset($_GET['path']) or isset($_GET['area'])){
       echo "Coordinates : (pointA_X,pointA_Y,pointB_X,pointB_Y,...) <br>
-          <input type='number' name='vectors' value= '" . $coordinateX . "'><br>";
+          <input type='number' step='0.01' name='vectors' value= '" . $coordinateX . "'><br>";
     }
 
     //changes if we are updating or adding a new value

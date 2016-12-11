@@ -19,6 +19,12 @@ global $db;
 				</div>';
 		}
 			?>
+			<div id="healthTips">
+				<h1> Health and Wellbeing tips </h1>
+				<p> Lorem ipsum......... </p>
+					<img id="foodpyramid" src="../../images/foodpyramid.png" alt="food pyramid" />
+				<p> Lorem ipsum ....... </p>
+			</div>
 			<div id="fb-root"></div>
 				<script>(function(d, s, id) {
 				  var js, fjs = d.getElementsByTagName(s)[0];

@@ -114,6 +114,7 @@ if ($usertypeholder = $_SESSION['userType']){
 									}
 									?>
 								</select>
+								<br>
             <input type="submit" name="commit" value="Submit">
         </form>
     </div>

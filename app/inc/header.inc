@@ -80,9 +80,13 @@ if(strpos($actual_link, 'pages') == true) {
     					else{
     						//This is the error message for if there is a login fail.
     						if(isset($_GET["Loginfail"]))
-    					{
-        					echo "<p><font color='red'>Please make sure you enter the correct information.</font></p>";
- 					}
+						{
+        						echo "<p><font color='red'>Please make sure you enter the correct information.</font></p>";
+ 						}
+						if (isset($_GET['html']))
+            					{
+                					echo "<p class='error-red'>Please don't edit the html.</font></p>";
+            					}
 
 					if($isIndex) {
 						echo '<form method="post" action="login/checklogin.php"> ';

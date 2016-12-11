@@ -1,4 +1,5 @@
 <?php
+/*
 //This connects the database here.
 include("../dbconnect.php");
 

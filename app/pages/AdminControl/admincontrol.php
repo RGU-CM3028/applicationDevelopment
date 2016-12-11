@@ -83,7 +83,7 @@ if($adminchoice == "delete"){
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $stmt->close();
-	header("location:index.php?nodata=1");
+	header("location:index.php?delete=1");
     	die();
 }
 

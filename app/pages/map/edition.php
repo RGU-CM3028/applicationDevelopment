@@ -8,8 +8,8 @@ File handling the creation and edition of points, area and path
 
     if(!(isset($_SESSION['userType']))) {
       header('location:./');
-    } else if($_SESSION['userType'] == 'NKAPG' ||
-    $_SESSION['userType'] == 'admin') {
+    } else if($_SESSION['userType'] !== 'NKAPG' &&
+    $_SESSION['userType'] !== 'admin') {
         header('location:./');
     }
 

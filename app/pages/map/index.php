@@ -70,16 +70,17 @@ include('../../dbconnect.php');
 
         //Create the edition box for the points
         echo '<form action="edition.php" method="GET">';
-        echo '<input type="submit" name="create" value="Add an element to the map" />';
+        echo '<input type="submit" name="point" value"create" value="Add a point to the map" />';
         echo '<form>';
 
         echo '<form action="edition.php" method="GET">
-              Select a point <select required>';
+              Select a point <select name="element" required>';
           while($row = $points->fetch_assoc()) {
             var_dump($row);
             echo "<option value=\"". $row["pointID"] . "\">\"". $row["pointType"] . "\"</option>";
           }
         echo "</select>";
+        echo '<input type="hidden" name="point">';
         echo '<input type="submit" name="edit" value="Edit" />';
         echo '<input type="submit" name="delete" value="Delete" /> </form>';
 
@@ -90,15 +91,16 @@ include('../../dbconnect.php');
 
         //Create the edition box for the paths
         echo '<form action="edition.php" method="GET">';
-        echo '<input type="submit" name="create" value="Add an element to the map" />';
+        echo '<input type="submit" name="path" value="Add a path to the map" />';
         echo '<form>';
 
         echo '<form action="edition.php" method="GET">
-              Select a path<select required>';
+              Select a path<select name="element" required>';
           while($row = $paths->fetch_assoc()) {
             echo "<option value=\"". $row["pathID"] . "\">\"". $row["pathType"] . "\"</option>";
           }
         echo "</select>";
+        echo '<input type="hidden" name="path">';
         echo '<input type="submit" name="edit" value="Edit" />';
         echo '<input type="submit" name="delete" value="Delete" /> </form>';
 
@@ -109,16 +111,17 @@ include('../../dbconnect.php');
         $areas = $db->query($sql);
 
         //Create the edition box for the areas
-        echo '<form action="edition.php" method="GET">';
-        echo '<input type="submit" name="create" value="Add an element to the map" />';
+        echo '<form action="edition.php?area" method="GET">';
+        echo '<input type="submit" name="area" value="Add an Area to the map" />';
         echo '<form>';
 
-        echo '<form action="edition.php" method="GET">
-              Select an area <select required>';
+        echo '<form action="edition.php?area" method="GET">
+              Select an area <select name="element" required>';
           while($row = $areas->fetch_assoc()) {
             echo "<option value=\"". $row["areaID"] . "\">\"". $row["areaType"] . "\"</option>";
           }
         echo "</select>";
+        echo '<input type="hidden" name="path">';
         echo '<input type="submit" name="edit" value="Edit" />';
         echo '<input type="submit" name="delete" value="Delete" /> </form>';
 
@@ -155,7 +158,7 @@ include('../../dbconnect.php');
     myPoint = myData.points[point];
     //console.log(myPoint.description);
     markers.push(L.marker([myPoint.coordinateX, myPoint.coordinateY]).addTo(map)
-      .bindPopup(myPoint.type + "<br>"+ myPoint.description));
+      .bindPopup(htmlspecialchars(myPoint.type) + "<br>"+ htmlspecialchars(myPoint.description)));
   }
 
 
@@ -171,7 +174,7 @@ include('../../dbconnect.php');
     }
 
     polygons.push(L.polygon(coordinatesTuples).addTo(map)
-      .bindPopup(myArea.type + "<br>" + myArea.description)
+      .bindPopup(htmlspecialchars(myArea.type) + "<br>" + htmlspecialchars(myArea.description))
       .openPopup());
   }
 
@@ -194,7 +197,7 @@ include('../../dbconnect.php');
     // }
 
     polygons.push(L.polyline(coordinatesTuples).addTo(map)
-      .bindPopup(myPath.type + "<br>" + myPath.description)
+      .bindPopup(htmlspecialchars(myPath.type) + "<br>" + htmlspecialchars(myPath.description))
       .openPopup());
   }
 

@@ -5,11 +5,21 @@ File handling the creation and edition of clubs
     include("../../inc/header.inc");
 		include("../../dbconnect.php");
 
+		$sql_query="SELECT clubID from junctionuserclub
+		where username='" . $_SESSION['username'] ."'";
+		$result = $db->query($sql_query);
+		$clubs = array();
+		while ($row = $result->fetch_array()) {
+			array_push($clubs, $row['clubID']);
+		}
+
     if(!(isset($_SESSION['userType']))) {
       header('location:./');
-    } else if($_SESSION['userType'] !== 'clubAdmin' &&
-    $_SESSION['userType'] !== 'admin') {
-        header('location:./');
+    } else if($_SESSION['userType'] != "admin"
+		&& $_SESSION['userType'] != "clubAdmin") {
+			header('location:./');
+		} else if($_SESSION['userType'] == "clubAdmin" && (!(in_array($_GET['clubID'], $clubs)))) {
+      header('location:./');
     }
 
 		//If we are editing instead of creating a new

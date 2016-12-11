@@ -13,8 +13,7 @@
             //admin users and clubAdmin users to see certain
             //stuffsession_start();
             if(isset($_SESSION['userType'])
-             && (($_SESSION['userType'] == "clubAdmin")
-             || ($_SESSION['userType'] == "admin"))) {
+             && ($_SESSION['userType'] == "admin")) {
                   echo '<div class="create">
     				        <form action="edition.php" method="post">
     				          <h2>Do you want to create a club ? Do it now !</h2><br>
@@ -67,6 +66,15 @@
 				<?php
 				function showAllClubs() {
 				  global $db;
+
+          $sql_query="SELECT clubID from junctionuserclub
+          where username='" . $_SESSION['username'] ."'";
+          $result = $db->query($sql_query);
+          $clubs = array();
+          while ($row = $result->fetch_array()) {
+            array_push($clubs, $row['clubID']);
+          }
+
           unset($_POST['search']);
           $query = "SELECT clubID, clubName, clubDescription FROM Club";
 				  $result = $db->query($query);
@@ -94,8 +102,8 @@
 				          .$row["clubDescription"]
 				          ."</a></td>";
                   if(isset($_SESSION['userType'])
-                   && (($_SESSION['userType'] == "clubAdmin")
-                   || ($_SESSION['userType'] == "admin"))) {
+                  && ($_SESSION['userType'] == "admin")
+                  || in_array($row['clubID'], $clubs)) {
                      echo "
                   <td>
                   <form>

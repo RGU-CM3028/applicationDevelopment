@@ -1,15 +1,16 @@
 <?php
 //This connects the database here. And continues the session.
+
 session_start();
-include("../../dbconnect.php"); 
+include("../../dbconnect.php");
 
 //This prepares the accesslevel.
 $accesslevel = $_SESSION['userType'];
-	
+
 //This displays the function contents and protects this page from outside influence if they arnt admins.
 displayAccessLevelInformation($accesslevel);
-	
-//This is the function doing its magic on a set piece of code.	
+
+//This is the function doing its magic on a set piece of code.
 function displayAccessLevelInformation($accesslevel){
 	//This checks to see if the user is an admin or not. This protects the site from any html attack
 	if ($accesslevel != "admin") {
@@ -23,6 +24,7 @@ function displayAccessLevelInformation($accesslevel){
 $adminchoice = "";
 $adminuserchoice = "";
 $adminusername = "";
+
 if(isset($_POST['choice'])) {
 	//safe
 } else {
@@ -62,7 +64,7 @@ if ($check->execute()){
 
 if ($username == $adminusername) {
 	//safe
-} else {  
+} else {
 	header("location:index.php?nodata=1");
     	die();
 }
@@ -79,7 +81,7 @@ if ($username == $_SESSION['username']){
 if($adminchoice == "delete"){
 	$stmt = $db->prepare("DELETE FROM users WHERE username =?");
         $stmt->bind_param("s", $username);
-        $stmt->execute();  
+        $stmt->execute();
         $stmt->close();
 	header("location:index.php?nodata=1");
     	die();
@@ -87,16 +89,41 @@ if($adminchoice == "delete"){
 
 //This is the code that updates the user with the info the admin selected.
 elseif($adminchoice == "usertype") {
-	if ($adminuserchoice == "reader" || $adminuserchoice == "admin" || $adminuserchoice == "clubAdmin" || $adminuserchoice == "NKPAG"){
+	if ($adminuserchoice == "reader"
+	|| $adminuserchoice == "admin"
+	|| $adminuserchoice == "NKPAG"){
 		$stmt = $db->prepare("UPDATE users SET userType=? WHERE username=?");
-        	$stmt->bind_param("ss", $adminuserchoice, $username);
-        	$stmt->execute();  
-        	$stmt->close();
+  	$stmt->bind_param("ss", $adminuserchoice, $username);
+  	$stmt->execute();
+  	$stmt->close();
 		header("location:index.php?update=1");
-    		die();
-	} else {
-		header("location:index.php?select=1");
-    		die();
+    die();
+	} else if($adminuserchoice == "clubAdmin") {
+		if(isset($_POST['clubID'])) {
+			$query = "INSERT INTO JunctionUserClub
+			(username, clubID) VALUES(
+				'" .mysqli_real_escape_string($db, $username) . "',
+				" .mysqli_real_escape_string($db, $_POST['clubID']) . "
+			)";
+
+			if($db->query($query) === TRUE) {
+				//safe
+			} else {
+					echo "Error: " . $query . "<br>" . $db->error;
+			}
+
+			$stmt = $db->prepare("UPDATE users SET userType=? WHERE username=?");
+	  	$stmt->bind_param("ss", $adminuserchoice, $username);
+	  	$stmt->execute();
+	  	$stmt->close();
+
+			header("location:index.php?update=1");
+			die();
+			//First we have to test if row is already existing
+		} else {
+			header("location:index.php?select=1");
+    	die();
+		}
 	}
 }
 

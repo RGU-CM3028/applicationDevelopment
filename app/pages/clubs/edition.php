@@ -1,16 +1,16 @@
 <!--
 File handling the creation and edition of clubs
 -->
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>My First HTML</title>
-  <meta charset="UTF-8">
-</head>
-<body>
 	<?php
+    include("../../inc/header.inc");
 		include("../../dbconnect.php");
+
+    if(!(isset($_SESSION['userType']))) {
+      header('location:./');
+    } else if($_SESSION['userType'] !== 'clubAdmin' &&
+    $_SESSION['userType'] !== 'admin') {
+        header('location:./');
+    }
 
 		//If we are editing instead of creating a new
     // if clubID is setted, we update
@@ -150,4 +150,7 @@ File handling the creation and edition of clubs
     ?>
     <a href='../clubs/'>Back to clubs</a>
 	</form>
-</body>
+
+  <?
+    include("../../inc/footer.inc");
+    ?>

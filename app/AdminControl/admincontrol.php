@@ -1,15 +1,14 @@
 <?php
 //This connects the database here. And continues the session.
-session_start();
-include("../dbconnect.php"); 
+include("../dbconnect.php");
 
 //This prepares the accesslevel.
 $accesslevel = $_SESSION['userType'];
-	
+
 //This displays the function contents and protects this page from outside influence if they arnt admins.
 displayAccessLevelInformation($accesslevel);
-	
-//This is the function doing its magic on a set piece of code.	
+
+//This is the function doing its magic on a set piece of code.
 function displayAccessLevelInformation($accesslevel){
 	//This checks to see if the user is an admin or not. This protects the site from any html attack
 	if ($accesslevel != "admin") {
@@ -78,24 +77,24 @@ if ($adminusername == $_SESSION['username']){
 //This is the code that deletes the user the admin selected.
 if($adminchoice == "delete"){
 	$query = "DELETE FROM users WHERE username = '".$adminusername."'";
-	if (mysqli_query($db, $query)) {    
+	if (mysqli_query($db, $query)) {
 		header("location:admincontrolform.php?delete=1");
     		die();
     	} else {
         	echo "Error: " . $query . "<br>" . mysqli_error($db);
     	}
-} 
+}
 
 //This is the code that updates the user with the info the admin selected.
 elseif($adminchoice == "usertype") {
 	$sql = "UPDATE users SET userType='".$adminuserchoice."' WHERE username='".$adminusername."'";
-	if (mysqli_query($db, $sql)) {    
+	if (mysqli_query($db, $sql)) {
 		header("location:admincontrolform.php?update=1");
     		die();
     	} else {
         	echo "Error: " . $sql . "<br>" . mysqli_error($db);
     	}
-} 
+}
 
 //This takes the user back to the control panel with an error message
 elseif($adminchoice == "") {

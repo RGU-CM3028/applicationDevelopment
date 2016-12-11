@@ -1,4 +1,12 @@
 <?php
+include("../../inc/header.inc");
+
+if(!(isset($_SESSION['userType']))) {
+  header('location:./');
+} else if($_SESSION['userType'] !== 'admin') {
+    header('location:./');
+}
+
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;

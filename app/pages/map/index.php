@@ -2,6 +2,7 @@
 // imports the header
 include("../../inc/header.inc");
 include('../../dbconnect.php');
+}
 ?>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>

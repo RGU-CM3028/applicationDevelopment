@@ -8,6 +8,7 @@
 
 <?php
 include("../../dbconnect.php");
+include("../../inc/header.inc");
 global $db;
 
 $clubID = $_GET['clubID'];
@@ -102,3 +103,7 @@ if(!$result->num_rows <= 0) {
     <a href='../clubs/'>Back to clubs</a>
   </div>
 </section>
+
+<?
+include('../../inc/footer.inc');
+?>

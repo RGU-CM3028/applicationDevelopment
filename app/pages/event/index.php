@@ -1,6 +1,13 @@
 	<?php
 		include("../../dbconnect.php");
+		include("../../inc/header.inc");
 
+    if(!(isset($_SESSION['userType']))) {
+      header('location:../clubs/');
+    } else if($_SESSION['userType'] !== 'clubAdmin' ||
+    $_SESSION['userType'] !== 'admin') {
+        header('location:../clubs');
+    }
 		//If we are editing instead of creating a new
     // if eventID is setted, we update
 		if(isset($_GET['eventID'])){
@@ -100,3 +107,7 @@
 		<a href='../clubs/'>Back to clubs</a>
 	</form>
 </body>
+
+<?
+include('../../inc/footer.inc');
+?>

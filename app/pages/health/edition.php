@@ -5,7 +5,13 @@ File handling the creation and edition of news
 	<?php
 
 		include("../../dbconnect.php");
+		include("../../inc/header.inc");
 
+    if(!(isset($_SESSION['userType']))) {
+      header('location:./');
+    } else if($_SESSION['userType'] !== 'admin') {
+        header('location:./');
+    }
 		//If we are editing instead of creating a new
     // if HWNewsID setted, we update
 		if(isset($_GET['HWNewsID'])){
@@ -64,3 +70,6 @@ File handling the creation and edition of news
     ?>
 		<a href='./'>Back to Health and Wellbeing</a>
 	</form>
+
+<?
+include('../../inc/footer.inc');

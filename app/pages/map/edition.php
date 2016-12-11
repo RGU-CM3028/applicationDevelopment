@@ -1,16 +1,17 @@
 <!--
 File handling the creation and edition of points, area and path
 -->
-<!DOCTYPE html>
-<html>
 
-<head>
-  <title>My First HTML</title>
-  <meta charset="UTF-8">
-</head>
-<body>
 	<?php
 		include("../../dbconnect.php");
+    include("../../inc/header.inc");
+
+    if(!(isset($_SESSION['userType']))) {
+      header('location:./');
+    } else if($_SESSION['userType'] !== 'NKAPG' ||
+    $_SESSION['userType'] !== 'admin') {
+        header('location:./');
+    }
 
 		//If we are editing instead of creating a new
     // if clubID is setted, we update
@@ -99,3 +100,7 @@ File handling the creation and edition of points, area and path
     <a href='./'>Back to the map</a>
 	</form>
 </body>
+
+<?
+include('../../inc/footer.inc');
+?>  

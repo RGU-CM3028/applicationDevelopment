@@ -70,7 +70,7 @@ include('../../dbconnect.php');
 
         //Create the edition box for the points
         echo '<form action="edition.php" method="GET">';
-        echo '<input type="submit" name="point" value"create" value="Add a point to the map" />';
+        echo '<input type="submit" name="point" value="Add a point to the map" />';
         echo '<form>';
 
         echo '<form action="edition.php" method="GET">
@@ -158,7 +158,7 @@ include('../../dbconnect.php');
     myPoint = myData.points[point];
     //console.log(myPoint.description);
     markers.push(L.marker([myPoint.coordinateX, myPoint.coordinateY]).addTo(map)
-      .bindPopup(htmlspecialchars(myPoint.type) + "<br>"+ htmlspecialchars(myPoint.description)));
+      .bindPopup(myPoint.type + "<br>"+ myPoint.description));
   }
 
 

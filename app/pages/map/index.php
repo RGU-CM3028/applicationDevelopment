@@ -79,6 +79,7 @@ include('../../dbconnect.php');
         echo '<form action="edition.php" method="GET">
               Select a point <select required>';
           while($row = $points->fetch_assoc()) {
+            var_dump($row);
             echo "<option value=\"". $row["pointID"] . "\">\"". $row["pointType"] . "\"</option>";
           }
         echo "</select>";

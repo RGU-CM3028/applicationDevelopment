@@ -66,7 +66,7 @@
 				<?php
 				function showAllClubs() {
 				  global $db;
-
+          
           $sql_query="SELECT clubID from junctionuserclub
           where username='" . $_SESSION['username'] ."'";
           $result = $db->query($sql_query);

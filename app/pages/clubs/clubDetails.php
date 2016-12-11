@@ -40,26 +40,45 @@ while ($row = $result->fetch_array()) {
     $clubGenre = $row['pname'];
 }
 
-$query = "SELECT mediaID
-          FROM ClubMediaAssociation C
-          WHERE C.clubID = " . $clubID;
+$query = "SELECT m.mediaDescription, m.mediaID, m.URL
+          FROM ClubMediaAssociation c, media m
+          WHERE c.mediaID = m.mediaID
+          AND c.clubID = " . $_GET['clubID'];
 $result = $db->query($query);
 
 if(!$result->num_rows <= 0) {
-  $i = 0;
+  $medias = array();
   while ($row = $result->fetch_array()) {
-      $images [i] = $row['mediaID'];
-      $i++;
+      array_push($medias, array($row['mediaDescription'], $row['URL']));
     }
 }
 
 
 echo "<section>
-    <div>";
-  if(isset($mediaID)) {
-    echo "<img src=" . $mediaID . ">";
+<div id='slider'>";
+foreach($medias as $media) {
+  echo "<img class='mySlides' alt='" . $media[0] . "' src='". $media[1] ."'>";
+}
+echo '
+<script>
+var slideIndex = 0;
+  carousel();
+
+  function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
   }
-  echo "<h1>" . $clubName . "<h1>
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1}
+  x[slideIndex-1].style.display = "block";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+  }
+    </script>
+    </div>';
+    echo "<div>
+      <h1>" . $clubName . "<h1>
         <p>" . $clubGenre . "</p>
         <p>" . $clubDescription . "</p>";
   if($pname != "" || $adress != "" || $phone != "" || $email != "") {

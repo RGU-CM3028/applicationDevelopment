@@ -19,11 +19,11 @@ File handling the creation and edition of points, area and path
       //Updating
       //Fill as the form values with the actual ones
       echo "<h1> Update the element </h1>";
-			$sql = "SELECT pointID, pointType, pointDescription, coordinateX, coordinateY FROM GeoPoint";
+			$sql = "SELECT pointID, pointType, pointDescription, coordinateX, coordinateY FROM GeoPoint WHERE pointID = " . $_GET['id'];
       $points = $db->query($sql);
 
-        while ($row = $queryResult->fetch_array()) {
-          $id = $row['pointID'];
+        while ($row = $points->fetch_array()) {
+          $id = $_GET['id'];
   				$type = $row['pointType'];
   				$description = $row['pointDescription'];
   				$coordinateX = $row['coordinateX'];

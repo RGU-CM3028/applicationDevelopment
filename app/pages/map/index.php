@@ -158,7 +158,7 @@ include('../../dbconnect.php');
     myPoint = myData.points[point];
     //console.log(myPoint.description);
     markers.push(L.marker([myPoint.coordinateX, myPoint.coordinateY]).addTo(map)
-      .bindPopup(myPoint.type + "<br>"+ myPoint.description));
+      .bindPopup(htmlentities(myPoint.type) + "<br>"+ htmlentities(myPoint.description)));
   }
 
 
@@ -174,7 +174,7 @@ include('../../dbconnect.php');
     }
 
     polygons.push(L.polygon(coordinatesTuples).addTo(map)
-      .bindPopup(htmlspecialchars(myArea.type) + "<br>" + htmlspecialchars(myArea.description))
+      .bindPopup(htmlentities(myArea.type) + "<br>" + htmlentities(myArea.description))
       .openPopup());
   }
 
@@ -197,7 +197,7 @@ include('../../dbconnect.php');
     // }
 
     polygons.push(L.polyline(coordinatesTuples).addTo(map)
-      .bindPopup(htmlspecialchars(myPath.type) + "<br>" + htmlspecialchars(myPath.description))
+      .bindPopup(htmlentities(myPath.type) + "<br>" + htmlentities(myPath.description))
       .openPopup());
   }
 

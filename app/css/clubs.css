@@ -105,7 +105,6 @@
 .tableRow td a {
   padding: 1em;
   display: block;
-  width: 100%;
 }
 .tableRow:hover {
   background: grey;

@@ -97,5 +97,8 @@ if(!$result->num_rows <= 0) {
     }
 }
 
-    echo "</div>
-</section>";
+?>
+
+    <a href='../clubs/'>Back to clubs</a>
+  </div>
+</section>

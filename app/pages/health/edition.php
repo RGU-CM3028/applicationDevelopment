@@ -62,4 +62,5 @@ File handling the creation and edition of news
       echo "<input type='submit' name='submitAdd' value='Add news'>";
     }
     ?>
+		<a href='./'>Back to Health and Wellbeing</a>
 	</form>

@@ -96,5 +96,6 @@ File handling the creation and edition of points, area and path
       echo "<input type='submit' name='submitAdd' value='Add club'>";
     }
     ?>
+    <a href='./'>Back to the map</a>
 	</form>
 </body>

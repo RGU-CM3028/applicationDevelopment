@@ -148,5 +148,6 @@ File handling the creation and edition of clubs
       echo "<input type='submit' name='submitAdd' value='Add club'>";
     }
     ?>
+    <a href='../clubs/'>Back to clubs</a>
 	</form>
 </body>

@@ -97,5 +97,6 @@
       echo "<input type='submit' name='submitAdd' value='Add event'>";
     }
     ?>
+		<a href='../clubs/'>Back to clubs</a>
 	</form>
 </body>

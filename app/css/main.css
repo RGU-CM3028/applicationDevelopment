@@ -4,9 +4,9 @@
 @import url("ideal-image-slider.css");
 
 * {
-    margin: 0%; 
+    margin: 0%;
     padding: 0%;
-    font-family: Helvetica, Arial, Tahoma, Geneva, sans-serif; 
+    font-family: Helvetica, Arial, Tahoma, Geneva, sans-serif;
     text-decoration: none;
     color: #000;
 }
@@ -217,7 +217,7 @@ footer li{color: #ffffff; text-align: left; }
     nav{display: none;}
     .navtxt{text-align: center; padding: 1vh; float: right;
 }
-    
+
 #mobileMenu {
     list-style-type: none;
     margin: 0%;
@@ -255,18 +255,18 @@ footer li{color: #ffffff; text-align: left; }
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-.dropdown-content a {
+/*.dropdown-content a {
     color:  #fff;
     padding: 2vh;
     text-decoration: none;
     display: block;
     text-align: left;;
-}
+}*/
 
 .dropdown-content a:hover {background-color: #7E7E7E; color: #0014ff;}
 
 .show {display:block; z-index: 9999;}
-    
+
 .logo{
     position: relative;
     float: left;

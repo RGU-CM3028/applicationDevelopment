@@ -15,5 +15,4 @@ Stuff relative to the web application development
 -10th December(All notes finalised and ready to upload)<br>
 -12th December(Main deadline)
 
-# azure server - http://blackrabbitunicorn.azurewebsites.net/app/index.php
-# alt srver - http://brusportlehen.azurewebsites.net/app/
+# Server- http://brusportlehen.azurewebsites.net/app/

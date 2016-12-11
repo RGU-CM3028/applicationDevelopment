@@ -1,4 +1,10 @@
 <?
+/*
+
+This page will be deleted soon
+This page will be deleted soon
+This page will be deleted soon
+
 // imports the header/navigation
 include("../inc/header.inc");
 

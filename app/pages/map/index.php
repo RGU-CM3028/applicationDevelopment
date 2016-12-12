@@ -6,6 +6,11 @@ include('../../dbconnect.php');
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 	<section>
+	<div id="Howmap">
+		<h1> How to use the map </h1>
+		<p> Example explain text.</p>
+	</div>
+		
   <div id="map-data" style="display: none;">
     <?php
       //Query the map datask

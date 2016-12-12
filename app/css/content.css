@@ -97,12 +97,12 @@
 }/* End of index content */
 
 /* Start of Clubs content */
-.clubs{
+#clubs{
     position: relative;
     overflow: hidden;
 }
 
-.clubTitle{
+#clubTitle{
     position: relative;
     float: left;
     top: 0%;
@@ -114,7 +114,7 @@
     padding: 1%; 
 }
 
-.clubGenre{
+#clubGenre{
     position: relative;
     top: 0%;
     left: 11%;
@@ -125,7 +125,7 @@
 
 }
 
-.clubDesc{
+#clubDesc{
     position: relative;
     top: 10%;
     left: 0%;
@@ -133,7 +133,7 @@
     padding: 1%;
 }
 
-.events{
+#events{
     position: relative;
     width: 30%;
     float: left;
@@ -146,14 +146,14 @@
     overflow: hidden;
 }
 
-.events h2{
+#events h2{
     padding: 2%;
     background-color: #fff;
 }
 
-.events p{margin: 1%;}
+#events p{margin: 1%;}
 
-.club-contact{
+#club-contact{
     position: relative;
     float: left;
     left: 0%;
@@ -164,7 +164,7 @@
     overflow: hidden;
 }
 
-.club-contact h2{padding: 2%;
+#club-contact h2{padding: 2%;
     background-color: #fff;}
 
-.club-contact p{margin: 1%;}
+#club-contact p{margin: 1%;}

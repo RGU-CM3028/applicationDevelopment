@@ -77,12 +77,12 @@ echo "<section>";
       </script>
       </div>';
   }
-    echo "<div class='clubs'>
+    echo "<div id='clubs' class='clearfix'>
       <h1 class='clubTitle'>" . $clubName . "<h1>
         <h3 class='clubGenre'>" . $clubGenre . "</h3>
         <p class='clubDesc'>" . $clubDescription . "</p>";
   if($pname != "" || $adress != "" || $phone != "" || $email != "") {
-    echo "<div class='contact'><h2> Contact infos </h2>";
+    echo "<div id='club-contact' class='clearfix'><h2> Contact infos </h2>";
     if($pname != "") {
       echo "<p>You can contact " . $pname ." for further information. </p>";
     } else {
@@ -106,7 +106,7 @@ WHERE a.clubID = ".$_GET['clubID'].";";
 $result = $db->query($sql_query);
 
 if(!$result->num_rows <= 0) {
-    echo "<div class='events'>";
+    echo "<div id='events' class='clearfix'>";
   while ($row = $result->fetch_array()) {
       echo "<h2> Events we are participating in</h2>
         <p> ".$row['eventName'] . "</p>

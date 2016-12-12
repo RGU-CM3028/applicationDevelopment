@@ -75,7 +75,14 @@ section div{
     top:auto;
     height: auto;
     margin: auto;
-    overflow: hidden
+}
+
+#index-content div{
+    position: relative;
+    top:auto;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
 }
 
 footer{

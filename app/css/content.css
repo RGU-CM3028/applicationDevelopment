@@ -102,7 +102,7 @@
     overflow: hidden;
 }
 
-#clubTitle{
+.clubTitle{
     position: relative;
     float: left;
     top: 0%;
@@ -114,7 +114,7 @@
     padding: 1%; 
 }
 
-#clubGenre{
+.clubGenre{
     position: relative;
     top: 0%;
     left: 11%;
@@ -125,7 +125,7 @@
 
 }
 
-#clubDesc{
+.clubDesc{
     position: relative;
     top: 10%;
     left: 0%;
@@ -146,12 +146,12 @@
     overflow: hidden;
 }
 
-#events h2{
+.eventh{
     padding: 2%;
     background-color: #fff;
 }
 
-#events p{margin: 1%;}
+.eventp{margin: 1%;}
 
 #club-contact{
     position: relative;
@@ -164,7 +164,7 @@
     overflow: hidden;
 }
 
-#club-contact h2{padding: 2%;
+.contacth{padding: 2%;
     background-color: #fff;}
 
-#club-contact p{margin: 1%;}
+.contactp{margin: 1%;}

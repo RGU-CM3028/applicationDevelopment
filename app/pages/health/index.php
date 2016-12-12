@@ -25,33 +25,9 @@ global $db;
 					<img id="foodpyramid" src="../../images/foodpyramid.png" alt="food pyramid" />
 				<p> Lorem ipsum ....... </p>
 			</div>
-			<div id="fb-root"></div>
-				<script>(function(d, s, id) {
-				  var js, fjs = d.getElementsByTagName(s)[0];
-				  if (d.getElementById(id)) return;
-				  js = d.createElement(s); js.id = id;
-				  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8&appId=1673121366290064";
-				  fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));</script>
 			<h1 class="pageTitle"> Last news </h1>
 			<div id="healthContent">
-				<div>
-					<div class="fb-page"
-						data-href="https://www.facebook.com/Sportlethen/?fref=ts"
-						data-tabs="timeline"
-						data-weight="500"
-						data-height="800"
-						data-small-header="true"
-						data-adapt-container-width="false"
-						data-hide-cover="false"
-						data-show-facepile="true">
-						<blockquote
-							cite="https://www.facebook.com/Sportlethen/?fref=ts"
-							class="fb-xfbml-parse-ignore">
-							<a href="https://www.facebook.com/Sportlethen/?fref=ts">Sportlethen CSH</a>
-						</blockquote>
-					</div>
-				</div>
+				
 				<?php
 
 					$sql_query = "SELECT * FROM hwnews ORDER BY HWNewsDate DESC";

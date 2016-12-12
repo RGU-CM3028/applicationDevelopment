@@ -62,6 +62,11 @@ if ($check->execute()){
         $check->close();
     }
 
+if ($username == "") {
+	header("location:index.php?nodata=1");
+    	die();
+}
+
 if ($username == $adminusername) {
 	//safe
 } else {

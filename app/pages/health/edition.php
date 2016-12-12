@@ -2,13 +2,12 @@
 File handling the creation and edition of news
 -->
 
-  <section>
-    <div class='edition'>
 	<?php
 
 		include("../../dbconnect.php");
 		include("../../inc/header.inc");
-
+    echo "<section>
+    <div class='edition'> ";
     if(!(isset($_SESSION['userType']))) {
       header('location:./');
     } else if($_SESSION['userType'] !== 'admin') {

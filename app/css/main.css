@@ -1,7 +1,6 @@
 @import url("clubs.css");
 @import url("health.css");
-@import url("map.css");
-@import url("ideal-image-slider.css");
+/*@import url("ideal-image-slider.css");*/
 @import url("content.css");
     
 * {
@@ -75,7 +74,7 @@ section div{
     top:auto;
     height: auto;
     margin: auto;
-    overflow: hidden
+    overflow: hidden;
 }
 
 footer{
@@ -232,3 +231,6 @@ footer li{color: #ffffff; text-align: left; }
         width: 40vh;
     }
 }/* End of Media Query: Mobile Resolution */
+
+/* imported at the end to increase priority */
+@import url("map.css");

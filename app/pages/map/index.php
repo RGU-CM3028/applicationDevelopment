@@ -8,7 +8,7 @@ include('../../dbconnect.php');
 	<section>
 	<div id="Howmap">
 		<h1> How to use the map </h1>
-		<p> Example explain text.</p>
+		<p> You can scroll to Zoom / Unzoom, click & drag to move, and click on an element to display additionnal informations.</p>
 	</div>
 		
   <div id="map-data" style="display: none;">

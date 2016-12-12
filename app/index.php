@@ -3,7 +3,7 @@
     include("inc/header.inc");
     include("./dbconnect.php");
 ?>
-  <section>
+  <section id="index-content">
 		<div>
             <div id="left-content" class="clearfix">
                 <div id="fb-root"></div>

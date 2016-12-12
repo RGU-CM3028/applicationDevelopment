@@ -100,7 +100,7 @@ if ($usertypeholder = $_SESSION['userType']){
             </select>
             <br>
 
-						<label>If you are setting a user to clubdmin, please select the
+						<label>If you are setting a user to clubadmin, please select the
 							club he will manage </label><br>
 							<select name='clubID'>
 								<option value=''>Select...</option>;

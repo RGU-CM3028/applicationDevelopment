@@ -231,13 +231,13 @@ File handling the creation and edition of clubs
 
 
     <? if(isset($_GET['clubID'])) {
-      echo "<input type='submit' name='submitUpdate' value='Update club'>";
+      echo "<input class='backButton' type='submit' name='submitUpdate' value='Update club'>";
     } else {
-      echo "<input type='submit' name='submitAdd' value='Add club'>";
+      echo "<input class='backButton' type='submit' name='submitAdd' value='Add club'>";
     }
     ?>
 	</div>
-    <a id='backEdition' class='backButton' href='../clubs/'>Back to clubs</a>
+    <a class='backButton' href='../clubs/'>Back to clubs</a>
 	</form>
 </div>
 </section>

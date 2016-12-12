@@ -6,6 +6,11 @@ include('../../dbconnect.php');
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 	<section>
+	<div id="Howmap">
+		<h1> How to use the map </h1>
+		<p> You can scroll to Zoom / Unzoom, click & drag to move, and click on an element to display additionnal informations.</p>
+	</div>
+		
   <div id="map-data" style="display: none;">
     <?php
       //Query the map datask
@@ -138,7 +143,7 @@ include('../../dbconnect.php');
 
 <script>
   //+Create a Leaflet map
-  let map = L.map('map').setView([57.06, -2.169664], 12);
+  let map = L.map('map').setView([57.08, -2.169664], 12);
 
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

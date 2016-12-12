@@ -1,6 +1,12 @@
 .leaflet-popup {
   width: 25%;
 }
+#howmap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;:.
+}
+
 
 #map {
 	overflow: visible !important;

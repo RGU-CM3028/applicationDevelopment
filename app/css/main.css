@@ -75,7 +75,7 @@ section div{
     top:auto;
     height: auto;
     margin: auto;
-    overflow: hidden
+    /*overflow: hidden This break the whole map page */
 }
 
 footer{

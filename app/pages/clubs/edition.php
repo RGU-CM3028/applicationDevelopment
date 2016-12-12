@@ -107,13 +107,27 @@ File handling the creation and edition of clubs
 					}
 				}
 			}
+			if(isset($_POST['newGenre'])) {
+				if($_POST['newGenre'] !== "") {
+					$sql_query = "INSERT INTO clubGenre (pname) VALUES ('"
+					. mysqli_real_escape_string($db, $_POST['newGenre']) . "');";
+					$db->query($sql_query);
+					$clubGenreID = $db->insert_id;
+				}
+			}
+			if(isset($_POST['existingGenre'])) {
+				if($_POST['existingGenre'] != "none") {
+					$clubGenreID = $_POST['existingGenre'];
+				}
+			}
+
 		}
     if(isset($_POST['submitAdd'])) {
       $sql_query = "INSERT INTO Club (clubName, clubDescription, clubGenreID,
         logoID, pname, adress, phone, email) VALUES ('"
       . mysqli_real_escape_string($db, $_POST['clubName']) . "',' "
       . mysqli_real_escape_string($db, $_POST['clubDescription']) . "',' "
-      . mysqli_real_escape_string($db, $_POST['clubGenreID']) . "',
+      . mysqli_real_escape_string($db, $clubGenreID) . "',
         0,' "
       . mysqli_real_escape_string($db, $_POST['pname']) . "',' "
       . mysqli_real_escape_string($db, $_POST['adress']) . "',' "
@@ -121,7 +135,7 @@ File handling the creation and edition of clubs
       . mysqli_real_escape_string($db, $_POST['email']) . "');";
 
 			$clubID = $db->insert_id;
-			
+
       if ($db->query($sql_query) === TRUE) {
 					header("location:clubDetails.php?clubID=".$clubID);
     	} else {
@@ -132,7 +146,7 @@ File handling the creation and edition of clubs
       $sql_query = "UPDATE Club
       SET clubName='".mysqli_real_escape_string($db, $_POST['clubName'])."',
       clubDescription='".mysqli_real_escape_string($db, $_POST['clubDescription'])."',
-      clubGenreID='".mysqli_real_escape_string($db, $_POST['clubGenreID'])."',
+      clubGenreID='".mysqli_real_escape_string($db, $clubGenreID)."',
       pname='".mysqli_real_escape_string($db, $_POST['pname'])."',
       adress='".mysqli_real_escape_string($db, $_POST['adress'])."',
       phone='".mysqli_real_escape_string($db, $_POST['phone'])."',
@@ -151,7 +165,24 @@ File handling the creation and edition of clubs
     <input type="text" name="clubName" value=<?php echo "\"" . $title . "\"";?>><br>
 		Description : <br>
     <textarea name="clubDescription" rows="5" cols="40"><?php echo $description;?></textarea><br>
-    <input type='number' name="clubGenreID" value=<?php echo "\"" . $clubGenreID . "\"";?>><br>
+		<?
+		$sql_query = "SELECT clubGenreID, pname from clubgenre;";
+
+		$result = $db->query($sql_query);
+
+		if(!$result->num_rows <= 0) {
+				echo "<h2>Select a existing genre</h2>";
+				echo "<select name='existingGenre' size=1>";
+				echo "<option value='none'>Select an genre";
+			while ($row = $result->fetch_array()) {
+				echo "<option value=".$row['clubGenreID'].">".$row['pname'];
+			}
+				echo "</select>";
+		}
+		?>
+		<h2> Or create your own </h2>
+		Genre name : <br>
+		<input type="text" name="newGenre" placeholder="ex : sports"><br>
     <br>Contact info<br>
 		Name: <br><input type="text" name="pname" value=<?php echo "\"" . $pname . "\"";?>><br>
 		Address: <br><input type="text" name="adress" value=<?php echo "\"" . $adress . "\"";?>><br>

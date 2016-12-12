@@ -118,7 +118,7 @@ File handling the creation and edition of points, area and path
         $sql_query = "UPDATE Geopath SET
         pathType='".$_POST['type']."',
         pathDescription='".$_POST['description']."',
-        coordinateX='".$_POST['vectors']."'
+        vectors='".$_POST['vectors']."'
          WHERE pathID=".$_GET['id'];
 
         if($db->query($sql_query) === TRUE) {

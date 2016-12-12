@@ -133,10 +133,8 @@ File handling the creation and edition of clubs
       . mysqli_real_escape_string($db, $_POST['phone']) . "',' "
       . mysqli_real_escape_string($db, $_POST['email']) . "');";
 
-			$clubID = $db->insert_id;
-
       if ($db->query($sql_query) === TRUE) {
-					header("location:clubDetails.php?clubID=".$clubID);
+					header("location:./index.php");
     	} else {
     	    echo "Error: " . $sql_query . "<br>" . $db->error;
     	}

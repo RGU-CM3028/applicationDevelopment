@@ -2,9 +2,10 @@
 		include("../../dbconnect.php");
 		include("../../inc/header.inc");
 
+
     if(!(isset($_SESSION['userType']))) {
       header('location:../clubs/');
-    } else if($_SESSION['userType'] !== 'clubAdmin' ||
+    } else if($_SESSION['userType'] !== 'clubAdmin' &&
     $_SESSION['userType'] !== 'admin') {
         header('location:../clubs');
     }

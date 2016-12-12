@@ -1,0 +1,59 @@
+.edition {
+    width: 60%;
+    margin: auto;
+    -webkit-box-shadow: 0px 16px 43px -13px rgba(0,0,0,0.29);
+    -moz-box-shadow: 0px 16px 43px -13px rgba(0,0,0,0.29);
+    box-shadow: 0px 16px 43px -13px rgba(0,0,0,0.29);
+}
+
+.editTitle {
+    text-align: center;
+    font-size: 2em;
+    background-color: #3fff2f;
+    padding: 1em;
+}
+
+.editSubTitle {
+  text-align: center;
+  font-size: 1.5em;
+  background-color: #81e279;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.edition p {
+  text-align: center;
+}
+
+.editContent input, .edition textarea {
+  width: 60%;
+  vertical-align: center;
+  text-align: center;
+}
+
+.editContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.editGenre {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.editGenreContent {
+  margin: 1em;
+  text-align: center;
+}
+
+#editMedia {
+  margin: 1em;
+  text-align: justify;
+}
+
+#backEdition {
+  margin-top: 2em;
+}

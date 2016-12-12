@@ -5,6 +5,8 @@ File handling the creation and edition of clubs
     include("../../inc/header.inc");
 		include("../../dbconnect.php");
 
+		echo "	<section>
+			<div class='edition'>";
 		$sql_query="SELECT clubID from junctionuserclub
 		where username='" . $_SESSION['username'] ."'";
 		$result = $db->query($sql_query);
@@ -25,7 +27,7 @@ File handling the creation and edition of clubs
 		//If we are editing instead of creating a new
     // if clubID is setted, we update
 		if(isset($_GET['clubID'])){
-      echo "<h1> Update your club </h1>";
+      echo "<h1 class='editTitle'> Update your club </h1>";
 			$sql_query = "SELECT clubName, clubDescription, clubGenreID, pname, adress, phone, email FROM club WHERE clubID = " . $_GET['clubID']; // Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
 			$queryResult = $db->query($sql_query);
 
@@ -39,7 +41,7 @@ File handling the creation and edition of clubs
   				$email = $row['email'];
         }
     } else {
-      echo "<h1> Create a new club </h1>";
+      echo "<h1 class='editTitle'> Create a new club </h1>";
       //Initialise the fields
       $title = "";
       $description = "";
@@ -157,51 +159,65 @@ File handling the creation and edition of clubs
       }
 		}
 	?>
+
 	<form action="" method="POST">
-		Title : <br>
+		<h2 class='editSubTitle'>General details</h2>
+		<div class='editContent'>
+		<p>Title</p>
     <input type="text" name="clubName" value=<?php echo "\"" . $title . "\"";?>><br>
-		Description : <br>
+		<p>Description</p>
     <textarea name="clubDescription" rows="5" cols="40"><?php echo $description;?></textarea><br>
+		<div class='editContent'>
 		<?
 		$sql_query = "SELECT clubGenreID, pname from clubgenre;";
 
 		$result = $db->query($sql_query);
 
 		if(!$result->num_rows <= 0) {
-				echo "<h2>Select a existing genre</h2>";
+				echo "<div class='editGenreContent'><p>Select a existing genre  </p>";
 				echo "<select name='existingGenre' size=1>";
 				echo "<option value='none'>Select an genre";
 			while ($row = $result->fetch_array()) {
 				echo "<option value=".$row['clubGenreID'].">".$row['pname'];
 			}
-				echo "</select>";
+				echo "</select></div>";
 		}
 		?>
-		<h2> Or create your own </h2>
-		Genre name : <br>
-		<input type="text" name="newGenre" placeholder="ex : sports"><br>
-    <br>Contact info<br>
-		Name: <br><input type="text" name="pname" value=<?php echo "\"" . $pname . "\"";?>><br>
-		Address: <br><input type="text" name="adress" value=<?php echo "\"" . $adress . "\"";?>><br>
-		Phone: <br><input type="tel" name="phone" value=<?php echo "\"" . $phone . "\"";?>><br>
-		Email: <br><input type="email" name="email" value=<?php echo "\"" . $email . "\"";?>><br>
-
-		<h1> Want to add a media ? </h1>
-		<p> First, upload your picture on a website (like imgur for example),
+		<div class='editGenreContent'>
+			<p> Or create your own </p>
+			<input type="text" name="newGenre" placeholder="ex : sports"><br>
+		</div>
+	</div>
+	</div>
+		<h2 class='editSubTitle'>Contact information</h2>
+		<div class='editContent'>
+			<p>Name</p>
+			<input type="text" name="pname" value=<?php echo "\"" . $pname . "\"";?>><br>
+			<p>Address</p>
+			<input type="text" name="adress" value=<?php echo "\"" . $adress . "\"";?>><br>
+			<p>Phone</p>
+			<input type="tel" name="phone" value=<?php echo "\"" . $phone . "\"";?>><br>
+			<p>Email</p>
+			<input type="email" name="email" value=<?php echo "\"" . $email . "\"";?>><br>
+	</div>
+		<h2 class='editSubTitle'> Want to add a media ? </h2>
+		<div class='editContent'>
+		<p id='editMedia'> First, upload your picture on a website (like imgur for example),
 			and then copy the link to your image on the "Image link" field. </p>
-			Image name : <br>
+			<p>Image name</p>
 			<input type="text" name="mediaDesc" placeholder="My image"><br>
-			Image link : <br>
+			<p>Image link</p>
 			<input type="text" name="mediaLink"	placeholder="www.myimage.com"><br>
-
-		<h1> Want to add an event ? </h1>
+		</div>
+		<h2 class='editSubTitle'> Want to add an event ? </h2>
+		<div class='editContent'>
       <?
       $sql_query = "SELECT eventName, eventID from clubevent;";
 
       $result = $db->query($sql_query);
 
       if(!$result->num_rows <= 0) {
-          echo "<h2>Susribe to an existing event</h2>";
+          echo "<p>Susribe to an existing event</p>";
           echo "<select name='existingEvent' size=1>";
           echo "<option value='none'>Select an event";
         while ($row = $result->fetch_array()) {
@@ -220,8 +236,11 @@ File handling the creation and edition of clubs
       echo "<input type='submit' name='submitAdd' value='Add club'>";
     }
     ?>
-    <a href='../clubs/'>Back to clubs</a>
+	</div>
+    <a id='backEdition' class='backButton' href='../clubs/'>Back to clubs</a>
 	</form>
+</div>
+</section>
 
   <?
     include("../../inc/footer.inc");

@@ -227,7 +227,7 @@ File handling the creation and edition of clubs
       }
       ?>
       <br>
-		<a href="../event?clubID=<?echo $_GET['clubID']?>"> Create your own event </a>
+		<a class='backButton' href="../event?clubID=<?echo $_GET['clubID']?>"> Create your own event </a>
 
 
     <? if(isset($_GET['clubID'])) {

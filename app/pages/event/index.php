@@ -2,6 +2,8 @@
 		include("../../dbconnect.php");
 		include("../../inc/header.inc");
 
+		echo "<section>
+		<div class='edition'>";
 
     if(!(isset($_SESSION['userType']))) {
       header('location:../clubs/');
@@ -12,7 +14,7 @@
 		//If we are editing instead of creating a new
     // if eventID is setted, we update
 		if(isset($_GET['eventID'])){
-      echo "<h1> Update your event </h1>";
+      echo "<h1 class='editTitle'> Update your event </h1>";
 			$sql_query = "SELECT *
       FROM clubevent ce, clubeventassociation a
       WHERE eventID = " . $_GET['eventID']; // Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
@@ -25,7 +27,7 @@
   				$localisation = $row['localisation'];
         }
     } else {
-      echo "<h1> Create a new event </h1>";
+      echo "<h1 class='editTitle'> Create a new event </h1>";
       //Initialise the fields
         $eventName = "";
         $pdate = "";
@@ -90,24 +92,28 @@
     }
 
 	?>
+
 	<form action="" method="POST">
-    Event name : <br>
+			<div class='editContent'><br>
+    <p>Event name</p>
     <input type="text" name="eventName" value=<?php echo "\"" . $eventName . "\"";?>><br>
-		Date : <br>
+		<p>Date</p>
     <input type="date" name="pdate" value=<?php echo "\"" . $pdate . "\"";?>><br>
-		Description : <br>
+		<p>Description</p>
     <textarea name="pdescription" rows="5" cols="40"><?php echo $description;?></textarea><br>
-    Localisation : <br>
+    <p>Localisation</p>
     <textarea name="localisation" rows="5" cols="40"><?php echo $localisation;?></textarea><br>
     <? if(isset($_GET['eventID'])) {
-      echo "<input type='submit' name='submitUpdate' value='Update event'>";
+      echo "<input class='backButton' type='submit' name='submitUpdate' value='Update event'>";
     } else {
-      echo "<input type='submit' name='submitAdd' value='Add event'>";
+      echo "<input class='backButton' type='submit' name='submitAdd' value='Add event'>";
     }
     ?>
-		<a href='../clubs/'>Back to clubs</a>
+		<a class='backButton' href='../clubs/'>Back to clubs</a>
+	</div>
 	</form>
-</body>
+</div>
+</section>
 
 <?
 include('../../inc/footer.inc');

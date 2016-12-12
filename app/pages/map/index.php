@@ -71,7 +71,7 @@ include('../../dbconnect.php');
         //Create the edition box for the points
         echo '<form action="edition.php" method="GET">';
         echo '<input type="submit" name="point" value="Add a point to the map" />';
-        echo '<form>';
+        echo '</form>';
 
         echo '<form action="edition.php" method="GET">
               Select a point <select name="id" required>';
@@ -92,7 +92,7 @@ include('../../dbconnect.php');
         //Create the edition box for the paths
         echo '<form action="edition.php" method="GET">';
         echo '<input type="submit" name="path" value="Add a path to the map" />';
-        echo '<form>';
+        echo '</form>';
 
         echo '<form action="edition.php" method="GET">
               Select a path<select name="id" required>';
@@ -113,7 +113,7 @@ include('../../dbconnect.php');
         //Create the edition box for the areas
         echo '<form action="edition.php?area" method="GET">';
         echo '<input type="submit" name="area" value="Add an Area to the map" />';
-        echo '<form>';
+        echo '</form>';
 
         echo '<form action="edition.php?area" method="GET">
               Select an area <select name="id" required>';

@@ -132,10 +132,11 @@ elseif($adminchoice == "usertype") {
     		die();
 	}
 }
-
 //This takes the user back to the control panel with an error message
 elseif($adminchoice == "") {
 	header("location:index.php?select=1");
     	die();
+}elseif(isset($adminchoice)) {
+	header("location:index.php?Fail=1");
 }
 ?>

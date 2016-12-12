@@ -69,7 +69,7 @@
 /* Start of index content */
 #left-content{
     box-sizing: border-box;
-    width: 40%;
+    width: 50%;
     float: left;
     left: 10%;
     padding: 1%;
@@ -78,7 +78,7 @@
 
 #right-content{
     box-sizing: border-box;
-    width: 40%;
+    width: 20%;
     float: right;
     right: 10%;
     padding: 1%;

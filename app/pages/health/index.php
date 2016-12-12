@@ -21,9 +21,9 @@ global $db;
 			?>
 			<div id="healthTips">
 				<h1> Health and Wellbeing tips </h1>
-				<p> Lorem ipsum......... </p>
+				<p> Be sure to eat your 5-day.</p>
 					<img id="foodpyramid" src="../../images/foodpyramid.png" alt="food pyramid" />
-				<p> Lorem ipsum ....... </p>
+				<p> Healthy food keep the pyramid standing. </p>
 			</div>
 			<h1 class="pageTitle"> Last news </h1>
 			<div id="healthContent">

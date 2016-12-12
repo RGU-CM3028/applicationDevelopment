@@ -74,6 +74,7 @@
     left: 10%;
     padding: 1%;
     line-height: 2rem;
+    overflow: hidden;
 }
 
 #right-content{
@@ -83,6 +84,7 @@
     right: 10%;
     padding: 1%;
     line-height: 2rem;
+    overflow: hidden;
 }
 
 .home-images{

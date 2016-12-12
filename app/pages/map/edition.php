@@ -169,9 +169,9 @@ File handling the creation and edition of points, area and path
 
     //changes if we are updating or adding a new value
     if(isset($_GET['id'])) {
-      echo "<input type='submit' name='submitUpdate' value='Update club'>";
+      echo "<input type='submit' name='submitUpdate' value='Update element'>";
     } else {
-      echo "<input type='submit' name='submitAdd' value='Add club'>";
+      echo "<input type='submit' name='submitAdd' value='Add element'>";
     }
     ?>
     <a href='./'>Back to the map</a>

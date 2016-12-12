@@ -121,7 +121,7 @@ include('../../dbconnect.php');
             echo "<option value=\"". $row["areaID"] . "\">\"". $row["areaType"] . "\"</option>";
           }
         echo "</select>";
-        echo '<input type="hidden" name="path">';
+        echo '<input type="hidden" name="area">';
         echo '<input type="submit" name="edit" value="Edit" />';
         echo '<input type="submit" name="delete" value="Delete" /> </form>';
 

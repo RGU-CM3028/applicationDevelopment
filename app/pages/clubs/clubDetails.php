@@ -53,9 +53,9 @@ if(!$result->num_rows <= 0) {
     }
 }
 
-echo "<section>";
+echo "<section> <div id='clubs' class='clearfix'>";
   if(isset($medias)) {
-    echo "<div id='clubs' class='clearfix'><div id='slider'>";
+    echo "<div id='slider'>";
   foreach($medias as $media) {
     echo "<img class='mySlides' alt='" . $media[0] . "' src='". $media[1] ."'>";
   }

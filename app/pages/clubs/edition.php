@@ -43,7 +43,6 @@ File handling the creation and edition of clubs
       //Initialise the fields
       $title = "";
       $description = "";
-      $clubGenreID = "";
       $media = "";
       $pname = "";
       $adress = "";

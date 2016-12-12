@@ -5,7 +5,7 @@
 ?>
   <section>
 		<div>
-            <div id="left-content">
+            <div id="left-content" class="clearfix">
                 <div id="fb-root"></div>
                 <script>(function(d, s, id) {
                         var js, fjs = d.getElementsByTagName(s)[0];
@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div id="right-content">
+            <div id="right-content" class="clearfix">
                 <span>Welcome to GoPortlethen. We are a collection of local and progressive sports clubs who are working together to develop safe and fun sport and fitness activities in the Portlethen area. We work with Sportscotland and the Aberdeen Council to develop our clubs. Our website is a single access point to find out more about the fantastic sporting opportunities in our area.</span>
                 <br>
                 <div class="home-images">

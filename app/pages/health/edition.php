@@ -2,6 +2,8 @@
 File handling the creation and edition of news
 -->
 
+  <section>
+    <div class='edition'>
 	<?php
 
 		include("../../dbconnect.php");
@@ -56,8 +58,6 @@ File handling the creation and edition of news
           }
       }
 	?>
-  <section>
-    <div class='edition'>
     	<form action="" method="POST">
         <div class='editContent'>
       		Title : <br>

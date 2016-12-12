@@ -70,7 +70,7 @@
 #left-content{
     position: relative;
     float: left;
-    left:0%;
+    left:15%;
     top: 0%;
     width: 30%;
     height: auto;
@@ -79,7 +79,7 @@
 #right-content{
     position: relative;
     float: right;
-    right:0%;
+    right:20%;
     top: 0%;
     width: 30%;
     height: auto;
@@ -87,15 +87,11 @@
 
 .home-images{
     position: relative;
-    right:0%;
-    top: 10%;
+    margin-top: 5%;
 }
 
 #right-content span{
     position: relative;
-    right:0%;
-    top: 0%;
-    width: 30%;
-    height: 10%;
+    text-align: left;
     padding: 1%;
 }/* End of index content */

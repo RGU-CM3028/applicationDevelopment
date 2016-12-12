@@ -2,7 +2,7 @@
 @import url("health.css");
 /*@import url("ideal-image-slider.css");*/
 @import url("content.css");
-    
+
 * {
     margin: 0%;
     padding: 0%;
@@ -57,6 +57,9 @@ header{
     width: 30%;
 }
 
+.deleteImage {
+  width: 2.5em;
+}
 nav{
     position: relative;
     left: 4%;
@@ -160,7 +163,7 @@ footer li{color: #ffffff; text-align: left; }
 
 /* Start of Media Query: Mobile Resolution */
 @media only screen and (max-width: 800px) {
-    
+
     /* Start of Mobile Navigation */
     nav{display: none;}
     .navtxt{text-align: center; padding: 1vh; float: right;}

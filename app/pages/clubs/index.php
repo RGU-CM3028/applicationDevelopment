@@ -111,8 +111,7 @@
                   <a href='./edition.php?clubID=". $row['clubID']."'><img src='../../images/edit.svg' alt='edit'/>
                   </a></td>
                   <td>
-                  <form>
-                  <a href='./delete.php?clubID=". $row['clubID']."'><img src='../../images/delete.svg' alt='delete'/>
+                  <a class='deleteImage' href='./delete.php?clubID=". $row['clubID']."'><img src='../../images/delete.svg' alt='delete'/>
                   </a></td>
                   </tr>";
                 }

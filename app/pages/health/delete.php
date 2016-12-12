@@ -1,0 +1,13 @@
+<?
+
+include('../../dbconnect.php');
+global $db;
+$sql_query="delete from HWNews
+where HWNewsID=" . $_GET['HWNewsID'];
+if($db->query($sql_query) === TRUE) {
+  header('location:./index.php');
+} else {
+    echo "Error: " . $sql_query . "<br>" . $db->error;
+}
+
+?>

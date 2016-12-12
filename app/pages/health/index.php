@@ -68,7 +68,10 @@ global $db;
                && ($_SESSION['userType'] == "admin")) {
                  echo "<a href='./edition.php?HWNewsID=". $row['HWNewsID']."'>
 								 				<img src='../../images/edit.svg' alt='edit'/>
-              				</a>";
+              				</a>
+		                  <a href='./delete.php?HWNewsID=". $row['HWNewsID']."'>
+												<img class='deleteImage' src='../../images/delete.svg' alt='delete'/>
+		                  </a>"											;
             	}
 							echo "</div><p class='newsDate'> " . $row['HWNewsDate'] . "</p>
 									<p class='newsText'> " . $row['HWNewsText'] . "</p>

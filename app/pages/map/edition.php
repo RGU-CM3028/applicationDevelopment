@@ -6,6 +6,8 @@ File handling the creation and edition of points, area and path
 		include("../../dbconnect.php");
     include("../../inc/header.inc");
 
+
+
     if(!(isset($_SESSION['userType']))) {
       header('location:./');
     } else if($_SESSION['userType'] !== 'NKAPG' &&
@@ -13,7 +15,9 @@ File handling the creation and edition of points, area and path
         header('location:./');
     }
 
-		//If we are editing instead of creating a new
+      
+
+		//If we are editing/Deleting instead of creating a new
     // if id is set, we are updating
 		if(isset($_GET['id'])){
       //Updating
@@ -21,35 +25,65 @@ File handling the creation and edition of points, area and path
       echo "<h1> Update the element </h1>";
 
       if(isset($_GET['point'])){
-  			$sql = "SELECT pointID, pointType, pointDescription, coordinateX, coordinateY FROM GeoPoint WHERE pointID = " . $_GET['id'];
-        $points = $db->query($sql);
+        if(isset($_GET['delete'])){
+          $sql_query="delete from GeoPoint
+          where pointID=" . $_GET['id'];
+          if($db->query($sql_query) === TRUE) {
+            header('location:./index.php');
+          } else {
+              echo "Error: " . $sql_query . "<br>" . $db->error;
+          }
+        } else {
+    			$sql = "SELECT pointID, pointType, pointDescription, coordinateX, coordinateY FROM GeoPoint WHERE pointID = " . $_GET['id'];
+          $points = $db->query($sql);
 
-        while ($row = $points->fetch_array()) {
-          $id = $_GET['id'];
-  				$type = $row['pointType'];
-  				$description = $row['pointDescription'];
-  				$coordinateX = $row['coordinateX'];
-  				$coordinateY = $row['coordinateY'];
+          while ($row = $points->fetch_array()) {
+            $id = $_GET['id'];
+    				$type = $row['pointType'];
+    				$description = $row['pointDescription'];
+    				$coordinateX = $row['coordinateX'];
+    				$coordinateY = $row['coordinateY'];
+          }
         }
       } elseif (isset($_GET['path'])) {
-        $sql = "SELECT pathID, pathType, pathDescription, vectors FROM Geopath WHERE pathID = " . $_GET['id'];
-        $paths = $db->query($sql);
+        if(isset($_GET['delete'])){
+          $sql_query="delete from GeoPath
+          where pathID=" . $_GET['id'];
+          if($db->query($sql_query) === TRUE) {
+            header('location:./index.php');
+          } else {
+              echo "Error: " . $sql_query . "<br>" . $db->error;
+          }
+        } else {
+          $sql = "SELECT pathID, pathType, pathDescription, vectors FROM Geopath WHERE pathID = " . $_GET['id'];
+          $paths = $db->query($sql);
 
-        while ($row = $paths->fetch_array()) {
-          $id = $_GET['id'];
-          $type = $row['pathType'];
-          $description = $row['pathDescription'];
-          $vectors = $row['vectors'];
+          while ($row = $paths->fetch_array()) {
+            $id = $_GET['id'];
+            $type = $row['pathType'];
+            $description = $row['pathDescription'];
+            $vectors = $row['vectors'];
+          }
         }
       } elseif (isset($_GET['area'])) {
-        $sql = "SELECT areaID, areaType, areaDescription, vectors FROM Geoarea WHERE areaID = " . $_GET['id'];
-        $areas = $db->query($sql);
+        if(isset($_GET['delete'])){
+          $sql_query="delete from GeoArea
+          where areaID=" . $_GET['id'];
+          if($db->query($sql_query) === TRUE) {
+            header('location:./index.php');
+          } else {
+              echo "Error: " . $sql_query . "<br>" . $db->error;
+          }
+        } else {
+          $sql = "SELECT areaID, areaType, areaDescription, vectors FROM Geoarea WHERE areaID = " . $_GET['id'];
+          $areas = $db->query($sql);
 
-        while ($row = $areas->fetch_array()) {
-          $id = $_GET['id'];
-          $type = $row['areaType'];
-          $description = $row['areaDescription'];
-          $vectors = $row['vectors'];
+          while ($row = $areas->fetch_array()) {
+            $id = $_GET['id'];
+            $type = $row['areaType'];
+            $description = $row['areaDescription'];
+            $vectors = $row['vectors'];
+          }
         }
       }
     } else {

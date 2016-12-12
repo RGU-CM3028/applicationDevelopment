@@ -95,3 +95,39 @@
     text-align: left;
     padding: 1%;
 }/* End of index content */
+
+/* Start of Clubs content */
+.clubs{
+    position: relative;
+
+}
+
+.clubTitle{
+    position: relative;
+    float: left;
+    top: 0%;
+    left: 0%;
+    background-color: #3fff2f;
+    width: 10%;
+    padding: 1%; 
+}
+
+.clubGenre{
+    position: relative;
+    top: 0%;
+    left: 13%;
+    background-color: #81e279;
+    width: 20%;
+    padding: 1%;
+}
+
+.clubDesc{
+    position: relative;
+    position: relative;
+    float: left;
+    top: 0%;
+    left: 0%;
+    width: 30%;
+    padding: 1%;
+}
+/* End of Clubs content */

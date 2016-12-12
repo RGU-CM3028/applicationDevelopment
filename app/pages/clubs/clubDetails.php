@@ -77,10 +77,10 @@ echo "<section>";
       </script>
       </div>';
   }
-    echo "<div>
-      <h1>" . $clubName . "<h1>
-        <p>" . $clubGenre . "</p>
-        <p>" . $clubDescription . "</p>";
+    echo "<div class='clubs'>
+      <h1 class='clubTitle'>" . $clubName . "<h1>
+        <h3 class='clubGenre'>" . $clubGenre . "</h3>
+        <p class='clubDesc'>" . $clubDescription . "</p>";
   if($pname != "" || $adress != "" || $phone != "" || $email != "") {
     echo "<h2> Contact infos </h2>";
     if($pname != "") {

@@ -69,18 +69,18 @@
 /* Start of index content */
 #left-content{
     box-sizing: border-box;
-    width: 30%;
+    width: 40%;
     float: left;
-    left: 20%;
+    left: 10%;
     padding: 1%;
     line-height: 2rem;
 }
 
 #right-content{
     box-sizing: border-box;
-    width: 30%;
+    width: 40%;
     float: right;
-    right: 20%;
+    right: 10%;
     padding: 1%;
     line-height: 2rem;
 }

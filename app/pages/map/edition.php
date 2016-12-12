@@ -24,7 +24,7 @@ File handling the creation and edition of points, area and path
 	if(isset($_GET['id'])){
     //Updating
     //Fill as the form values with the actual ones
-    echo "<h1> Update the element </h1> <br>";
+    echo "<h1 class='editTitle'> Update the element </h1> <br>";
 
     if(isset($_GET['point'])){
       if(isset($_GET['delete'])){
@@ -91,7 +91,7 @@ File handling the creation and edition of points, area and path
   } else {
     //New element
     //Initialise the fields
-    echo "<h1> Create a new element </h1> <br>";
+    echo "<h1 class='editTitle'> Create a new element </h1> <br>";
     $id = "";
     $type = "";
     $description = "";
@@ -178,42 +178,43 @@ File handling the creation and edition of points, area and path
   }
 ?>
 
-<form action="" method="POST">
-  <div class='editContent'>
-		Name of the element <br>
-    <input type="text" name="type" value=<?php echo "\"" . $type . "\"";?>><br>
-		Description : (accepts html)<br>
-    <textarea name="description" rows="5" cols="40"><?php echo $description;?></textarea><br>
+  <form action="" method="POST">
+    <div class='editContent'>
+  		Name of the element <br>
+      <input type="text" name="type" value=<?php echo "\"" . $type . "\"";?>><br>
+  		Description : (accepts html)<br>
+      <textarea name="description" rows="5" cols="40"><?php echo $description;?></textarea><br>
 
-    <?
-    //Addapt the form for the point, area of path
-    if(isset($_GET['point'])){
-      echo '<input type="hidden" name="point">';
-      echo "CoordinateX <br>
-          <input type='number' step='0.01' name='coordinateX' value= '" . $coordinateX . "'><br>
-          CoordinateY <br>
-          <input type='number' step='0.01' name='coordinateY' value='" . $coordinateY . "'><br>";
-    } elseif(isset($_GET['path']) or isset($_GET['area'])){
-      echo "Coordinates : (pointA_X,pointA_Y,pointB_X,pointB_Y,...) <br>
-          <input type='text' name='vectors' value= '" . $vectors . "'><br>";
-      if(isset($_GET['path'])){
-        echo '<input type="hidden" name="path"';
-      } else {
-        echo '<input type="hidden" name="area"';
+      <?
+      //Addapt the form for the point, area of path
+      if(isset($_GET['point'])){
+        echo '<input type="hidden" name="point">';
+        echo "CoordinateX <br>
+            <input type='number' step='0.01' name='coordinateX' value= '" . $coordinateX . "'><br>
+            CoordinateY <br>
+            <input type='number' step='0.01' name='coordinateY' value='" . $coordinateY . "'><br>";
+      } elseif(isset($_GET['path']) or isset($_GET['area'])){
+        echo "Coordinates : (pointA_X,pointA_Y,pointB_X,pointB_Y,...) <br>
+            <input type='text' name='vectors' value= '" . $vectors . "'><br>";
+        if(isset($_GET['path'])){
+          echo '<input type="hidden" name="path"';
+        } else {
+          echo '<input type="hidden" name="area"';
+        }
       }
-    }
-      echo '<input type="hidden" name="id" value="' . $_GET['id'] . '">';
+        echo '<input type="hidden" name="id" value="' . $_GET['id'] . '">';
 
-    //changes if we are updating or adding a new value
-    if(isset($_GET['id'])) {
-      echo "<input class='backButton' type='submit' name='submitUpdate' value='Update element'>";
-    } else {
-      echo "<input class='backButton' type='submit' name='submitAdd' value='Add element'>";
-    }
-    ?>
-    <a class='backButton' href='./'>Back to the map</a>
-  </div>
-</form>
+      //changes if we are updating or adding a new value
+      if(isset($_GET['id'])) {
+        echo "<input class='backButton' type='submit' name='submitUpdate' value='Update element'>";
+      } else {
+        echo "<input class='backButton' type='submit' name='submitAdd' value='Add element'>";
+      }
+      ?>
+      <a class='backButton' href='./'>Back to the map</a>
+    </div>
+  </form>
+</section>
 
 <?
 include('../../inc/footer.inc');

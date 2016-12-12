@@ -143,7 +143,7 @@ include('../../dbconnect.php');
 
 <script>
   //+Create a Leaflet map
-  let map = L.map('map').setView([57.06, -2.169664], 12);
+  let map = L.map('map').setView([57.08, -2.169664], 12);
 
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

@@ -24,11 +24,11 @@ $result = $db->query($query);
 while ($row = $result->fetch_array()) {
     $clubName = $row['clubName'];
     $clubDescription = $row['clubDescription'];
-    $clubGenreID = $row{'clubGenreID'};
-    $pname = $row{'pname'};
-    $adress = $row{'adress'};
-    $phone = $row{'phone'};
-    $email = $row{'email'};
+    $clubGenreID = $row['clubGenreID'];
+    $pname = $row['pname'];
+    $adress = $row['adress'];
+    $phone = $row['phone'];
+    $email = $row['email'];
 }
 
 $query = "SELECT pname

@@ -66,7 +66,7 @@
 				<?php
 				function showAllClubs() {
 				  global $db;
-          
+
           $sql_query="SELECT clubID from junctionuserclub
           where username='" . $_SESSION['username'] ."'";
           $result = $db->query($sql_query);
@@ -89,7 +89,8 @@
             if(isset($_SESSION['userType'])
              && (($_SESSION['userType'] == "clubAdmin")
              || ($_SESSION['userType'] == "admin"))) {
-              echo "<th> Edit </th>";
+              echo "<th> Edit </th>
+                    <th> Delete </th>";
             }
             echo "</tr>";
 
@@ -108,6 +109,10 @@
                   <td>
                   <form>
                   <a href='./edition.php?clubID=". $row['clubID']."'><img src='../../images/edit.svg' alt='edit'/>
+                  </a></td>
+                  <td>
+                  <form>
+                  <a href='./delete.php?clubID=". $row['clubID']."'><img src='../../images/delete.svg' alt='delete'/>
                   </a></td>
                   </tr>";
                 }

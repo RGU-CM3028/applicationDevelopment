@@ -1,3 +1,8 @@
 .leaflet-popup {
   width: 25%;
 }
+
+#map {
+	overflow: visible !important;
+	height: 70vh;
+}

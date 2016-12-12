@@ -91,18 +91,17 @@ if($adminchoice == "delete"){
 	header("location:index.php?delete=1");
     	die();
 }
-
 //This is the code that updates the user with the info the admin selected.
 elseif($adminchoice == "usertype") {
 	if ($adminuserchoice == "reader"
 	|| $adminuserchoice == "admin"
 	|| $adminuserchoice == "NKPAG"){
 		$stmt = $db->prepare("UPDATE users SET userType=? WHERE username=?");
-  	$stmt->bind_param("ss", $adminuserchoice, $username);
-  	$stmt->execute();
-  	$stmt->close();
+  		$stmt->bind_param("ss", $adminuserchoice, $username);
+  		$stmt->execute();
+  		$stmt->close();
 		header("location:index.php?update=1");
-    die();
+    		die();
 	} else if($adminuserchoice == "clubAdmin") {
 		if(isset($_POST['clubID'])) {
 			$query = "INSERT INTO JunctionUserClub
@@ -117,18 +116,20 @@ elseif($adminchoice == "usertype") {
 					echo "Error: " . $query . "<br>" . $db->error;
 			}
 
-			$stmt = $db->prepare("UPDATE users SET userType=? WHERE username=?");
+		$stmt = $db->prepare("UPDATE users SET userType=? WHERE username=?");
 	  	$stmt->bind_param("ss", $adminuserchoice, $username);
 	  	$stmt->execute();
 	  	$stmt->close();
-
-			header("location:index.php?update=1");
-			die();
-			//First we have to test if row is already existing
+		header("location:index.php?update=1");
+		die();
+		//First we have to test if row is already existing
 		} else {
 			header("location:index.php?select=1");
-    	die();
+    			die();
 		}
+	} else {
+		header("location:index.php?select=1");
+    		die();
 	}
 }
 

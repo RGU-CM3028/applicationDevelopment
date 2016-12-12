@@ -7,7 +7,7 @@ File handling the creation and edition of news
 		include("../../dbconnect.php");
 		include("../../inc/header.inc");
     echo "<section>
-    <div class='edition'> ";
+    <div class='edition'>";
     if(!(isset($_SESSION['userType']))) {
       header('location:./');
     } else if($_SESSION['userType'] !== 'admin') {
@@ -16,7 +16,7 @@ File handling the creation and edition of news
 		//If we are editing instead of creating a new
     // if HWNewsID setted, we update
 		if(isset($_GET['HWNewsID'])){
-      echo "<h1 class='editTitle'> Update your news </h1>";
+      echo "<h1 class='editTitle'> Update your news </h1> <br>";
 			$sql_query = "SELECT HWNewsName, HWNewsText FROM hwnews WHERE HWNewsID = " . $_GET['HWNewsID'];
 			// Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
 			$queryResult = $db->query($sql_query);

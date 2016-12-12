@@ -82,20 +82,20 @@ echo "<section>";
         <h3 class='clubGenre'>" . $clubGenre . "</h3>
         <p class='clubDesc'>" . $clubDescription . "</p>";
   if($pname != "" || $adress != "" || $phone != "" || $email != "") {
-    echo "<div id='club-contact' class='clearfix'><h2> Contact infos </h2>";
+      echo "<div id='club-contact' class='clearfix'><h2 class='contacth'> Contact infos </h2>";
     if($pname != "") {
-      echo "<p>You can contact " . $pname ." for further information. </p>";
+        echo "<p class='contactp'>You can contact " . $pname ." for further information. </p>";
     } else {
-      echo "<p>You can contact us for further information. </p>";
+        echo "<p class='contactp'>You can contact us for further information. </p>";
     }
     if($adress != "") {
-      echo "<p>Club adress : ".$adress."</p>";
+        echo "<p class='contactp'>Club adress : ".$adress."</p>";
     }
     if($email != "") {
-      echo "<p>Email : ".$email."</p>";
+        echo "<p class='contactp'>Email : ".$email."</p>";
     }
     if($phone != "") {
-      echo "<p>Phone : ".$phone."</p></div>";
+        echo "<p class='contactp'>Phone : ".$phone."</p></div>";
     }
   }
 
@@ -108,11 +108,11 @@ $result = $db->query($sql_query);
 if(!$result->num_rows <= 0) {
     echo "<div id='events' class='clearfix'>";
   while ($row = $result->fetch_array()) {
-      echo "<h2> Events we are participating in</h2>
-        <p> ".$row['eventName'] . "</p>
-        <p> ".$row['pdate']." </p>
-        <p> " .$row['localisation'] ."
-        <p> ".$row['pdescription'] ."</p>
+      echo "<h2 class='eventh'> Events we are participating in</h2>
+        <p class='eventp'> ".$row['eventName'] . "</p>
+        <p class='eventp'> ".$row['pdate']." </p>
+        <p class='eventp'> " .$row['localisation'] ."
+        <p class='eventp'> ".$row['pdescription'] ."</p>
         </div>";
     }
 }

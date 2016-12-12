@@ -86,7 +86,7 @@ include('../../dbconnect.php');
 
         //---- Path
         //Query all the paths from the DB
-        $sql = "SELECT pathID, pathType, pathDescription, vectors FROM Geopath";
+        $sql = "SELECT pathID, pathType, xmlrpc_parse_method_descriptions(xml)cription, vectors FROM Geopath";
         $paths = $db->query($sql);
 
         //Create the edition box for the paths

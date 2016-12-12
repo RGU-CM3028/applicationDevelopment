@@ -15,7 +15,7 @@ File handling the creation and edition of news
 		//If we are editing instead of creating a new
     // if HWNewsID setted, we update
 		if(isset($_GET['HWNewsID'])){
-      echo "<h1> Update your news </h1>";
+      echo "<h1 class='editTitle'> Update your news </h1>";
 			$sql_query = "SELECT HWNewsName, HWNewsText FROM hwnews WHERE HWNewsID = " . $_GET['HWNewsID'];
 			// Most insecure line ever, will patch if we have additionnal time after site finished. Paradise for sql injection.
 			$queryResult = $db->query($sql_query);
@@ -24,7 +24,7 @@ File handling the creation and edition of news
 				$description = $row['HWNewsText'];
       }
     } else {
-      echo "<h1> Create a news </h1>";
+      echo "<h1 class='editTitle'> Create a news </h1>";
       //Initialise the fields
       $title = "";
       $description = "";
@@ -56,20 +56,24 @@ File handling the creation and edition of news
           }
       }
 	?>
-	<form action="" method="POST">
-		Title : <br>
-    <input type="text" name="HWNewsName" value=<?php echo "\"" . $title . "\"";?>><br>
-		Description : <br>
-    <textarea name="HWNewsText" rows="5" cols="40"><?php echo $description;?></textarea><br>
+  <section>
+    <div class='edition'>
+    	<form class='editContent' action="" method="POST">
+    		Title : <br>
+        <input type="text" name="HWNewsName" value=<?php echo "\"" . $title . "\"";?>><br>
+    		Description : <br>
+        <textarea name="HWNewsText" rows="5" cols="40"><?php echo $description;?></textarea><br>
 
-    <? if(isset($_GET['HWNewsID'])) {
-      echo "<input type='submit' name='submitUpdate' value='Update news'>";
-    } else {
-      echo "<input type='submit' name='submitAdd' value='Add news'>";
-    }
-    ?>
-		<a href='./'>Back to Health and Wellbeing</a>
-	</form>
+        <? if(isset($_GET['HWNewsID'])) {
+          echo "<input class='backButton'  type='submit' name='submitUpdate' value='Update news'>";
+        } else {
+          echo "<input class='backButton'  type='submit' name='submitAdd' value='Add news'>";
+        }
+        ?>
+    		<a  class='backButton' href='./'>Back to Health and Wellbeing</a>
+    	</form>
+    </div>
+  </section>
 
 <?
 include('../../inc/footer.inc');

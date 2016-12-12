@@ -122,10 +122,14 @@
 
 				function search($keyword) {
 				  global $db;
-				  $query = "SELECT clubID, clubName, clubDescription FROM Club
-				  WHERE clubName LIKE '%".$keyword."%'
-				  OR clubDescription LIKE '%".$keyword."%'";
-				  $result = $db->query($query);
+				  $query = "SELECT c.clubID, c.clubName, c.clubDescription, cg.pname FROM club c, clubgenre cg
+				  WHERE c.clubGenreID = cg.clubGenreID AND
+          (c.clubName LIKE '%".$keyword."%'
+				  OR c.clubDescription LIKE '%".$keyword."%'
+          OR cg.pname LIKE '%".$keyword."%')";
+
+          $result = $db->query($query);
+
 				  if($result->num_rows <= 0) {
 				    echo "We couldn't find any club, search again !";
 				  } else {

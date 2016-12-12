@@ -105,9 +105,9 @@ File handling the creation and edition of points, area and path
         $sql_query = "UPDATE GeoPoint SET
         pointType='".$_POST['type']."',
         pointDescription='".$_POST['description']."',
-        coordinateX='".$_POST['coordinateX']."',
-        coordinateY='".$_POST['coordinateY']."'
-         WHERE pointID='".$_GET['id']."'";
+        coordinateX=".$_POST['coordinateX'].",
+        coordinateY=".$_POST['coordinateY']."
+         WHERE pointID=".$_GET['id'];
 
         if($db->query($sql_query) === TRUE) {
           header("location:index.php");
@@ -118,9 +118,8 @@ File handling the creation and edition of points, area and path
         $sql_query = "UPDATE Geopath SET
         pathType='".$_POST['type']."',
         pathDescription='".$_POST['description']."',
-        coordinateX='".$_POST['coordinateX']."',
-        coordinateY='".$_POST['coordinateY']."'
-         WHERE pathID='".$_GET['id']."'";
+        coordinateX='".$_POST['vectors']."'
+         WHERE pathID=".$_GET['id'];
 
         if($db->query($sql_query) === TRUE) {
           header("location:index.php");
@@ -132,14 +131,13 @@ File handling the creation and edition of points, area and path
         areaType='".$_POST['type']."',
         areaDescription='".$_POST['description']."',
         vectors='".$_POST['vectors']."'
-         WHERE areaID='".$_GET['id']."'";
+         WHERE areaID=".$_GET['id'];
 
         if($db->query($sql_query) === TRUE) {
           header("location:index.php");
         } else {
             echo "Error: " . $sql_query . "<br>" . $db->error;
         }
-      }
       }
     }
 	?>

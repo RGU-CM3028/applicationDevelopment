@@ -1,0 +1,101 @@
+/* content.css is for content within the section of the template */
+
+
+/* Start of Login form*/
+#login{
+    position: relative;
+    float: right;
+    right: 10%;
+    height: auto;
+    width: auto;
+    text-align: center;
+    padding: 1%;
+}
+
+.login label, input{position: relative; text-align: center; padding: 1%;}
+.login input{background-color: #ffffff; border: 1px solid #05740e; padding: 1%;}
+/* End of Login form*/
+
+/* Start of Sign up form*/
+#register-box{
+    position: relative;
+    width: 80%;
+    height: 50%;
+    margin: auto;
+}
+
+.register{
+    position: relative;
+    width: 20%;
+    padding: 2%;
+    text-align: center;
+    line-height: 3rem;
+    margin: auto;
+    background-color: #3db8ef;
+    border: 1px solid #21556c;
+}
+
+.register input{padding: 3%; color:#000; border: 1px solid #21556c;}
+.register label{padding: 3%;}
+.error-red{color: #ff0000; text-align: center;}
+/* End of Sign up form*/
+
+/* Start of Admin Control panel */
+#admin-control{
+    position: relative;
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.admincontrol{
+    position: relative;
+    width: 60%;
+    padding: 2%;
+    text-align: center;
+    line-height: 3rem;
+    margin: auto;
+    background-color: #3db8ef;
+    border: 1px solid #21556c;
+}
+
+.admincontrol input{padding: 3%; color:#000; border: 1px solid #21556c;}
+.admincontrol label{padding: 3%;}
+.error-red{color: #ff0000; text-align: center;}
+.error-green{color: #00ff1d; text-align: center;}
+/* End of Admin Control panel */
+
+/* Start of index content */
+#left-content{
+    position: relative;
+    float: left;
+    left:0%;
+    top: 0%;
+    width: 30%;
+    height: auto;
+}
+
+#right-content{
+    position: relative;
+    float: right;
+    right:0%;
+    top: 0%;
+    width: 30%;
+    height: auto;
+}
+
+.home-images{
+    position: relative;
+    right:0%;
+    top: 10%;
+}
+
+#right-content span{
+    position: relative;
+    right:0%;
+    top: 0%;
+    width: 30%;
+    height: 10%;
+    padding: 1%;
+}/* End of index content */

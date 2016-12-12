@@ -58,19 +58,21 @@ File handling the creation and edition of news
 	?>
   <section>
     <div class='edition'>
-    	<form class='editContent' action="" method="POST">
-    		Title : <br>
-        <input type="text" name="HWNewsName" value=<?php echo "\"" . $title . "\"";?>><br>
-    		Description : <br>
-        <textarea name="HWNewsText" rows="5" cols="40"><?php echo $description;?></textarea><br>
+    	<form action="" method="POST">
+        <div class='editContent'>
+      		Title : <br>
+          <input type="text" name="HWNewsName" value=<?php echo "\"" . $title . "\"";?>><br>
+      		Description : <br>
+          <textarea name="HWNewsText" rows="5" cols="40"><?php echo $description;?></textarea><br>
 
-        <? if(isset($_GET['HWNewsID'])) {
-          echo "<input class='backButton'  type='submit' name='submitUpdate' value='Update news'>";
-        } else {
-          echo "<input class='backButton'  type='submit' name='submitAdd' value='Add news'>";
-        }
-        ?>
-    		<a  class='backButton' href='./'>Back to Health and Wellbeing</a>
+          <? if(isset($_GET['HWNewsID'])) {
+            echo "<input class='backButton'  type='submit' name='submitUpdate' value='Update news'>";
+          } else {
+            echo "<input class='backButton'  type='submit' name='submitAdd' value='Add news'>";
+          }
+          ?>
+      		<a id='backEdition' class='backButton' href='./'>Back to Health and Wellbeing</a>
+        </div>
     	</form>
     </div>
   </section>

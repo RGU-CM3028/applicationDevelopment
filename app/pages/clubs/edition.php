@@ -237,7 +237,7 @@ File handling the creation and edition of clubs
     }
     ?>
 	</div>
-    <a id='backEdition' class='backButton' href='../clubs/'>Back to clubs</a>
+    <a class='backButton' href='../clubs/'>Back to clubs</a>
 	</form>
 </div>
 </section>

@@ -68,21 +68,21 @@
 
 /* Start of index content */
 #left-content{
-    position: relative;
-    float: left;
-    left:15%;
-    top: 0%;
+    box-sizing: border-box;
     width: 30%;
-    height: auto;
+    float: left;
+    left: 20%;
+    padding: 1%;
+    line-height: 2rem;
 }
 
 #right-content{
-    position: relative;
-    float: right;
-    right:20%;
-    top: 0%;
+    box-sizing: border-box;
     width: 30%;
-    height: auto;
+    float: right;
+    right: 20%;
+    padding: 1%;
+    line-height: 2rem;
 }
 
 .home-images{

@@ -73,11 +73,11 @@ section{position: relative; top:auto; left: 0%; height: auto; padding: 3%; backg
 section div{
     position: relative;
     top:auto;
-    left: 0%;
     height: auto;
-    padding: 4%;
     margin: auto;
+    overflow: hidden
 }
+
 footer{
     position: relative;
     top:auto;

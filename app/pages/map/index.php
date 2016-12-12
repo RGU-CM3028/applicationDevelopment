@@ -71,7 +71,7 @@ include('../../dbconnect.php');
         //Create the edition box for the points
         echo '<form action="edition.php" method="GET">';
         echo '<input type="submit" name="point" value="Add a point to the map" />';
-        echo '<form>';
+        echo '</form>';
 
         echo '<form action="edition.php" method="GET">
               Select a point <select name="id" required>';
@@ -92,7 +92,7 @@ include('../../dbconnect.php');
         //Create the edition box for the paths
         echo '<form action="edition.php" method="GET">';
         echo '<input type="submit" name="path" value="Add a path to the map" />';
-        echo '<form>';
+        echo '</form>';
 
         echo '<form action="edition.php" method="GET">
               Select a path<select name="id" required>';
@@ -111,17 +111,17 @@ include('../../dbconnect.php');
         $areas = $db->query($sql);
 
         //Create the edition box for the areas
-        echo '<form action="edition.php?area" method="GET">';
+        echo '<form action="edition.php" method="GET">';
         echo '<input type="submit" name="area" value="Add an Area to the map" />';
-        echo '<form>';
+        echo '</form>';
 
-        echo '<form action="edition.php?area" method="GET">
+        echo '<form action="edition.php" method="GET">
               Select an area <select name="id" required>';
           while($row = $areas->fetch_assoc()) {
             echo "<option value=\"". $row["areaID"] . "\">\"". $row["areaType"] . "\"</option>";
           }
         echo "</select>";
-        echo '<input type="hidden" name="path">';
+        echo '<input type="hidden" name="area">';
         echo '<input type="submit" name="edit" value="Edit" />';
         echo '<input type="submit" name="delete" value="Delete" /> </form>';
 

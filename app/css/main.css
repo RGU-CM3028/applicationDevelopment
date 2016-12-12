@@ -79,6 +79,8 @@ section div{
     margin: auto;
 }
 
+#index-content{position: relative; top:auto; left: 0%; height: auto; padding: 3%; background-color: #dddddd;}
+
 #index-content div{
     position: relative;
     top:auto;

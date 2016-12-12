@@ -1,5 +1,6 @@
 @import url("clubs.css");
 @import url("health.css");
+@import url("clubDetails.css");
 /*@import url("ideal-image-slider.css");*/
 @import url("content.css");
 
@@ -11,6 +12,20 @@
     color: #000;
 }
 
+.backButton {
+  display: block;
+  text-align: center;
+  font-size: 1em;
+  background-color: #81e279;
+  color: white;
+  padding: 1em;
+  width: 20%;
+  margin: auto;
+}
+
+.backButton:hover {
+  background: #5ca056;
+}
 /*
     main.css is the main style sheet for the layout only
 

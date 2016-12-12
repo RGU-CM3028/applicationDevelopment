@@ -1,0 +1,99 @@
+
+/* Start of Clubs content */
+#clubs {
+  width: 60%;
+  margin: auto;
+  -webkit-box-shadow: 0px 16px 43px -13px rgba(0,0,0,0.29);
+  -moz-box-shadow: 0px 16px 43px -13px rgba(0,0,0,0.29);
+  box-shadow: 0px 16px 43px -13px rgba(0,0,0,0.29);
+
+}
+/*
+#clubHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}*/
+
+.clubTitle {
+  font-size: 2em;
+  background-color: #3fff2f;
+  padding: 1em;
+}
+
+.clubGenre {
+  font-size: 2em;
+  background-color: #81e279;
+  padding: 1em;
+  text-align: right;
+}
+
+.clubDesc {
+  padding: 1em;
+}
+
+#clubContent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.clubDesc {
+  font-size: 1.5em;
+  flex-grow: 3;
+  text-align: justify;
+}
+
+
+#events {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#eventh, .contacth {
+  width: 60%;
+  margin: auto;
+  padding-top: 1em;
+  border-top: solid 2px #81e279;
+  text-align: center;
+}
+
+.event {
+  padding: 1em;
+  margin: 1em;
+  background-color:  #81e279;
+  display: flex;
+  flex-direction: column;
+  max-width: 40%;
+  flex-grow: 1;
+}
+
+.eventName {
+  text-align: center;
+  font-size: 2em;
+  color: white;
+  margin-bottom: 0.5em;
+}
+
+.eventLoc {
+  display: flex;
+  flex-direction: row;
+  margin: 0 !important;
+  justify-content: space-between;
+}
+
+.eventp {
+  margin-top: 1em;
+  font-size: 1em;
+  text-align: justify;
+}
+
+#club-contact {
+  margin: 1em;
+}
+
+.contactp {
+  text-align: center;
+}

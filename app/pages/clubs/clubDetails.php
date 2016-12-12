@@ -55,7 +55,7 @@ if(!$result->num_rows <= 0) {
 
 echo "<section>";
   if(isset($medias)) {
-    echo "<div id='slider'>";
+    echo "<div id='clubs' class='clearfix'><div id='slider'>";
   foreach($medias as $media) {
     echo "<img class='mySlides' alt='" . $media[0] . "' src='". $media[1] ."'>";
   }
@@ -77,27 +77,13 @@ echo "<section>";
       </script>
       </div>';
   }
-    echo "<div id='clubs' class='clearfix'>
-      <h1 class='clubTitle'>" . $clubName . "<h1>
+    echo "
+      <div id='clubHeader'>
+        <h1 class='clubTitle'>" . $clubName . "<h1>
         <h3 class='clubGenre'>" . $clubGenre . "</h3>
+      </div>
+      <div id='clubContent'>
         <p class='clubDesc'>" . $clubDescription . "</p>";
-  if($pname != "" || $adress != "" || $phone != "" || $email != "") {
-      echo "<div id='club-contact' class='clearfix'><h2 class='contacth'> Contact infos </h2>";
-    if($pname != "") {
-        echo "<p class='contactp'>You can contact " . $pname ." for further information. </p>";
-    } else {
-        echo "<p class='contactp'>You can contact us for further information. </p>";
-    }
-    if($adress != "") {
-        echo "<p class='contactp'>Club adress : ".$adress."</p>";
-    }
-    if($email != "") {
-        echo "<p class='contactp'>Email : ".$email."</p>";
-    }
-    if($phone != "") {
-        echo "<p class='contactp'>Phone : ".$phone."</p></div>";
-    }
-  }
 
 $sql_query = "SELECT * from clubevent c, clubeventassociation a
 WHERE a.clubID = ".$_GET['clubID'].";";
@@ -106,20 +92,42 @@ WHERE a.clubID = ".$_GET['clubID'].";";
 $result = $db->query($sql_query);
 
 if(!$result->num_rows <= 0) {
-    echo "<div id='events' class='clearfix'>";
+    echo "</div>
+    <h2 id='eventh'> Events we are participating in</h2>
+    <div id='events' class='clearfix'>
+    ";
   while ($row = $result->fetch_array()) {
-      echo "<h2 class='eventh'> Events we are participating in</h2>
-        <p class='eventp'> ".$row['eventName'] . "</p>
-        <p class='eventp'> ".$row['pdate']." </p>
-        <p class='eventp'> " .$row['localisation'] ."
+      echo " <div class='event'>
+        <p class='eventName'> ".$row['eventName'] . "</p>
+        <div class='eventLoc'>
+          <p> ".$row['pdate']." </p>
+          <p> " .$row['localisation'] ."
+        </div>
         <p class='eventp'> ".$row['pdescription'] ."</p>
         </div>";
     }
 }
+if($pname != "" || $adress != "" || $phone != "" || $email != "") {
+    echo "</div><div id='club-contact' class='clearfix'><h2 class='contacth'> Contact infos </h2>";
+  if($pname != "") {
+      echo "<p class='contactp'>You can contact " . $pname ." for further information. </p>";
+  } else {
+      echo "<p class='contactp'>You can contact us for further information. </p>";
+  }
+  if($adress != "") {
+      echo "<p class='contactp'>Club adress : ".$adress."</p>";
+  }
+  if($email != "") {
+      echo "<p class='contactp'>Email : ".$email."</p>";
+  }
+  if($phone != "") {
+      echo "<p class='contactp'>Phone : ".$phone."</p></div>";
+  }
+}
 
 ?>
 
-    <a href='../clubs/'>Back to clubs</a>
+    <a class='backButton' href='../clubs/'>Back to clubs</a>
   </div>
 </section>
 

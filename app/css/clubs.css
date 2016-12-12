@@ -1,8 +1,10 @@
 #slider {
-  max-width: 65vw;
-  max-height: 70vh;
+  /*min-width: 65vw;*/
+  min-height: 60vh;
+  /*max-width: 65vw;*/
+  max-height: 60vh;
   margin: auto;
-  margin-bottom: 2em;
+  margin-bottom:  0;
 
   overflow: hidden;
 }

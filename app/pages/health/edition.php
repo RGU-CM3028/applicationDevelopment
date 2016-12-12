@@ -25,7 +25,7 @@ File handling the creation and edition of news
 				$description = $row['HWNewsText'];
       }
     } else {
-      echo "<h1 class='editTitle'> Create a news </h1>";
+      echo "<h1 class='editTitle'> Create a news </h1> <br>";
       //Initialise the fields
       $title = "";
       $description = "";

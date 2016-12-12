@@ -140,7 +140,6 @@ File handling the creation and edition of points, area and path
             echo "Error: " . $sql_query . "<br>" . $db->error;
         }
       }
-      }
     }
 	?>
 

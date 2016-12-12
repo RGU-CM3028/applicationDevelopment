@@ -82,7 +82,7 @@ echo "<section>";
         <h3 class='clubGenre'>" . $clubGenre . "</h3>
         <p class='clubDesc'>" . $clubDescription . "</p>";
   if($pname != "" || $adress != "" || $phone != "" || $email != "") {
-    echo "<h2> Contact infos </h2>";
+    echo "<div class='contact'><h2> Contact infos </h2>";
     if($pname != "") {
       echo "<p>You can contact " . $pname ." for further information. </p>";
     } else {
@@ -95,7 +95,7 @@ echo "<section>";
       echo "<p>Email : ".$email."</p>";
     }
     if($phone != "") {
-      echo "<p>Phone : ".$phone."</p>";
+      echo "<p>Phone : ".$phone."</p></div>";
     }
   }
 
@@ -106,9 +106,9 @@ WHERE a.clubID = ".$_GET['clubID'].";";
 $result = $db->query($sql_query);
 
 if(!$result->num_rows <= 0) {
-  echo "<h2> Events we are participating in</h2>";
+    echo "<div class='events'>";
   while ($row = $result->fetch_array()) {
-      echo "<div>
+      echo "<h2> Events we are participating in</h2>
         <p> ".$row['eventName'] . "</p>
         <p> ".$row['pdate']." </p>
         <p> " .$row['localisation'] ."

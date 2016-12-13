@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Signup Form</h1>
-    <?
+    <?/*
     //This is used to get the error message associated to the error code.
     if (isset($_GET['space'])){
         echo "<p><font color='red'>Please ensure you dont use spaces in your username or password.</font></p>";

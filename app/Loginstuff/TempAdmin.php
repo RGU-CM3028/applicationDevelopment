@@ -1,4 +1,5 @@
 <?php
+/*
 //This connects the database here.
 include("../dbconnect.php");
 
@@ -63,5 +64,5 @@ if($mypassword==$passwordcheck) {
 } else {
     header("location:Tempadminform.php?same=1");
     die();
-}
+}*/
 ?>
